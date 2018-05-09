@@ -8,6 +8,7 @@ const teamErrorsReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_TEAM_ERRORS:
+    debugger
       return action.errors;
     case RECEIVE_TEAM:
       return [];

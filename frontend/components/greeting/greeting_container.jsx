@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { login, logout } from '../../actions/session_actions';
 import Greeting from './greeting';
 import { openModal } from '../../actions/modal_actions';
-import { login } from '../../actions/session_actions';
 
 const mapStateToProps = state => {
   return {

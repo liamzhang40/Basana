@@ -9,6 +9,8 @@ class Api::TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
+    @emails = params[:emails]
+    debugger
     if @team.save
       render 'api/teams/show'
     else

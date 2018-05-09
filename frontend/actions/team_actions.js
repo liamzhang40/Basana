@@ -1,4 +1,4 @@
-import * as teamAPIUtil from '../util/session_api_util';
+import * as teamAPIUtil from '../util/team_api_util';
 export const RECEIVE_TEAMS = 'RECEIVE_TEAMS';
 export const RECEIVE_TEAM = 'RECEIVE_TEAM';
 export const RECEIVE_TEAM_ERRORS = 'RECEIVE_TEAM_ERRORS';
