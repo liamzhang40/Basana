@@ -7,15 +7,15 @@ const mapStateToProps = state => {
   return {
     errors: state.errors.session,
     formType: 'Log in',
-    otherType: 'Sign up'
+    otherType: 'Sign up',
+    text: 'Don\'t have an account?'
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     processForm: user => dispatch(login(user)),
-    closeModal: () => dispatch(closeModal()),
-    openModal: () => dispatch(openModal('signup')) 
+    openModal: () => dispatch(openModal('signup'))
   };
 };
 

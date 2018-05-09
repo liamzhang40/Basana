@@ -1,0 +1,111 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f6f8f9;
+  width: 90%;
+  height: 740px;
+  max-width: 900px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #646f79;
+}
+
+.modal-child .close {
+  position: absolute;
+  font-size: 50px;
+  font-weight: 300;
+  color: #ccc;
+  top: 10px;
+  right: 30px;
+  transition: 0.3s ease-in-out;
+}
+
+.modal-child .close:hover {
+  color: grey;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 16px;
+}
+
+.session-form h1 {
+  font-size: 50px;
+  color: black;
+  margin-bottom: 100px;
+  margin-top: -50px;
+}
+
+.session-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.session-form .session-button {
+  background-color: #796eff;
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 20px 258px;
+  margin-bottom: 30px;
+  transition: 0.3s ease-in-out;
+}
+
+.session-form .session-button:hover {
+  background-color: #564aef;
+}
+
+.session-form #email-input,
+.session-form #password-input {
+  background-color: white;
+  text-align: left;
+  padding-left: 16px;
+  height: 46px;
+  border-radius: 3px;
+  margin-bottom: 50px;
+}
+
+.session-form #email-input:focus,
+.session-form #password-input:focus {
+  border: 2px solid #796eff;
+  transition: 0.3s ease-in-out;
+}
+
+.session-form label {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.session-form button{
+  margin-top: 10px;
+}
+
+.session-form button:hover {
+  text-decoration: underline;
+}
+
+.session-form ul {
+  display: flex;
+  flex-direction: column;
+  color: red;
+  margin-bottom: 20px;
+}

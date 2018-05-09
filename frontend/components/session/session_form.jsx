@@ -27,28 +27,35 @@ class SessionForm extends React.Component {
 
   render() {
     const {
+      text,
       errors,
       formType,
       otherType,
-      openModal,
-      closeModal
+      openModal
     } = this.props;
 
     return (
-      <div>
+      <div className='session-form'>
         <h1>{formType}</h1>
         <form onSubmit={this.handleSumbit}>
+          <label htmlFor='email-input'>Email Address</label>
           <input
+            id='email-input'
+            placeholder='name@company.com'
             type='text'
             onChange={this.update('username')} />
+          <label htmlFor='password-input'>Password</label>
           <input
+            id='password-input'
+            placeholder='Password'
             type='password'
             onChange={this.update('password')} />
-          <input type='submit' value='Submit'/>
+          <input className='session-button' type='submit' value={`${formType}`}/>
         </form>
         <ul>
-          {errors}
+          {errors.map(error => <li>{error}</li>)}
         </ul>
+        {text}
         <button onClick={() => openModal()}>{otherType}</button>
       </div>
     );
