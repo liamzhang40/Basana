@@ -16,7 +16,7 @@ class TeamForm extends React.Component {
 
   handleSumbit(e) {
     e.preventDefault();
-
+    this.props.createTeam(this.state);
   }
 
   render() {

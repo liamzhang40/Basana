@@ -1,6 +1,7 @@
 import React from 'react';
 import GreetingContainer from './greeting/greeting_container';
 import { Route, Link } from 'react-router-dom';
+import { AuthRoute } from '../util/route_util';
 import Modal from './modal/modal';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
@@ -18,9 +19,11 @@ const App = () => {
         <Route path='/' exact component={GreetingContainer} />
 
         <Route path='/dashboard' component={TeamIndexContainer} />
-        
-        <CreateTeamFormContainer />
       </header>
+
+
+      <test><Route path='/dashboard' component={CreateTeamFormContainer} /></test>
+
 
       <section className='splash-main'>
         <Route path='/' exact component={SplashIntro} />

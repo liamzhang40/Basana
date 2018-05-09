@@ -8,10 +8,20 @@ class Api::TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.new(team_params)
-    @emails = params[:emails]
     debugger
+    @team = Team.new(team_params)
+
     if @team.save
+      invalid_emails = [];
+      emails = params[:team][:emails].delete(' ').split(',')
+      TeamMembership.create(team_id: @team.id, member_id: current_user.id)
+      
+      emails.each do |email|
+        user = User.find_by(username: email)
+        invalid_emails << email unless user
+        TeamMembership.create(team_id: @team.id, member_id: user.id)
+      end
+
       render 'api/teams/show'
     else
       render json: @team.errors.full_messages, status: 422
