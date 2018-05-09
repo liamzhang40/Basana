@@ -7,7 +7,7 @@ const Greeting = props => {
   if (currentUser) {
     return (
       <div className="splash-right-nav">
-        <span>{currentUser.username}</span>
+        <span>{currentUser.name}</span>
         <button onClick={() => logout()}>Log out</button>
       </div>
     );

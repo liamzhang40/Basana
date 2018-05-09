@@ -1,12 +1,21 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
-      username: '',
-      password: ''
-    };
+    if (props.formType === 'Sign up') {
+      this.state = {
+        name: '',
+        username: '',
+        password: ''
+      };
+    } else {
+      this.state = {
+        username: '',
+        password: ''
+      };
+    }
 
     this.handleSumbit = this.handleSumbit.bind(this);
   }
@@ -34,10 +43,23 @@ class SessionForm extends React.Component {
       openModal
     } = this.props;
 
+    let namelabel = '';
+    let namefield = '';
+    if (formType === 'Sign up') {
+      namelabel = <label htmlFor='name-input'>Name</label>;
+      namefield = <input
+        id='name-input'
+        placeholder='Liam'
+        type='text'
+        onChange={this.update('name')} />;
+    }
+
     return (
       <div className='session-form'>
         <h1>{formType}</h1>
         <form onSubmit={this.handleSumbit}>
+          {namelabel}
+          {namefield}
           <label htmlFor='email-input'>Email Address</label>
           <input
             id='email-input'
@@ -62,4 +84,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

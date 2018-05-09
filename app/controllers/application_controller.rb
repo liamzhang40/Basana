@@ -24,6 +24,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-
+    render json: ['You shall not pass'], status: 418 unless logged_in?
   end
 end

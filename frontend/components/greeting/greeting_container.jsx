@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  const user = { username: 'liam', password: 123456 };
+  const user = { username: 'lzhang40@binghamton.edu', password: 62030490 };
   return {
     logout: () => dispatch(logout()),
     openModal: (modal) => dispatch(openModal(modal)),

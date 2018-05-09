@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch =>{
   };
 };
 
-const Modal = ({ modal, closeModal}) => {
+const Modal = ({ modal, closeModal }) => {
   if (!modal) {
     return null;
   }
