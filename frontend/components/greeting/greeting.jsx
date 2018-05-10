@@ -11,22 +11,28 @@ const Greeting = props => {
     });
   };
 
+  let component;
   if (currentUser) {
-    return (
-      <div className="splash-right-nav">
+    component =
+      <div className='splash-right-nav'>
         <span>{currentUser.name}</span>
         <button onClick={() => logout()}>Log out</button>
-      </div>
-    );
+      </div>;
   } else {
-    return (
-      <div className="splash-right-nav">
+    component =
+      <div className='splash-right-nav'>
         <button onClick={() => openModal('login')}>Log in</button>
         <button onClick={() => openModal('signup')}>Sign up</button>
         <button onClick={handleClick}>Demo User</button>
-      </div>
-    );
+      </div>;
   }
+
+  return (
+    <div className='splash-nav-bar'>
+      <h1>Basana</h1>
+      {component}
+    </div>
+  );
 };
 
 export default Greeting;

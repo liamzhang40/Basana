@@ -3,6 +3,8 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
+import CreateTeamFormContainer from '../team/create_team_form_container';
+import UpdateTeamFormContainer from '../team/update_team_form_container';
 
 const mapStateToProps = state => {
   return {
@@ -28,6 +30,12 @@ const Modal = ({ modal, closeModal }) => {
       break;
     case 'signup':
       component = <SignupFormContainer />;
+      break;
+    case 'createteam':
+      component = <CreateTeamFormContainer />;
+      break;
+    case 'updateteam':
+      component = <UpdateTeamFormContainer />;
       break;
     default:
       return null;

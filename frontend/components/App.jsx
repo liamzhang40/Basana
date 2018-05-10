@@ -15,14 +15,10 @@ const App = () => {
     <div>
       <Modal />
       <header>
-        <Link to='/'>Basana</Link>
         <Route path='/' exact component={GreetingContainer} />
 
         <Route path='/dashboard' component={TeamIndexContainer} />
       </header>
-
-
-      <test><Route path='/dashboard' component={CreateTeamFormContainer} /></test>
 
 
       <section className='splash-main'>

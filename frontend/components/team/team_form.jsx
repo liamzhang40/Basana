@@ -16,10 +16,28 @@ class TeamForm extends React.Component {
 
   handleSumbit(e) {
     e.preventDefault();
-    this.props.createTeam(this.state);
+    const { processForm, history, closeModal } = this.props;
+
+    processForm(this.state).then((res) => {
+      console.log(res);
+      const teamId = res.team.id;
+      history.push(`/dashboard/teams/${teamId}`);
+      closeModal();
+    });
   }
 
   render() {
+    let memberemaillabel = '';
+    let memberemailfield = '';
+    if (this.props.formType === 'Sign up') {
+      memberemaillabel = <label htmlFor='memberemail-input'>MEMBERS</label>;
+      memberemailfield = <input
+        id='memberemail-input'
+        placeholder='separate emails with commas'
+        type='text'
+        onChange={this.update('emails')}/>;
+    }
+
     return (
       <div className='team-form'>
         <h1>Create Your Workspace</h1>
@@ -29,13 +47,10 @@ class TeamForm extends React.Component {
             id='teamname-input'
             placeholder='Company or Team Name'
             type='text'
-            onChange={this.update('name')}/>
-          <label htmlFor='memberemail-input'>MEMBERS</label>
-          <input
-            id='memberemail-input'
-            placeholder='separate emails with commas'
-            type='text'
-            onChange={this.update('emails')}/>
+            onChange={this.update('name')}
+            value={this.state.name}/>
+          {memberemaillabel}
+          {memberemailfield}
           <button>Create Workspace</button>
         </form>
       </div>

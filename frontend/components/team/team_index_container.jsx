@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => {
     fetchTeams: () => dispatch(fetchTeams()),
     fetchTeam: id => dispatch(fetchTeam(id)),
     logout: () => dispatch(logout()),
-    openModal: () => dispatch(openModal('login'))
+    openModal: modal => dispatch(openModal(modal))
   };
 };
 

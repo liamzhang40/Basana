@@ -1,4 +1,4 @@
-header {
+.splash-nav-bar {
   display: flex;
   justify-content: space-between;
   padding: 10px 16px;
@@ -6,7 +6,7 @@ header {
   color: #646f79;
 }
 
-header a {
+.splash-nav-bar h1 {
   font-size: 30px;
 }
 

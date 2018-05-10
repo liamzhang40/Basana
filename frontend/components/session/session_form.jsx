@@ -28,12 +28,23 @@ class SessionForm extends React.Component {
 
   handleSumbit(e) {
     e.preventDefault();
+
+    const {
+      history,
+      formType,
+      openModal,
+      closeModal
+    } = this.props;
+
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(
-      () => {
-        this.props.history.push('/dashboard');
-        this.props.closeModal();
-      }
+    this.props.processForm(user).then((res) => {
+      if (formType === 'Sign up') {
+        openModal('createteam');
+      } else {
+        const teamId = res.user.teamIds[0];
+        history.push(`/dashboard/teams/${teamId}`);
+        closeModal();
+      }}
     );
   }
 

@@ -1,17 +1,21 @@
 import { connect } from 'react-redux';
 import { createTeam } from '../../actions/team_actions';
 import TeamForm from './team_form';
+import { withRouter } from 'react-router-dom';
+import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
   return {
-    team: {name: '', emails: ''}
+    team: {name: '', emails: ''},
+    formType: 'create'
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    createTeam: team => dispatch(createTeam(team))
+    processForm: team => dispatch(createTeam(team)),
+    closeModal: () => dispatch(closeModal())
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TeamForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TeamForm));
