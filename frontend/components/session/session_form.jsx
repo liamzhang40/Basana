@@ -41,6 +41,7 @@ class SessionForm extends React.Component {
       if (formType === 'Sign up') {
         openModal('createteam');
       } else {
+        // will always fetch team names regardless
         const teamId = res.user.teamIds[0];
         history.push(`/dashboard/teams/${teamId}`);
         closeModal();

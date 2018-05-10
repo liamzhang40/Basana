@@ -1,0 +1,18 @@
+.dashboard-main {
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  color: #161d28;
+}
+
+.dashboard-left {
+  width: 244px;
+  background-color: #222b37;
+  color: white;
+  height: 800px;
+}
+
+.dashboard-right {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 244px);
+}

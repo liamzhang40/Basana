@@ -19,7 +19,6 @@ class TeamForm extends React.Component {
     const { processForm, history, closeModal } = this.props;
 
     processForm(this.state).then((res) => {
-      console.log(res);
       const teamId = res.team.id;
       history.push(`/dashboard/teams/${teamId}`);
       closeModal();

@@ -4,6 +4,7 @@ import TeamIndexItem from './team_index_item';
 class TeamIndex extends React.Component {
   constructor(props) {
     super(props);
+
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -12,7 +13,7 @@ class TeamIndex extends React.Component {
   }
 
   handleClick(e) {
-    e.preventDefault
+    e.preventDefault();
     const { logout, history, openModal } = this.props;
     logout();
     history.push('/');

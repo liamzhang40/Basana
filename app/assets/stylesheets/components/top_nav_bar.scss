@@ -1,0 +1,40 @@
+.top-nav-bar {
+  height: 40px;
+  font-size: 13px;
+  color: #848f99;
+  border-bottom: 1px solid #e0e6e8;
+}
+
+.top-nav-bar ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.top-nav-bar>ul>li,
+.top-nav-bar>ul>ul {
+  margin: 12px 16px;
+}
+
+.top-nav-bar>ul>ul li {
+  margin: 0px 15px;
+}
+
+.top-nav-bar>ul>ul li:first-child {
+  margin-left: 10px;
+  color: #151b26;
+  transition: 0.3s ease-in-out;
+}
+
+.top-nav-bar>ul>ul li:first-child:hover {
+  color: #14aaf5;
+}
+
+.top-nav-bar li {
+  transition: 0.3s ease-in-out;
+}
+
+.top-nav-bar li:hover {
+  color: #14aaf5;
+  cursor: pointer;
+}
