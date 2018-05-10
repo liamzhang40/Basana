@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     team: state.entities.teams[ownProps.match.params.teamId],
-    formType: 'update'
+    formType: 'Update'
   };
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 import { closeModal } from '../../actions/modal_actions';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
@@ -39,7 +40,7 @@ const Modal = ({ modal, closeModal }) => {
       formType = 'team'
       break;
     case 'updateteam':
-      component = <UpdateTeamFormContainer />;
+      component = <Route path='/dashboard/teams/:teamId' component={UpdateTeamFormContainer} />;
       formType = 'team'
       break;
     default:

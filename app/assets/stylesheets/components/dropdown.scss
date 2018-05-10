@@ -9,12 +9,11 @@
 
 .dropdown-child {
   position: absolute;
-  top: 213px;
-  right: -130px;
-  transform: translate(-50%, -50%);
+  top: 41px;
+  right: 5px;
+  // transform: translate(-50%, -50%); will screw up position absolute
   background-color: #fff;
   min-width: 250px;
-  height: 100px;
   border-radius: 3px;
   display: flex;
   align-items: center;

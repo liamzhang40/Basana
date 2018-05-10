@@ -1,0 +1,75 @@
+.team-modal-child .close {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 300;
+  color: #ccc;
+  top: 10px;
+  right: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+.team-modal-child .close:hover {
+  color: grey;
+}
+
+.team-form {
+  width: 100%;
+}
+
+.team-form h1 {
+  font-size: 24px;
+  padding: 10px 30px;
+  border-bottom: 1px solid #e0e6e8;
+  color: #151b26;
+}
+
+.team-form form {
+  padding: 15px 30px;
+}
+
+.team-form .team-name,
+.team-form .team-email{
+  display: flex;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.team-form .team-email label {
+  margin-left: 15px;
+}
+
+.team-form .team-email input,
+.team-form .team-email textarea {
+  min-height: 80px;
+  text-align: justify;
+}
+
+.team-form input,
+.team-form textarea {
+  border: 1px solid #d5dce0;
+  border-radius: 3px;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.team-form textarea {
+  padding-top: 10px;
+}
+
+.team-form form label {
+  text-align: right;
+  padding: 10px 20px;
+}
+
+.team-form .team-button {
+  background-color: #14aaf5;
+  color: white;
+  border-radius: 3px;
+  padding: 12.5px 20px;
+  transition: 0.3s ease-in-out;
+  margin-left: 365px;
+}
+
+.team-form .team-button:hover {
+  background-color: #138bf5;
+}

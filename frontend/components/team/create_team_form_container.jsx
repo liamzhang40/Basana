@@ -7,7 +7,7 @@ import { closeModal } from '../../actions/modal_actions';
 const mapStateToProps = state => {
   return {
     team: {name: '', emails: ''},
-    formType: 'create'
+    formType: 'Create'
   };
 };
 

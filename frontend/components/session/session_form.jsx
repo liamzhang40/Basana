@@ -51,6 +51,8 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    const demoUser = { username: 'lzhang40@binghamton.edu', password: 62030490 };
+
     const {
       text,
       errors,

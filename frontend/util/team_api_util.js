@@ -27,3 +27,10 @@ export const updateTeam = team => {
     data: { team }
   });
 };
+
+export const removeMember = teamId => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/teams/${teamId}`
+  });
+};

@@ -41,11 +41,15 @@ class Api::TeamsController < ApplicationController
     end
   end
 
+  # remove a user from a team
   def destroy
-    team = current_user.teams.find(params[:id])
-    unless team.destroy
-      render json: ['Idk how you get here but something is wrong'], status: 404
-    end
+    team_id = params[:id]
+    user = current_user
+    TeamMembership.find_by(
+      team_id: team_id,
+      member_id: user.id
+    ).destroy
+    render json: {userId: user.id}
   end
 
   private

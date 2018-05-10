@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 import { closeDropdown } from '../../actions/dropdown_actions';
 import TeamIndexContainer from '../team/team_index_container'
 
@@ -23,7 +24,7 @@ const Dropdown = ({ dropdown, closeDropdown }) => {
   let component;
   switch (dropdown) {
     case 'switchteam':
-      component = <TeamIndexContainer />;
+      component = <Route path='/dashboard/teams/:teamId' component={TeamIndexContainer} />;
       break;
     default:
       return null;
