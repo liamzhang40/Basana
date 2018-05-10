@@ -1,0 +1,21 @@
+/* line 1, /Users/liamzhang/Desktop/Basana/app/assets/stylesheets/components/dashboard.scss */
+.dashboard-main {
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  color: #161d28;
+}
+
+/* line 7, /Users/liamzhang/Desktop/Basana/app/assets/stylesheets/components/dashboard.scss */
+.dashboard-left {
+  width: 244px;
+  background-color: #222b37;
+  color: white;
+  height: 800px;
+}
+
+/* line 14, /Users/liamzhang/Desktop/Basana/app/assets/stylesheets/components/dashboard.scss */
+.dashboard-right {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 244px);
+}

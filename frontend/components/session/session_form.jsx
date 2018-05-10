@@ -33,7 +33,8 @@ class SessionForm extends React.Component {
       history,
       formType,
       openModal,
-      closeModal
+      closeModal,
+      fetchTeams
     } = this.props;
 
     const user = Object.assign({}, this.state);
@@ -41,7 +42,7 @@ class SessionForm extends React.Component {
       if (formType === 'Sign up') {
         openModal('createteam');
       } else {
-        // will always fetch team names regardless
+        fetchTeams();
         const teamId = res.user.teamIds[0];
         history.push(`/dashboard/teams/${teamId}`);
         closeModal();

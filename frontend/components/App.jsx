@@ -25,8 +25,6 @@ const App = () => {
       </section>
 
       <Route path='/dashboard' component={Dashboard} />
-
-      <Route path='/dashboard' component={TeamIndexContainer} />
     </div>
   );
 };

@@ -1,0 +1,4 @@
+/* line 1, /Users/liamzhang/Desktop/Basana/app/assets/stylesheets/components/team_index.scss */
+.team-dropdown li {
+  transition: 0.3s ease-in-out;
+}

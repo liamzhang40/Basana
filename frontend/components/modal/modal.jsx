@@ -24,26 +24,31 @@ const Modal = ({ modal, closeModal }) => {
   }
 
   let component;
+  let formType;
   switch (modal) {
     case 'login':
       component = <LoginFormContainer />;
+      formType = 'session'
       break;
     case 'signup':
       component = <SignupFormContainer />;
+      formType = 'session'
       break;
     case 'createteam':
       component = <CreateTeamFormContainer />;
+      formType = 'team'
       break;
     case 'updateteam':
       component = <UpdateTeamFormContainer />;
+      formType = 'team'
       break;
     default:
       return null;
   }
 
   return (
-    <div className='modal-background' onClick={closeModal}>
-      <div className='modal-child' onClick={ e => e.stopPropagation() }>
+    <div className={`${formType}-modal-background`} onClick={closeModal}>
+      <div className={`${formType}-modal-child`} onClick={ e => e.stopPropagation() }>
         {component}
         <button className='close' onClick={() => closeModal()}>&times;</button>
       </div>

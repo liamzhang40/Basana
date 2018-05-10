@@ -4,6 +4,10 @@
       'api/users/user.json.jbuilder',
       user: current_user
     ).html_safe %>
+    window.currentTeams = <%= render(
+      'api/teams/teams.json.jbuilder',
+      teams: current_user.teams
+    ).html_safe %>
   </script>
 <% end %>
 

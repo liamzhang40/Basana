@@ -26,31 +26,34 @@ class TeamForm extends React.Component {
   }
 
   render() {
-    let memberemaillabel = '';
-    let memberemailfield = '';
-    if (this.props.formType === 'Sign up') {
-      memberemaillabel = <label htmlFor='memberemail-input'>MEMBERS</label>;
-      memberemailfield = <input
-        id='memberemail-input'
-        placeholder='separate emails with commas'
-        type='text'
-        onChange={this.update('emails')}/>;
+    let memberemail = '';
+    if (this.props.formType !== 'update') {
+      memberemail =
+      (<div className='team-email'>
+        <label htmlFor='team-email-input'>MEMBERS</label>
+        <textarea
+          id='team-email-input'
+          placeholder='Separate emails with commas'
+          type='text'
+          onChange={this.update('emails')}/>
+      </div>);
     }
 
     return (
       <div className='team-form'>
         <h1>Create Your Workspace</h1>
         <form onSubmit={this.handleSumbit}>
-          <label htmlFor='teamname-input'>WORKSPACE<br />NAME</label>
-          <input
-            id='teamname-input'
-            placeholder='Company or Team Name'
-            type='text'
-            onChange={this.update('name')}
-            value={this.state.name}/>
-          {memberemaillabel}
-          {memberemailfield}
-          <button>Create Workspace</button>
+          <div className='team-name'>
+            <label htmlFor='team-name-input'>WORKSPACE<br />NAME</label>
+            <input
+              id='team-name-input'
+              placeholder='Company or Team Name'
+              type='text'
+              onChange={this.update('name')}
+              value={this.state.name}/>
+          </div>
+          {memberemail}
+          <button className='team-button'>Create Workspace</button>
         </form>
       </div>
 

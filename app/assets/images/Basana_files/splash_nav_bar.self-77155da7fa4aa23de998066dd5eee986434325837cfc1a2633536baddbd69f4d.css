@@ -1,0 +1,49 @@
+/* line 1, /Users/liamzhang/Desktop/Basana/app/assets/stylesheets/components/splash_nav_bar.scss */
+.splash-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+  font-family: 'Montserrat', sans-serif;
+  color: #646f79;
+}
+
+/* line 9, /Users/liamzhang/Desktop/Basana/app/assets/stylesheets/components/splash_nav_bar.scss */
+.splash-nav-bar h1 {
+  font-size: 30px;
+}
+
+/* line 13, /Users/liamzhang/Desktop/Basana/app/assets/stylesheets/components/splash_nav_bar.scss */
+.splash-right-nav {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* line 20, /Users/liamzhang/Desktop/Basana/app/assets/stylesheets/components/splash_nav_bar.scss */
+.splash-right-nav button {
+  margin-left: 32px;
+  letter-spacing: 0.5px;
+  transition: 0.3s ease-in-out;
+}
+
+/* line 26, /Users/liamzhang/Desktop/Basana/app/assets/stylesheets/components/splash_nav_bar.scss */
+.splash-right-nav button:hover {
+  color: #796eff;
+}
+
+/* line 30, /Users/liamzhang/Desktop/Basana/app/assets/stylesheets/components/splash_nav_bar.scss */
+.splash-right-nav button:last-child {
+  border: 2px solid #796eff;
+  border-radius: 3px;
+  color: #796eff;
+  padding: 8px 16px;
+  margin-right: 14px;
+  transition: 0.3s ease-in-out;
+}
+
+/* line 39, /Users/liamzhang/Desktop/Basana/app/assets/stylesheets/components/splash_nav_bar.scss */
+.splash-right-nav button:last-child:hover {
+  background-color: #796eff;
+  color: white;
+}

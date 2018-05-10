@@ -1,0 +1,103 @@
+.team-modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.team-modal-child {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  width: 580px;
+  border: 1px solid #848f99;
+  border-radius: 3px;
+  box-shadow: 0 5px 10px 0 rgba(117, 95, 95, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #646f79;
+  font-size: 13px;
+}
+
+.team-modal-child .close {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 300;
+  color: #ccc;
+  top: 10px;
+  right: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+.team-modal-child .close:hover {
+  color: grey;
+}
+
+.team-form {
+  width: 100%;
+}
+
+.team-form h1 {
+  font-size: 24px;
+  padding: 10px 30px;
+  border-bottom: 1px solid #e0e6e8;
+  color: #151b26;
+}
+
+.team-form form {
+  padding: 15px 30px;
+}
+
+.team-form .team-name,
+.team-form .team-email{
+  display: flex;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.team-form .team-email label {
+  margin-left: 15px;
+}
+
+.team-form .team-email input,
+.team-form .team-email textarea {
+  min-height: 80px;
+  text-align: justify;
+}
+
+.team-form input,
+.team-form textarea {
+  border: 1px solid #d5dce0;
+  border-radius: 3px;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.team-form textarea {
+  padding-top: 10px;
+}
+
+.team-form form label {
+  text-align: right;
+  padding: 10px 20px;
+}
+
+.team-form .team-button {
+  background-color: #14aaf5;
+  color: white;
+  border-radius: 3px;
+  padding: 12.5px 20px;
+  transition: 0.3s ease-in-out;
+  margin-left: 370px;
+}
+
+.team-form .team-button:hover {
+  background-color: #138bf5;
+}
