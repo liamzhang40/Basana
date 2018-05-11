@@ -59,8 +59,15 @@
   width: 24px;
   line-height: 24px;
   text-align: center;
+  border: 1px solid #222b37;
   border-radius: 50%;
   background-color: #e362e3;
   margin-right: 5px;
   font-size: 12px;
+}
+
+.team-members .member-list .empty-avatar{
+  background-color: #222b37;
+  border: 1px dashed #fff;
+  font-size: 20px;
 }

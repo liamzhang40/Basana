@@ -11,7 +11,7 @@ const TeamMemberIndexItem = ({ member }) => {
   }
 
   return (
-    <li className='empty-avatar'></li>
+    <li className='empty-avatar'><i className="fab fa-android"></i></li>
   )
 };
 

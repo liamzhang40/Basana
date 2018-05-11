@@ -14,14 +14,24 @@ class TeamMemberIndex extends React.Component {
   }
 
   render() {
+    const li = this.props.members.map(member => {
+      return <TeamMemberIndexItem member={member} />;
+    });
+
+    if (li.length < 6) {
+      const length = li.length;
+      for (let i = 0; i < 6 - length; i++) {
+        li.push(<TeamMemberIndexItem member={undefined} />);
+      }
+    }
+
     return (
       <div className='team-members'>
         <TeamMemberForm
           teamId={this.props.match.params.teamId}
           addMembers={this.props.addMembers}/>
         <ul className='member-list'>
-          {this.props.members.map(member => {
-            return <TeamMemberIndexItem member={member} />;})}
+          {li}
         </ul>
       </div>
     );
