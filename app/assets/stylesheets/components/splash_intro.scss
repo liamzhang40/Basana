@@ -38,6 +38,11 @@
   color: #e0e6e8;
 }
 
+.splash-left input:focus {
+  border: 2px solid #796eff;
+  transition: 0.3s ease-in-out;
+}
+
 .splash-left button {
   box-sizing: border-box;
   background-color: #796eff;

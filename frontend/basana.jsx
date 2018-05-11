@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 //test
-import {signup, login, logout} from './actions/session_actions';
+import {signup, login, logout, fetchMembers} from './actions/session_actions';
 import {fetchTeam, fetchTeams, createTeam, updateTeam} from './actions/team_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 window.signup = signup;
 window.login = login;
 window.logout = logout;
+window.fetchMembers = fetchMembers;
 window.fetchTeams = fetchTeams;
 window.fetchTeam = fetchTeam;
 window.createTeam = createTeam;

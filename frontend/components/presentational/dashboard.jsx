@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import CurrentTeamContainer from '../team/current_team_container';
+import TeamMemberIndexContainer from '../team/team_member_index_container';
 
 
 const Dashboard = () => {
@@ -8,7 +9,7 @@ const Dashboard = () => {
   return (
     <section className='dashboard-main'>
       <nav className='dashboard-left'>
-        left bar
+        <Route path='/dashboard/teams/:teamId' component={TeamMemberIndexContainer} />
       </nav>
 
       <section className='dashboard-right'>

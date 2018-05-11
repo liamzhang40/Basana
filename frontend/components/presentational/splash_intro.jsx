@@ -30,7 +30,7 @@ class SplashIntro extends React.Component {
           <br />
           backward
         </h2>
-        <p>Basana is meant to be read as Banana</p>
+        <p>It is not Banana</p>
         <div>
           <form onSubmit={this.handleSubmit}>
             <input

@@ -38,7 +38,7 @@ class TeamIndex extends React.Component {
       // if user still has any team, will redirect to the first
       // team in the teams array
       debugger
-      if (this.props.length) {
+      if (this.props.teams.length) {
         closeDropdown();
         history.push(`/dashboard/teams/${this.props.teams[0].id}`);
       } else {
@@ -55,7 +55,8 @@ class TeamIndex extends React.Component {
       openModal,
       fetchTeam,
       removeMember,
-      closeDropdown } = this.props;
+      closeDropdown
+    } = this.props;
 
     const li = teams.map(team => {
       return <TeamIndexItem

@@ -52,6 +52,12 @@
   width: 100%;
 }
 
+.team-form input:focus,
+.team-form textarea:focus {
+  border: 2px solid #ccc;
+  transition: 0.3s ease-in-out;
+}
+
 .team-form textarea {
   padding-top: 10px;
 }

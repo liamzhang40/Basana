@@ -34,3 +34,10 @@ export const removeMember = teamId => {
     url: `api/teams/${teamId}`
   });
 };
+
+export const fetchMembers = memberIds => {
+  return $.ajax({
+    method: 'GET',
+    
+  })
+}
