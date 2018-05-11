@@ -9,6 +9,8 @@ const Dashboard = () => {
   return (
     <section className='dashboard-main'>
       <nav className='dashboard-left'>
+        <h1>Basana</h1>
+
         <Route path='/dashboard/teams/:teamId' component={TeamMemberIndexContainer} />
       </nav>
 
