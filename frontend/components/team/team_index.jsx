@@ -28,25 +28,25 @@ class TeamIndex extends React.Component {
   }
 
   handleRemove() {
-    const {
-      match,
-      history,
-      openModal,
-      removeMember,
-      closeDropdown
-    } = this.props;
+    if (this.props.teams.length > 1) {
+      const {
+        teams,
+        match,
+        history,
+        openModal,
+        removeMember,
+        closeDropdown
+      } = this.props;
 
-    removeMember(match.params.teamId).then(()=> {
-      // if user still has any team, will redirect to the first
-      // team in the teams array
-      debugger
-      if (this.props.teams.length) {
+      removeMember(match.params.teamId).then(()=> {
+        // if user still has any team, will redirect to the first
+        // team in the teams array
         closeDropdown();
-        history.push(`/dashboard/teams/${this.props.teams[0].id}`);
-      } else {
-        openModal('createteam');
-      }
-    });
+        // debugger
+        const newTeams = teams.filter(team => team.id !== parseInt(match.params.teamId));
+        history.push(`/dashboard/teams/${newTeams[0].id}`);
+      });
+    }
   }
 
   render() {

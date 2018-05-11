@@ -44,12 +44,16 @@ class Api::TeamsController < ApplicationController
   # remove a user from a team
   def destroy
     team_id = params[:id]
+    @team = Team.find(team_id)
     user = current_user
+    # the json jbuilder file only expects a array of users
+    @users = [user]
     TeamMembership.find_by(
       team_id: team_id,
       member_id: user.id
     ).destroy
-    render json: {userId: user.id}
+
+    render 'api/teams/show_team_and_members'
   end
 
   private

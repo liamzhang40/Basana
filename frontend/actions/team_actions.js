@@ -2,7 +2,6 @@ import * as teamAPIUtil from '../util/team_api_util';
 export const RECEIVE_TEAMS = 'RECEIVE_TEAMS';
 export const RECEIVE_NEW_TEAM = 'RECEIVE_NEW_TEAM';
 export const RECEIVE_TEAM = 'RECEIVE_TEAM';
-export const REMOVE_USER_FROM_TEAM = 'REMOVE_USER_FROM_TEAM';
 export const RECEIVE_TEAM_ERRORS = 'RECEIVE_TEAM_ERRORS';
 export const RECEIVE_TEAM_MEMBERS = 'RECEIVE_TEAM_MEMBERS';
 
@@ -40,14 +39,6 @@ const receiveMembers = members => {
   return {
     type: RECEIVE_TEAM_MEMBERS,
     members
-  };
-};
-
-const removeUserFromTeam = (userId, teamId) => {
-  return {
-    type: REMOVE_USER_FROM_TEAM,
-    userId,
-    teamId
   };
 };
 
@@ -104,8 +95,8 @@ export const updateTeam = team => {
 export const removeMember = teamId => {
   return dispatch => {
     return teamAPIUtil.removeMember(teamId).then(
-      ({ userId, teamId }) => {
-        return dispatch(removeUserFromTeam(userId, teamId));
+      (payload) => {
+        return dispatch(receiveNewTeam(payload));
       }
     );
   };
@@ -127,8 +118,8 @@ export const fetchMembers = id => {
   return dispatch => {
     return teamAPIUtil.fetchMembers(id).then(
       members => {
-        return dispatch(receiveMembers(members))
+        return dispatch(receiveMembers(members));
       }
-    )
-  }
-}
+    );
+  };
+};

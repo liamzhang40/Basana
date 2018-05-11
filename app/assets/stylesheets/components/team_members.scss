@@ -26,13 +26,13 @@
 .team-members input {
   font-size: 12px;
   line-height: 30px;
+  padding-left: 10px;
 }
 
 .team-members .dot {
   margin-left: 5px;
+  line-height: 16px;
   text-align: center;
-  line-height: 15px;
-  box-sizing: border-box;
   border: 1px solid #9ca6af;
   color: #9ca6af;
   height: 16px;
@@ -46,4 +46,21 @@
   background-color: #fff;
   border: 1px solid #fff;
   color: #222b37
+}
+
+.team-members .member-list {
+  display: flex;
+  padding: 10px 2px;
+}
+
+.team-members .member-list li {
+  box-sizing: border-box;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #e362e3;
+  margin-right: 5px;
+  font-size: 12px;
 }

@@ -1,10 +1,8 @@
 import React from 'react';
 import TeamMemberForm from './team_member_form';
+import TeamMemberIndexItem from './team_member_index_item';
 
 class TeamMemberIndex extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
   componentDidMount() {
     this.props.fetchMembers(this.props.match.params.teamId);
   }
@@ -21,10 +19,9 @@ class TeamMemberIndex extends React.Component {
         <TeamMemberForm
           teamId={this.props.match.params.teamId}
           addMembers={this.props.addMembers}/>
-        <ul>
+        <ul className='member-list'>
           {this.props.members.map(member => {
-            return member ? member.name : "";
-          })}
+            return <TeamMemberIndexItem member={member} />;})}
         </ul>
       </div>
     );
