@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: team_memberships
+#
+#  id         :integer          not null, primary key
+#  team_id    :integer          not null
+#  member_id  :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class TeamMembership < ApplicationRecord
 
   validates :team, :member, presence: true
