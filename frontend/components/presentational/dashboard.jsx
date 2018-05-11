@@ -4,12 +4,12 @@ import CurrentTeamContainer from '../team/current_team_container';
 import TeamMemberIndexContainer from '../team/team_member_index_container';
 
 
+// <Route path='/dashboard/teams/:teamId' component={TeamMemberIndexContainer} />
 const Dashboard = () => {
 
   return (
     <section className='dashboard-main'>
       <nav className='dashboard-left'>
-        <Route path='/dashboard/teams/:teamId' component={TeamMemberIndexContainer} />
       </nav>
 
       <section className='dashboard-right'>
