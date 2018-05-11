@@ -11,7 +11,9 @@ class TeamIndex extends React.Component {
 
   // could be taken out
   componentWillMount() {
-    this.props.fetchTeams();
+    if (!this.props.teams.length) {
+      this.props.fetchTeams();
+    }
   }
 
   handleLogout() {

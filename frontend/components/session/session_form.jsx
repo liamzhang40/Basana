@@ -42,9 +42,15 @@ class SessionForm extends React.Component {
       if (formType === 'Sign up') {
         openModal('createteam');
       } else {
-        fetchTeams();
-        const teamId = res.user.teamIds[0];
-        history.push(`/dashboard/teams/${teamId}`);
+        // redirect should wait utill all sample state is ready to render
+        // all the components in the next url page!!!
+
+        fetchTeams().then(() => {
+          const teamId = res.user.teamIds[0];
+          history.push(`/dashboard/teams/${teamId}`);
+        });
+
+
         closeModal();
       }}
     );

@@ -4,6 +4,7 @@ export const RECEIVE_NEW_TEAM = 'RECEIVE_NEW_TEAM';
 export const RECEIVE_TEAM = 'RECEIVE_TEAM';
 export const REMOVE_USER_FROM_TEAM = 'REMOVE_USER_FROM_TEAM';
 export const RECEIVE_TEAM_ERRORS = 'RECEIVE_TEAM_ERRORS';
+export const RECEIVE_TEAM_MEMBERS = 'RECEIVE_TEAM_MEMBERS';
 
 const receiveTeams = teams => {
   return {
@@ -14,10 +15,10 @@ const receiveTeams = teams => {
 
 // user reducer does not need to care if a team name is updated
 // it should only update user state if a new team is created
-const receiveNewTeam = team => {
+const receiveNewTeam = payload => {
   return {
     type: RECEIVE_NEW_TEAM,
-    team
+    payload
   };
 };
 
@@ -32,6 +33,13 @@ const receiveErrors = errors => {
   return {
     type: RECEIVE_TEAM_ERRORS,
     errors
+  };
+};
+
+const receiveMembers = members => {
+  return {
+    type: RECEIVE_TEAM_MEMBERS,
+    members
   };
 };
 
@@ -92,12 +100,35 @@ export const updateTeam = team => {
   };
 };
 
+//fix this
 export const removeMember = teamId => {
   return dispatch => {
     return teamAPIUtil.removeMember(teamId).then(
-      ({ userId }) => {
+      ({ userId, teamId }) => {
         return dispatch(removeUserFromTeam(userId, teamId));
       }
     );
   };
 };
+//fix this!!!
+
+export const addMembers = team => {
+  return dispatch => {
+    return teamAPIUtil.addMembers(team).then(
+      (payload) => {
+        // will contain both team and members info
+        return dispatch(receiveNewTeam(payload));
+      }
+    );
+  };
+};
+
+export const fetchMembers = id => {
+  return dispatch => {
+    return teamAPIUtil.fetchMembers(id).then(
+      members => {
+        return dispatch(receiveMembers(members))
+      }
+    )
+  }
+}

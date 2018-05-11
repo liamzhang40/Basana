@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { openDropdown } from '../../actions/dropdown_actions';
 
+
 const mapStateToProps = ( state, ownProps ) => {
   return {
     team: state.entities.teams[ownProps.match.params.teamId]
@@ -15,8 +16,8 @@ const mapDispatchToProps = dispatch => {
 };
 
 const CurrentTeam = props => {
-  // fetching team from team index is asychronous so in first render
-  // teams state is still empty
+    // fetching team from team index is asychronous so in first render
+    // teams state is still empty
   if (!props.team) {
     return <div></div>;
   } else {
@@ -27,5 +28,7 @@ const CurrentTeam = props => {
     );
   }
 };
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentTeam);

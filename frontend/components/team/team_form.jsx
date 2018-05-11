@@ -19,8 +19,12 @@ class TeamForm extends React.Component {
     const { processForm, history, closeModal } = this.props;
 
     processForm(this.state).then((res) => {
-      const teamId = res.team.id;
-      history.push(`/dashboard/teams/${teamId}`);
+      // res is nested with updated members
+      // res is not nested if only team name is updated
+      if (res.payload) {
+        const teamId = res.payload.team.id;
+        history.push(`/dashboard/teams/${teamId}`);
+      }
       closeModal();
     });
   }

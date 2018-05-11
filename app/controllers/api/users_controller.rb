@@ -12,14 +12,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def index
-    # can use include here??
-    # include teams?
-    member_ids = params[:member_ids]
-    @members = member_ids.map { |id| User.find(id.to_i) }
-    render 'api/users/index'
-  end
-
   private
 
   def user_params

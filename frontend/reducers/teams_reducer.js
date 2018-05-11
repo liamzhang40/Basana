@@ -11,8 +11,9 @@ const teamsReducer = (state = {}, action) => {
     case RECEIVE_TEAMS:
       return action.teams;
     case RECEIVE_TEAM:
-    case RECEIVE_NEW_TEAM:
       return merge({}, state, { [action.team.id]: action.team });
+    case RECEIVE_NEW_TEAM:
+      return merge({}, state, { [action.payload.team.id]: action.payload.team });
     default:
       return state;
   }

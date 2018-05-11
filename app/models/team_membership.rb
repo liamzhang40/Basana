@@ -1,6 +1,8 @@
 class TeamMembership < ApplicationRecord
 
-  validates :team_id, :member_id, presence: true
+  validates :team, :member, presence: true
+  validates :member, uniqueness: { scope: :team_id }
+  validates :team, uniqueness: { scope: :member_id }
 
   belongs_to :member,
     class_name: 'User',

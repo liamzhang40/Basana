@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 //test
-import {signup, login, logout, fetchMembers} from './actions/session_actions';
-import {fetchTeam, fetchTeams, createTeam, updateTeam} from './actions/team_actions';
+import {signup, login, logout} from './actions/session_actions';
+import {fetchTeam, fetchTeams, createTeam, updateTeam, fetchMembers} from './actions/team_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');

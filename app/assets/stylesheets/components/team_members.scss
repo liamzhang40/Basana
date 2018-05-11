@@ -1,0 +1,49 @@
+.team-members {
+  width: 220px;
+}
+
+.team-members form {
+  display: flex;
+  align-items: center;
+}
+
+.team-members input {
+  width: 200px;
+  max-width: 200px;
+  height: 30px;
+  min-height: 30px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: 0.3s ease-in-out;
+  color: black;
+}
+
+.team-members input:focus {
+  border: 1px solid #ccc;
+}
+
+.team-members input {
+  font-size: 12px;
+  line-height: 30px;
+}
+
+.team-members .dot {
+  margin-left: 5px;
+  text-align: center;
+  line-height: 15px;
+  box-sizing: border-box;
+  border: 1px solid #9ca6af;
+  color: #9ca6af;
+  height: 16px;
+  width: 16px;
+  background-color: #222b37;
+  border-radius: 50%;
+  transition: 0.3s ease-in-out;
+}
+
+.team-members .dot:hover {
+  background-color: #fff;
+  border: 1px solid #fff;
+  color: #222b37
+}

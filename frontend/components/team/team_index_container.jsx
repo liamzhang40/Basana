@@ -17,7 +17,7 @@ const mapStateToProps = state => {
   });
 
   return {
-    teams: teams
+    teams
   };
 };
 

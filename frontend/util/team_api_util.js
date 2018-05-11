@@ -35,9 +35,17 @@ export const removeMember = teamId => {
   });
 };
 
-export const fetchMembers = memberIds => {
+export const addMembers = team => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/teams/${team.id}`,
+    data: { team }
+  });
+};
+
+export const fetchMembers = id => {
   return $.ajax({
     method: 'GET',
-    
-  })
-}
+    url: `api/teams/${id}`
+  });
+};

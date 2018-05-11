@@ -17,7 +17,6 @@ const App = () => {
       <Dropdown />
       <header>
         <Route path='/' exact component={GreetingContainer} />
-
       </header>
 
       <section className='splash-main'>
