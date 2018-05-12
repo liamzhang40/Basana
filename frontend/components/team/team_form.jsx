@@ -30,8 +30,9 @@ class TeamForm extends React.Component {
   }
 
   render() {
+    const { errors, formType } = this.props;
     let memberemail = '';
-    if (this.props.formType !== 'Update') {
+    if (formType !== 'Update') {
       memberemail =
       (<div className='team-email'>
         <label htmlFor='team-email-input'>MEMBERS</label>
@@ -45,7 +46,7 @@ class TeamForm extends React.Component {
 
     return (
       <div className='team-form'>
-        <h1>{`${this.props.formType} Your Workspace`}</h1>
+        <h1>{`${formType} Your Workspace`}</h1>
         <form onSubmit={this.handleSumbit}>
           <div className='team-name'>
             <label htmlFor='team-name-input'>WORKSPACE<br />NAME</label>
@@ -56,8 +57,11 @@ class TeamForm extends React.Component {
               onChange={this.update('name')}
               value={this.state.name}/>
           </div>
-          {memberemail}
-          <button className='team-button'>{`${this.props.formType} Workspace`}</button>
+          <ul>
+            {errors.map(error => <li>{error}</li>)}
+          </ul>
+          { memberemail }
+          <button className='team-button'>{`${formType} Workspace`}</button>
         </form>
       </div>
 

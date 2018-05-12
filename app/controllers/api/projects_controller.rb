@@ -2,6 +2,8 @@ class Api::ProjectsController < ApplicationController
 
   before_action :require_login
   def index
+    @projects = Team.find(project_params[:team_id]).projects
+    render 'api/projects/index'
   end
 
   def create
@@ -29,7 +31,9 @@ class Api::ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
+    project = Project.find(params[:id])
+    project.destroy!
+    render json: {}
   end
 
   private

@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import { updateTeam } from '../../actions/team_actions';
-import TeamForm from './team_form';
 import { withRouter } from 'react-router-dom';
+import { updateTeam } from '../../actions/team_actions';
 import { closeModal } from '../../actions/modal_actions';
+import TeamForm from './team_form';
 
 const mapStateToProps = (state, ownProps) => {
-
   return {
+    errors: state.errors.teams,
     team: state.entities.teams[ownProps.match.params.teamId],
     formType: 'Update'
   };

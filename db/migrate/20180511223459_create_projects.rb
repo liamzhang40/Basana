@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.integer :creator_id, null: false
       t.integer :team_id, null: false
       t.string :name, null: false
-      t.text :description, null: false
+      t.text :description
       t.boolean :privacy, default: false
 
       t.timestamps

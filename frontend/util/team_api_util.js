@@ -5,10 +5,10 @@ export const fetchTeams = () => {
   });
 };
 
-export const fetchTeam = id => {
+export const fetchTeam = teamId => {
   return $.ajax({
     method: 'GET',
-    url: `api/teams/${id}`
+    url: `api/teams/${teamId}`
   });
 };
 
@@ -43,9 +43,9 @@ export const addMembers = team => {
   });
 };
 
-export const fetchMembers = id => {
+export const fetchMembers = teamId => {
   return $.ajax({
     method: 'GET',
-    url: `api/teams/${id}`
+    url: `api/teams/${teamId}`
   });
 };

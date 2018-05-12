@@ -6,6 +6,7 @@ import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
 import CreateTeamFormContainer from '../team/create_team_form_container';
 import UpdateTeamFormContainer from '../team/update_team_form_container';
+import CreateProjectFormContainer from '../project/create_project_form_container';
 
 const mapStateToProps = state => {
   return {
@@ -42,6 +43,10 @@ const Modal = ({ modal, closeModal }) => {
     case 'updateteam':
       component = <Route path='/dashboard/teams/:teamId' component={UpdateTeamFormContainer} />;
       formType = 'team'
+      break;
+    case 'createproject':
+      component = <CreateProjectFormContainer />;
+      formType = 'project'
       break;
     default:
       return null;

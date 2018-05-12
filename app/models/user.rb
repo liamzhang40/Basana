@@ -20,6 +20,10 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   attr_reader :password
 
+  has_many :projects,
+    class_name: 'Project',
+    foreign_key: :creator_id
+    
   has_many :team_memberships,
     class_name: 'TeamMembership',
     foreign_key: :member_id

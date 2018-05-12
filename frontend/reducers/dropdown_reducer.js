@@ -7,6 +7,8 @@ const dropdownReducer = (state = null, action) => {
       return action.dropdown;
     case CLOSE_DROPDOWN:
     case OPEN_MODAL:
+    // a dropdown will also close whenever a modal is open from that
+    // dropdown
       return null;
     default:
       return state;

@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180511223459) do
     t.integer "creator_id", null: false
     t.integer "team_id", null: false
     t.string "name", null: false
-    t.text "description", null: false
+    t.text "description"
     t.boolean "privacy", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

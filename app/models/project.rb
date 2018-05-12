@@ -14,7 +14,9 @@
 
 class Project < ApplicationRecord
 
-  validates :team, :creator, :name, :description, presence: true
+  validates :team, :creator, :name, presence: true
+  # need a validation so that only a member under a team can create
+  # a new project under that team?
 
   belongs_to :team
 

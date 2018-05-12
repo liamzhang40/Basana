@@ -1,18 +1,18 @@
 import {
-  RECEIVE_CURRENT_USER,
-  RECEIVE_SESSION_ERRORS
-} from '../actions/session_actions';
+  RECEIVE_PROJECT,
+  RECEIVE_PROJECT_ERRORS
+} from '../actions/team_actions';
 import {
   OPEN_MODAL,
   CLOSE_MODAL
 } from '../actions/modal_actions';
 
-const sessionErrorsReducer = (state = [], action) => {
+const projectErrorsReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_SESSION_ERRORS:
+    case RECEIVE_PROJECT_ERRORS:
       return action.errors;
-    case RECEIVE_CURRENT_USER:
+    case RECEIVE_PROJECT:
     case OPEN_MODAL:
     case CLOSE_MODAL:
       return [];
@@ -21,4 +21,4 @@ const sessionErrorsReducer = (state = [], action) => {
   }
 };
 
-export default sessionErrorsReducer;
+export default projectErrorsReducer;

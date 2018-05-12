@@ -55,16 +55,18 @@ class TeamIndex extends React.Component {
       teams,
       logout,
       openModal,
-      fetchTeam,
       removeMember,
       closeDropdown
+      // fetchTeam,
+      // fetchProjects
     } = this.props;
 
     const li = teams.map(team => {
       return <TeamIndexItem
         key={team.id}
         team={team}
-        fetchTeam={fetchTeam}
+        // fetchTeam={fetchTeam}
+        // fetchProjects={fetchProjects}
         closeDropdown={closeDropdown} />;
     });
 

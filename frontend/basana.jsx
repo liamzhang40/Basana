@@ -5,6 +5,7 @@ import Root from './components/root';
 //test
 import {signup, login, logout} from './actions/session_actions';
 import {fetchTeam, fetchTeams, createTeam, updateTeam, fetchMembers} from './actions/team_actions';
+import {fetchProject, fetchProjects, createProject, updateProject, removeProject} from './actions/project_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -43,3 +44,9 @@ window.fetchTeams = fetchTeams;
 window.fetchTeam = fetchTeam;
 window.createTeam = createTeam;
 window.updateTeam = updateTeam;
+
+window.fetchProjects = fetchProjects;
+window.fetchProject = fetchProject;
+window.createProject = createProject;
+window.updateProject = updateProject;
+window.removeProject = removeProject;

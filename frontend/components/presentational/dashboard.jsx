@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import CurrentTeamContainer from '../team/current_team_container';
 import TeamMemberIndexContainer from '../team/team_member_index_container';
+import ProjectIndexContainer from '../project/project_index_container';
 
 
 const Dashboard = () => {
@@ -10,8 +11,8 @@ const Dashboard = () => {
     <section className='dashboard-main'>
       <nav className='dashboard-left'>
         <h1>Basana</h1>
-
         <Route path='/dashboard/teams/:teamId' component={TeamMemberIndexContainer} />
+        <Route path='/dashboard/teams/:teamId' component={ProjectIndexContainer} />
       </nav>
 
       <section className='dashboard-right'>
