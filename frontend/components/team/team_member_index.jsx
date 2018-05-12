@@ -14,14 +14,16 @@ class TeamMemberIndex extends React.Component {
   }
 
   render() {
+    // need a better way to generate keys???
     const li = this.props.members.map(member => {
-      return <TeamMemberIndexItem member={member} />;
+      const key = member ? member.id : '';
+      return <TeamMemberIndexItem key={key} member={member} />;
     });
 
     if (li.length < 6) {
       const length = li.length;
       for (let i = 0; i < 6 - length; i++) {
-        li.push(<TeamMemberIndexItem member={undefined} />);
+        li.push(<TeamMemberIndexItem key={i} member={undefined} />);
       }
     }
 
