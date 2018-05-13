@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { openDropdown } from '../../actions/dropdown_actions';
 
-
 const mapStateToProps = (state, ownProps) => {
   return {
     team: state.entities.teams[ownProps.match.params.teamId]

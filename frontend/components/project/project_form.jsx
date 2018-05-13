@@ -73,7 +73,8 @@ class ProjectForm extends React.Component {
             <textarea
               id='project-description-input'
               type='text'
-              onChange={this.update('description')}/>
+              value={this.state.description}
+              onChange={this.update('description')} />
           </div>
 
           {projectprivacy}

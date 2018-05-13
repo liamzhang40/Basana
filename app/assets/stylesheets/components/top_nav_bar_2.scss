@@ -11,8 +11,16 @@
   align-items: flex-start;
 }
 
-.top-nav-bar-2 .current-project {
+.current-project {
+  display: flex;
   font-size: 24px;
   font-weight: 500;
   margin-top: 10px;
+}
+
+.current-project button {
+  font-size: 30px;
+  color: #848f99;
+  margin-top: -10px;
+  padding: 0px 2px;
 }

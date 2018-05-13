@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import {
   fetchTeams,
   // fetchTeam,
@@ -36,4 +35,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TeamIndex));
+export default connect(mapStateToProps, mapDispatchToProps)(TeamIndex);

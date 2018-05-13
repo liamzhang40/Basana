@@ -21,10 +21,12 @@ const CurrentProject = props => {
     return (
       <div className='current-project'>
         <span>{props.project.name}</span>
-        <button>⌄</button>
+        <button onClick={() => props.openDropdown()}>
+          ⌄
+        </button>
       </div>
     );
   }
 };
 
-export default connect(mapStateToProps)(CurrentProject);
+export default connect(mapStateToProps, mapDispatchToProps)(CurrentProject);

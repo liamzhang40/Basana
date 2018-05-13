@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { closeDropdown } from '../../actions/dropdown_actions';
 import TeamIndexContainer from '../team/team_index_container';
+import CurrentProjectDropdownContainer from '../project/current_project_dropdown_container';
 
 const mapStateToProps = state => {
   return {
@@ -29,7 +30,7 @@ const Dropdown = ({ dropdown, closeDropdown }) => {
       formType = 'team'
       break;
     case 'updateproject':
-      component = <Route path='/dashboard/teams/:teamId' component={TeamIndexContainer} />;
+      component = <Route path='/dashboard/teams/:teamId/projects/:projectId' component={CurrentProjectDropdownContainer} />;
       formType = 'project'
       break;
     default:

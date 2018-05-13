@@ -33,7 +33,6 @@ class TeamIndex extends React.Component {
         teams,
         match,
         history,
-        openModal,
         removeMember,
         closeDropdown
       } = this.props;
@@ -43,8 +42,8 @@ class TeamIndex extends React.Component {
         // team in the teams array
         closeDropdown();
         // debugger
-        const newTeams = teams.filter(team => team.id !== parseInt(match.params.teamId));
-        history.push(`/dashboard/teams/${newTeams[0].id}`);
+        const restTeams = teams.filter(team => team.id !== parseInt(match.params.teamId));
+        history.push(`/dashboard/teams/${restTeams[0].id}`);
       });
     }
   }
