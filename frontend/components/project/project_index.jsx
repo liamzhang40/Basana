@@ -3,18 +3,15 @@ import ProjectIndexItem from './project_index_item';
 import ProjectHeader from './project_header';
 
 class ProjectIndex extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  
+  componentDidMount() {
+    this.props.fetchProjects(this.props.match.params.teamId);
+  }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.teamId !== nextProps.match.params.teamId) {
       this.props.fetchProjects(nextProps.match.params.teamId);
     }
-  }
-
-  componentDidMount() {
-    this.props.fetchProjects(this.props.match.params.teamId);
   }
 
   render() {

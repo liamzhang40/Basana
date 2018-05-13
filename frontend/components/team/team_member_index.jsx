@@ -3,6 +3,7 @@ import TeamMemberForm from './team_member_form';
 import TeamMemberIndexItem from './team_member_index_item';
 
 class TeamMemberIndex extends React.Component {
+
   componentDidMount() {
     this.props.fetchMembers(this.props.match.params.teamId);
   }

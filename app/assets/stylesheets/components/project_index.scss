@@ -51,6 +51,9 @@
 }
 
 .team-projects ul li {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
   padding: 7px 0px;
   width: 244px;
   color: #fff;
@@ -61,6 +64,16 @@
   background-color: #8e9499;
 }
 
-.team-projects ul li span {
+.team-projects ul li .project-name {
   margin-left: 13px;
+}
+
+.team-projects ul li .project-options {
+  font-size: 15px;
+  margin-right: 14px;
+  line-height: 7px;
+}
+
+.team-projects ul li .project-options:hover {
+  color: red;
 }

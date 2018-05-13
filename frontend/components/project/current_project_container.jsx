@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { openDropdown } from '../../actions/dropdown_actions';
 
 const mapStateToProps = (state, ownProps) =>  {
   return {
@@ -9,7 +10,7 @@ const mapStateToProps = (state, ownProps) =>  {
 
 const mapDispatchToProps = dispatch => {
   return {
-
+    openDropdown: () => dispatch(openDropdown('updateproject'))
   };
 };
 
@@ -20,6 +21,7 @@ const CurrentProject = props => {
     return (
       <div className='current-project'>
         <span>{props.project.name}</span>
+        <button>⌄</button>
       </div>
     );
   }
