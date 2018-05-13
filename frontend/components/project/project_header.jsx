@@ -2,9 +2,12 @@ import React from 'react';
 
 const ProjectHeader = props => {
   return (
-    <div>
-      <h2>Projects</h2>
-      <button className='dot'>+</button>
+    <div className='project-header'>
+      <h2>PROJECTS</h2>
+      <button
+        className='dot'
+        onClick={() => props.openModal('createproject')}
+      >+</button>
     </div>
   );
 

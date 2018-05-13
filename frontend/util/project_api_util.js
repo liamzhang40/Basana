@@ -13,7 +13,7 @@ export const fetchProject = projectId => {
   });
 };
 
-export const createProjects = project => {
+export const createProject = project => {
   return $.ajax({
     method: 'POST',
     url: 'api/projects',

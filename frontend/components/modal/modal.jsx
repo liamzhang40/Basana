@@ -45,7 +45,7 @@ const Modal = ({ modal, closeModal }) => {
       formType = 'team'
       break;
     case 'createproject':
-      component = <CreateProjectFormContainer />;
+      component = <Route path='/dashboard/teams/:teamId' component={CreateProjectFormContainer} />;
       formType = 'project'
       break;
     default:

@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProjectIndexItem = props => {
   return (
-    <li>{props.project.name}</li>
+    <button><li><span>{props.project.name}</span></li></button>
   );
 };
 

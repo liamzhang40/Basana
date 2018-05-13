@@ -14,28 +14,40 @@ class ProjectForm extends React.Component {
     };
   }
 
+  toggleClass() {
+    
+  }
+
   handleSumbit(e) {
     e.preventDefault();
+    const { processForm, history, closeModal } = this.props;
 
+    processForm(this.state).then((res) => {
+      closeModal();
+    });
   }
 
   render() {
-    const { error, formType } = this.props;
+    const { team, errors, formType } = this.props;
+
     let projectprivacy = '';
     if (formType !== 'Edit') {
       projectprivacy =
       (<div className='project-privacy'>
+        <label>PRIVACY</label>
         <div>
           <input
             value={false}
+            name='project-privacy-option'
             type='radio'
             onChange={this.update('privacy')}/>
-          <label>Public to??</label>
+          <label>Public to {team.name}</label>
         </div>
 
         <div>
           <input
             value={true}
+            name='project-privacy-option'
             type='radio'
             onChange={this.update('privacy')}/>
           <label>Private to me</label>
@@ -45,7 +57,7 @@ class ProjectForm extends React.Component {
 
     return (
       <div className='project-form'>
-        <h1>{`{formType} Project`}</h1>
+        <h1>{`${formType} Project`}</h1>
         <form onSubmit={this.handleSumbit}>
           <div className='project-name'>
             <label htmlFor='project-name-input'>PROJECT NAME</label>
@@ -56,8 +68,14 @@ class ProjectForm extends React.Component {
               value={this.state.name}/>
           </div>
 
+          <ul>
+            {errors.map(error => <li>{error}</li>)}
+          </ul>
+
           <div className='project-description'>
-            <label htmlFor='project-description-input'>Description</label>
+            <label
+              onClick={this.toggleClass}
+              htmlFor='project-description-input'>Description</label>
             <textarea
               id='project-description-input'
               type='text'
@@ -65,6 +83,8 @@ class ProjectForm extends React.Component {
           </div>
 
           {projectprivacy}
+
+          <button className='project-button'>{`${formType} Project`}</button>
         </form>
       </div>
     );

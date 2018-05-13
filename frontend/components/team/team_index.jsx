@@ -78,14 +78,14 @@ class TeamIndex extends React.Component {
           </ul>
 
           <ul>
-            <li><button onClick={() => openModal('updateteam')}>Workspace Settings...</button></li>
-            <li><button onClick={() => openModal('createteam')}>Create New Workspace</button></li>
-            <li><button onClick={this.handleRemove}>Remove me from this Workspace</button></li>
+            <button onClick={() => openModal('updateteam')}><li>Workspace Settings...</li></button>
+            <button onClick={() => openModal('createteam')}><li>Create New Workspace</li></button>
+            <button onClick={this.handleRemove}><li>Remove me from this Workspace</li></button>
           </ul>
 
           <ul>
-            <li><button>My Profile Settings...</button></li>
-            <li><button onClick={this.handleLogout}>Log out</button></li>
+            <button><li>My Profile Settings...</li></button>
+            <button onClick={this.handleLogout}><li>Log out</li></button>
           </ul>
         </ul>
       </div>

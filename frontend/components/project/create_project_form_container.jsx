@@ -4,16 +4,19 @@ import { createProject } from '../../actions/project_actions';
 import { closeModal } from '../../actions/modal_actions';
 import ProjectForm from './project_form';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  const creatorId = state.session.id;
+  const team = state.entities.teams[ownProps.match.params.teamId];
   return {
     errors: state.errors.projects,
-    project: { creator_id: '',
-      team_id: '',
+    project: { creator_id: creatorId,
+      team_id: team.id,
       name: '',
       description: '',
-      privacy: '',
-      formType: 'New'
-    }
+      privacy: false
+    },
+    team,
+    formType: 'New'
   };
 };
 

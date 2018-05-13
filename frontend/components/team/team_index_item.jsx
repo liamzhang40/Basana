@@ -10,10 +10,10 @@ const TeamIndexItem = props => {
   };
 
   return (
-    <li><Link
+    <Link
       to={`/dashboard/teams/${team.id}`}
       onClick={handleClick}
-      >{team.name}</Link></li>
+      ><li>{team.name}</li></Link>
   );
 };
 

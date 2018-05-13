@@ -38,10 +38,10 @@
   margin-left: 15px;
 }
 
-.team-form .team-email input,
 .team-form .team-email textarea {
   min-height: 80px;
   text-align: justify;
+  padding-top: 10px;
 }
 
 .team-form input,
@@ -58,10 +58,6 @@
   transition: 0.3s ease-in-out;
 }
 
-.team-form textarea {
-  padding-top: 10px;
-}
-
 .team-form form label {
   text-align: right;
   padding: 10px 20px;
@@ -71,7 +67,7 @@
   background-color: #14aaf5;
   color: white;
   border-radius: 3px;
-  padding: 12.5px 20px;
+  padding: 12.5px 20px 13px 20px;
   transition: 0.3s ease-in-out;
   margin-left: 365px;
 }

@@ -16,7 +16,7 @@ const Dashboard = () => {
       </nav>
 
       <section className='dashboard-right'>
-        <div className='top-nav-bar'>
+        <section className='top-nav-bar'>
           <ul>
             <ul>
               <li>My Tasks</li>
@@ -27,7 +27,9 @@ const Dashboard = () => {
             <li>Search Bar</li>
             <li><Route path='/dashboard/teams/:teamId' component={CurrentTeamContainer}/></li>
           </ul>
-        </div>
+        </section>
+
+        <section></section>
 
         <section className='dashboard-tasks'>
           tasks

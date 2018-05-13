@@ -31,6 +31,7 @@ class TeamForm extends React.Component {
 
   render() {
     const { errors, formType } = this.props;
+
     let memberemail = '';
     if (formType !== 'Update') {
       memberemail =
@@ -57,10 +58,13 @@ class TeamForm extends React.Component {
               onChange={this.update('name')}
               value={this.state.name}/>
           </div>
+
           <ul>
             {errors.map(error => <li>{error}</li>)}
           </ul>
+
           { memberemail }
+          
           <button className='team-button'>{`${formType} Workspace`}</button>
         </form>
       </div>

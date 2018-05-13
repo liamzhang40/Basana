@@ -1,0 +1,105 @@
+.project-modal-child .close {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 300;
+  color: #ccc;
+  top: 10px;
+  right: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+.project-modal-child .close:hover {
+  color: grey;
+}
+
+.project-form {
+  width: 100%;
+}
+
+.project-form h1 {
+  font-size: 24px;
+  padding: 10px 30px;
+  border-bottom: 1px solid #e0e6e8;
+  color: #151b26;
+}
+
+.project-form form {
+  padding: 15px 30px;
+  // overflow-y: auto;
+  // min-height: 1px;
+}
+
+.project-form .project-name,
+.project-form .project-description,
+.project-form .project-privacy {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.project-form .project-privacy {
+  margin-bottom: 0px;
+}
+
+.project-form .project-name label,
+.project-form .project-description label,
+.project-form .project-privacy label {
+  margin-bottom: 5px;
+}
+
+.project-form .project-description textarea {
+  min-height: 80px;
+  text-align: justify;
+}
+
+.project-form #project-name-input,
+.project-form #project-description-input {
+  border: 1px solid #d5dce0;
+  border-radius: 3px;
+  padding-left: 10px;
+  width: calc(100% - 15px);
+}
+
+.project-form #project-name-input {
+  height: 40px;
+}
+
+.project-form textarea {
+  min-height: 88px;
+  padding-top: 10px;
+}
+
+.project-form input:focus,
+.project-form textarea:focus {
+  border: 2px solid #ccc;
+  transition: 0.3s ease-in-out;
+}
+
+.project-privacy div {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.project-privacy div label {
+  margin-left: 5px;
+}
+
+.project-form .project-button {
+  background-color: #14aaf5;
+  color: white;
+  border-radius: 3px;
+  padding: 12.5px 20px 13px 20px;
+  transition: 0.3s ease-in-out;
+  margin-left: 400px;
+}
+
+.project-form .project-button:hover {
+  background-color: #138bf5;
+}
+
+.project-form ul {
+  margin-bottom: 20px;
+  margin-left: 127.14px;
+  color: red;
+}

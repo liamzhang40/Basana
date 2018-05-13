@@ -1,0 +1,66 @@
+.team-projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-projects .project-header {
+  width: 220px;
+}
+
+.team-projects .project-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.team-projects h2 {
+  color: #9ca6af;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.team-projects .dot {
+  margin-left: 5px;
+  line-height: 16px;
+  text-align: center;
+  border: 1px solid #9ca6af;
+  color: #9ca6af;
+  height: 16px;
+  width: 16px;
+  background-color: #222b37;
+  border-radius: 50%;
+  transition: 0.3s ease-in-out;
+}
+
+.team-projects .dot:hover {
+  background-color: #fff;
+  border: 1px solid #fff;
+  color: #222b37
+}
+
+.team-projects ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #9ca6af;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.team-projects ul li {
+  padding: 7px 0px;
+  width: 244px;
+  color: #fff;
+  font-weight: 300;
+}
+
+.team-projects ul li:hover {
+  background-color: #8e9499;
+}
+
+.team-projects ul li span {
+  margin-left: 13px;
+}
