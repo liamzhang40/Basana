@@ -1,8 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const ProjectIndexItem = props => {
+const ProjectIndexItem = ({ project, teamId }) => {
+
+  const handleClick = () => {
+
+  };
+
   return (
-    <button><li><span>{props.project.name}</span></li></button>
+    <Link to={`/dashboard/teams/${teamId}/projects/${project.id}`}
+      onClick={handleClick} >
+      <li>
+        <span>{project.name}</span>
+      </li>
+    </Link>
   );
 };
 

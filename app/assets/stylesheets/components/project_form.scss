@@ -48,9 +48,14 @@
   margin-bottom: 5px;
 }
 
-.project-form .project-description textarea {
+.project-form .project-description label:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+.project-form #project-description-input {
   min-height: 80px;
-  text-align: justify;
 }
 
 .project-form #project-name-input,

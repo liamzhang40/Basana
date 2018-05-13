@@ -14,10 +14,6 @@ class ProjectForm extends React.Component {
     };
   }
 
-  toggleClass() {
-    
-  }
-
   handleSumbit(e) {
     e.preventDefault();
     const { processForm, history, closeModal } = this.props;
@@ -73,9 +69,7 @@ class ProjectForm extends React.Component {
           </ul>
 
           <div className='project-description'>
-            <label
-              onClick={this.toggleClass}
-              htmlFor='project-description-input'>Description</label>
+            <label htmlFor='project-description-input'>Description</label>
             <textarea
               id='project-description-input'
               type='text'

@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import CurrentTeamContainer from '../team/current_team_container';
 import TeamMemberIndexContainer from '../team/team_member_index_container';
 import ProjectIndexContainer from '../project/project_index_container';
+import CurrentProjectContainer from '../project/current_project_container';
 
 
 const Dashboard = () => {
@@ -20,8 +21,6 @@ const Dashboard = () => {
           <ul>
             <ul>
               <li>My Tasks</li>
-              <li>Inbox</li>
-              <li>Dashboard</li>
             </ul>
 
             <li>Search Bar</li>
@@ -29,7 +28,9 @@ const Dashboard = () => {
           </ul>
         </section>
 
-        <section></section>
+        <section className='top-nav-bar-2'>
+          <Route path='/dashboard/teams/:teamId/projects/:projectId' component={CurrentProjectContainer}/>
+        </section>
 
         <section className='dashboard-tasks'>
           tasks

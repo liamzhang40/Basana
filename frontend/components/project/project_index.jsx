@@ -20,7 +20,10 @@ class ProjectIndex extends React.Component {
   render() {
     const { projects, openModal, closeModal } = this.props;
     const li = projects.map(project => {
-      return <ProjectIndexItem key={project.id} project={project}/>;
+      return <ProjectIndexItem
+        key={project.id}
+        project={project}
+        teamId={this.props.match.params.teamId}/>;
     });
 
     return (

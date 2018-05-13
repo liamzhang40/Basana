@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { openDropdown } from '../../actions/dropdown_actions';
 
 
-const mapStateToProps = ( state, ownProps ) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     team: state.entities.teams[ownProps.match.params.teamId]
   };
@@ -19,7 +19,7 @@ const CurrentTeam = props => {
     // fetching team from team index is asychronous so in first render
     // teams state is still empty
   if (!props.team) {
-    return <div></div>;
+    return (<div></div>);
   } else {
     return (
       <button className='current-team' onClick={() => props.openDropdown()}>
