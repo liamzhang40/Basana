@@ -64,6 +64,12 @@
   background-color: #e362e3;
   margin-right: 5px;
   font-size: 12px;
+  overflow: hidden;
+}
+
+.team-members .member-list img {
+  height: 100%;
+  width: 100%;
 }
 
 .team-members .member-list .empty-avatar{

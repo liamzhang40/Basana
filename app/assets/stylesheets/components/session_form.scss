@@ -12,6 +12,21 @@
   color: grey;
 }
 
+.session-modal-child img {
+  position: absolute;
+  top: 120px;
+  right: 180px;
+  height: 50px;
+  width: 50px;
+  border-radius: 3px;
+}
+
+.avatar-upload {
+  position: absolute;
+  left: 40%;
+  top: 18%;
+}
+
 .session-form {
   display: flex;
   flex-direction: column;
@@ -26,6 +41,11 @@
 }
 
 .session-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.session-form form div {
   display: flex;
   flex-direction: column;
 }

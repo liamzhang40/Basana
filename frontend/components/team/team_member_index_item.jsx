@@ -2,11 +2,11 @@ import React from 'react';
 
 const TeamMemberIndexItem = ({ member }) => {
 
-  let name = ' ';
+  let url = ' ';
   if (member) {
-    name = member.name[0];
+    url = member.url;
     return (
-      <li>{name}</li>
+      <li><img src={url}/></li>
     );
   }
 

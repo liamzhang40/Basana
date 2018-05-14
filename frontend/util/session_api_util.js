@@ -1,16 +1,20 @@
-export const signup = user => {
+export const signup = formData => {
   return $.ajax({
     method: 'POST',
     url: 'api/users',
-    data: { user }
+    contentType: false,
+    processData: false,
+    data: formData
   });
 };
 
-export const login = user => {
+export const login = formData => {
   return $.ajax({
     method: 'POST',
     url: 'api/session',
-    data: { user }
+    contentType: false,
+    processData: false,
+    data: formData
   });
 };
 
