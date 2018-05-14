@@ -16,14 +16,17 @@ class User < ApplicationRecord
   validates :name, :username, :password_digest, :session_token, presence: true
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true}
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   after_initialize :ensure_session_token
   attr_reader :password
 
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  
   has_many :projects,
     class_name: 'Project',
     foreign_key: :creator_id
-    
+
   has_many :team_memberships,
     class_name: 'TeamMembership',
     foreign_key: :member_id
