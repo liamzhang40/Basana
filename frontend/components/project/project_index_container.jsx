@@ -5,7 +5,8 @@ import ProjectIndex from './project_index';
 
 const mapStateToProps = state => {
   return {
-    projects: Object.values(state.entities.projects)
+    projects: Object.values(state.entities.projects),
+    currentUserId: state.session.id
   };
 };
 
