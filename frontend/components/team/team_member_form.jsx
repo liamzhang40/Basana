@@ -32,7 +32,7 @@ class TeamMemberForm extends React.Component {
             type='text'
             onChange={this.update()}
             value={this.state.emails}/>
-          <button className='dot'>+</button>
+          <button className='dot'></button>
         </form>
       </div>
     );

@@ -6,8 +6,7 @@ const ProjectHeader = props => {
       <h2>PROJECTS</h2>
       <button
         className='dot'
-        onClick={() => props.openModal('createproject')}
-      >+</button>
+        onClick={() => props.openModal('createproject')}></button>
     </div>
   );
 

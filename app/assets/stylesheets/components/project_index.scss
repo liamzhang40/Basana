@@ -23,7 +23,6 @@
 }
 
 .team-projects .dot {
-  margin-left: 5px;
   line-height: 16px;
   text-align: center;
   border: 1px solid #9ca6af;
@@ -33,6 +32,14 @@
   background-color: #222b37;
   border-radius: 50%;
   transition: 0.3s ease-in-out;
+  position: relative;
+}
+
+.team-projects .dot:after {
+  content: "+";
+  position: absolute;
+  top: -1px;
+  left: 3.5px;
 }
 
 .team-projects .dot:hover {
