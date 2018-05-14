@@ -3,7 +3,7 @@ import ProjectIndexItem from './project_index_item';
 import ProjectHeader from './project_header';
 
 class ProjectIndex extends React.Component {
-  
+
   componentDidMount() {
     this.props.fetchProjects(this.props.match.params.teamId);
   }

@@ -16,10 +16,13 @@ class ProjectForm extends React.Component {
 
   handleSumbit(e) {
     e.preventDefault();
-    const { processForm, history, closeModal } = this.props;
+    const { team, processForm, history, closeModal, formType } = this.props;
 
     processForm(this.state).then((res) => {
       closeModal();
+      if (formType === 'New') {
+        history.push(`/dashboard/teams/${team.id}/projects/${res.project.id}`);
+      }
     });
   }
 
