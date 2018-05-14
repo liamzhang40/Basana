@@ -11,7 +11,7 @@ User.destroy_all
 Team.destroy_all
 TeamMembership.destroy_all
 
-user1 = User.create!(name: 'Liam', username: 'lzhang40@binghamton.edu', password: 62030490)
+user1 = User.create!(name: 'Demo User', username: 'demo@gmail.com', password: 62030490)
 user2 = User.create!(name: 'Joey', username: 'joey@gmail.com', password: 123456)
 user3 = User.create!(name: 'Ding', username: 'ding@gmail.com', password: 123456)
 

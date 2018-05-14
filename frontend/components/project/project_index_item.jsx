@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CurrentProjectDropdownContainer from './current_project_dropdown_container';
 
 class ProjectIndexItem extends React.Component {
   constructor(props) {
@@ -12,26 +13,33 @@ class ProjectIndexItem extends React.Component {
   }
 
   handleClick(e) {
+    this.setState({visible: !this.state.visible});
   }
 
   render() {
     const { project, teamId, currentUserId } = this.props;
+
     let li = '';
     // will only display public projects unless the current user is the
     // creator
     if (!project.privacy || project.creator_id === currentUserId ) {
       li = (
-        <li>
+        <li className='project-row'>
           <span className='project-name'>{project.name}</span>
           <span
             className='project-options'
-            onClick={() => console.log('wutwut')}>...</span>
+            onClick={this.handleClick}>...
+            <div className={
+                this.state.visible ? 'dropdown-visible' : 'dropdown-hidden'
+              }>
+              <CurrentProjectDropdownContainer />
+            </div>
+          </span>
         </li>
       );
     }
     return (
-      <Link to={`/dashboard/teams/${teamId}/projects/${project.id}`}
-        onClick={this.handleClick} >
+      <Link to={`/dashboard/teams/${teamId}/projects/${project.id}`}>
         {li}
       </Link>
     );

@@ -10,6 +10,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
 .top-nav-bar>ul>li,
@@ -38,4 +40,23 @@
 .top-nav-bar li:hover {
   color: #14aaf5;
   cursor: pointer;
+}
+
+.top-nav-bar .current-team {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-nav-bar .current-team li {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.top-nav-bar .current-team img {
+  height: 100%;
+  width: 100%;
 }

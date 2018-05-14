@@ -2,7 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Greeting = props => {
-  const { currentUser, logout, openModal} = props;
+  const {
+    login,
+    logout,
+    history,
+    openModal,
+    fetchTeams,
+    currentUser
+  } = props;
 
   let component;
   if (currentUser) {
@@ -16,6 +23,14 @@ const Greeting = props => {
       <div className='splash-right-nav'>
         <button onClick={() => openModal('login')}>Log in</button>
         <button onClick={() => openModal('signup')}>Sign up</button>
+        <button onClick={() => {
+            login().then((res) => {
+              fetchTeams().then(() => {
+                const teamId = res.user.teamIds[0];
+                history.push(`/dashboard/teams/${teamId}`);
+              });
+            });
+          }}>Demo User</button>
       </div>;
   }
 

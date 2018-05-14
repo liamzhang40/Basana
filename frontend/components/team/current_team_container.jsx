@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { openDropdown } from '../../actions/dropdown_actions';
+import TeamMemberIndexItem from './team_member_index_item';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    team: state.entities.teams[ownProps.match.params.teamId]
+    team: state.entities.teams[ownProps.match.params.teamId],
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
@@ -23,6 +25,7 @@ const CurrentTeam = props => {
     return (
       <button className='current-team' onClick={() => props.openDropdown()}>
         {props.team.name}
+        <TeamMemberIndexItem member={props.currentUser}/>
       </button>
     );
   }

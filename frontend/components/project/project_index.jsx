@@ -27,7 +27,7 @@ class ProjectIndex extends React.Component {
     return (
       <div className='team-projects'>
         <ProjectHeader openModal={openModal} />
-        <ul>
+        <ul className='project-list'>
           {li}
         </ul>
       </div>

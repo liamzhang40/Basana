@@ -48,7 +48,7 @@
   color: #222b37
 }
 
-.team-projects ul {
+.project-list {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,7 +57,7 @@
   letter-spacing: 1px;
 }
 
-.team-projects ul li {
+.project-list .project-row {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -67,20 +67,36 @@
   font-weight: 300;
 }
 
-.team-projects ul li:hover {
+.project-list .project-row:hover {
   background-color: #8e9499;
 }
 
-.team-projects ul li .project-name {
+.project-list li .project-name {
   margin-left: 13px;
 }
 
-.team-projects ul li .project-options {
+.project-list li .project-options {
   font-size: 15px;
   margin-right: 14px;
   line-height: 7px;
 }
 
-.team-projects ul li .project-options:hover {
+.project-list li .project-options:hover {
   color: red;
+}
+
+.project-options .dropdown-hidden {
+  display: none;
+}
+
+.project-options .dropdown-visible {
+  position: absolute;
+  top: -5px;
+  right: -220px;
+}
+
+.project-options .project-dropdown li {
+  width: 80%;
+  color: black;
+  padding: 0px 5px;
 }
