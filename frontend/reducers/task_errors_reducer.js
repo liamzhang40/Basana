@@ -1,18 +1,18 @@
 import {
-  RECEIVE_PROJECT,
-  RECEIVE_PROJECT_ERRORS
-} from '../actions/project_actions';
+  RECEIVE_TASK,
+  RECEIVE_TASK_ERRORS
+} from '../actions/task_actions';
 import {
   OPEN_MODAL,
   CLOSE_MODAL
 } from '../actions/modal_actions';
 
-const projectErrorsReducer = (state = [], action) => {
+const taskErrorsReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_PROJECT_ERRORS:
+    case RECEIVE_TASK_ERRORS:
       return action.errors;
-    case RECEIVE_PROJECT:
+    case RECEIVE_TASK:
     case OPEN_MODAL:
     case CLOSE_MODAL:
       return [];
@@ -21,4 +21,4 @@ const projectErrorsReducer = (state = [], action) => {
   }
 };
 
-export default projectErrorsReducer;
+export default taskErrorsReducer;

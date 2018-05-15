@@ -1,6 +1,7 @@
 class Api::ProjectsController < ApplicationController
 
   before_action :require_login
+
   def index
     @projects = Team.find(project_params[:team_id]).projects
     render 'api/projects/index'
@@ -8,11 +9,10 @@ class Api::ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-
-    if @project.save!
+    if @project.save
       render 'api/projects/show'
     else
-      render json: @project.erros.full_messages, status: 422
+      render json: @project.errors.full_messages, status: 422
     end
   end
 
@@ -47,5 +47,4 @@ class Api::ProjectsController < ApplicationController
       :privacy
     )
   end
-
 end

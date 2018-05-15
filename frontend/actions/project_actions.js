@@ -18,9 +18,9 @@ const receiveProject = project => {
   };
 };
 
-const receiveErros = erros => {
+const receiveErrors = errors => {
   return {
-    type: RECEIVE_TEAM_ERRORS,
+    type: RECEIVE_PROJECT_ERRORS,
     errors
   };
 };
@@ -57,6 +57,9 @@ export const createProject = project => {
     return projectAPIUtil.createProject(project).then(
       project => {
         return dispatch(receiveProject(project));
+      },
+      errors => {
+        return dispatch(receiveErrors(errors.responseJSON));
       }
     );
   };
@@ -67,6 +70,9 @@ export const updateProject = project => {
     return projectAPIUtil.updateProject(project).then(
       project => {
         return dispatch(receiveProject(project));
+      },
+      errors => {
+        return dispatch(receiveErrors(errors.responseJSON));
       }
     );
   };

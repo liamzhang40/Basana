@@ -13,7 +13,6 @@ const usersReducer = (state = {}, action) => {
       return merge({}, state, { [action.user.id]: action.user });
     case RECEIVE_TEAM_MEMBERS:
       return action.members;
-    // needs to be fixed
     case RECEIVE_NEW_TEAM:
       const users = action.payload.users;
       return merge({}, state, users);

@@ -2,13 +2,17 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  name            :string           not null
-#  username        :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                  :integer          not null, primary key
+#  name                :string           not null
+#  username            :string           not null
+#  password_digest     :string           not null
+#  session_token       :string           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 class User < ApplicationRecord
@@ -23,6 +27,9 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   attr_reader :password
 
+  has_many :tasks,
+    class_name: 'Task',
+    foreign_key: :assignee_id
 
   has_many :projects,
     class_name: 'Project',
