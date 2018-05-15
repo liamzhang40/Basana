@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => {
   const team = state.entities.teams[ownProps.match.params.teamId];
   return {
     errors: state.errors.projects,
-    project: { creator_id: creatorId,
+    project: {
+      creator_id: creatorId,
       team_id: team.id,
       name: '',
       description: '',

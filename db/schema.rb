@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180514230011) do
     t.text "description"
     t.boolean "privacy", default: false
     t.boolean "completion", default: false
+    t.date "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["assignee_id"], name: "index_tasks_on_assignee_id"

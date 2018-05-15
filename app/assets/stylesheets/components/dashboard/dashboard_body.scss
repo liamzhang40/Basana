@@ -1,0 +1,30 @@
+.dashboard-tasks-container {
+  padding-top: 15px;
+  display: flex;
+}
+
+.dashboard-tasks-container .placeholder {
+  width: 2%;
+  min-width: 15px;
+}
+
+.dashboard-body .team-tasks {
+  width: 100%;
+  min-width: 405px;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
+}
+
+.dashboard-body .edit-create-hidden {
+  display: none;
+}
+
+.dashboard-body .edit-create {
+  max-width: 675px;
+  margin-left: 15px;
+  min-width: 495px;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15)
+}

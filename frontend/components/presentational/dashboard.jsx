@@ -4,7 +4,7 @@ import CurrentTeamContainer from '../team/current_team_container';
 import TeamMemberIndexContainer from '../team/team_member_index_container';
 import ProjectIndexContainer from '../project/project_index_container';
 import CurrentProjectContainer from '../project/current_project_container';
-
+import TaskIndexContainer from '../task/task_index_container';
 
 const Dashboard = () => {
 
@@ -32,8 +32,13 @@ const Dashboard = () => {
           <Route path='/dashboard/teams/:teamId/projects/:projectId' component={CurrentProjectContainer}/>
         </section>
 
-        <section className='dashboard-tasks'>
-          tasks
+        <section className='dashboard-body'>
+          <section className='dashboard-tasks-container'>
+            <div className='placeholder'></div>
+            <Route path='/dashboard/teams/:teamId/projects/:projectId' component={TaskIndexContainer} />
+            <div className='edit-create-hidden' id='edit-create'>Edit or Create task</div>
+            <div className='placeholder'></div>
+          </section>
         </section>
       </section>
     </section>

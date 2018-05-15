@@ -15,7 +15,7 @@ class TaskIndex extends React.Component {
   }
 
   render() {
-    const { tasks, openModal, closeModal } = this.props;
+    const { tasks } = this.props;
     const li = tasks.map(task => {
       return <TaskIndexItem
         key={task.id}
@@ -25,7 +25,7 @@ class TaskIndex extends React.Component {
 
     return (
       <div className='team-tasks'>
-        <TaskHeader openModal={openModal} />
+        <TaskHeader />
         <ul className='task-list'>
           {li}
         </ul>
@@ -33,3 +33,5 @@ class TaskIndex extends React.Component {
     );
   }
 }
+
+export default TaskIndex;
