@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { createProject } from '../../actions/project_actions';
 import { closeModal } from '../../actions/modal_actions';
 import ProjectForm from './project_form';
@@ -28,4 +27,4 @@ const mapDispatchToProps= dispatch => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectForm));
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectForm);

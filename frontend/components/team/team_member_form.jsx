@@ -7,7 +7,7 @@ class TeamMemberForm extends React.Component {
       emails: ''
     };
 
-    this.handleSumbit = this.handleSumbit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update() {
@@ -16,7 +16,7 @@ class TeamMemberForm extends React.Component {
     };
   }
 
-  handleSumbit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     const emails = Object.assign({}, this.state).emails;
     this.props.addMembers({id: this.props.teamId, emails: emails});
@@ -26,7 +26,7 @@ class TeamMemberForm extends React.Component {
   render() {
     return (
       <div className='member-form'>
-        <form onSubmit={this.handleSumbit}>
+        <form onSubmit={this.handleSubmit}>
           <input
             placeholder='Separate emails with commas'
             type='text'

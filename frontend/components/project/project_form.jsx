@@ -5,7 +5,7 @@ class ProjectForm extends React.Component {
     super(props);
     this.state = props.project;
 
-    this.handleSumbit = this.handleSumbit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -14,7 +14,7 @@ class ProjectForm extends React.Component {
     };
   }
 
-  handleSumbit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     const { team, processForm, history, closeModal, formType } = this.props;
 
@@ -57,7 +57,7 @@ class ProjectForm extends React.Component {
     return (
       <div className='project-form'>
         <h1>{`${formType} Project`}</h1>
-        <form onSubmit={this.handleSumbit}>
+        <form onSubmit={this.handleSubmit}>
           <div className='project-name'>
             <label htmlFor='project-name-input'>PROJECT NAME</label>
             <input

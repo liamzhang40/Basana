@@ -7,7 +7,6 @@
 #  assignee_id :integer
 #  name        :string           not null
 #  description :text
-#  privacy     :boolean          default(FALSE)
 #  completion  :boolean          default(FALSE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -16,7 +15,7 @@
 class Task < ApplicationRecord
 
   validates :name, presence: true
-  validates :privacy, :completion, inclusion: { in: [true, false] }
+  validates :completion, :privacy, inclusion: { in: [true, false] }
   validate :assignee_or_project
 
   belongs_to :assignee,

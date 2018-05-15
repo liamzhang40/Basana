@@ -19,7 +19,7 @@ class SessionForm extends React.Component {
       };
     }
 
-    this.handleSumbit = this.handleSumbit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
     };
   }
 
-  handleSumbit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     const {
       history,
@@ -112,7 +112,7 @@ class SessionForm extends React.Component {
         <h1>{formType}</h1>
         {fileInput}
 
-        <form onSubmit={this.handleSumbit}>
+        <form onSubmit={this.handleSubmit}>
           {nameInput}
           <div>
             <label htmlFor='email-input'>Email Address</label>

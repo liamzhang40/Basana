@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20180514230011) do
     t.integer "assignee_id"
     t.string "name", null: false
     t.text "description"
-    t.boolean "privacy", default: false
     t.boolean "completion", default: false
+    t.boolean "privacy", default: false
     t.date "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -15,17 +15,30 @@ class TaskIndex extends React.Component {
   }
 
   render() {
-    const { tasks } = this.props;
+    const {
+      match,
+      tasks,
+      createTask,
+      updateTask,
+      updateReduxTask
+    } = this.props;
+
     const li = tasks.map(task => {
       return <TaskIndexItem
         key={task.id}
         task={task}
-        teamId={this.props.match.params.teamId}/>;
+        teamId={match.params.teamId}
+        projectId={match.params.projectId}
+        updateTask={updateTask}
+        updateReduxTask={updateReduxTask}/>;
     });
 
     return (
       <div className='team-tasks'>
-        <TaskHeader />
+        <TaskHeader
+          createTask={createTask}
+          teamId = {match.params.teamId}
+          projectId={match.params.projectId}/>
         <ul className='task-list'>
           {li}
         </ul>

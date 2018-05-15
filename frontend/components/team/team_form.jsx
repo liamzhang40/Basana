@@ -5,7 +5,7 @@ class TeamForm extends React.Component {
     super(props);
     this.state = props.team;
 
-    this.handleSumbit = this.handleSumbit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -14,7 +14,7 @@ class TeamForm extends React.Component {
     };
   }
 
-  handleSumbit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     const { processForm, history, closeModal } = this.props;
 
@@ -48,7 +48,7 @@ class TeamForm extends React.Component {
     return (
       <div className='team-form'>
         <h1>{`${formType} Your Workspace`}</h1>
-        <form onSubmit={this.handleSumbit}>
+        <form onSubmit={this.handleSubmit}>
           <div className='team-name'>
             <label htmlFor='team-name-input'>WORKSPACE<br />NAME</label>
             <input
@@ -64,7 +64,7 @@ class TeamForm extends React.Component {
           </ul>
 
           { memberemail }
-          
+
           <button className='team-button'>{`${formType} Workspace`}</button>
         </form>
       </div>

@@ -38,7 +38,7 @@ const Modal = ({ modal, closeModal }) => {
       formType = 'session'
       break;
     case 'createteam':
-      component = <CreateTeamFormContainer />;
+      component = <Route path='/dashboard/teams/:teamId' component={CreateTeamFormContainer} />;
       formType = 'team'
       break;
     case 'updateteam':

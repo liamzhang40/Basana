@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { createTeam } from '../../actions/team_actions';
 import { closeModal } from '../../actions/modal_actions';
 import TeamForm from './team_form';
@@ -19,4 +18,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TeamForm));
+export default connect(mapStateToProps, mapDispatchToProps)(TeamForm);

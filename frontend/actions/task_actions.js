@@ -78,6 +78,13 @@ export const updateTask = task => {
   };
 };
 
+export const updateReduxTask = task => {
+  return {
+    type: RECEIVE_TASK,
+    task
+  };
+};
+
 export const removeTask = taskId => {
   return dispatch => {
     return taskAPIUtil.removeTask(taskId).then(
