@@ -24,14 +24,16 @@
   border-bottom: 1px solid #e0e6e8;
   padding: 0 30px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.assignee_and_due_date .assignee{
+.assignee_and_due_date .assignee {
   display: flex;
   align-items: center;
 }
 
-.assignee_and_due_date li {
+.assignee_and_due_date .assignee li {
   box-sizing: border-box;
   height: 30px;
   width: 30px;
@@ -44,12 +46,12 @@
   align-items: center;
 }
 
-.assignee_and_due_date img {
+.assignee_and_due_date .assignee img {
   height: 100%;
   width: 100%;
 }
 
-.assignee_and_due_date svg {
+.assignee_and_due_date .assignee svg {
   height: 16px;
   width: 16px;
   fill: #848f99;
@@ -80,7 +82,7 @@
   border-color: #9ca6af;
 }
 
-.task-name .task-check-box {
+.task-name .task-check-box-unchecked {
   border: 1px solid #b7bfc6;
   border-radius: 50%;
   height: 30px;
@@ -91,20 +93,39 @@
   margin: 0 10px;
 }
 
-.task-name .task-check-box:hover {
+.task-name .task-check-box-unchecked:hover {
   border-color: #25e8c8;
 }
 
-.task-name svg {
+.task-name .task-check-box-unchecked svg {
   width: 16px;
   height: 16px;
   color: #848f99;
   fill: #848f99;
 }
 
-.task-name .task-check-box:hover svg {
+.task-name .task-check-box-unchecked:hover svg {
   color: #25e8c8;
   fill: #25e8c8;
+}
+
+.task-name .task-check-box-checked {
+  border: 1px solid #25e8c8;
+  border-radius: 50%;
+  background-color: #25e8c8;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.task-name .task-check-box-checked svg {
+  width: 16px;
+  height: 16px;
+  color: #fff;
+  fill: #fff;
 }
 
 #task-description-input {

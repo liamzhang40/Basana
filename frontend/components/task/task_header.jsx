@@ -19,7 +19,6 @@ class TaskHeader extends React.Component {
       privacy: false,
       due_date: ''
     }).then((res) => {
-      // document.getElementById('edit-create').className = 'task-edit-visible';
       history.push(`/dashboard/teams/${teamId}/projects/${projectId}/tasks/${res.task.id}`);
     });
   }

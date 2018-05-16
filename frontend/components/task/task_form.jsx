@@ -16,6 +16,7 @@ class TaskForm extends React.Component {
     } = this.props;
 
     return (e) => {
+      e.preventDefault();
       updateReduxTask({id: task.id, [field]: e.currentTarget.value});
 
       if (this.timeout) {
@@ -28,9 +29,20 @@ class TaskForm extends React.Component {
     };
   }
 
+  minDate() {
+    const today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1;
+    const yyyy = today.getFullYear();
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    return yyyy + '-' + mm + '-' + dd;
+  }
+
   render() {
     const { task, errors, match, assignee } = this.props;
     const { teamId, projectId } = match.params;
+
     return (
       <div className='task-edit' id='task-form-container'>
         <div className='task-form'>
@@ -42,11 +54,24 @@ class TaskForm extends React.Component {
               <TeamMemberIndexItem member={ assignee }/>
               <span>{ assignee ? assignee.name : 'Unassigned' }</span>
             </button>
-            <button></button>
+            <div className='task-due-date'>
+              <input
+                id='task-due_date-input'
+                type='date'
+                min={ this.minDate() }
+                onChange={ this.update('due_date') }
+                value={ task ? task.due_date : ''}/>
+            </div>
+
           </form>
+
+
           <form className='name_and_description'>
             <div className='task-name'>
-              <button className='task-check-box'>
+              <button
+                className={ task.completion ? 'task-check-box-checked' : 'task-check-box-unchecked' }
+                value={ task ? !task.completion : ''}
+                onClick={ this.update('completion') }>
                 <svg viewBox="0 0 32 32">
                   <polygon points="27.672,4.786 10.901,21.557 4.328,14.984 1.5,17.812 10.901,27.214 30.5,7.615 "/>
                 </svg>
@@ -56,12 +81,12 @@ class TaskForm extends React.Component {
                 id='task-name-input'
                 type='text'
                 placeholder='Write a task name'
-                onChange={this.update('name')}
-                value={task ? task.name : ''}/>
+                onChange={ this.update('name') }
+                value={ task ? task.name : '' }/>
             </div>
 
             <ul>
-              {errors.map(error => <li>{error}</li>)}
+              { errors.map(error => <li>{error}</li>) }
             </ul>
 
             <div className='task-description'>
@@ -69,8 +94,8 @@ class TaskForm extends React.Component {
                 id='task-description-input'
                 type='text'
                 placeholder='Description'
-                onChange={this.update('description')}
-                value={task ? task.description : ''}/>
+                onChange={ this.update('description') }
+                value={ task ? task.description : '' }/>
             </div>
           </form>
         </div>

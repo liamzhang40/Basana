@@ -10,6 +10,8 @@
 User.destroy_all
 Team.destroy_all
 TeamMembership.destroy_all
+Project.destroy_all
+Task.destroy_all
 
 user1 = User.create!(name: 'Demo User', username: 'demo@gmail.com', password: 62030490)
 user2 = User.create!(name: 'Joey', username: 'joey@gmail.com', password: 123456)
@@ -33,17 +35,17 @@ project4 = Project.create!(creator_id: user2.id, team_id: team2.id, name: 'Proje
 project5 = Project.create!(creator_id: user2.id, team_id: team2.id, name: 'Project5', description: 'Something')
 project6 = Project.create!(creator_id: user1.id, team_id: team3.id, name: 'Project6', description: 'Something')
 
-Task.create!(project_id: project1.id, assignee_id: user1.id, name: 'Task1', description: 'Something')
-Task.create!(project_id: project1.id, name: 'Task2', description: 'Something')
-Task.create!(project_id: project1.id, assignee_id: user1.id, name: 'Task3', description: 'Something')
-Task.create!(project_id: project1.id, name: 'Task4', description: 'Something')
-Task.create!(project_id: project2.id, assignee_id: user1.id, name: 'Task5', description: 'Something')
-Task.create!(project_id: project2.id, name: 'Task6', description: 'Something')
-Task.create!(project_id: project3.id, name: 'Task7', description: 'Something')
-Task.create!(project_id: project3.id, assignee_id: user2.id, name: 'Task8', description: 'Something')
-Task.create!(project_id: project4.id, name: 'Task9', description: 'Something')
-Task.create!(project_id: project4.id, name: 'Task10', description: 'Something')
-Task.create!(project_id: project5.id, assignee_id: user3.id, name: 'Task11', description: 'Something')
-Task.create!(project_id: project6.id, assignee_id: user3.id, name: 'Task12', description: 'Something')
-Task.create!(assignee_id: user3.id, name: 'Task13', description: 'Something')
-Task.create!(assignee_id: user3.id, name: 'Task14', description: 'Something')
+Task.create!(project_id: project1.id, assignee_id: user1.id, name: 'Task1', description: 'Something', due_date: '2018-10-11')
+Task.create!(project_id: project1.id, name: 'Task2', description: 'Something', due_date: '2018-10-18')
+Task.create!(project_id: project1.id, assignee_id: user1.id, name: 'Task3', description: 'Something', due_date: '2018-06-11')
+Task.create!(project_id: project1.id, name: 'Task4', description: 'Something', due_date: '2018-09-22')
+Task.create!(project_id: project2.id, assignee_id: user1.id, name: 'Task5', description: 'Something', due_date: '2019-01-11')
+Task.create!(project_id: project2.id, name: 'Task6', description: 'Something', due_date: '2018-07-02')
+Task.create!(project_id: project3.id, name: 'Task7', description: 'Something', due_date: '2018-08-30')
+Task.create!(project_id: project3.id, assignee_id: user2.id, name: 'Task8', description: 'Something', due_date: '2018-09-12')
+Task.create!(project_id: project4.id, name: 'Task9', description: 'Something', due_date: '2019-02-11')
+Task.create!(project_id: project4.id, name: 'Task10', description: 'Something', due_date: '2019-02-20')
+Task.create!(project_id: project5.id, assignee_id: user3.id, name: 'Task11', description: 'Something', due_date: '2018-10-11')
+Task.create!(project_id: project6.id, assignee_id: user3.id, name: 'Task12', description: 'Something', due_date: '2018-12-20')
+Task.create!(assignee_id: user3.id, name: 'Task13', description: 'Something', due_date: '2018-11-02')
+Task.create!(assignee_id: user3.id, name: 'Task14', description: 'Something', due_date: '2018-08-12')

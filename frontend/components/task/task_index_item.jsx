@@ -52,11 +52,15 @@ class TaskIndexItem extends React.Component {
           onClick={this.handleClick}>
 
           <div className='task-item-left'>
-            <button className='task-check-box'>
+            <button
+              className={ task.completion ? 'task-check-box-checked' : 'task-check-box-unchecked' }
+              value={ task ? !task.completion : ''}
+              onClick={ this.update('completion') }>
               <svg viewBox="0 0 32 32">
                 <polygon points="27.672,4.786 10.901,21.557 4.328,14.984 1.5,17.812 10.901,27.214 30.5,7.615 "/>
               </svg>
             </button>
+
             <span>
               <input
                 onChange={this.update('name')}
@@ -73,10 +77,5 @@ class TaskIndexItem extends React.Component {
     );
   }
 }
-// <div className={
-//     this.state.visible ? 'task-edit-visible' : 'task-edit-hidden'
-//   }>
-//   something
-// </div>
 
 export default TaskIndexItem;
