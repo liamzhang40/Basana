@@ -19,7 +19,7 @@
 
 .assignee_and_due_date {
   height: 50px;
-  color: #848f99;
+  color: #646f79;
   font-size: 13px;
   border-bottom: 1px solid #e0e6e8;
   padding: 0 30px;
@@ -30,7 +30,22 @@
 
 .assignee_and_due_date .assignee {
   display: flex;
+  width: 110px;
   align-items: center;
+  padding: 3px;
+  border: 1px solid transparent;
+
+}
+
+.assignee_and_due_date .assignee:hover {
+  border: 1px solid #646f79;
+  border-radius: 18px;
+  background-color: #f6f8f9;
+}
+
+.assignee_and_due_date .assignee:hover li {
+  border: 1px solid #646f79;
+  fill: #646f79;
 }
 
 .assignee_and_due_date .assignee li {
@@ -44,6 +59,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: #848f99;
 }
 
 .assignee_and_due_date .assignee img {
@@ -54,7 +70,40 @@
 .assignee_and_due_date .assignee svg {
   height: 16px;
   width: 16px;
-  fill: #848f99;
+}
+
+.assignee-dropdown-hidden {
+  display: none;
+}
+
+.assignee-dropdown-visible {
+  color: black;
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 8.25px;
+  left: 150px;
+}
+
+.assignee-dropdown-visible input {
+  padding: 9px;
+  border: 1px solid #9ca6af;
+  border-radius: 3px;
+}
+
+.assignee-dropdown-visible ul {
+  border: 1px solid #9ca6af;
+  border-radius: 3px;
+}
+
+.assignee-dropdown-visible li {
+  padding: 10px
+}
+
+.assignee-dropdown-visible li:hover {
+  background-color: #14aaf5;
+  color: #fff;
+  cursor: pointer;
 }
 
 .name_and_description {

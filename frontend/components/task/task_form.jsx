@@ -1,11 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TeamMemberIndexItem from '../team/team_member_index_item';
+import AssigneeDropdownContainer from './assignee_dropdown_container';
+import { minDate } from '../../util/date_util';
 
 class TaskForm extends React.Component {
   constructor(props) {
     super(props);
     this.timeout = null;
+    this.state = {
+      visible: false
+    };
+
+    this.toggleClass = this.toggleClass.bind(this);
   }
 
   update(field) {
@@ -16,7 +23,6 @@ class TaskForm extends React.Component {
     } = this.props;
 
     return (e) => {
-      e.preventDefault();
       updateReduxTask({id: task.id, [field]: e.currentTarget.value});
 
       if (this.timeout) {
@@ -29,14 +35,8 @@ class TaskForm extends React.Component {
     };
   }
 
-  minDate() {
-    const today = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth() + 1;
-    const yyyy = today.getFullYear();
-    if (dd < 10) dd = '0' + dd;
-    if (mm < 10) mm = '0' + mm;
-    return yyyy + '-' + mm + '-' + dd;
+  toggleClass() {
+    this.setState({visible: !this.state.visible});
   }
 
   render() {
@@ -49,24 +49,31 @@ class TaskForm extends React.Component {
           <Link
             to={`/dashboard/teams/${teamId}/projects/${projectId}`}
             className='close'>&times;</Link>
-          <form className='assignee_and_due_date'>
-            <button className='assignee'>
+          <div className='assignee_and_due_date'>
+            <button
+              className='assignee'
+              onClick={this.toggleClass}>
               <TeamMemberIndexItem member={ assignee }/>
               <span>{ assignee ? assignee.name : 'Unassigned' }</span>
             </button>
+            <div className={
+                this.state.visible ? 'assignee-dropdown-visible' : 'assignee-dropdown-hidden'
+              }>
+              <AssigneeDropdownContainer />
+            </div>
+
             <div className='task-due-date'>
               <input
-                id='task-due_date-input'
+                id='task-due-date-input'
                 type='date'
-                min={ this.minDate() }
+                min={ minDate() }
                 onChange={ this.update('due_date') }
                 value={ task ? task.due_date : ''}/>
             </div>
+          </div>
 
-          </form>
 
-
-          <form className='name_and_description'>
+          <div className='name_and_description'>
             <div className='task-name'>
               <button
                 className={ task.completion ? 'task-check-box-checked' : 'task-check-box-unchecked' }
@@ -97,7 +104,7 @@ class TaskForm extends React.Component {
                 onChange={ this.update('description') }
                 value={ task ? task.description : '' }/>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     );

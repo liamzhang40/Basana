@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { minDate } from '../../util/date_util';
 
 class TaskHeader extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class TaskHeader extends React.Component {
       description: '',
       completion: false,
       privacy: false,
-      due_date: ''
+      due_date: minDate()
     }).then((res) => {
       history.push(`/dashboard/teams/${teamId}/projects/${projectId}/tasks/${res.task.id}`);
     });

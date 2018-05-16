@@ -1,6 +1,11 @@
+.dashboard-body {
+  height: 100%;
+}
+
 .dashboard-tasks-container {
   padding-top: 15px;
   display: flex;
+  height: calc(100% - 30px);
 }
 
 .dashboard-tasks-container .placeholder {
@@ -24,5 +29,5 @@
   min-width: 495px;
   border-radius: 3px;
   background-color: #fff;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15)
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
 }

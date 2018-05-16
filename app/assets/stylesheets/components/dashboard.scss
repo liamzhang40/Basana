@@ -6,10 +6,13 @@
 }
 
 .dashboard-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 244px;
   background-color: #222b37;
   color: white;
-  height: 800px;
+  height: 100vh;
 }
 
 .dashboard-right {
