@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TeamMemberIndexItem from '../team/team_member_index_item';
 
 class TaskForm extends React.Component {
   constructor(props) {
@@ -37,9 +38,10 @@ class TaskForm extends React.Component {
             to={`/dashboard/teams/${teamId}/projects/${projectId}`}
             className='close'>&times;</Link>
           <form className='assignee_and_due_date'>
-            <button>{
-                assignee ? assignee.name : 'Unassigned'
-              }</button>
+            <button className='assignee'>
+              <TeamMemberIndexItem member={ assignee }/>
+              <span>{ assignee ? assignee.name : 'Unassigned' }</span>
+            </button>
             <button></button>
           </form>
           <form className='name_and_description'>
