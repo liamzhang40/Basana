@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class TaskForm extends React.Component {
   constructor(props) {
     super(props);
+    this.timeout = null;
   }
 
   update(field) {
@@ -14,16 +16,33 @@ class TaskForm extends React.Component {
 
     return (e) => {
       updateReduxTask({id: task.id, [field]: e.currentTarget.value});
+
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+      }
+      this.timeout = setTimeout(() => {
+        updateTask(this.props.task);
+        this.timeout = null;
+      }, 2000);
     };
   }
 
   render() {
-    const { task, errors } = this.props;
+    const { task, errors, match, assignee } = this.props;
+    const { teamId, projectId } = match.params;
     return (
-      <div className='task-edit-visible' id='task-form-container'>
+      <div className='task-edit' id='task-form-container'>
         <div className='task-form'>
-          <form>
-            <h2></h2>
+          <Link
+            to={`/dashboard/teams/${teamId}/projects/${projectId}`}
+            className='close'>&times;</Link>
+          <form className='assignee_and_due_date'>
+            <button>{
+                assignee ? assignee.name : 'Unassigned'
+              }</button>
+            <button></button>
+          </form>
+          <form className='name_and_description'>
             <div className='task-name'>
               <button className='task-check-box'>
                 <svg viewBox="0 0 32 32">
@@ -34,6 +53,7 @@ class TaskForm extends React.Component {
               <input
                 id='task-name-input'
                 type='text'
+                placeholder='Write a task name'
                 onChange={this.update('name')}
                 value={task ? task.name : ''}/>
             </div>
@@ -46,6 +66,7 @@ class TaskForm extends React.Component {
               <textarea
                 id='task-description-input'
                 type='text'
+                placeholder='Description'
                 onChange={this.update('description')}
                 value={task ? task.description : ''}/>
             </div>

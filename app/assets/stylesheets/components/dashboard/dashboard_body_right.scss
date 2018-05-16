@@ -1,0 +1,92 @@
+.task-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-form .close {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 300;
+  color: #ccc;
+  top: 5px;
+  right: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.task-form .close:hover {
+  color: grey;
+}
+
+.assignee_and_due_date {
+  height: 50px;
+  border-bottom: 1px solid #e0e6e8;
+}
+
+.name_and_description {
+  padding: 0 30px;
+}
+
+.task-name {
+  font-size: 24px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.task-name:hover {
+  border-color: #d5dce0;
+}
+
+.task-name:focus-within {
+  border-color: #9ca6af;
+}
+
+.task-name .task-check-box {
+  border: 1px solid #b7bfc6;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.task-name .task-check-box:hover {
+  border-color: #25e8c8;
+}
+
+.task-name svg {
+  width: 16px;
+  height: 16px;
+  color: #848f99;
+  fill: #848f99;
+}
+
+.task-name .task-check-box:hover svg {
+  color: #25e8c8;
+  fill: #25e8c8;
+}
+
+#task-description-input {
+  padding: 4px 9px;
+  padding-bottom: 35px;
+  margin-left: 45px;
+  font-size: 13px;
+  width: 85%;
+  border: 1px solid transparent;
+}
+
+#task-description-input:hover {
+  border-color: #d5dce0;
+}
+
+#task-description-input:focus {
+  border-color: #9ca6af;
+}

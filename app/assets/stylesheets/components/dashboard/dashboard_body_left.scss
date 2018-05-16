@@ -32,6 +32,10 @@
   font-size: 13px;
 }
 
+.task-list li:focus-within {
+  border-color: #32c1ff;
+}
+
 .task-list li:hover {
   background-color: #f6f8f9;
   position: relative;
@@ -45,6 +49,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.task-list li .task-item:focus-within {
+  border-color: transparent;
 }
 
 .task-item-left {

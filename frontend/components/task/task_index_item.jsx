@@ -7,8 +7,7 @@ class TaskIndexItem extends React.Component {
     // this.state = {
     //   visible: false
     // };
-
-    this.handleChange = this.handleChange.bind(this);
+    this.timeout = null;
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -17,14 +16,25 @@ class TaskIndexItem extends React.Component {
     // document.getElementById('task-form-container').className = 'task-edit-visible';
   }
 
-  handleChange(e) {
+  update(field) {
     const {
       updateTask,
       updateReduxTask,
       task
     } = this.props;
 
-    updateReduxTask({id: task.id, name: e.currentTarget.value});
+    return (e) => {
+      updateReduxTask({id: task.id, [field]: e.currentTarget.value});
+
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+      }
+      this.timeout = setTimeout(() => {
+        updateTask(this.props.task);
+        this.timeout = null;
+      }, 2000);
+    };
+
   }
 
   render() {
@@ -49,13 +59,13 @@ class TaskIndexItem extends React.Component {
             </button>
             <span>
               <input
-                onChange={this.handleChange}
+                onChange={this.update('name')}
                 value={task.name}/>
             </span>
           </div>
 
           <div className='task-item-right'>
-            due date
+            {task.due_date}
           </div>
         </Link>
 
