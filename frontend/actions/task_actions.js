@@ -32,9 +32,19 @@ const deleteTask = taskId => {
   };
 };
 
-export const fetchTasks = projectId => {
+export const fetchProjectTasks = projectId => {
   return dispatch => {
-    return taskAPIUtil.fetchTasks(projectId).then(
+    return taskAPIUtil.fetchProjectTasks(projectId).then(
+      tasks => {
+        return dispatch(receiveTasks(tasks));
+      }
+    );
+  };
+};
+
+export const fetchAssigneeTasks = assigneeId => {
+  return dispatch => {
+    return taskAPIUtil.fetchAssigneeTasks(assigneeId).then(
       tasks => {
         return dispatch(receiveTasks(tasks));
       }

@@ -3,7 +3,11 @@ class Api::TasksController < ApplicationController
   before_action :require_login
 
   def index
-    @tasks = Project.find(task_params[:project_id]).tasks
+    if task_params[:project_id]
+      @tasks = Project.find(task_params[:project_id]).tasks
+    else
+      @tasks = User.find(task_params[:assignee_id]).tasks
+    end
     render 'api/tasks/index'
   end
 

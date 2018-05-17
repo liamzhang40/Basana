@@ -1,0 +1,60 @@
+.profile-modal-child .close {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 300;
+  color: #ccc;
+  top: 10px;
+  right: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+.profile-modal-child .close:hover {
+  color: grey;
+}
+
+.profile-form {
+  width: 100%;
+}
+
+.profile-form h1 {
+  font-size: 24px;
+  padding: 10px 30px;
+  border-bottom: 1px solid #e0e6e8;
+  color: #151b26;
+}
+
+.profile-form-container {
+  padding: 15px 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-form-avatar {
+  box-sizing: border-box;
+  height: 80px;
+  width: 80px;
+  border: 1px dashed #222b37;
+  border-radius: 50%;
+  margin-right: 5px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-name {
+  display: flex;;
+  align-items: center;
+}
+
+.profile-name input {
+  border: 2px solid #d5dce0;
+  border-radius: 3px;
+  padding: 12px;
+  margin-left: 10px;
+}
+
+.profile-name input:focus {
+  border: 2px solid #ccc;
+  transition: 0.3s ease-in-out;
+}

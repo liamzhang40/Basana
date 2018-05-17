@@ -36,6 +36,26 @@ export const signup = user => {
   };
 };
 
+export const editProfile = user => {
+  return dispatch => {
+    return sessionAPIUtil.editProfile(user).then(
+      user => {
+        return dispatch(receiveCurrentUser(user));
+      },
+      errors => {
+        return dispatch(receiveErrors(errors.responseJSON));
+      }
+    );
+  };
+};
+
+export const editReduxProfile = user => {
+  return {
+    type: RECEIVE_CURRENT_USER,
+    user
+  };
+};
+
 export const login = user => {
   return dispatch => {
     return sessionAPIUtil.login(user).then(

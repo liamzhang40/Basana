@@ -8,6 +8,14 @@ export const signup = formData => {
   });
 };
 
+export const editProfile = user => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/users/${user.id}`,
+    data: { user }
+  });
+};
+
 export const login = formData => {
   return $.ajax({
     method: 'POST',

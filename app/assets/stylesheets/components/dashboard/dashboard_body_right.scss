@@ -81,8 +81,8 @@
   background-color: white;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
   position: absolute;
-  top: 8.25px;
-  left: 150px;
+  top: 50px;
+  left: 30px;
 }
 
 .assignee-dropdown-visible input {
@@ -104,6 +104,21 @@
   background-color: #14aaf5;
   color: #fff;
   cursor: pointer;
+}
+
+input[type=date] {
+  // background-color: red;
+}
+
+.task-due-date {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 6px;
+  margin-right: 5px;
+}
+
+.task-due-date:focus-within {
+  border: 1px solid #9ca6af;
 }
 
 .name_and_description {

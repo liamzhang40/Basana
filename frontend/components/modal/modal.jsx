@@ -7,7 +7,8 @@ import SignupFormContainer from '../session/signup_form_container';
 import CreateTeamFormContainer from '../team/create_team_form_container';
 import UpdateTeamFormContainer from '../team/update_team_form_container';
 import CreateProjectFormContainer from '../project/create_project_form_container';
-import UpdateProjectFormConatainer from '../project/update_project_form_container';
+import UpdateProjectFormContainer from '../project/update_project_form_container';
+import UpdateProfileFormContainer from '../session/update_profile_form_container';
 
 const mapStateToProps = state => {
   return {
@@ -38,7 +39,7 @@ const Modal = ({ modal, closeModal }) => {
       formType = 'session'
       break;
     case 'createteam':
-      component = <Route path='/dashboard/teams/:teamId' component={CreateTeamFormContainer} />;
+      component = <CreateTeamFormContainer />;
       formType = 'team'
       break;
     case 'updateteam':
@@ -50,8 +51,12 @@ const Modal = ({ modal, closeModal }) => {
       formType = 'project'
       break;
     case 'updateproject':
-      component = <Route path='/dashboard/teams/:teamId/projects/:projectId' component={UpdateProjectFormConatainer} />;
+      component = <Route path='/dashboard/teams/:teamId/projects/:projectId' component={UpdateProjectFormContainer} />;
       formType = 'project'
+      break;
+    case 'editprofile':
+      component = <UpdateProfileFormContainer />;
+      formType = 'profile'
       break;
     default:
       return null;

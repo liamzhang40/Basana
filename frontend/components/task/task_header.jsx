@@ -10,17 +10,21 @@ class TaskHeader extends React.Component {
   }
 
   handleClick() {
-    const { createTask, teamId, projectId, history } = this.props;
+    const { createTask, teamId, projectId, history, currentUserId } = this.props;
     createTask({
-      project_id: projectId,
-      assignee_id: '',
+      project_id: (projectId ? projectId : ''),
+      assignee_id: (projectId ? '' : currentUserId),
       name: 'Task name',
       description: '',
       completion: false,
       privacy: false,
       due_date: minDate()
     }).then((res) => {
-      history.push(`/dashboard/teams/${teamId}/projects/${projectId}/tasks/${res.task.id}`);
+      if (projectId) {
+        history.push(`/dashboard/teams/${teamId}/projects/${projectId}/tasks/${res.task.id}`);
+      } else {
+        history.push(`/dashboard/teams/${teamId}/tasks/${res.task.id}`);
+      }
     });
   }
 

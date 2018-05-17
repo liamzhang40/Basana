@@ -4,17 +4,9 @@ import { Link } from 'react-router-dom';
 class TaskIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   visible: false
-    // };
     this.timeout = null;
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    // this.setState({visible: !this.state.visible});
-    // document.getElementById('task-form-container').className = 'task-edit-visible';
-  }
 
   update(field) {
     const {
@@ -48,8 +40,9 @@ class TaskIndexItem extends React.Component {
       <li>
         <Link
           className='task-item'
-          to={`/dashboard/teams/${teamId}/projects/${projectId}/tasks/${task.id}`}
-          onClick={this.handleClick}>
+          to={projectId ?
+            `/dashboard/teams/${teamId}/projects/${projectId}/tasks/${task.id}` :
+            `/dashboard/teams/${teamId}/tasks/${task.id}`}>
 
           <div className='task-item-left'>
             <button

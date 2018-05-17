@@ -1,8 +1,16 @@
-export const fetchTasks = projectId => {
+export const fetchProjectTasks = (projectId) => {
   return $.ajax({
     method: 'GET',
     url: 'api/tasks',
     data: { task: { project_id: projectId }}
+  });
+};
+
+export const fetchAssigneeTasks = (assigneeId) => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/tasks',
+    data: { task: { assignee_id: assigneeId }}
   });
 };
 

@@ -83,7 +83,7 @@ class TeamIndex extends React.Component {
           </ul>
 
           <ul>
-            <button><li>My Profile Settings...</li></button>
+            <button onClick={() => openModal('editprofile')}><li>My Profile Settings...</li></button>
             <button onClick={this.handleLogout}><li>Log out</li></button>
           </ul>
         </ul>
