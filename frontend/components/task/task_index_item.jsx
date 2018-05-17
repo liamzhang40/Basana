@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { formatDate } from '../../util/date_util';
 
 class TaskIndexItem extends React.Component {
   constructor(props) {
@@ -62,7 +63,7 @@ class TaskIndexItem extends React.Component {
           </div>
 
           <div className='task-item-right'>
-            {task.due_date}
+            {formatDate(task.due_date)}
           </div>
         </Link>
 

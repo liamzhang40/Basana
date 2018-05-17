@@ -10,11 +10,11 @@ class TaskForm extends React.Component {
     super(props);
     this.timeout = null;
     this.state = {
-      visible: false
+      assigneeVisible: false,
     };
 
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleAssigneeOutsideClick = this.handleAssigneeOutsideClick.bind(this);
+    this.handleAssigneeClick = this.handleAssigneeClick.bind(this);
   }
 
   update(field) {
@@ -37,27 +37,27 @@ class TaskForm extends React.Component {
     };
   }
 
-  handleClick() {
+  handleAssigneeClick() {
 
-    if (!this.state.visible) {
-      document.addEventListener('mousedown', this.handleOutsideClick, false);
+    if (!this.state.assigneeVisible) {
+      document.addEventListener('mousedown', this.handleAssigneeOutsideClick, false);
     } else {
-      document.removeEventListener('mousedown', this.handleOutsideClick, false);
+      document.removeEventListener('mousedown', this.handleAssigneeOutsideClick, false);
     }
 
-    this.setState({visible: !this.state.visible});
+    this.setState({assigneeVisible: !this.state.assigneeVisible});
   }
 
-  handleOutsideClick(e) {
+  handleAssigneeOutsideClick(e) {
     if (this.node.contains(e.target)) {
       return;
     }
 
-    this.handleClick();
+    this.handleAssigneeClick();
   }
 
   render() {
-    const { task, errors, match, assignee } = this.props;
+    const { task, errors, match, assignee, project } = this.props;
     const { teamId, projectId } = match.params;
 
     return (
@@ -70,11 +70,11 @@ class TaskForm extends React.Component {
             <div ref={ node => this.node = node }>
               <button
                 className='assignee'
-                onClick={this.handleClick}>
+                onClick={this.handleAssigneeClick}>
                 <TeamMemberIndexItem member={ assignee }/>
                 <span>{ assignee ? assignee.name : 'Unassigned' }</span>
               </button>
-              { this.state.visible &&
+              { this.state.assigneeVisible &&
                 <div className='assignee-dropdown-visible'>
                   <AssigneeDropdownContainer />
                 </div>
@@ -97,6 +97,9 @@ class TaskForm extends React.Component {
 
 
           <div className='name_and_description'>
+            <div className='task-project'>
+              <button>{project ? project.name : ''}</button>
+            </div>
             <div className='task-name'>
               <button
                 className={ task.completion ? 'task-check-box-checked' : 'task-check-box-unchecked' }

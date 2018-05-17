@@ -14,13 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const preloadedState = {
       entities: {
         users: { [window.currentUser.id]: window.currentUser },
-        teams: window.currentTeams
+        teams: window.currentTeams,
+        tasks: window.myTasks
       },
       session: { id: window.currentUser.id }
     };
     store = configureStore(preloadedState);
     delete window.currentUser;
     delete window.currentTeams;
+    delete window.myTasks;
   } else {
     store = configureStore();
   }

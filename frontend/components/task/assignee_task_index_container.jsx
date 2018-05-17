@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import {
-  fetchProjectTasks,
+  fetchAssigneeTasks,
   createTask,
   updateTask,
   updateReduxTask
@@ -16,7 +16,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchProjectTasks: projectId => dispatch(fetchProjectTasks(projectId)),
+    fetchTasks: assigneeId => dispatch(fetchAssigneeTasks(assigneeId)),
     createTask: task => dispatch(createTask(task)),
     updateTask: task => dispatch(updateTask(task)),
     updateReduxTask: task => dispatch(updateReduxTask(task))

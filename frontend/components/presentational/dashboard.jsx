@@ -4,7 +4,8 @@ import CurrentTeamContainer from '../team/current_team_container';
 import TeamMemberIndexContainer from '../team/team_member_index_container';
 import ProjectIndexContainer from '../project/project_index_container';
 import CurrentProjectContainer from '../project/current_project_container';
-import TaskIndexContainer from '../task/task_index_container';
+import ProjectTaskIndexContainer from '../task/project_task_index_container';
+import AssigneeTaskIndexContainer from '../task/assignee_task_index_container';
 import UpdateTaskFormContainer from '../task/update_task_form_container';
 import MyTasksContainer from '../task/my_tasks_container';
 
@@ -36,8 +37,8 @@ const Dashboard = () => {
           <section className='dashboard-tasks-container'>
             <div className='placeholder'></div>
             <Switch>
-              <Route path='/dashboard/teams/:teamId/projects/:projectId' component={TaskIndexContainer} />
-              <Route path='/dashboard/teams/:teamId' component={TaskIndexContainer} />
+              <Route path='/dashboard/teams/:teamId/projects/:projectId' component={ProjectTaskIndexContainer} />
+              <Route path='/dashboard/teams/:teamId' component={AssigneeTaskIndexContainer} />
             </Switch>
 
             <Route path='/dashboard/teams/:teamId/projects/:projectId/tasks/:taskId' component={UpdateTaskFormContainer} />

@@ -13,13 +13,13 @@ class AssigneeDropdown extends React.Component {
 
   matches() {
     const matches = [];
-    const { members } = this.props;
+    const { options } = this.props;
 
     if (!this.state.inputVal.length) {
-      return members;
+      return options;
     }
 
-    members.forEach(member => {
+    options.forEach(member => {
       let sub = member.name.slice(0, this.state.inputVal.length);
       if (sub.toLowerCase() === this.state.inputVal.toLowerCase()) {
         matches.push(member);

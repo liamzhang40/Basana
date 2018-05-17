@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
   const members = team.memberIds.map(id => users[id]);
   return {
     task,
-    members
+    options: members
   };
 };
 

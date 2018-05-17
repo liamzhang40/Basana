@@ -10,8 +10,10 @@ const mapStateToProps = (state, ownProps) => {
   // and team is in Redux state because they are preloaded.
   let task = state.entities.tasks[ownProps.match.params.taskId];
   let assignee = '';
+  let project = '';
   if (task) {
     assignee = state.entities.users[task.assignee_id];
+    project = state.entities.projects[task.project_id];
   } else {
     task = '';
   }
@@ -19,7 +21,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     errors: state.errors.tasks,
     task,
-    assignee
+    assignee,
+    project
   };
 };
 

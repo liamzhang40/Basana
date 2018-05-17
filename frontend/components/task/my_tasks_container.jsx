@@ -5,7 +5,8 @@ import { fetchAssigneeTasks } from '../../actions/task_actions';
 
 const mapStateToProps = state => {
   return {
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    tasks: Object.values(state.entities.tasks)
   };
 };
 
@@ -16,9 +17,13 @@ const mapDispatchToProps = dispatch => {
 };
 
 class MyTasks extends React.Component {
+  // not necessary
   componentDidMount() {
-    this.props.fetchAssigneeTasks(this.props.currentUserId);
+    if (!this.props.tasks.length) {
+      this.props.fetchAssigneeTasks(this.props.currentUserId);
+    }
   }
+  // can be removed
 
   render() {
     return (

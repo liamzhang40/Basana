@@ -102,10 +102,6 @@
   cursor: pointer;
 }
 
-input[type=date] {
-  // background-color: red;
-}
-
 .task-due-date {
   border: 1px solid transparent;
   border-radius: 3px;
@@ -174,6 +170,19 @@ input[type=date] {
 
 .name_and_description {
   padding: 0 30px;
+}
+
+.task-project button {
+  margin: 0 10px;
+  background-color: #edf1f2;
+  border-radius: 10px;
+  color: #848f99;
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+.task-project {
+  margin: 10px 0;
 }
 
 .task-name {

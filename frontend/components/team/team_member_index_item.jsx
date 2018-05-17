@@ -9,7 +9,7 @@ class TeamMemberIndexItem extends React.Component {
 
   handleClick() {
     const { member, fetchAssigneeTasks } = this.props;
-    fetchAssigneeTasks(member.id);
+    if (fetchAssigneeTasks) fetchAssigneeTasks(member.id);
   }
 
   render() {

@@ -12,7 +12,11 @@ class TaskIndex extends React.Component {
     // out from the url because it being undefined in the url will actually
     // pass the if conditional statement. It shows as a string 'undefined'
     const { projectId } = this.props.match.params;
-    if (projectId) this.props.fetchProjectTasks(projectId);
+    if (projectId) {
+      this.props.fetchTasks(projectId);
+    } else {
+      this.props.fetchTasks(this.props.currentUserId);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -21,7 +25,7 @@ class TaskIndex extends React.Component {
     // will ever happen until a team is selected
     if (nextProps.match.params.projectId) {
       if (this.props.match.params.projectId !== nextProps.match.params.projectId) {
-        this.props.fetchProjectTasks(nextProps.match.params.projectId);
+        this.props.fetchTasks(nextProps.match.params.projectId);
       }
     }
   }
