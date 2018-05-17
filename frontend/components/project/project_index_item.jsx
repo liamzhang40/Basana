@@ -9,11 +9,28 @@ class ProjectIndexItem extends React.Component {
       visible: false
     };
 
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
+  handleClick() {
+
+    if (!this.state.visible) {
+      document.addEventListener('mousedown', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('mousedown', this.handleOutsideClick, false);
+    }
+
     this.setState({visible: !this.state.visible});
+  }
+
+  handleOutsideClick(e) {
+    // debugger
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    // debugger
+    this.handleClick();
   }
 
   render() {
@@ -24,16 +41,18 @@ class ProjectIndexItem extends React.Component {
     // creator
     if (!project.privacy || project.creator_id === currentUserId ) {
       li = (
-        <li className='project-row'>
+        <li
+          ref={ node => this.node = node }
+          className='project-row'>
           <span className='project-name'>{project.name}</span>
           <span
             className='project-options'
             onClick={this.handleClick}>...
-            <div className={
-                this.state.visible ? 'dropdown-visible' : 'dropdown-hidden'
-              }>
-              <CurrentProjectDropdownContainer />
-            </div>
+            { this.state.visible &&
+              <div className='dropdown-visible'>
+                <CurrentProjectDropdownContainer />
+              </div>
+            }
           </span>
         </li>
       );

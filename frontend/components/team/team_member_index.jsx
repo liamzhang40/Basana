@@ -15,14 +15,15 @@ class TeamMemberIndex extends React.Component {
   }
 
   render() {
-    const { match, addMembers } = this.props;
+    const { match, addMembers, fetchAssigneeTasks } = this.props;
     let { members } = this.props;
     if (members.some(member => member === undefined)) members = [];
 
     const li = members.map(member => {
       return <TeamMemberIndexItem
         key={member.id}
-        member={member} />;
+        member={member}
+        fetchAssigneeTasks={fetchAssigneeTasks} />;
     });
 
     if (li.length < 6) {

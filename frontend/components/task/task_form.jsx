@@ -13,7 +13,8 @@ class TaskForm extends React.Component {
       visible: false
     };
 
-    this.toggleClass = this.toggleClass.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   update(field) {
@@ -36,8 +37,23 @@ class TaskForm extends React.Component {
     };
   }
 
-  toggleClass() {
+  handleClick() {
+
+    if (!this.state.visible) {
+      document.addEventListener('mousedown', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('mousedown', this.handleOutsideClick, false);
+    }
+
     this.setState({visible: !this.state.visible});
+  }
+
+  handleOutsideClick(e) {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+
+    this.handleClick();
   }
 
   render() {
@@ -48,19 +64,21 @@ class TaskForm extends React.Component {
       <div className='task-edit' id='task-form-container'>
         <div className='task-form'>
           <Link
-            to={`/dashboard/teams/${teamId}/projects/${projectId}`}
+            to={ projectId ? `/dashboard/teams/${teamId}/projects/${projectId}` : `/dashboard/teams/${teamId}`}
             className='close'>&times;</Link>
           <div className='assignee_and_due_date'>
-            <button
-              className='assignee'
-              onClick={this.toggleClass}>
-              <TeamMemberIndexItem member={ assignee }/>
-              <span>{ assignee ? assignee.name : 'Unassigned' }</span>
-            </button>
-            <div className={
-                this.state.visible ? 'assignee-dropdown-visible' : 'assignee-dropdown-hidden'
-              }>
-              <AssigneeDropdownContainer />
+            <div ref={ node => this.node = node }>
+              <button
+                className='assignee'
+                onClick={this.handleClick}>
+                <TeamMemberIndexItem member={ assignee }/>
+                <span>{ assignee ? assignee.name : 'Unassigned' }</span>
+              </button>
+              { this.state.visible &&
+                <div className='assignee-dropdown-visible'>
+                  <AssigneeDropdownContainer />
+                </div>
+              }
             </div>
 
             <div className='task-due-date'>

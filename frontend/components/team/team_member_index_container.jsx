@@ -4,6 +4,7 @@ import {
   fetchMembers,
   addMembers
 } from '../../actions/team_actions';
+import { fetchAssigneeTasks } from '../../actions/task_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const { teams, users } = state.entities;
@@ -17,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchMembers: memberIds => dispatch(fetchMembers(memberIds)),
-    addMembers: team => dispatch(addMembers(team))
+    addMembers: team => dispatch(addMembers(team)),
+    fetchAssigneeTasks: assigneeId => (dispatch(fetchAssigneeTasks(assigneeId)))
   };
 };
 

@@ -78,6 +78,10 @@
   align-items: center;
 }
 
+.team-members .member-list .member-avatar:hover {
+  cursor: pointer;
+}
+
 .team-members .member-list img {
   height: 100%;
   width: 100%;
