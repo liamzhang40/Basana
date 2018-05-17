@@ -121,6 +121,65 @@ input[type=date] {
   border: 1px solid #9ca6af;
 }
 
+.task-option-button  {
+  position: relative;
+  border: 1px solid #b7bfc6;
+  border-radius: 50%;
+  color: #848f99;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.task-option-button:hover  {
+  background-color: #f6f8f9;
+  border-color: #646f79;
+  color: #222b37;
+  cursor: pointer;
+}
+
+.task-option-button span {
+  font-size: 20px;
+  position: absolute;
+  top: -1.5px;
+  left: 7.5px;
+}
+
+.task-option-dropdown-hidden {
+  display: none;
+}
+
+.task-option-dropdown-visible {
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #d5dce0;
+  box-shadow: 0 10px 15px 0 rgba(0,0,0,0.06);
+}
+
+.task-option-dropdown-list {
+  font-size: 13px;
+  width: 215px;
+  padding: 5px 0;
+}
+
+.task-option-dropdown-list li {
+  padding: 5px 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.task-option-dropdown-list button {
+  color: #151b26;
+  width: 100%;
+}
+
+.task-option-dropdown-list button:hover {
+  background-color: #32c1ff;
+  color: #fff;
+}
+
 .name_and_description {
   padding: 0 30px;
 }

@@ -40,7 +40,7 @@ class ProjectIndexItem extends React.Component {
     }
     return (
       <Link to={`/dashboard/teams/${teamId}/projects/${project.id}`}>
-        {li}
+          {li}
       </Link>
     );
   }

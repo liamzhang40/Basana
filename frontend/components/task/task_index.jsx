@@ -19,8 +19,10 @@ class TaskIndex extends React.Component {
     // while working with only currentUser's tasks, projectId will always
     // be undefined since it is absent from the url. No dispatch will
     // will ever happen until a team is selected
-    if (this.props.match.params.projectId !== nextProps.match.params.projectId) {
-      this.props.fetchProjectTasks(nextProps.match.params.projectId);
+    if (nextProps.match.params.projectId) {
+      if (this.props.match.params.projectId !== nextProps.match.params.projectId) {
+        this.props.fetchProjectTasks(nextProps.match.params.projectId);
+      }
     }
   }
 

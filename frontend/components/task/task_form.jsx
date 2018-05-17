@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { minDate } from '../../util/date_util';
 import TeamMemberIndexItem from '../team/team_member_index_item';
 import AssigneeDropdownContainer from './assignee_dropdown_container';
-import { minDate } from '../../util/date_util';
+import TaskOption from './task_option';
 
 class TaskForm extends React.Component {
   constructor(props) {
@@ -69,6 +70,10 @@ class TaskForm extends React.Component {
                 min={ minDate() }
                 onChange={ this.update('due_date') }
                 value={ task ? task.due_date : ''}/>
+            </div>
+
+            <div className='task-option'>
+              <TaskOption />
             </div>
           </div>
 
