@@ -1,12 +1,12 @@
 .dashboard-body {
-  height: 100%;
-  min-width: 920px;
+  height: calc(100% - 105px);
 }
 
 .dashboard-tasks-container {
-  padding-top: 15px;
+  box-sizing: border-box;
+  padding: 15px 0;
   display: flex;
-  height: calc(100% - 30px);
+  height: 100%;
 }
 
 .dashboard-tasks-container .placeholder {
@@ -20,6 +20,7 @@
   border-radius: 3px;
   background-color: #fff;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
+  height: 100%;
 }
 
 .dashboard-body .task-edit {
@@ -30,4 +31,5 @@
   border-radius: 3px;
   background-color: #fff;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
+  height: 100%;
 }

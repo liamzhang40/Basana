@@ -6,6 +6,7 @@
 
 .team-projects .project-header {
   width: 220px;
+  min-height: 24px;
 }
 
 .team-projects .project-header {
@@ -86,7 +87,7 @@
 }
 
 .project-list li .project-options:hover {
-  color: red;
+  color: #14aaf5;
 }
 
 .project-options .dropdown-visible {
@@ -98,6 +99,5 @@
 
 .project-options .project-dropdown li {
   width: 80%;
-  color: black;
   padding: 0px 5px;
 }

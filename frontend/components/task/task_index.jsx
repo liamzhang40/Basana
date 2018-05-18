@@ -57,9 +57,11 @@ class TaskIndex extends React.Component {
           teamId = {match.params.teamId}
           projectId={match.params.projectId}
           currentUserId={currentUserId}/>
-        <ul className='task-list'>
-          {li}
-        </ul>
+        <div className='scroll-layer'>
+          <ul className='task-list'>
+            {li}
+          </ul>
+        </div>
       </div>
     );
   }

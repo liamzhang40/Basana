@@ -3,6 +3,7 @@
   font-family: 'Montserrat', sans-serif;
   color: #161d28;
   background-color: #f6f8f9;
+  height: 100vh;
 }
 
 .dashboard-left {
@@ -12,11 +13,12 @@
   width: 244px;
   background-color: #222b37;
   color: white;
-  height: 100vh;
+  height: 100%;
 }
 
 .dashboard-right {
   display: flex;
   flex-direction: column;
   width: calc(100% - 244px);
+  height: 100%;
 }

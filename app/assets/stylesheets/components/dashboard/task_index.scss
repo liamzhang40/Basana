@@ -21,6 +21,11 @@
   background-color: #008ce3;
 }
 
+.scroll-layer {
+  height: calc(100% - 50px);
+  overflow: auto;
+}
+
 .task-list {
   margin-top: 2px;
 }
