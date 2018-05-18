@@ -25,7 +25,7 @@ const CurrentTeam = props => {
     return (
       <button className='current-team' onClick={() => props.openDropdown()}>
         {props.team.name}
-        <TeamMemberIndexItem member={props.currentUser}/>
+        <TeamMemberIndexItem member={props.currentUser} />
       </button>
     );
   }

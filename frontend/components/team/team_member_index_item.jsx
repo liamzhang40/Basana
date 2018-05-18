@@ -17,7 +17,9 @@ class TeamMemberIndexItem extends React.Component {
   }
 
   handleMouse() {
-    this.setState({visible: !this.state.visible});
+    if (this.props.listenerOn) {
+      this.setState({visible: !this.state.visible});
+    }
   }
 
   render() {

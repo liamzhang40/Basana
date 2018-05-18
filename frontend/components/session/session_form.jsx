@@ -89,11 +89,11 @@ class SessionForm extends React.Component {
     if (formType === 'Sign up') {
       nameInput = (
         <div>
-          <img src={this.state.avatarURL} alt='Your Profile'/>
+          <img src={this.state.avatarURL ? this.state.avatarURL : window.static_images.sign_up_placeholder} alt='Your Profile'/>
           <label htmlFor='name-input'>Name</label>
           <input
             id='name-input'
-            placeholder='Liam'
+            placeholder='name'
             type='text'
             onChange={this.update('name')} />
         </div>

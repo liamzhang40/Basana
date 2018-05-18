@@ -71,6 +71,10 @@
   background-color: #646f79;
 }
 
+.project-list .project-row:active {
+  background-color: #ccc;
+}
+
 .project-list li .project-name {
   margin-left: 13px;
 }

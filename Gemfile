@@ -33,7 +33,7 @@ gem 'paperclip', '~> 5.0.0'
 gem 'figaro'
 gem 'aws-sdk', '< 3.0'
 # gem to validates email
-  gem 'faker'
+gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -56,6 +56,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'annotate'
   gem 'faker'
+  gem 'letter_opener'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
