@@ -66,6 +66,7 @@
 }
 
 .team-members .member-list li {
+  position: relative;
   box-sizing: border-box;
   height: 24px;
   width: 24px;
@@ -91,4 +92,24 @@
   height: 14px;
   width: 14px;
   fill: #fff;
+}
+
+.profile-dropdown {
+  position: absolute;
+  background-color: #fcbd01;
+  margin-top: 5px;
+  width: 180px;
+  height: 120px;
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.profile-dropdown span {
+  margin: 0 0 10px 20px;
+  font-size: 13px;
 }

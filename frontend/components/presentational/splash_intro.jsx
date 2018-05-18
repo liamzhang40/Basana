@@ -26,11 +26,11 @@ class SplashIntro extends React.Component {
     return (
       <section className='splash-left'>
         <h2>
-          Roll work
+          Move work
           <br />
-          backward
+          forward
         </h2>
-        <p>It is not Banana</p>
+        <p>Your work will slip fast with Basana</p>
         <div>
           <form onSubmit={this.handleSubmit}>
             <input

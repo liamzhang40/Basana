@@ -3,7 +3,11 @@ import React from 'react';
 class TeamMemberIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      visible: false
+    };
 
+    this.handleMouse = this.handleMouse.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -12,15 +16,32 @@ class TeamMemberIndexItem extends React.Component {
     if (fetchAssigneeTasks) fetchAssigneeTasks(member.id);
   }
 
+  handleMouse() {
+    this.setState({visible: !this.state.visible});
+  }
+
   render() {
     const { member } = this.props;
     let url = ' ';
     if (member) {
       url = member.url;
       return (
-        <li
-          className='member-avatar'
-          onClick={this.handleClick}><img src={url}/></li>
+        <div>
+          <li
+            className='member-avatar'
+            onClick={this.handleClick}
+            onMouseEnter={this.handleMouse}
+            onMouseLeave={this.handleMouse}>
+            <img src={url}/>
+
+          </li>
+
+          { this.state.visible &&
+            <div className='profile-dropdown'>
+              <span>{member.name}</span>
+            </div>
+          }
+        </div>
       );
     }
 

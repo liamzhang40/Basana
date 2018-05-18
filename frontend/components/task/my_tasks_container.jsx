@@ -17,13 +17,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 class MyTasks extends React.Component {
-  // not necessary
-  componentDidMount() {
-    if (!this.props.tasks.length) {
-      this.props.fetchAssigneeTasks(this.props.currentUserId);
-    }
-  }
-  // can be removed
+  // only task index will take care of fetching tasks
 
   render() {
     return (

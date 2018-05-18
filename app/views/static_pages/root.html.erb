@@ -8,10 +8,6 @@
       'api/teams/teams.json.jbuilder',
       teams: current_user.teams
     ).html_safe %>
-    window.myTasks = <%= render(
-      'api/tasks/tasks.json.jbuilder',
-      tasks: current_user.tasks
-    ).html_safe %>
   </script>
 <% end %>
 

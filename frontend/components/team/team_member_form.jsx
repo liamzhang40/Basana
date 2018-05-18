@@ -6,6 +6,7 @@ class TeamMemberForm extends React.Component {
     this.state = {
       emails: ''
     };
+    this.timeout = null;
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -13,6 +14,15 @@ class TeamMemberForm extends React.Component {
   update() {
     return (e) => {
       this.setState({emails: e.currentTarget.value});
+
+      // if (this.timeout) {
+      //   clearTimeout(this.timeout);
+      // } else {
+      // this.timeout = setTimeout(() => {
+      //
+      //   this.timeout = null;
+      // }, 1000);
+      // }
     };
   }
 
