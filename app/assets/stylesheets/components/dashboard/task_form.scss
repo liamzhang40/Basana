@@ -77,12 +77,12 @@
   background-color: white;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
   position: absolute;
-  top: 50px;
+  top: 5px;
   left: 30px;
 }
 
 .assignee-dropdown-visible input {
-  padding: 9px;
+  padding: 12px 5px;
   border: 1px solid #9ca6af;
   border-radius: 3px;
 }
@@ -133,8 +133,8 @@
 .task-option-button span {
   font-size: 20px;
   position: absolute;
-  top: -1.5px;
-  left: 7.5px;
+  top: -3px;
+  left: 5.5px;
 }
 
 .task-option-dropdown-visible {

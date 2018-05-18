@@ -13,7 +13,7 @@ TeamMembership.destroy_all
 Project.destroy_all
 Task.destroy_all
 
-10.times do
+20.times do
   User.create!(
     name: Faker::Name.name,
     username: Faker::Internet.email,
@@ -43,14 +43,15 @@ end
   )
 end
 
-30.times do
-  Task.create!(
+50.times do
+  task = Task.create!(
     project_id: Project.all.sample.id,
     assignee_id: User.all.sample.id,
     name: Faker::Commerce.product_name,
     description: Faker::HowIMetYourMother.quote,
     due_date: Faker::Time.between(Date.today, Date.today.at_beginning_of_year.next_year)
   )
+  task.update(assignee_id: task.project.team.members.sample.id)
 end
 
 
