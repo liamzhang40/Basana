@@ -4,6 +4,12 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.splash-background {
+  background-image: url('/assets/splash_background.jpg');
+  height: 400px;
+  width: 100%;
+}
+
 .splash-left h2 {
   font-size: 80px;
   font-weight: 300;
@@ -30,7 +36,6 @@
   width: 230px;
   border: 2px solid #e0e6e8;
   border-radius: 3px;
-  margin-bottom: 30px;
   margin-right: 30px;
 }
 

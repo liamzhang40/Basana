@@ -24,23 +24,26 @@ class SplashIntro extends React.Component {
 
   render() {
     return (
-      <section className='splash-left'>
-        <h2>
-          Move work
-          <br />
-          forward
-        </h2>
-        <p>Your work will slip fast with Basana</p>
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              placeholder='name@company.com'
-              type='text'
-              onChange={this.update()}
-              value={this.state.email}/>
-            <button>Get Started</button>
-          </form>
-        </div>
+      <section>
+        <section className='splash-left'>
+          <h2>
+            Move work
+            <br />
+            forward
+          </h2>
+          <p>Your work will slip fast with Basana</p>
+          <div>
+            <form onSubmit={this.handleSubmit}>
+              <input
+                placeholder='name@company.com'
+                type='text'
+                onChange={this.update()}
+                value={this.state.email}/>
+              <button>Get Started</button>
+            </form>
+          </div>
+        </section>
+        <div className='splash-background'></div>
       </section>
     );
   }
