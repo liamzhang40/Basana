@@ -60,7 +60,7 @@ class AssigneeDropdown extends React.Component {
         <input
           onChange={this.handleChange}
           value={this.state.inputVal}
-          ></input>
+          />
         <ul>
           {nameMatches}
         </ul>
