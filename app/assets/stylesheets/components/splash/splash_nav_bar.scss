@@ -17,6 +17,20 @@
   font-weight: 600;
 }
 
+.splash-nav-bar-left {
+  display: flex;
+  align-items: center;
+}
+
+.splash-nav-bar-left {
+  width: 50px;
+  height: 50px;
+}
+
+.splash-nav-bar-left h1 {
+  margin-left: 15px;
+}
+
 .splash-right-nav button {
   margin-left: 32px;
   letter-spacing: 0.5px;

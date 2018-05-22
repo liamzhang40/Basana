@@ -36,7 +36,10 @@ const Greeting = props => {
 
   return (
     <div className='splash-nav-bar'>
-      <h1>Basana</h1>
+      <div className='splash-nav-bar-left'>
+        <img src={window.static_images.favicon}/>
+        <h1>Basana</h1>
+      </div>
       {component}
     </div>
   );

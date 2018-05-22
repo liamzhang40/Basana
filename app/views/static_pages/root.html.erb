@@ -9,14 +9,15 @@
       teams: current_user.teams
     ).html_safe %>
     window.static_images = {
-      
+
     }
   </script>
 <% end %>
 
 <script type="text/javascript">
   window.static_images = {
-    sign_up_placeholder: "<%= image_url("missing8.jpg") %>"
+    sign_up_placeholder: "<%= image_url("missing8.jpg") %>",
+    favicon: "<%= image_url("icon.jpg") %>"
   }
 </script>
 
