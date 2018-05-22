@@ -10,11 +10,11 @@ class TaskForm extends React.Component {
     super(props);
     this.timeout = null;
     this.state = {
-      assigneeVisible: false,
+      visible: false,
     };
 
-    this.handleAssigneeOutsideClick = this.handleAssigneeOutsideClick.bind(this);
-    this.handleAssigneeClick = this.handleAssigneeClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   update(field) {
@@ -25,7 +25,11 @@ class TaskForm extends React.Component {
     } = this.props;
 
     return (e) => {
-      updateReduxTask({id: task.id, [field]: e.currentTarget.value});
+      const tobeUpdate = e.currentTarget.value;
+      // the true & false in HTML value attribute is converted string
+      if (tobeUpdate === 'true') updateReduxTask({id: task.id, [field]: true});
+      else if (tobeUpdate === 'false') updateReduxTask({id: task.id, [field]: false});
+      else updateReduxTask({id: task.id, [field]: tobeUpdate});
 
       if (this.timeout) {
         clearTimeout(this.timeout);
@@ -37,23 +41,23 @@ class TaskForm extends React.Component {
     };
   }
 
-  handleAssigneeClick() {
+  handleClick() {
 
-    if (!this.state.assigneeVisible) {
-      document.addEventListener('mousedown', this.handleAssigneeOutsideClick, false);
+    if (!this.state.visible) {
+      document.addEventListener('mousedown', this.handleOutsideClick, false);
     } else {
-      document.removeEventListener('mousedown', this.handleAssigneeOutsideClick, false);
+      document.removeEventListener('mousedown', this.handleOutsideClick, false);
     }
 
-    this.setState({assigneeVisible: !this.state.assigneeVisible});
+    this.setState({visible: !this.state.visible});
   }
 
-  handleAssigneeOutsideClick(e) {
+  handleOutsideClick(e) {
     if (this.node.contains(e.target)) {
       return;
     }
 
-    this.handleAssigneeClick();
+    this.handleClick();
   }
 
   render() {
@@ -70,11 +74,11 @@ class TaskForm extends React.Component {
             <div ref={ node => this.node = node }>
               <button
                 className='assignee'
-                onClick={this.handleAssigneeClick}>
+                onClick={this.handleClick}>
                 <TeamMemberIndexItem member={ assignee }/>
                 <span>{ assignee ? assignee.name : 'Unassigned' }</span>
               </button>
-              { this.state.assigneeVisible &&
+              { this.state.visible &&
                 <div className='assignee-dropdown-visible'>
                   <AssigneeDropdownContainer />
                 </div>

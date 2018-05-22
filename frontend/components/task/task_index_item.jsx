@@ -17,7 +17,10 @@ class TaskIndexItem extends React.Component {
     } = this.props;
 
     return (e) => {
-      updateReduxTask({id: task.id, [field]: e.currentTarget.value});
+      const tobeUpdate = e.currentTarget.value;
+      if (tobeUpdate === 'true') updateReduxTask({id: task.id, [field]: true});
+      else if (tobeUpdate === 'false') updateReduxTask({id: task.id, [field]: false});
+      else updateReduxTask({id: task.id, [field]: tobeUpdate});
 
       if (this.timeout) {
         clearTimeout(this.timeout);
