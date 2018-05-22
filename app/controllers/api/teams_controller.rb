@@ -62,6 +62,7 @@ class Api::TeamsController < ApplicationController
     params.require(:team).permit(:name)
   end
 
+  # refactor this into TeamMembership model
   def create_teammemberships(team, emails)
     # will return invalid_emails in future
     invalid_emails = []
@@ -70,9 +71,12 @@ class Api::TeamsController < ApplicationController
 
     emails.each do |email|
       user = User.find_by(username: email)
-      invalid_emails << email unless user
-      TeamMembership.create(team_id: team.id, member_id: user.id)
-      users << user
+      if user
+        TeamMembership.create(team_id: team.id, member_id: user.id)
+        users << user
+      else
+        invalid_emails << email
+      end
     end
 
     return users << current_user

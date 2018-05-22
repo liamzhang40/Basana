@@ -5,6 +5,7 @@ import { closeModal } from '../../actions/modal_actions';
 import TeamForm from './team_form';
 
 const mapStateToProps = state => {
+  debugger
   return {
     errors: state.errors.teams,
     team: { name: '', emails: '' },

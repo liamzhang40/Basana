@@ -119,7 +119,7 @@ class SessionForm extends React.Component {
             <input
               id='email-input'
               placeholder='name@company.com'
-              type='text'
+              type='email'
               onChange={this.update('username')} />
           </div>
 
