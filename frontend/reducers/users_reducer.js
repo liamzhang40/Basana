@@ -16,17 +16,6 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_NEW_TEAM:
       const users = action.payload.users;
       return merge({}, state, users);
-    // use below if no members returned with new team
-      // const memberIds = action.team.memberIds;
-      // const usersToMerge = {};
-      // memberIds.forEach(id => {
-      //   if (state[id]) {
-      //     const newUser = merge({},state[id]);
-      //     newUser.teamIds.push(action.team.id);
-      //     usersToMerge[id] = newUser;
-      //   }
-      // });
-      // return merge({}, state, usersToMerge);
     default:
       return state;
   }

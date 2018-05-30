@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { openDropdown } from '../../actions/dropdown_actions';
+import CurrentProjectDropdownContainer from './current_project_dropdown_container';
 
 const mapStateToProps = (state, ownProps) =>  {
   return {
@@ -8,25 +8,59 @@ const mapStateToProps = (state, ownProps) =>  {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    openDropdown: () => dispatch(openDropdown('updateproject'))
-  };
-};
+class CurrentProject extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false
+    };
 
-const CurrentProject = props => {
-  if (!props.project) {
-    return (<div></div>);
-  } else {
-    return (
-      <div className='current-project'>
-        <span>{props.project.name}</span>
-        <button onClick={() => props.openDropdown()}>
-          ⌄
-        </button>
-      </div>
-    );
+    this.handleClick = this.handleClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(CurrentProject);
+  handleClick() {
+    if (!this.state.visible) {
+      document.addEventListener('mousedown', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('mousedown', this.handleOutsideClick, false);
+    }
+
+    this.setState({visible: !this.state.visible});
+  }
+
+  handleOutsideClick(e) {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    this.handleClick();
+  }
+
+  render() {
+    const { project } = this.props;
+    if (!project) {
+      return (<div></div>);
+    } else {
+      return (
+        <div
+          ref = { node => this.node = node }
+          className='current-project'>
+          <span>{project.name}</span>
+          <span
+            className="down-arrow"
+            onClick={this.handleClick}>
+            ⌄
+            {
+              this.state.visible &&
+              <div className='dropdown-visible'>
+                <CurrentProjectDropdownContainer project={project}/>
+              </div>
+            }
+          </span>
+        </div>
+      );
+    }
+  }
+}
+
+export default connect(mapStateToProps)(CurrentProject);

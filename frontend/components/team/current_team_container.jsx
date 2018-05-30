@@ -16,21 +16,38 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const CurrentTeam = props => {
-    // fetching team from team index is asychronous so in first render
-    // teams state is still empty
-  if (!props.team) {
-    return (<div></div>);
-  } else {
-    return (
-      <button className='current-team' onClick={() => props.openDropdown()}>
-        {props.team.name}
-        <TeamMemberIndexItem member={props.currentUser} />
-      </button>
-    );
+class CurrentTeam extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false
+    };
   }
-};
 
+  handleClick() {
+    if(!this.state.visible) {
+      document.addEventListener("click", )
+    }
+  }
 
+  handleOutsideClick() {
+
+  }
+
+  render() {
+    const { team, currentUser } = this.props;
+    if (!team) {
+      return (<div></div>);
+    } else {
+      return (
+        <span className='current-team' onClick={() => openDropdown()}>
+          {team.name}
+          <TeamMemberIndexItem member={ currentUser } />
+        </span>
+      );
+    }
+
+  }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentTeam);

@@ -6,7 +6,6 @@ const TeamIndexItem = props => {
 
   const handleClick = () => {
     closeDropdown();
-    // fetchProjects(team.id);
   };
 
   return (

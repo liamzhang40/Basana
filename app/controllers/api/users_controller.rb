@@ -8,7 +8,6 @@ class Api::UsersController < ApplicationController
       login(@user)
       # email = UserMailer.welcome_email(@user)
       # email.deliver_now
-
       render 'api/users/show'
     else
       render json: @user.errors.full_messages, status: 422
@@ -22,6 +21,10 @@ class Api::UsersController < ApplicationController
     else
       render json: @user.errors.full_messages, status: 422
     end
+  end
+
+  def index
+
   end
 
   private

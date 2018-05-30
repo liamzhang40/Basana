@@ -18,9 +18,18 @@
   margin-top: 10px;
 }
 
-.current-project button {
+.current-project .down-arrow {
   font-size: 30px;
   color: #848f99;
   margin-top: -10px;
   padding: 0px 2px;
+}
+
+.current-project .down-arrow:hover {
+  cursor: pointer;
+}
+
+.current-project .dropdown-visible {
+  position: absolute;
+  background-color: #fff;
 }

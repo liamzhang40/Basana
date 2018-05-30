@@ -3,7 +3,7 @@ class Api::TeamsController < ApplicationController
   before_action :require_login
 
   def index
-    @teams = current_user.teams
+    @teams = current_user.teams.includes(:members)
     render 'api/teams/index'
   end
 
@@ -46,7 +46,6 @@ class Api::TeamsController < ApplicationController
     team_id = params[:id]
     @team = Team.find(team_id)
     user = current_user
-    # the json jbuilder file only expects a array of users
     @users = [user]
     TeamMembership.find_by(
       team_id: team_id,

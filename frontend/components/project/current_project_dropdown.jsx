@@ -8,10 +8,8 @@ class CurrentProjectDropdown extends React.Component {
   }
 
   handleRemove() {
-    const { history, match, removeProject, closeDropdown } = this.props;
-
-    removeProject(match.params.projectId).then(() => {
-      closeDropdown();
+    const { history, match, removeProject, project} = this.props;
+    removeProject(project.id).then(() => {
       history.push(`/dashboard/teams/${match.params.teamId}`);
     });
   }
@@ -19,7 +17,6 @@ class CurrentProjectDropdown extends React.Component {
   render() {
     const {
       openModal,
-      closeDropdown
     } = this.props;
 
     return (

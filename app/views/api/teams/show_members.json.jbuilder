@@ -1,4 +1,4 @@
-@team.members.each do |member|
+@team.members.includes(:teams).each do |member|
   json.set! member.id do
     json.partial! 'api/users/user.json.jbuilder', user: member
   end

@@ -41,10 +41,11 @@ class TeamIndex extends React.Component {
         // if user still has any team, will redirect to the first
         // team in the teams array
         closeDropdown();
-        // debugger
         const restTeams = teams.filter(team => team.id !== parseInt(match.params.teamId));
         history.push(`/dashboard/teams/${restTeams[0].id}`);
       });
+    } else {
+      window.alert("You can't remove yourself from your last team");
     }
   }
 
@@ -56,16 +57,12 @@ class TeamIndex extends React.Component {
       openModal,
       removeMember,
       closeDropdown
-      // fetchTeam,
-      // fetchProjects
     } = this.props;
 
     const li = teams.map(team => {
       return <TeamIndexItem
         key={team.id}
         team={team}
-        // fetchTeam={fetchTeam}
-        // fetchProjects={fetchProjects}
         closeDropdown={closeDropdown} />;
     });
 

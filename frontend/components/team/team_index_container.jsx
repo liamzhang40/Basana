@@ -1,11 +1,9 @@
 import { connect } from 'react-redux';
 import {
   fetchTeams,
-  // fetchTeam,
   removeMember
 } from '../../actions/team_actions';
 import { logout } from '../../actions/session_actions';
-// import { fetchProjects } from '../../actions/project_actions';
 import { openModal } from '../../actions/modal_actions';
 import { closeDropdown } from '../../actions/dropdown_actions';
 import TeamIndex from './team_index';
@@ -28,10 +26,6 @@ const mapDispatchToProps = dispatch => {
     logout: () => dispatch(logout()),
     openModal: modal => dispatch(openModal(modal)),
     closeDropdown: () => dispatch(closeDropdown())
-    // fetchTeam: teamId => dispatch(fetchTeam(teamId)),
-    // fetchProjects: teamId => dispatch(fetchProjects(teamId)),
-    // not the best place to fetch projects because user might not access
-    // through team index component
   };
 };
 

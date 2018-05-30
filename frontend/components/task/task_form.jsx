@@ -26,7 +26,6 @@ class TaskForm extends React.Component {
 
     return (e) => {
       const tobeUpdate = e.currentTarget.value;
-      // the true & false in HTML value attribute is converted string
       if (tobeUpdate === 'true') updateReduxTask({id: task.id, [field]: true});
       else if (tobeUpdate === 'false') updateReduxTask({id: task.id, [field]: false});
       else updateReduxTask({id: task.id, [field]: tobeUpdate});

@@ -44,7 +44,6 @@ const Dashboard = () => {
             <Route path='/dashboard/teams/:teamId/projects/:projectId/tasks/:taskId' component={UpdateTaskFormContainer} />
             <Route path='/dashboard/teams/:teamId/tasks/:taskId' component={UpdateTaskFormContainer} />
 
-
             <div className='placeholder'></div>
           </section>
         </section>

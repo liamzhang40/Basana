@@ -9,12 +9,11 @@ class ProjectIndexItem extends React.Component {
       visible: false
     };
 
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
   handleClick() {
-
     if (!this.state.visible) {
       document.addEventListener('mousedown', this.handleOutsideClick, false);
     } else {
@@ -25,11 +24,9 @@ class ProjectIndexItem extends React.Component {
   }
 
   handleOutsideClick(e) {
-    // debugger
     if (this.node.contains(e.target)) {
       return;
     }
-    // debugger
     this.handleClick();
   }
 
@@ -47,10 +44,12 @@ class ProjectIndexItem extends React.Component {
           <span className='project-name'>{project.name}</span>
           <span
             className='project-options'
-            onClick={this.handleClick}>...
-            { this.state.visible &&
+            onClick={this.handleClick}>
+            ...
+            {
+              this.state.visible &&
               <div className='dropdown-visible'>
-                <CurrentProjectDropdownContainer />
+                <CurrentProjectDropdownContainer project={project}/>
               </div>
             }
           </span>
