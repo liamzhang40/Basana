@@ -32,3 +32,11 @@ export const logout = () => {
     url: 'api/session'
   });
 };
+
+export const searchUser = email_piece => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/users',
+    data: { email_piece }
+  });
+};

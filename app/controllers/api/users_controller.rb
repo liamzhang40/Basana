@@ -24,7 +24,19 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-
+    email_piece = params[:email_piece]
+    # refactor into User class methods
+    # query = "
+    #   SELECT
+    #     *
+    #   FROM
+    #     users
+    #   WHERE
+    #     username LIKE '#{email_piece}%';
+    # "
+    # @users = ActiveRecord::Base.connection.execute(query)
+    @users = User.where("username LIKE '#{email_piece}%'")
+    render 'api/users/index'
   end
 
   private
