@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import {
-  fetchTeams,
   removeMember
 } from '../../actions/team_actions';
 import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
-import { closeDropdown } from '../../actions/dropdown_actions';
-import TeamIndex from './team_index';
+import TeamDropdown from './team_dropdown';
 
 const mapStateToProps = state => {
   const currentUser = state.entities.users[state.session.id];
@@ -21,12 +20,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchTeams: () => dispatch(fetchTeams()),
     removeMember: id => dispatch(removeMember(id)),
     logout: () => dispatch(logout()),
-    openModal: modal => dispatch(openModal(modal)),
-    closeDropdown: () => dispatch(closeDropdown())
+    openModal: modal => dispatch(openModal(modal))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TeamIndex);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TeamDropdown));

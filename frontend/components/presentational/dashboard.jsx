@@ -20,18 +20,18 @@ const Dashboard = () => {
       </nav>
 
       <section className='dashboard-right'>
-        <section className='top-nav-bar'>
-          <ul>
-            <li><Route path='/dashboard/teams/:teamId' component={MyTasksContainer}/></li>
+        <nav className='top-nav-bar'>
+          <div className='top-nav-bar-list'>
+            <div><Route path='/dashboard/teams/:teamId' component={MyTasksContainer}/></div>
 
-            <li>Search Bar</li>
-            <li><Route path='/dashboard/teams/:teamId' component={CurrentTeamContainer}/></li>
-          </ul>
-        </section>
+            <div>Search Bar</div>
+            <div><Route path='/dashboard/teams/:teamId' component={CurrentTeamContainer}/></div>
+          </div>
+        </nav>
 
-        <section className='top-nav-bar-2'>
+        <nav className='top-nav-bar-2'>
           <Route path='/dashboard/teams/:teamId/projects/:projectId' component={CurrentProjectContainer}/>
-        </section>
+        </nav>
 
         <section className='dashboard-body'>
           <section className='dashboard-tasks-container'>

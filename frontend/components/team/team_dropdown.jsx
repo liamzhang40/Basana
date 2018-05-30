@@ -1,19 +1,12 @@
 import React from 'react';
-import TeamIndexItem from './team_index_item';
+import TeamDropdownItem from './team_dropdown_item';
 
-class TeamIndex extends React.Component {
+class TeamDropdown extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleLogout = this.handleLogout.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
-  }
-
-  // could be taken out
-  componentWillMount() {
-    if (!this.props.teams.length) {
-      this.props.fetchTeams();
-    }
   }
 
   handleLogout() {
@@ -31,17 +24,15 @@ class TeamIndex extends React.Component {
     if (this.props.teams.length > 1) {
       const {
         teams,
-        match,
+        currentTeam,
         history,
-        removeMember,
-        closeDropdown
+        removeMember
       } = this.props;
 
-      removeMember(match.params.teamId).then(()=> {
+      removeMember(currentTeam.id).then(()=> {
         // if user still has any team, will redirect to the first
         // team in the teams array
-        closeDropdown();
-        const restTeams = teams.filter(team => team.id !== parseInt(match.params.teamId));
+        const restTeams = teams.filter(team => team.id !== parseInt(currentTeam.id));
         history.push(`/dashboard/teams/${restTeams[0].id}`);
       });
     } else {
@@ -51,25 +42,22 @@ class TeamIndex extends React.Component {
 
   render() {
     const {
-      match,
       teams,
       logout,
       openModal,
       removeMember,
-      closeDropdown
     } = this.props;
 
     const li = teams.map(team => {
-      return <TeamIndexItem
+      return <TeamDropdownItem
         key={team.id}
-        team={team}
-        closeDropdown={closeDropdown} />;
+        team={team}/>;
     });
 
     return (
       <div className='team-dropdown'>
-        <ul>
-          <ul>
+        <ul className='team-dropdown-container'>
+          <ul className='team-names'>
             {li}
           </ul>
 
@@ -89,4 +77,4 @@ class TeamIndex extends React.Component {
   }
 }
 
-export default TeamIndex;
+export default TeamDropdown;

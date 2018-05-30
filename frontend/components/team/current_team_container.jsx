@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { openDropdown } from '../../actions/dropdown_actions';
 import TeamMemberIndexItem from './team_member_index_item';
+import TeamDropdownContainer from './team_dropdown_container';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -12,7 +12,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    openDropdown: () => dispatch(openDropdown('switchteam'))
   };
 };
 
@@ -22,16 +21,27 @@ class CurrentTeam extends React.Component {
     this.state = {
       visible: false
     };
+
+    this.handleClick = this.handleClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
   handleClick() {
     if(!this.state.visible) {
-      document.addEventListener("click", )
+      document.addEventListener("mousedown", this.handleOutsideClick);
+    } else {
+      document.removeEventListener("mousedown", this.handleOutsideClick);
     }
+
+    this.setState({visible: !this.state.visible});
   }
 
-  handleOutsideClick() {
+  handleOutsideClick(e) {
+    if(this.node.contains(e.target)) {
+      return;
+    }
 
+    this.handleClick();
   }
 
   render() {
@@ -40,9 +50,14 @@ class CurrentTeam extends React.Component {
       return (<div></div>);
     } else {
       return (
-        <span className='current-team' onClick={() => openDropdown()}>
+        <span
+          ref = { node => this.node = node }
+          className='current-team'
+          onClick={this.handleClick}>
           {team.name}
           <TeamMemberIndexItem member={ currentUser } />
+          { this.state.visible &&
+          <TeamDropdownContainer currentTeam={team}/>}
         </span>
       );
     }

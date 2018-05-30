@@ -8,7 +8,7 @@
   letter-spacing: 0.5px;
 }
 
-.top-nav-bar ul {
+.top-nav-bar-list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -16,30 +16,24 @@
   height: 100%;
 }
 
-.top-nav-bar>ul>li,
-.top-nav-bar>ul>ul {
+.top-nav-bar-list>div {
   margin: 12px 16px;
 }
 
-.top-nav-bar>ul>ul li {
-  margin: 0px 15px;
-}
-
-.top-nav-bar>ul>ul li:first-child {
-  margin-left: 10px;
+.top-nav-bar-list>div:first-child {
+  margin-left: 20px;
   color: #151b26;
-  transition: 0.3s ease-in-out;
 }
 
-.top-nav-bar>ul>ul li:first-child:hover {
+.top-nav-bar-list>div:first-child:hover {
   color: #14aaf5;
 }
 
-.top-nav-bar li {
+.top-nav-bar-list>div {
   transition: 0.3s ease-in-out;
 }
 
-.top-nav-bar li:hover {
+.top-nav-bar-list>div:hover {
   color: #14aaf5;
   cursor: pointer;
 }
@@ -51,14 +45,14 @@
   justify-content: space-between;
 }
 
-.top-nav-bar .current-team li {
+.current-team .member-avatar {
   height: 30px;
   width: 30px;
   border-radius: 50%;
   overflow: hidden;
 }
 
-.top-nav-bar .current-team img {
+.current-team img {
   height: 100%;
   width: 100%;
 }
