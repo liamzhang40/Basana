@@ -4,10 +4,10 @@ import CurrentTeamContainer from '../team/current_team_container';
 import TeamMemberIndexContainer from '../team/team_member_index_container';
 import ProjectIndexContainer from '../project/project_index_container';
 import CurrentProjectContainer from '../project/current_project_container';
-import ProjectTaskIndexContainer from '../task/project_task_index_container';
 import AssigneeTaskIndexContainer from '../task/assignee_task_index_container';
 import UpdateTaskFormContainer from '../task/update_task_form_container';
-import MyTasksContainer from '../task/my_tasks_container';
+import MyTaskIndexContainer from '../task/my_task_index_container';
+import ProjectTaskIndexContainer from '../task/project_task_index_container';
 
 const Dashboard = () => {
 
@@ -22,7 +22,7 @@ const Dashboard = () => {
       <section className='dashboard-right'>
         <nav className='top-nav-bar'>
           <div className='top-nav-bar-list'>
-            <div><Route path='/dashboard/teams/:teamId' component={MyTasksContainer}/></div>
+            <div><Route path='/dashboard/teams/:teamId' component={MyTaskIndexContainer}/></div>
 
             <div>Search Bar</div>
             <div><Route path='/dashboard/teams/:teamId' component={CurrentTeamContainer}/></div>

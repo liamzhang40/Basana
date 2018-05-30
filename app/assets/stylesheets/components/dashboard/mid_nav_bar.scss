@@ -31,5 +31,5 @@
 
 .current-project .dropdown-visible {
   position: absolute;
-  background-color: #fff;
+  z-index: 2;
 }

@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-class MyTasks extends React.Component {
+class MyTaskIndex extends React.Component {
   // only task index will take care of fetching tasks
 
   render() {
@@ -30,4 +30,4 @@ class MyTasks extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyTasks);
+export default connect(mapStateToProps, mapDispatchToProps)(MyTaskIndex);

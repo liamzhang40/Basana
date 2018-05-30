@@ -94,10 +94,5 @@
   position: absolute;
   top: -5px;
   right: -220px;
-  background-color: #fff;
-}
-
-.project-options .project-dropdown li {
-  width: 80%;
-  padding: 0px 5px;
+  z-index: 2;
 }
