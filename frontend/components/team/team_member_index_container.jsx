@@ -1,9 +1,6 @@
 import { connect } from 'react-redux';
 import TeamMemberIndex from './team_member_index';
-import {
-  fetchMembers,
-  addMembers
-} from '../../actions/team_actions';
+import { fetchMembers } from '../../actions/team_actions';
 import { fetchAssigneeTasks } from '../../actions/task_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,7 +15,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchMembers: memberIds => dispatch(fetchMembers(memberIds)),
-    addMembers: team => dispatch(addMembers(team)),
     fetchAssigneeTasks: assigneeId => (dispatch(fetchAssigneeTasks(assigneeId)))
   };
 };
