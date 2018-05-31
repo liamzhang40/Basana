@@ -32,6 +32,12 @@ const receiveUserSearch = users => {
   };
 };
 
+export const clearUserSearch = () => {
+  return {
+    type: CLEAR_USER_SEARCH
+  };
+};
+
 export const signup = user => {
   return dispatch => {
     return sessionAPIUtil.signup(user).then(

@@ -1,5 +1,5 @@
 import React from 'react';
-import TeamMemberForm from './team_member_form';
+import TeamMemberFormContainer from './team_member_form_container';
 import TeamMemberIndexItem from './team_member_index_item';
 
 class TeamMemberIndex extends React.Component {
@@ -36,9 +36,8 @@ class TeamMemberIndex extends React.Component {
 
     return (
       <div className='team-members'>
-        <TeamMemberForm
-          teamId={match.params.teamId}
-          addMembers={addMembers}/>
+        <TeamMemberFormContainer
+          teamId={match.params.teamId}/>
         <ul className='member-list'>
           {li}
         </ul>
