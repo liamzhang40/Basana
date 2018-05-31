@@ -40,7 +40,7 @@ class TeamMemberForm extends React.Component {
   }
 
   handleSearchList() {
-    this.setState({'visible': !this.state.visible});
+    this.setState({'visible': true});
   }
 
   render() {
@@ -48,22 +48,23 @@ class TeamMemberForm extends React.Component {
       return <UserSearchItem
         key={user.id}
         user={user}
-        setParentState={this.setState} />;
+        setParentState={this.setState.bind(this)}
+        clearUserSearch={this.props.clearUserSearch} />;
     });
     return (
       <div className='member-form'>
         <form onSubmit={this.handleSubmit}>
           <input
-            placeholder='Separate emails with commas'
+            placeholder='Search to add team member...'
             type='text'
             onChange={ this.update() }
             onFocus={ this.handleSearchList }
-            onBlur={ this.handleSearchList }
             value={ this.state.emails }/>
           <button className='dot'></button>
         </form>
 
-        <ul className="user-search-list">
+        <ul
+          className="user-search-list">
           { this.state.visible &&
             userList}
         </ul>

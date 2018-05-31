@@ -1,15 +1,17 @@
 import React from 'react';
 
-const UserSearchItem = ({ user, setParentState }) => {
+const UserSearchItem = ({ user, setParentState, clearUserSearch }) => {
   const handleClick = (e) => {
-    console.log(e.currentTarget.value)
+    const emails = e.currentTarget.attributes.value.nodeValue;
+    setParentState({ emails });
+    clearUserSearch();
   }
 
   return (
     <li
       value={user.username}
       onClick={handleClick}>
-      {user.username}
+      <span>{user.username}</span>
     </li>
   );
 };
