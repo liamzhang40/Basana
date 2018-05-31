@@ -7,11 +7,10 @@
 .team-projects .project-header {
   width: 220px;
   min-height: 24px;
-}
-
-.team-projects .project-header {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #9ca6af;
+  align-items: center;
   margin-top: 15px;
 }
 

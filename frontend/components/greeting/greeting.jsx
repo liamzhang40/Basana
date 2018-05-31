@@ -11,15 +11,15 @@ const Greeting = props => {
     currentUser
   } = props;
 
-  let component;
+  let splashRightNav;
   if (currentUser) {
-    component =
+    splashRightNav =
       <div className='splash-right-nav'>
         <span>{currentUser.name}</span>
         <button onClick={() => logout()}>Log out</button>
       </div>;
   } else {
-    component =
+    splashRightNav =
       <div className='splash-right-nav'>
         <button onClick={() => openModal('login')}>Log in</button>
         <button onClick={() => openModal('signup')}>Sign up</button>
@@ -40,7 +40,7 @@ const Greeting = props => {
         <img src={window.static_images.favicon}/>
         <h1>Basana</h1>
       </div>
-      {component}
+      {splashRightNav}
     </div>
   );
 };

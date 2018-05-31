@@ -43,6 +43,11 @@ class SplashIntro extends React.Component {
             </form>
           </div>
         </section>
+        <ul className="social-icon">
+          <li><a href="https://github.com/liamzhang40/Basana" target="_blank" className="github"><i className="fab fa-github"></i></a></li>
+          <li><a href="https://linkedin.com/in/liamzhang40" target="_blank" className="linkedin"><i className="fab fa-linkedin"></i></a></li>
+          <li><a href="http://liam-zhang.com" className="portfolio" target="_blank"><img src={window.static_images.portfolio} alt="Link to portfolio"/></a></li>
+        </ul>
         <div className='splash-background'></div>
       </section>
     );

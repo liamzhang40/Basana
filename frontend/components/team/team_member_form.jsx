@@ -15,6 +15,7 @@ class TeamMemberForm extends React.Component {
   }
 
   update() {
+    const { searchUser, clearUserSearch } = this.props;
     return (e) => {
       this.setState({emails: e.currentTarget.value});
 
@@ -23,9 +24,9 @@ class TeamMemberForm extends React.Component {
       }
       this.timeout = setTimeout(() => {
         if (this.state.emails) {
-          this.props.searchUser(this.state.emails);
+          searchUser(this.state.emails);
         } else {
-          this.props.clearUserSearch();
+          clearUserSearch();
         }
         this.timeout = null;
       }, 500);
@@ -33,14 +34,17 @@ class TeamMemberForm extends React.Component {
   }
 
   handleSubmit(e) {
+    const { addMembers, teamId } = this.props;
     e.preventDefault();
     const emails = Object.assign({}, this.state).emails;
-    this.props.addMembers({id: this.props.teamId, emails: emails});
+    addMembers({id: teamId, emails: emails});
     this.setState({emails: ''});
   }
 
   handleSearchList() {
-    this.setState({'visible': true});
+    setTimeout(() => {
+      this.setState({visible: !this.state.visible});
+    }, 100);
   }
 
   render() {
@@ -58,6 +62,7 @@ class TeamMemberForm extends React.Component {
             placeholder='Search to add team member...'
             type='text'
             onChange={ this.update() }
+            onBlur={ this.handleSearchList }
             onFocus={ this.handleSearchList }
             value={ this.state.emails }/>
           <button className='dot'></button>
@@ -65,8 +70,8 @@ class TeamMemberForm extends React.Component {
 
         <ul
           className="user-search-list">
-          { this.state.visible &&
-            userList}
+            { this.state.visible &&
+              userList }
         </ul>
       </div>
     );

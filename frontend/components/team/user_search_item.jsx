@@ -11,6 +11,7 @@ const UserSearchItem = ({ user, setParentState, clearUserSearch }) => {
     <li
       value={user.username}
       onClick={handleClick}>
+      
       <span>{user.username}</span>
     </li>
   );
