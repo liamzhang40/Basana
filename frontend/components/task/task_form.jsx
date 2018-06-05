@@ -4,17 +4,12 @@ import { minDate } from '../../util/date_util';
 import TeamMemberIndexItem from '../team/team_member_index_item';
 import AssigneeDropdownContainer from './assignee_dropdown_container';
 import TaskOption from './task_option';
+import Assignee from './assignee';
 
 class TaskForm extends React.Component {
   constructor(props) {
     super(props);
     this.timeout = null;
-    this.state = {
-      visible: false,
-    };
-
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   update(field) {
@@ -40,25 +35,6 @@ class TaskForm extends React.Component {
     };
   }
 
-  handleClick() {
-
-    if (!this.state.visible) {
-      document.addEventListener('mousedown', this.handleOutsideClick, false);
-    } else {
-      document.removeEventListener('mousedown', this.handleOutsideClick, false);
-    }
-
-    this.setState({visible: !this.state.visible});
-  }
-
-  handleOutsideClick(e) {
-    if (this.node.contains(e.target)) {
-      return;
-    }
-
-    this.handleClick();
-  }
-
   render() {
     const { task, errors, match, assignee, project } = this.props;
     const { teamId, projectId } = match.params;
@@ -70,19 +46,7 @@ class TaskForm extends React.Component {
             to={ projectId ? `/dashboard/teams/${teamId}/projects/${projectId}` : `/dashboard/teams/${teamId}`}
             className='close'>&times;</Link>
           <div className='assignee_and_due_date'>
-            <div ref={ node => this.node = node }>
-              <button
-                className='assignee'
-                onClick={this.handleClick}>
-                <TeamMemberIndexItem member={ assignee }/>
-                <span>{ assignee ? assignee.name : 'Unassigned' }</span>
-              </button>
-              { this.state.visible &&
-                <div className='assignee-dropdown-visible'>
-                  <AssigneeDropdownContainer />
-                </div>
-              }
-            </div>
+            <Assignee assignee={ assignee } />
 
             <div className='task-due-date'>
               <input

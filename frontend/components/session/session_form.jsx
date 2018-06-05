@@ -48,6 +48,7 @@ class SessionForm extends React.Component {
       formType,
       openModal,
       closeModal,
+      fetchTeams,
       processForm
     } = this.props;
 
@@ -63,9 +64,11 @@ class SessionForm extends React.Component {
       if (formType === 'Sign up') {
         openModal('createteam');
       } else {
-        const teamId = res.user.teamIds[0];
-        history.push(`/dashboard/teams/${teamId}`);
-        closeModal();
+        fetchTeams().then(() => {
+          const teamId = res.user.teamIds[0];
+          history.push(`/dashboard/teams/${teamId}`);
+          closeModal();
+        });
       }}
     );
   }
