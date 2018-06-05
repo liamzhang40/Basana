@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { minDate } from '../../util/date_util';
-import TeamMemberIndexItem from '../team/team_member_index_item';
-import AssigneeDropdownContainer from './assignee_dropdown_container';
 import TaskOption from './task_option';
 import Assignee from './assignee';
+import AssignedProject from './assigned_project';
 
 class TaskForm extends React.Component {
   constructor(props) {
@@ -64,9 +63,8 @@ class TaskForm extends React.Component {
 
 
           <div className='name_and_description'>
-            <div className='task-project'>
-              <button>{project ? project.name : ''}</button>
-            </div>
+            <AssignedProject project={project} />
+
             <div className='task-name'>
               <button
                 className={ task.completion ? 'task-check-box-checked' : 'task-check-box-unchecked' }
@@ -90,6 +88,10 @@ class TaskForm extends React.Component {
             </ul>
 
             <div className='task-description'>
+              <svg viewBox="0 0 32 32">
+                <path d="M26,8H2V6h24V8z M22,12H2v2h20V12z M28,18H2v2h26V18z M24,24H2v2h22V24z"/>
+              </svg>
+
               <textarea
                 id='task-description-input'
                 type='text'

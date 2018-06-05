@@ -1,8 +1,7 @@
 import React from 'react';
-import TeamMemberIndexItem from '../team/team_member_index_item';
-import AssigneeDropdownContainer from './assignee_dropdown_container';
+import AssignedProjectDropdownContainer from './assigned_project_dropdown_container';
 
-class Assignee extends React.Component {
+class AssignedProject extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,20 +32,19 @@ class Assignee extends React.Component {
   }
 
   render() {
-    const { assignee } = this.props;
+    const { project } = this.props;
     return (
       <div
         ref={ node => this.node = node }
-        className='task-assignee'>
+        className='task-project'>
         <button
-          className='assignee'
+          className='project'
           onClick={this.handleClick}>
-          <TeamMemberIndexItem member={ assignee }/>
-          <span>{ assignee ? assignee.name : 'Unassigned' }</span>
+          <span>{ project ? project.name : 'Unassigned' }</span>
         </button>
         { this.state.visible &&
           <div className='assignee-dropdown-visible'>
-            <AssigneeDropdownContainer />
+            <AssignedProjectDropdownContainer />
           </div>
         }
       </div>
@@ -54,4 +52,4 @@ class Assignee extends React.Component {
   }
 }
 
-export default Assignee;
+export default AssignedProject;

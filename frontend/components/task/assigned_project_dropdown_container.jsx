@@ -4,14 +4,13 @@ import { updateTask } from '../../actions/task_actions';
 import AssigneeDropdown from './assignee_dropdown';
 
 const mapStateToProps = (state, ownProps) => {
-  const { tasks, teams, users } = state.entities;
+  const { tasks, teams, projects } = state.entities;
   const task = tasks[ownProps.match.params.taskId];
   const team = teams[ownProps.match.params.teamId];
-  const members = team.memberIds.map(id => users[id]);
   return {
     task,
-    attribute: "assignee_id",
-    options: members
+    attribute: "project_id",
+    options: Object.values(projects)
   };
 };
 

@@ -19,10 +19,10 @@ class AssigneeDropdown extends React.Component {
       return options;
     }
 
-    options.forEach(member => {
-      let sub = member.name.slice(0, this.state.inputVal.length);
+    options.forEach(option => {
+      let sub = option.name.slice(0, this.state.inputVal.length);
       if (sub.toLowerCase() === this.state.inputVal.toLowerCase()) {
-        matches.push(member);
+        matches.push(option);
       }
     });
 
@@ -34,9 +34,9 @@ class AssigneeDropdown extends React.Component {
   }
 
   handleClick(e) {
-    const { updateTask, task } = this.props;
+    const { updateTask, task, attribute } = this.props;
     this.setState({inputVal: e.currentTarget.innerText});
-    updateTask({id: task.id, assignee_id: e.currentTarget.value});
+    updateTask({id: task.id, [attribute]: e.currentTarget.value});
   }
 
   handleChange(e) {
@@ -44,13 +44,13 @@ class AssigneeDropdown extends React.Component {
   }
 
   render() {
-    const nameMatches = this.matches().map((member, idx) => {
+    const nameMatches = this.matches().map((option, idx) => {
       return (
         <li
           key={idx}
           onClick={this.handleClick}
-          value={member ? member.id : ''}>
-          {member ? member.name : ''}
+          value={option ? option.id : ''}>
+          {option ? option.name : ''}
         </li>
       );
     });
