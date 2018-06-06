@@ -44,7 +44,7 @@ class AssignedProject extends React.Component {
         </button>
         { this.state.visible &&
           <div className='assignee-dropdown-visible'>
-            <AssignedProjectDropdownContainer />
+            <AssignedProjectDropdownContainer setParentState={this.setState.bind(this)}/>
           </div>
         }
       </div>

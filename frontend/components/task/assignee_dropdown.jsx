@@ -34,9 +34,10 @@ class AssigneeDropdown extends React.Component {
   }
 
   handleClick(e) {
-    const { updateTask, task, attribute } = this.props;
+    const { updateTask, task, attribute, setParentState } = this.props;
     this.setState({inputVal: e.currentTarget.innerText});
     updateTask({id: task.id, [attribute]: e.currentTarget.value});
+    setParentState({visible: false});
   }
 
   handleChange(e) {
@@ -44,15 +45,18 @@ class AssigneeDropdown extends React.Component {
   }
 
   render() {
+    const { task, attribute } = this.props;
     const nameMatches = this.matches().map((option, idx) => {
-      return (
-        <li
-          key={idx}
-          onClick={this.handleClick}
-          value={option ? option.id : ''}>
-          {option ? option.name : ''}
-        </li>
-      );
+      if (task[attribute] !== option.id) {
+        return (
+          <li
+            key={idx}
+            onClick={this.handleClick}
+            value={option ? option.id : ''}>
+            {option ? option.name : ''}
+          </li>
+        );
+      }
     });
 
     return (
