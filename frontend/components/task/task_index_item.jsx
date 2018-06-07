@@ -58,14 +58,16 @@ class TaskIndexItem extends React.Component {
               </svg>
             </button>
 
-            <span>
+            <div className="task-item-input">
               <input
                 onChange={this.update('name')}
                 value={task.name}/>
-            </span>
+            </div>
           </div>
 
-          <div className='task-item-right'>
+          <div className={
+              new Date() <= new Date(task.due_date) ? 'task-item-right' : 'task-item-right-red'
+            }>
             {formatDate(task.due_date)}
           </div>
         </Link>

@@ -7,9 +7,12 @@ import {
 } from '../../actions/task_actions';
 import TaskIndex from './task_index';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  const tasks = Object.values(state.entities.tasks).filter(task => {
+    return task.project_id;
+  });
   return {
-    tasks: Object.values(state.entities.tasks),
+    tasks,
     currentUserId: state.session.id
   };
 };

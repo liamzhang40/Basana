@@ -66,7 +66,10 @@ class TaskForm extends React.Component {
 
 
           <div className='name_and_description'>
-            <AssignedProject project={project} updateTask={ this.props.updateTask }/>
+            <AssignedProject
+              project={project}
+              task={ task }
+              updateTask={ this.props.updateTask }/>
 
             <div className='task-name'>
               <button

@@ -9,6 +9,7 @@ import UpdateTaskFormContainer from '../task/update_task_form_container';
 import MyTaskIndexContainer from '../task/my_task_index_container';
 import ProjectTaskIndexContainer from '../task/project_task_index_container';
 
+// <div>Search Bar</div>
 const Dashboard = () => {
 
   return (
@@ -24,7 +25,6 @@ const Dashboard = () => {
           <div className='top-nav-bar-list'>
             <div><Route path='/dashboard/teams/:teamId' component={MyTaskIndexContainer}/></div>
 
-            <div>Search Bar</div>
             <div><Route path='/dashboard/teams/:teamId' component={CurrentTeamContainer}/></div>
           </div>
         </nav>

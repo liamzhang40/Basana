@@ -107,7 +107,6 @@
   align-items: center;
   border-radius: 50%;
   background-color: #848f99;
-  color: #fff;
 }
 
 .task-assignee a svg {
@@ -116,9 +115,13 @@
   fill: #fff;
 }
 
+.task-assignee a:hover {
+  background-color: #646f79;
+}
+
 .task-due-date {
   position: absolute;
-  right: 100px;
+  right: 15%;
   border: 1px solid transparent;
   border-radius: 3px;
   padding: 6px;
@@ -187,25 +190,50 @@
   padding: 0 30px;
 }
 
+.task-project {
+  height: 12px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-project a {
+  margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #848f99;
+}
+
+.task-project a:hover {
+  background-color: #646f79;
+  cursor: pointer;
+}
+
+.task-project svg {
+  width: 12px;
+  padding: 3px;
+  fill: #fff;
+}
+
 .task-project button {
   margin: 0 10px;
   background-color: #edf1f2;
   border-radius: 10px;
   color: #848f99;
-  padding: 0 10px;
+  padding: 5px 10px;
   font-size: 13px;
 }
 
-.task-project {
-  margin: 10px 0;
-}
 
 .task-project .assignee-dropdown-visible {
   color: black;
   background-color: white;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
   position: absolute;
-  top: 80px;
+  top: 90px;
   left: 40px;
   font-size: 12px;
 }

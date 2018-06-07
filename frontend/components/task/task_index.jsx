@@ -14,11 +14,11 @@ class TaskIndex extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.match.params.projectId) {
+    // if (nextProps.match.params.projectId) {
       if (this.props.match.params.projectId !== nextProps.match.params.projectId) {
         this.props.fetchTasks(nextProps.match.params.projectId);
       }
-    }
+    // }
   }
 
   render() {
@@ -32,13 +32,13 @@ class TaskIndex extends React.Component {
     } = this.props;
 
     const li = tasks.map(task => {
-      return <TaskIndexItem
-        key={task.id}
-        task={task}
-        teamId={match.params.teamId}
-        projectId={match.params.projectId}
-        updateTask={updateTask}
-        updateReduxTask={updateReduxTask}/>;
+        return <TaskIndexItem
+          key={task.id}
+          task={task}
+          teamId={match.params.teamId}
+          projectId={match.params.projectId}
+          updateTask={updateTask}
+          updateReduxTask={updateReduxTask}/>;
     });
 
     return (

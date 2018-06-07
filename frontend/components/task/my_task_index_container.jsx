@@ -6,7 +6,6 @@ import { fetchAssigneeTasks } from '../../actions/task_actions';
 const mapStateToProps = state => {
   return {
     currentUserId: state.session.id,
-    tasks: Object.values(state.entities.tasks)
   };
 };
 
