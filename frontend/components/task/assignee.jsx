@@ -6,22 +6,25 @@ class Assignee extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false,
+      dropdownVisible: false,
+      unassignVisible: false
     };
 
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleMouse = this.handleMouse.bind(this);
+    this.handleUnassign = this.handleUnassign.bind(this);
   }
 
   handleClick() {
 
-    if (!this.state.visible) {
+    if (!this.state.dropdownVisible) {
       document.addEventListener('mousedown', this.handleOutsideClick, false);
     } else {
       document.removeEventListener('mousedown', this.handleOutsideClick, false);
     }
 
-    this.setState({visible: !this.state.visible});
+    this.setState({dropdownVisible: !this.state.dropdownVisible});
   }
 
   handleOutsideClick(e) {
@@ -32,6 +35,16 @@ class Assignee extends React.Component {
     this.handleClick();
   }
 
+  handleMouse() {
+    this.setState({unassignVisible: !this.state.unassignVisible});
+  }
+
+  handleUnassign() {
+    const { task, updateTask } = this.props;
+    task.assignee_id = "";
+    updateTask(task);
+  }
+
   render() {
     const { assignee } = this.props;
     return (
@@ -40,20 +53,24 @@ class Assignee extends React.Component {
         className='task-assignee'>
         <button
           className='assignee'
-          onClick={this.handleClick}>
+          onClick={this.handleClick}
+          onMouseEnter={this.handleMouse}
+          onMouseLeave={this.handleMouse}>
           <TeamMemberIndexItem member={ assignee }/>
           <span>{ assignee ? assignee.name : 'Unassigned' }</span>
           { assignee &&
-            <a>
+            this.state.unassignVisible &&
+            <a
+              onClick={this.handleUnassign}>
               <svg viewBox="0 0 32 32">
                 <polygon points="24.485,27.314 27.314,24.485 18.828,16 27.314,7.515 24.485,4.686 16,13.172 7.515,4.686 4.686,7.515 13.172,16 4.686,24.485 7.515,27.314 16,18.828 "/>
               </svg>
             </a>
           }
         </button>
-        { this.state.visible &&
+        { this.state.dropdownVisible &&
           <div className='assignee-dropdown-visible'>
-            <AssigneeDropdownContainer setParentState={this.setState.bind(this)}/>
+            <AssigneeDropdownContainer setParentState={this.handleClick}/>
           </div>
         }
       </div>

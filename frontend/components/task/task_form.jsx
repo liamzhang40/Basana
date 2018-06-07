@@ -45,7 +45,10 @@ class TaskForm extends React.Component {
             to={ projectId ? `/dashboard/teams/${teamId}/projects/${projectId}` : `/dashboard/teams/${teamId}`}
             className='close'>&times;</Link>
           <div className='assignee_and_due_date'>
-            <Assignee assignee={ assignee } />
+            <Assignee
+              assignee={ assignee }
+              task={ task }
+              updateTask={ this.props.updateTask }/>
 
             <div className='task-due-date'>
               <input
@@ -63,7 +66,7 @@ class TaskForm extends React.Component {
 
 
           <div className='name_and_description'>
-            <AssignedProject project={project} />
+            <AssignedProject project={project} updateTask={ this.props.updateTask }/>
 
             <div className='task-name'>
               <button

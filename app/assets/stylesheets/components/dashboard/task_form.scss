@@ -33,7 +33,6 @@
   align-items: center;
   padding: 3px;
   border: 1px solid transparent;
-
 }
 
 .assignee_and_due_date .assignee:hover {
@@ -66,7 +65,7 @@
   width: 100%;
 }
 
-.assignee_and_due_date .assignee svg {
+.assignee_and_due_date .assignee .empty-avatar svg {
   height: 16px;
   width: 16px;
 }
@@ -102,7 +101,7 @@
 }
 
 .task-assignee a {
-  margin: 0 10px;
+  margin: 0 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,15 +111,17 @@
 }
 
 .task-assignee a svg {
-  width: 8px;
+  width: 10px;
+  padding: 2px;
   fill: #fff;
 }
 
 .task-due-date {
+  position: absolute;
+  right: 100px;
   border: 1px solid transparent;
   border-radius: 3px;
   padding: 6px;
-  margin-right: 5px;
 }
 
 .task-due-date:focus-within {

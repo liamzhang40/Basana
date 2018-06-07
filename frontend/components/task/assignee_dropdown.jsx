@@ -37,7 +37,7 @@ class AssigneeDropdown extends React.Component {
     const { updateTask, task, attribute, setParentState } = this.props;
     this.setState({inputVal: e.currentTarget.innerText});
     updateTask({id: task.id, [attribute]: e.currentTarget.value});
-    setParentState({visible: false});
+    setParentState();
   }
 
   handleChange(e) {
