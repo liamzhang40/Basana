@@ -38,7 +38,21 @@ class TaskIndexItem extends React.Component {
       task,
       teamId,
       projectId
-     } = this.props;
+    } = this.props;
+
+    const format_due_date = task.due_date.split("").map(el => {
+      if (el === "-") return "/";
+      else return el;
+    }).join("");
+
+    const due_date = new Date(format_due_date);
+
+    const today_date = new Date();
+    today_date.setHours(0,0,0,0);
+
+    let className = 'task-item-right';
+    if (today_date > due_date) { className = 'task-item-right-red'; }
+    else if (today_date.getTime() === due_date.getTime()) { className = 'task-item-right-green'; }
 
     return (
       <li>
@@ -65,9 +79,7 @@ class TaskIndexItem extends React.Component {
             </div>
           </div>
 
-          <div className={
-              new Date() <= new Date(task.due_date) ? 'task-item-right' : 'task-item-right-red'
-            }>
+          <div className={className}>
             {formatDate(task.due_date)}
           </div>
         </Link>
