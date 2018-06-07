@@ -42,7 +42,7 @@ class TaskIndex extends React.Component {
     });
 
     return (
-      <div className='team-tasks'>
+      <div className='task-index'>
         <TaskHeader
           createTask={createTask}
           teamId = {match.params.teamId}

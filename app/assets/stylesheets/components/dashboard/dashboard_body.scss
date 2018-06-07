@@ -14,7 +14,7 @@
   min-width: 15px;
 }
 
-.dashboard-body .team-tasks {
+.dashboard-body .task-index {
   width: 100%;
   min-width: 405px;
   border-radius: 3px;
@@ -24,6 +24,7 @@
 }
 
 .dashboard-body .task-edit {
+  -webkit-animation: task-edit-enter 0.5s;
   position: relative;
   margin-left: 15px;
   width: 80%;
@@ -32,4 +33,19 @@
   background-color: #fff;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
   height: 100%;
+}
+
+@keyframes task-edit-enter {
+  from {transform: translate(100%, 0%);}
+  to {transform: translate(0%, 0%);}
+}
+
+@-webkit-keyframes task-edit-enter {
+  from {transform: translate(100%, 0%);}
+  to {transform: translate(0%, 0%);}
+}
+
+@-moz-keyframes task-edit-enter {
+  from {transform: translate(100%, 0%);}
+  to {transform: translate(0%, 0%);}
 }
