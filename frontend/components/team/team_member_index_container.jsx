@@ -6,7 +6,7 @@ import { fetchAssigneeTasks } from '../../actions/task_actions';
 const mapStateToProps = (state, ownProps) => {
   const { teams, users } = state.entities;
   const team = teams[ownProps.match.params.teamId];
-  const members = team.memberIds.map(id => users[id]);
+  const members = team ? team.memberIds.map(id => users[id]) : [];
   return {
     members
   };
