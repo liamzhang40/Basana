@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 50px 0;
 }
 
 .team-projects .project-header {
@@ -11,7 +12,6 @@
   justify-content: space-between;
   border-bottom: 1px solid #9ca6af;
   align-items: center;
-  margin-top: 15px;
 }
 
 .team-projects h2 {

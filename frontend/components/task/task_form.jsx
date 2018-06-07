@@ -30,7 +30,7 @@ class TaskForm extends React.Component {
       this.timeout = setTimeout(() => {
         updateTask(this.props.task);
         this.timeout = null;
-      }, 2000);
+      }, 1000);
     };
   }
 

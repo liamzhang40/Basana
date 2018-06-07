@@ -6,6 +6,18 @@
   width: 220px;
 }
 
+.team-members .team-members-header {
+  border-bottom: 1px solid #9ca6af;
+}
+
+.team-members h2 {
+  color: #9ca6af;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .team-members form {
   display: flex;
   align-items: center;
@@ -64,7 +76,7 @@
   width: 200px;
   display: flex;
   flex-wrap: wrap;
-  padding: 10px 2px;
+  padding: 10px 2px 0 2px;
 }
 
 .team-members .member-list li {
@@ -74,7 +86,7 @@
   width: 24px;
   border: 1px dashed #fff;
   border-radius: 50%;
-  margin-right: 5px;
+  margin-right: 8px;
   margin-bottom: 10px;
   overflow: hidden;
   display: flex;
