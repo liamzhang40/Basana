@@ -1,7 +1,7 @@
 # BASANA
 
 ![Basana splash](https://github.com/liamzhang40/Basana/blob/master/basana_wireframe/Screen%20Shot%202018-06-03%20at%206.22.32%20PM.png)
-[Live link](basana.herokuapp.com)
+[Live link](https://basana.herokuapp.com)
 
 ## Summary
 Basana is a single-page project management web application inspired by Asana built with JavaScript, React.js, Redux, PostgreSQL and Ruby on Rails.
