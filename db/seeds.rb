@@ -28,7 +28,7 @@ user2 = User.create!(name: 'Demo User2', username: 'demo2@gmail.com', password: 
 end
 
 20.times do
-  TeamMembership.create(
+  TeamMembership.create!(
     member_id: User.all.sample.id,
     team_id: Team.all.sample.id
   )

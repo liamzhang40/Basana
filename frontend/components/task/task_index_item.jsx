@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../../util/date_util';
+import TaskCompletion from './task_completion';
 
 class TaskIndexItem extends React.Component {
   constructor(props) {
@@ -18,9 +19,7 @@ class TaskIndexItem extends React.Component {
 
     return (e) => {
       const tobeUpdate = e.currentTarget.value;
-      if (tobeUpdate === 'true') updateReduxTask({id: task.id, [field]: true});
-      else if (tobeUpdate === 'false') updateReduxTask({id: task.id, [field]: false});
-      else updateReduxTask({id: task.id, [field]: tobeUpdate});
+      updateReduxTask({id: task.id, [field]: tobeUpdate});
 
       if (this.timeout) {
         clearTimeout(this.timeout);
@@ -37,22 +36,45 @@ class TaskIndexItem extends React.Component {
     const {
       task,
       teamId,
-      projectId
+      projectId,
+      updateTask
     } = this.props;
 
-    const format_due_date = task.due_date.split("").map(el => {
-      if (el === "-") return "/";
-      else return el;
-    }).join("");
-
-    const due_date = new Date(format_due_date);
-
-    const today_date = new Date();
-    today_date.setHours(0,0,0,0);
-
     let className = 'task-item-right';
-    if (today_date > due_date) { className = 'task-item-right-red'; }
-    else if (today_date.getTime() === due_date.getTime()) { className = 'task-item-right-green'; }
+    let displayDate = '';
+    if (task.due_date) {
+      const formatDueDate = task.due_date.split("").map(el => {
+        if (el === "-") return "/";
+        else return el;
+      }).join("");
+
+      const dueDate = new Date(formatDueDate);
+      const todayDate = new Date();
+      todayDate.setHours(0,0,0,0);
+      const yesterdayDate = new Date();
+      yesterdayDate.setDate(todayDate.getDate() - 1);
+      yesterdayDate.setHours(0,0,0,0);
+      const tomorrowDate = new Date();
+      tomorrowDate.setDate(todayDate.getDate() + 1);
+      tomorrowDate.setHours(0,0,0,0);
+
+      if (yesterdayDate.getTime() === dueDate.getTime()) {
+        className = 'task-item-right-red';
+        displayDate = 'Yesterday';
+      }
+      else if (todayDate.getTime() === dueDate.getTime()) {
+        className = 'task-item-right-green';
+        displayDate = 'Today';
+      }
+      else if (tomorrowDate.getTime() === dueDate.getTime()) {
+        className = 'task-item-right-green';
+        displayDate = 'Tomorrow';
+      }
+      else {
+        displayDate = formatDate(task.due_date);
+      }
+
+    }
 
     return (
       <li>
@@ -63,14 +85,9 @@ class TaskIndexItem extends React.Component {
             `/dashboard/teams/${teamId}/tasks/${task.id}`}>
 
           <div className='task-item-left'>
-            <button
-              className={ task.completion ? 'task-check-box-checked' : 'task-check-box-unchecked' }
-              value={ task ? !task.completion : ''}
-              onClick={ this.update('completion') }>
-              <svg viewBox="0 0 32 32">
-                <polygon points="27.672,4.786 10.901,21.557 4.328,14.984 1.5,17.812 10.901,27.214 30.5,7.615 "/>
-              </svg>
-            </button>
+            <TaskCompletion
+              task={ task }
+              updateTask={ updateTask }/>
 
             <div className="task-item-input">
               <input
@@ -80,7 +97,7 @@ class TaskIndexItem extends React.Component {
           </div>
 
           <div className={className}>
-            {formatDate(task.due_date)}
+            {displayDate}
           </div>
         </Link>
 

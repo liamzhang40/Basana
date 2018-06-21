@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   const formData = new FormData();
-  formData.append('user[username]', 'demo@gmail.com');
+  formData.append('user[username]', 'demo2@gmail.com');
   formData.append('user[password]', 62030490);
 
   return {

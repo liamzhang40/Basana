@@ -4,6 +4,7 @@ import { minDate } from '../../util/date_util';
 import TaskOption from './task_option';
 import Assignee from './assignee';
 import AssignedProject from './assigned_project';
+import TaskCompletion from './task_completion';
 
 class TaskForm extends React.Component {
   constructor(props) {
@@ -20,9 +21,7 @@ class TaskForm extends React.Component {
 
     return (e) => {
       const tobeUpdate = e.currentTarget.value;
-      if (tobeUpdate === 'true') updateReduxTask({id: task.id, [field]: true});
-      else if (tobeUpdate === 'false') updateReduxTask({id: task.id, [field]: false});
-      else updateReduxTask({id: task.id, [field]: tobeUpdate});
+      updateReduxTask({id: task.id, [field]: tobeUpdate});
 
       if (this.timeout) {
         clearTimeout(this.timeout);
@@ -35,7 +34,7 @@ class TaskForm extends React.Component {
   }
 
   render() {
-    const { task, errors, match, assignee, project } = this.props;
+    const { task, errors, match, assignee, project, updateTask } = this.props;
     const { teamId, projectId } = match.params;
 
     return (
@@ -48,7 +47,7 @@ class TaskForm extends React.Component {
             <Assignee
               assignee={ assignee }
               task={ task }
-              updateTask={ this.props.updateTask }/>
+              updateTask={ updateTask }/>
 
             <div className='task-due-date'>
               <input
@@ -56,7 +55,7 @@ class TaskForm extends React.Component {
                 type='date'
                 min={ minDate() }
                 onChange={ this.update('due_date') }
-                value={ task ? task.due_date : ''}/>
+                value={ task.due_date ? task.due_date : ''}/>
             </div>
 
             <div className='task-option'>
@@ -67,19 +66,14 @@ class TaskForm extends React.Component {
 
           <div className='name_and_description'>
             <AssignedProject
-              project={project}
+              project={ project }
               task={ task }
-              updateTask={ this.props.updateTask }/>
+              updateTask={ updateTask }/>
 
             <div className='task-name'>
-              <button
-                className={ task.completion ? 'task-check-box-checked' : 'task-check-box-unchecked' }
-                value={ task ? !task.completion : ''}
-                onClick={ this.update('completion') }>
-                <svg viewBox="0 0 32 32">
-                  <polygon points="27.672,4.786 10.901,21.557 4.328,14.984 1.5,17.812 10.901,27.214 30.5,7.615 "/>
-                </svg>
-              </button>
+              <TaskCompletion
+                task={ task }
+                updateTask={ updateTask }/>
 
               <input
                 id='task-name-input'
