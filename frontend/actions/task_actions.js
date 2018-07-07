@@ -3,6 +3,7 @@ export const RECEIVE_TASKS = 'RECEIVE_TASKS';
 export const RECEIVE_TASK = 'RECEIVE_TASK';
 export const RECEIVE_TASK_ERRORS = 'RECEIVE_TASK_ERRORS';
 export const REMOVE_TASK = 'REMOVE_TASK';
+export const TOGGLE_TASK_VISIBILITY = 'TOGGLE_TASK_VISIBILITY';
 
 const receiveTasks = tasks => {
   return {
@@ -29,6 +30,19 @@ const deleteTask = taskId => {
   return {
     type: REMOVE_TASK,
     taskId
+  };
+};
+
+export const updateReduxTask = task => {
+  return {
+    type: RECEIVE_TASK,
+    task
+  };
+};
+
+export const toggleTaskVisibility = () => {
+  return {
+    type: TOGGLE_TASK_VISIBILITY
   };
 };
 
@@ -88,12 +102,6 @@ export const updateTask = task => {
   };
 };
 
-export const updateReduxTask = task => {
-  return {
-    type: RECEIVE_TASK,
-    task
-  };
-};
 
 export const removeTask = taskId => {
   return dispatch => {

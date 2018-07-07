@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import {
   updateTask,
   updateReduxTask
-} from '../../actions/task_actions';
+} from '../../../actions/task_actions';
 import TaskForm from './task_form';
 
 const mapStateToProps = (state, ownProps) => {

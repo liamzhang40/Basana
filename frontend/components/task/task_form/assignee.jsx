@@ -1,5 +1,5 @@
 import React from 'react';
-import TeamMemberIndexItem from '../team/team_member_index_item';
+import TeamMemberIndexItem from '../../team/team_member_index_item';
 import AssigneeDropdownContainer from './assignee_dropdown_container';
 
 class Assignee extends React.Component {
@@ -41,8 +41,9 @@ class Assignee extends React.Component {
 
   handleUnassign() {
     const { task, updateTask } = this.props;
-    task.assignee_id = "";
-    updateTask(task);
+    const new_task = Object.assign({}, task, {assignee_id: ""});
+
+    updateTask(new_task);
   }
 
   render() {

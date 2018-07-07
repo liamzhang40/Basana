@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import modalReducer from './modal_reducer';
+import modal from './modal_reducer';
+import taskVisibility from './task_visibility_reducer.js';
 
 const uiReducer = combineReducers({
-  modal: modalReducer,
+  modal,
+  taskVisibility
 });
 
 export default uiReducer;

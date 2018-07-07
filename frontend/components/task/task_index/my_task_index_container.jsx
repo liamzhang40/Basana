@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchAssigneeTasks } from '../../actions/task_actions';
+import { fetchAssigneeTasks } from '../../../actions/task_actions';
 
 const mapStateToProps = state => {
   return {

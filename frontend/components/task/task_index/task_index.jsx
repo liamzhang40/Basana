@@ -1,6 +1,6 @@
 import React from 'react';
 import TaskIndexItem from './task_index_item';
-import TaskHeader from './task_header';
+import TaskHeaderContainer from './task_header';
 
 class TaskIndex extends React.Component {
 
@@ -25,29 +25,30 @@ class TaskIndex extends React.Component {
     const {
       match,
       tasks,
-      createTask,
       updateTask,
-      currentUserId,
-      updateReduxTask
+      updateReduxTask,
+      taskVisibility
     } = this.props;
 
-    const li = tasks.map(task => {
-        return <TaskIndexItem
-          key={task.id}
-          task={task}
-          teamId={match.params.teamId}
-          projectId={match.params.projectId}
-          updateTask={updateTask}
-          updateReduxTask={updateReduxTask}/>;
-    });
+    const li = [];
+    for (let i = 0; i < tasks.length; i++) {
+      const task = tasks[i];
+      if (task.completion === taskVisibility) {
+        li.push(
+          <TaskIndexItem
+            key={task.id}
+            task={task}
+            teamId={match.params.teamId}
+            projectId={match.params.projectId}
+            updateTask={updateTask}
+            updateReduxTask={updateReduxTask}/>
+        );
+      }
+    }
 
     return (
       <div className='task-index'>
-        <TaskHeader
-          createTask={createTask}
-          teamId = {match.params.teamId}
-          projectId={match.params.projectId}
-          currentUserId={currentUserId}/>
+        <TaskHeaderContainer/>
         <div className='scroll-layer'>
           <ul className='task-list'>
             {li}

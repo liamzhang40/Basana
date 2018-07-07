@@ -33,17 +33,16 @@ class TaskOption extends React.Component {
 
   render() {
     return (
-      <div ref={ node => this.node = node }>
-        <div
-          className='task-option-button'
-          onClick={this.handleClick}>
-          <span>...</span>
-          { this.state.visible && (
-            <div className='task-option-dropdown-visible'>
-              <TaskOptionDropdownContainer />
-            </div>
-          )}
-        </div>
+      <div
+        className='task-option-button'
+        ref={ node => this.node = node }
+        onClick={this.handleClick}>
+        <span>...</span>
+        { this.state.visible &&
+          <div className='task-option-dropdown-visible'>
+            <TaskOptionDropdownContainer />
+          </div>
+        }
       </div>
     );
   }

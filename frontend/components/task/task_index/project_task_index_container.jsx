@@ -1,26 +1,25 @@
 import { connect } from 'react-redux';
 import {
-  fetchAssigneeTasks,
-  createTask,
+  fetchProjectTasks,
   updateTask,
   updateReduxTask
-} from '../../actions/task_actions';
+} from '../../../actions/task_actions';
 import TaskIndex from './task_index';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   const tasks = Object.values(state.entities.tasks).filter(task => {
-    return task.assignee_id;
+    return task.project_id;
   });
   return {
     tasks,
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    taskVisibility: state.ui.taskVisibility
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchTasks: assigneeId => dispatch(fetchAssigneeTasks(assigneeId)),
-    createTask: task => dispatch(createTask(task)),
+    fetchTasks: projectId => dispatch(fetchProjectTasks(projectId)),
     updateTask: task => dispatch(updateTask(task)),
     updateReduxTask: task => dispatch(updateReduxTask(task))
   };

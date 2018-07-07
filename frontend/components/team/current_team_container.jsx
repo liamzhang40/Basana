@@ -54,10 +54,11 @@ class CurrentTeam extends React.Component {
           ref = { node => this.node = node }
           className='current-team'
           onClick={this.handleClick}>
-          {team.name}
+          <span>{team.name}</span>
           <TeamMemberIndexItem member={ currentUser } />
+
           { this.state.visible &&
-          <TeamDropdownContainer currentTeam={team}/>}
+            <TeamDropdownContainer currentTeam={team}/>}
         </span>
       );
     }

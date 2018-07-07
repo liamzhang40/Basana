@@ -40,8 +40,9 @@ class AssignedProject extends React.Component {
 
   handleUnassign() {
     const { task, updateTask } = this.props;
-    task.project_id = "";
-    updateTask(task);
+    const new_task = Object.assign({}, task, {project_id: ""});
+
+    updateTask(new_task);
   }
 
   render() {

@@ -4,10 +4,10 @@ import CurrentTeamContainer from '../team/current_team_container';
 import TeamMemberIndexContainer from '../team/team_member_index_container';
 import ProjectIndexContainer from '../project/project_index_container';
 import CurrentProjectContainer from '../project/current_project_container';
-import AssigneeTaskIndexContainer from '../task/assignee_task_index_container';
-import UpdateTaskFormContainer from '../task/update_task_form_container';
-import MyTaskIndexContainer from '../task/my_task_index_container';
-import ProjectTaskIndexContainer from '../task/project_task_index_container';
+import UpdateTaskFormContainer from '../task/task_form/update_task_form_container';
+import AssigneeTaskIndexContainer from '../task/task_index/assignee_task_index_container';
+import MyTaskIndexContainer from '../task/task_index/my_task_index_container';
+import ProjectTaskIndexContainer from '../task/task_index/project_task_index_container';
 
 // <div>Search Bar</div>
 const Dashboard = () => {

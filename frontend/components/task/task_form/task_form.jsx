@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { minDate } from '../../util/date_util';
+import { minDate } from '../../../util/date_util';
 import TaskOption from './task_option';
 import Assignee from './assignee';
 import AssignedProject from './assigned_project';
-import TaskCompletion from './task_completion';
+import TaskCompletion from '../task_completion';
 
 class TaskForm extends React.Component {
   constructor(props) {
@@ -83,10 +83,6 @@ class TaskForm extends React.Component {
                 value={ task ? task.name : '' }/>
             </div>
 
-            <ul>
-              { errors.map(error => <li>{error}</li>) }
-            </ul>
-
             <div className='task-description'>
               <svg viewBox="0 0 32 32">
                 <path d="M26,8H2V6h24V8z M22,12H2v2h20V12z M28,18H2v2h26V18z M24,24H2v2h22V24z"/>
@@ -98,6 +94,10 @@ class TaskForm extends React.Component {
                 placeholder='Description'
                 onChange={ this.update('description') }
                 value={ task ? task.description : '' }/>
+
+              <ul>
+                { errors.map(error => <li>{error}</li>) }
+              </ul>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { removeTask } from '../../actions/task_actions';
+import { removeTask } from '../../../actions/task_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {

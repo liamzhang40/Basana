@@ -17,11 +17,11 @@
 }
 
 .top-nav-bar-list>div {
-  margin: 12px 16px;
+  margin: 12px 26px;
+  transition: 0.3s ease-in-out;
 }
 
 .top-nav-bar-list>div:first-child {
-  margin-left: 20px;
   color: #151b26;
 }
 
@@ -29,20 +29,19 @@
   color: #14aaf5;
 }
 
-.top-nav-bar-list>div {
-  transition: 0.3s ease-in-out;
-}
-
 .top-nav-bar-list>div:hover {
   color: #14aaf5;
   cursor: pointer;
 }
 
-.top-nav-bar .current-team {
-  width: 100px;
+.current-team {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.current-team span {  
+  width: 100px;
 }
 
 .current-team .member-avatar {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class AssigneeDropdown extends React.Component {
+class AssignmentDropdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -73,4 +73,4 @@ class AssigneeDropdown extends React.Component {
   }
 }
 
-export default AssigneeDropdown;
+export default AssignmentDropdown;

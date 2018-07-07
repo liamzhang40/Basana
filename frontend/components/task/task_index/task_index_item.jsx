@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { formatDate } from '../../util/date_util';
-import TaskCompletion from './task_completion';
+import { formatDate } from '../../../util/date_util';
+import TaskCompletion from '../task_completion';
 
 class TaskIndexItem extends React.Component {
   constructor(props) {
