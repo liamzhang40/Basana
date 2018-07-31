@@ -8,6 +8,8 @@
 #  name        :string           not null
 #  description :text
 #  completion  :boolean          default(FALSE)
+#  privacy     :boolean          default(FALSE)
+#  due_date    :date
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -26,6 +28,8 @@ class Task < ApplicationRecord
   belongs_to :project,
     optional: true
 
+  has_many :comments
+  
   private
 
   def assignee_or_project

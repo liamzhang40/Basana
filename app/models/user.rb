@@ -43,6 +43,8 @@ class User < ApplicationRecord
     through: :team_memberships,
     source: :team
 
+  has_many :comments
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil
