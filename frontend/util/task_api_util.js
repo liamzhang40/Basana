@@ -1,4 +1,4 @@
-export const fetchProjectTasks = (projectId) => {
+export const fetchProjectTasks = projectId => {
   return $.ajax({
     method: 'GET',
     url: 'api/tasks',
@@ -6,7 +6,7 @@ export const fetchProjectTasks = (projectId) => {
   });
 };
 
-export const fetchAssigneeTasks = (assigneeId) => {
+export const fetchAssigneeTasks = assigneeId => {
   return $.ajax({
     method: 'GET',
     url: 'api/tasks',
