@@ -5,6 +5,7 @@ import TaskOption from './task_option';
 import Assignee from './assignee';
 import AssignedProject from './assigned_project';
 import TaskCompletion from '../task_completion';
+import CreateCommentFormContainer from '../../comment/create_comment_form_container';
 
 class TaskForm extends React.Component {
   constructor(props) {
@@ -100,6 +101,10 @@ class TaskForm extends React.Component {
               </ul>
             </div>
           </div>
+        </div>
+
+        <div>
+          <CreateCommentFormContainer />
         </div>
       </div>
     );
