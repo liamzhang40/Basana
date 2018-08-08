@@ -5,6 +5,7 @@ import TaskOption from './task_option';
 import Assignee from './assignee';
 import AssignedProject from './assigned_project';
 import TaskCompletion from '../task_completion';
+import CommentIndexContainer from '../../comment/comment_index_container';
 import CreateCommentFormContainer from '../../comment/create_comment_form_container';
 
 class TaskForm extends React.Component {
@@ -36,7 +37,7 @@ class TaskForm extends React.Component {
 
   render() {
     const { task, errors, match, assignee, project, updateTask } = this.props;
-    const { teamId, projectId } = match.params;
+    const { teamId, projectId, taskId } = match.params;
 
     return (
       <div className='task-edit' id='task-form-container'>
@@ -103,9 +104,8 @@ class TaskForm extends React.Component {
           </div>
         </div>
 
-        <div>
-          <CreateCommentFormContainer />
-        </div>
+        <CommentIndexContainer taskId={taskId}/>
+        <CreateCommentFormContainer taskId={taskId}/>
       </div>
     );
   }

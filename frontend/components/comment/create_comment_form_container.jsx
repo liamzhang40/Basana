@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { createComment } from '../../actions/comment_actions';
 import CommentForm from './comment_form';
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    currentUser: state.entities.users[state.session.id],
     comment: {
       author_id: state.session.id,
-      task_id: ownProps.match.params.taskId,
+      task_id: ownProps.taskId,
       content: ""
     }
   };
@@ -19,4 +19,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CommentForm));
+export default connect(mapStateToProps, mapDispatchToProps)(CommentForm);

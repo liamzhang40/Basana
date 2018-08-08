@@ -60,12 +60,12 @@
   fill: #848f99;
 }
 
-.assignee_and_due_date .assignee img {
+.assignee img {
   height: 100%;
   width: 100%;
 }
 
-.assignee_and_due_date .assignee .empty-avatar svg {
+.assignee .empty-avatar svg {
   height: 16px;
   width: 16px;
 }
@@ -349,8 +349,10 @@
 #task-description-input {
   padding: 4px 9px;
   padding-bottom: 35px;
+  border-radius: 3px;
   font-size: 13px;
   width: 85%;
+  resize: none;
   border: 1px solid transparent;
 }
 

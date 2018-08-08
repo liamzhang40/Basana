@@ -1,1 +1,1 @@
-json.partial! 'api/comment/comment.json.jbuilder', comment: @comment
+json.partial! 'api/comments/comment.json.jbuilder', comment: @comment

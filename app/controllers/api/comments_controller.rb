@@ -3,7 +3,7 @@ class Api::CommentsController < ApplicationController
   before_action :require_login
 
   def index
-    @comments = Task.find(comment_params[:task_id]).comments
+    @comments = Task.find(comment_params[:task_id]).comments.includes(:author)
     render 'api/comments/index'
   end
 

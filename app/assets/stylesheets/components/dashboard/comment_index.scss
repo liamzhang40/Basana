@@ -1,0 +1,42 @@
+.comment-list {
+  height: 276px;
+  overflow: auto;
+}
+
+.comment-list .member-avatar {
+  box-sizing: border-box;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin: 0 16px 0 4px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: #848f99;
+}
+
+.comment-list img {
+  height: 100%;
+  width: 100%;
+}
+
+.comment-list .empty-avatar svg {
+  height: 16px;
+  width: 16px;
+}
+
+.comment-list .comment-feed-container {
+  padding: 10px 30px;
+  display: flex;
+}
+
+.comment-list .comment-feed-content {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.comment-feed-content div {
+  padding: 3px 0;
+}

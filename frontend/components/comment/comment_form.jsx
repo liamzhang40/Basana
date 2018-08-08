@@ -9,27 +9,36 @@ class CommentForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {
-
+  handleSubmit(e) {
+    e.preventDefault();
+    const { createComment } = this.props;
+    createComment(this.state).then(() => {
+      this.setState({ content: "" });
+    });
   }
 
   update(field) {
     return (e) => {
-      this.setState({[field]: e.currentTarget.value});
+      this.setState({ [field]: e.currentTarget.value });
     };
   }
 
   render() {
     return (
-      <div>
-        <TeamMemberIndexItem />
+      <div className='comment-form'>
         <div>
-          <form onSubmit={this.handleSubmit}>
+          <TeamMemberIndexItem
+            member={ this.props.currentUser }
+            listenerOn={ true }/>
+          <form onSubmit={ this.handleSubmit }>
             <textarea
               type='text'
-              value={this.state.content}
-              onChange={this.update('content')}></textarea>
-            <button>Comment</button>
+              value={ this.state.content }
+              placeholder='Write a comment...'
+              onChange={ this.update('content') }></textarea>
+            <div className='comment-form-util'>
+              <button className='task-button'>Comment</button>
+            </div>
           </form>
         </div>
       </div>
