@@ -9,6 +9,12 @@ class CommentForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.taskId !== nextProps.taskId) {
+      this.setState({ task_id: nextProps.taskId });
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const { createComment } = this.props;
