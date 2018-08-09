@@ -16,7 +16,7 @@ Basana allows users to:
 * Search for and invite team members
 
 ### Languages and Libraries
-* JavaScropt
+* JavaScript
 * React.js
 * Redux
 * Ruby
