@@ -48,3 +48,10 @@ setState function of TeamMemberForm component is passed down to its child compon
 
 ![User Search3](https://github.com/liamzhang40/Basana/blob/master/basana_wireframe/user_search3.png)
 ![User Search4](https://github.com/liamzhang40/Basana/blob/master/basana_wireframe/user_search4.png)
+
+## Future Plans
+* Complete comment feature (edit/delete)
+* Log user's activities on tasks (user1 updated on 06/17/2019)
+* Implement infinite scroll to comment index (display 3 latest comment, scroll to see more)
+* Create report feature
+...
