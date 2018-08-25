@@ -32,14 +32,15 @@ class DropdownButton extends React.Component {
 
   render() {
     const Dropdown = this.props.dropdown;
+    const { buttonStyle, type } = this.props;
     return (
       <div
-        className='task-option-button'
+        className={`${type}-option-button`}
         ref={ node => this.node = node }
         onClick={this.handleClick}>
-        <span>...</span>
+        <span>{buttonStyle}</span>
         { this.state.visible &&
-          <div className='task-option-dropdown-visible'>
+          <div className={`${type}-option-dropdown-visible`}>
             <Dropdown />
           </div>
         }
