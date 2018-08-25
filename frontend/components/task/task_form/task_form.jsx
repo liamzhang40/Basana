@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { minDate } from '../../../util/date_util';
-import TaskOption from './task_option';
+import TaskOptionButton from './task_option_button';
 import Assignee from './assignee';
 import AssignedProject from './assigned_project';
-import TaskCompletion from '../task_completion';
+import TaskCompletionButton from '../../button/task_completion_button';
 import CommentIndexContainer from '../../comment/comment_index_container';
 import CreateCommentFormContainer from '../../comment/create_comment_form_container';
 
@@ -61,7 +61,7 @@ class TaskForm extends React.Component {
             </div>
 
             <div className='task-option'>
-              <TaskOption />
+              <TaskOptionButton />
             </div>
           </div>
 
@@ -73,7 +73,7 @@ class TaskForm extends React.Component {
               updateTask={ updateTask }/>
 
             <div className='task-name'>
-              <TaskCompletion
+              <TaskCompletionButton
                 task={ task }
                 updateTask={ updateTask }/>
 

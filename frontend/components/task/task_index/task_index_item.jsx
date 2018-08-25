@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../../../util/date_util';
-import TaskCompletion from '../task_completion';
+import TaskCompletionButton from '../../button/task_completion_button';
 
 class TaskIndexItem extends React.Component {
   constructor(props) {
@@ -85,7 +85,7 @@ class TaskIndexItem extends React.Component {
             `/dashboard/teams/${teamId}/tasks/${task.id}`}>
 
           <div className='task-item-left'>
-            <TaskCompletion
+            <TaskCompletionButton
               task={ task }
               updateTask={ updateTask }/>
 

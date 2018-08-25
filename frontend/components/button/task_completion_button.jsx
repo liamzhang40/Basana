@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TaskCompletion = ({ task, updateTask }) => {
+const TaskCompletionButton = ({ task, updateTask }) => {
 
   const handleClick = () => {
     const new_task = Object.assign({}, task);
@@ -20,4 +20,4 @@ const TaskCompletion = ({ task, updateTask }) => {
   );
 };
 
-export default TaskCompletion;
+export default TaskCompletionButton;

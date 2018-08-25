@@ -1,7 +1,7 @@
 import React from 'react';
 import TaskOptionDropdownContainer from './task_option_dropdown_container';
 
-class TaskOption extends React.Component {
+class TaskOptionButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,4 +50,4 @@ class TaskOption extends React.Component {
 
 
 
-export default TaskOption;
+export default TaskOptionButton;
