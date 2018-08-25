@@ -1,7 +1,6 @@
 import React from 'react';
-import TaskOptionDropdownContainer from './task_option_dropdown_container';
 
-class TaskOptionButton extends React.Component {
+class DropdownButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,6 +31,7 @@ class TaskOptionButton extends React.Component {
   }
 
   render() {
+    const Dropdown = this.props.dropdown;
     return (
       <div
         className='task-option-button'
@@ -40,7 +40,7 @@ class TaskOptionButton extends React.Component {
         <span>...</span>
         { this.state.visible &&
           <div className='task-option-dropdown-visible'>
-            <TaskOptionDropdownContainer />
+            <Dropdown />
           </div>
         }
       </div>
@@ -50,4 +50,4 @@ class TaskOptionButton extends React.Component {
 
 
 
-export default TaskOptionButton ;
+export default DropdownButton ;

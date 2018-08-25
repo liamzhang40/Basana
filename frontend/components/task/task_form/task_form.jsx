@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { minDate } from '../../../util/date_util';
-import TaskOptionButton from './task_option_button';
+import TaskOptionDropdown from './task_option_dropdown_container';
+import DropdownButton from '../../button/dropdown_button';
 import Assignee from './assignee';
 import AssignedProject from './assigned_project';
 import TaskCompletionButton from '../../button/task_completion_button';
@@ -61,7 +62,7 @@ class TaskForm extends React.Component {
             </div>
 
             <div className='task-option'>
-              <TaskOptionButton />
+              <DropdownButton dropdown={TaskOptionDropdown} />
             </div>
           </div>
 
