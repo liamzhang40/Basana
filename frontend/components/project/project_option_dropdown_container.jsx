@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 
-class CurrentProjectDropdown extends React.Component {
+class ProjectOptionDropdownContainer extends React.Component {
   constructor(props) {
     super(props);
 
@@ -58,4 +58,4 @@ class CurrentProjectDropdown extends React.Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CurrentProjectDropdown));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectOptionDropdownContainer));

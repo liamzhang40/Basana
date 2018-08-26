@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import CurrentProjectDropdownContainer from './current_project_dropdown_container';
+// import CurrentProjectDropdownContainer from './current_project_dropdown_container';
 
 const mapStateToProps = (state, ownProps) =>  {
   return {
@@ -53,7 +53,6 @@ class CurrentProject extends React.Component {
             {
               this.state.visible &&
               <div className='dropdown-visible'>
-                <CurrentProjectDropdownContainer project={project}/>
               </div>
             }
           </span>

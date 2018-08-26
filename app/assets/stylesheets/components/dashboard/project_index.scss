@@ -79,17 +79,17 @@
   margin-left: 13px;
 }
 
-.project-list li .project-options {
+.project-list li .project-option-button {
   font-size: 15px;
   margin-right: 14px;
   line-height: 7px;
 }
 
-.project-list li .project-options:hover {
+.project-list li .project-option-button:hover {
   color: #14aaf5;
 }
 
-.project-options .dropdown-visible {
+.project-option-button .project-option-dropdown-visible {
   position: absolute;
   top: -5px;
   right: -220px;
