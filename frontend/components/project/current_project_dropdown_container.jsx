@@ -5,9 +5,10 @@ import { updateProject, removeProject } from '../../actions/project_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
+  // hard coded, somehow projectId id missing from the params ??
+  const projectId = ownProps.location.pathname.split('/')[5];
   return {
-    project: state.entities.projects[ownProps.match.params.projectId]
+    project: state.entities.projects[projectId]
   };
 };
 
@@ -35,7 +36,6 @@ class CurrentProjectDropdown extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     const {
       openModal,
     } = this.props;
