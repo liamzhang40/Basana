@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import CurrentProjectDropdownContainer from './current_project_dropdown_container';
 
 const mapStateToProps = (state, ownProps) =>  {
+  debugger
   return {
     project: state.entities.projects[ownProps.match.params.projectId]
   };

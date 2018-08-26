@@ -41,7 +41,7 @@ class ProjectIndexItem extends React.Component {
         <li
           ref={ node => this.node = node }
           className='project-row'>
-        <span className='project-name'>{project.name}</span>
+          <span className='project-name'>{project.name}</span>
           <span
             className='project-options'
             onClick={this.handleClick}>
@@ -49,7 +49,7 @@ class ProjectIndexItem extends React.Component {
             {
               this.state.visible &&
               <div className='dropdown-visible'>
-                <CurrentProjectDropdownContainer project={project}/>
+                <CurrentProjectDropdownContainer />
               </div>
             }
           </span>
