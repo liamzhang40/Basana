@@ -11,25 +11,25 @@
   align-items: flex-start;
 }
 
-.current-project {
+.current-project,
+.my-task {
   display: flex;
   font-size: 24px;
   font-weight: 500;
   margin-top: 10px;
 }
 
-.current-project .down-arrow {
+.current-project div span{
   font-size: 30px;
   color: #848f99;
-  margin-top: -10px;
   padding: 0px 2px;
 }
 
-.current-project .down-arrow:hover {
+.current-project div span {
   cursor: pointer;
 }
 
-.current-project .dropdown-visible {
+.current-project .current-project-option-dropdown-visible {
   position: absolute;
   z-index: 2;
 }

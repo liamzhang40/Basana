@@ -30,6 +30,7 @@ const Dashboard = () => {
         </nav>
 
         <nav className='top-nav-bar-2'>
+          <Route exact path='/dashboard/teams/:teamId' component={CurrentProjectContainer}/>
           <Route path='/dashboard/teams/:teamId/projects/:projectId' component={CurrentProjectContainer}/>
         </nav>
 
