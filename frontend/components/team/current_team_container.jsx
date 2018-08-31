@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TeamMemberIndexItem from './team_member_index_item';
-import TeamDropdownContainer from './team_dropdown_container';
+import TeamOptionDropdownContainer from './team_option_dropdown_container';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -58,7 +58,7 @@ class CurrentTeam extends React.Component {
           <TeamMemberIndexItem member={ currentUser } />
 
           { this.state.visible &&
-            <TeamDropdownContainer currentTeam={team}/>}
+            <TeamOptionDropdownContainer currentTeam={team}/>}
         </span>
       );
     }
