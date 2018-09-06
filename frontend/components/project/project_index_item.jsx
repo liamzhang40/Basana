@@ -14,7 +14,7 @@ const ProjectIndexItem = ({ project, teamId, currentUserId }) => {
         <span className='project-name'>{project.name}</span>
         <DropdownButton
           dropdown={ProjectOptionDropdown}
-          buttonStyle="..."
+          buttonStyle={() => <span>...</span>}
           type="project"/>
       </li>
     );

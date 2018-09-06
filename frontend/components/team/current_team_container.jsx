@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TeamMemberIndexItem from './team_member_index_item';
+import DropdownButton from '../button/dropdown_button';
 import TeamOptionDropdownContainer from './team_option_dropdown_container';
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,55 +16,25 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-class CurrentTeam extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+const CurrentTeam = ({team, currentUser}) => {
+  if (!team) {
+    return (<div></div>);
+  } else {
+    return (
+      <div
+        className='current-team'>
+        <DropdownButton
+          dropdown={TeamOptionDropdownContainer}
+          buttonStyle={() => (
+            <div>
+              <span>{team.name}</span>
+              <TeamMemberIndexItem member={ currentUser } />
+            </div>)
+          }
+          type="current-team"/>
+      </div>
+    );
   }
-
-  handleClick() {
-    if(!this.state.visible) {
-      document.addEventListener("mousedown", this.handleOutsideClick);
-    } else {
-      document.removeEventListener("mousedown", this.handleOutsideClick);
-    }
-
-    this.setState({visible: !this.state.visible});
-  }
-
-  handleOutsideClick(e) {
-    if(this.node.contains(e.target)) {
-      return;
-    }
-
-    this.handleClick();
-  }
-
-  render() {
-    const { team, currentUser } = this.props;
-    if (!team) {
-      return (<div></div>);
-    } else {
-      return (
-        <span
-          ref = { node => this.node = node }
-          className='current-team'
-          onClick={this.handleClick}>
-          <span>{team.name}</span>
-          <TeamMemberIndexItem member={ currentUser } />
-
-          { this.state.visible &&
-            <TeamOptionDropdownContainer currentTeam={team}/>}
-        </span>
-      );
-    }
-
-  }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentTeam);
