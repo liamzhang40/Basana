@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
   return {
     updateProject: project => dispatch(updateProject(project)),
     removeProject: projectId => dispatch(removeProject(projectId)),

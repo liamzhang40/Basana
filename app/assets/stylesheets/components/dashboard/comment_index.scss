@@ -43,7 +43,13 @@
 }
 
 .comment-option-button svg {
+  fill: #f6f8f9;
   position: absolute;
   width: 15px;
   right: 8px;
+  cursor: pointer;
+}
+
+.comment-option-button svg:hover {
+  fill: #59adf1;
 }
