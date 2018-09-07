@@ -1,5 +1,5 @@
 .comment-list {
-  height: 276px;
+  height: calc(100% - 415px);
   overflow: auto;
 }
 
@@ -27,6 +27,7 @@
 }
 
 .comment-list .comment-feed-container {
+  position: relative;
   padding: 10px 30px;
   display: flex;
 }
@@ -39,4 +40,10 @@
 
 .comment-feed-content div {
   padding: 3px 0;
+}
+
+.comment-option-button svg {
+  position: absolute;
+  width: 15px;
+  right: 8px;
 }
