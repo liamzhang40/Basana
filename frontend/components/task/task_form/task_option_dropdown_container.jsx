@@ -4,9 +4,9 @@ import { withRouter } from 'react-router-dom';
 import { removeTask } from '../../../actions/task_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    task: state.entities.tasks[ownProps.match.params.taskId]
-  };
+  // return {
+  //   task: state.entities.tasks[ownProps.match.params.taskId]
+  // };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -45,6 +45,4 @@ class TaskOptionDropdown extends React.Component {
   }
 }
 
-
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TaskOptionDropdown));
+export default withRouter(connect(null, mapDispatchToProps)(TaskOptionDropdown));

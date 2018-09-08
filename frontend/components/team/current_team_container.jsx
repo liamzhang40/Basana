@@ -24,8 +24,9 @@ const CurrentTeam = ({team, currentUser}) => {
       <div
         className='current-team'>
         <DropdownButton
-          dropdown={TeamOptionDropdownContainer}
-          buttonStyle={() => (
+          dropdown={ () => <TeamOptionDropdownContainer /> }
+          buttonStyle={
+            () => (
             <div>
               <span>{team.name}</span>
               <TeamMemberIndexItem member={ currentUser } />

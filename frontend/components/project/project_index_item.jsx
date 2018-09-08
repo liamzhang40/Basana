@@ -13,8 +13,8 @@ const ProjectIndexItem = ({ project, teamId, currentUserId }) => {
         className='project-row'>
         <span className='project-name'>{project.name}</span>
         <DropdownButton
-          dropdown={ProjectOptionDropdown}
-          buttonStyle={() => <span>...</span>}
+          dropdown={ () => <ProjectOptionDropdown project={project}/>}
+          buttonStyle={ () => <span>...</span> }
           type="project"/>
       </li>
     );

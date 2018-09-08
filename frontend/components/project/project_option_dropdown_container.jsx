@@ -6,10 +6,10 @@ import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   // hard coded, somehow projectId id missing from the params ??
-  const projectId = ownProps.location.pathname.split('/')[5];
-  return {
-    project: state.entities.projects[projectId]
-  };
+  // const projectId = ownProps.location.pathname.split('/')[5];
+  // return {
+  //   project: state.entities.projects[projectId]
+  // };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -58,4 +58,4 @@ class ProjectOptionDropdownContainer extends React.Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectOptionDropdownContainer));
+export default withRouter(connect(null, mapDispatchToProps)(ProjectOptionDropdownContainer));

@@ -16,6 +16,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 class CommentOptionDropdownContainer extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+  }
+
+  render() {
+    return ;
   }
 }
+
+export default connect(null, mapDispatchToProps)(CommentOptionDropdownContainer);
