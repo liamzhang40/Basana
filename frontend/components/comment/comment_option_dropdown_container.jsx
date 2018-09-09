@@ -7,7 +7,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const commentId = ownProps.match.params.commentId;
   return {
     updateComment: comment => dispatch(updateComment(comment)),
     removeComment: commentId => dispatch(removeComment(commentId))
@@ -17,10 +16,26 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 class CommentOptionDropdownContainer extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   render() {
-    return ;
+    const { comment, removeComment } = this.props;
+    return (
+      <div className='comment-dropdown'>
+        <ul>
+          <button>
+            <li>Edit Comment
+            </li>
+          </button>
+
+          <button onClick={() => removeComment(comment.id)}>
+            <li>Delete Comment
+            </li>
+          </button>
+        </ul>
+      </div>
+    );
   }
 }
 

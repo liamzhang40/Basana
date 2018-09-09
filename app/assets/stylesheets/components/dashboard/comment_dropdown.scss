@@ -1,0 +1,37 @@
+.comment-dropdown {
+  position: absolute;
+  z-index: 2;
+  top: 23px;
+  right: 5px;
+  width: 150px;
+  font-weight: 500;
+  background-color: #fff;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.1);
+  -webkit-animation: dropdown-show 0.2s;
+}
+
+.comment-dropdown ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-dropdown button {
+  height: 30px;
+  color: black;
+  line-height: 30px;
+  font-size: 12px;
+  transition: 0.3s ease-in-out;
+}
+
+.comment-dropdown button:hover {
+  background-color: #14aaf5;
+  color: #fff;
+}
+
+.comment-dropdown button {
+  width: 100%;
+}
+
+.comment-dropdown button>li {
+  padding-left: 10px;
+}
