@@ -20,11 +20,11 @@ class CommentOptionDropdownContainer extends React.Component {
   }
 
   render() {
-    const { comment, removeComment } = this.props;
+    const { comment, removeComment, toggleEditForm } = this.props;
     return (
       <div className='comment-dropdown'>
         <ul>
-          <button>
+          <button onClick={() => toggleEditForm()}>
             <li>Edit Comment
             </li>
           </button>

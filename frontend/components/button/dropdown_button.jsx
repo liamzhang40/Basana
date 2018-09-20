@@ -12,7 +12,6 @@ class DropdownButton extends React.Component {
   }
 
   handleClick() {
-
     if (!this.state.visible) {
       document.addEventListener('mousedown', this.handleOutsideClick, false);
     } else {
