@@ -30,8 +30,9 @@ class CommentForm extends React.Component {
   }
 
   render() {
+    const { formType } = this.props;
     return (
-      <div className='comment-form'>
+      <div className={`${formType}-form`}>
         <div>
           <TeamMemberIndexItem
             member={ this.props.currentUser }

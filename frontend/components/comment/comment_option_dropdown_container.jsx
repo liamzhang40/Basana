@@ -1,14 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { updateComment, removeComment } from '../../actions/comment_actions';
+import { removeComment } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    updateComment: comment => dispatch(updateComment(comment)),
     removeComment: commentId => dispatch(removeComment(commentId))
   };
 };

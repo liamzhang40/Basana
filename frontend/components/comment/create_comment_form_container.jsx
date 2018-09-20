@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => {
       author_id: state.session.id,
       task_id: ownProps.taskId,
       content: ""
-    }
+    },
+    formType: "create-comment"
   };
 };
 

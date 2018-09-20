@@ -1,23 +1,25 @@
-.comment-form {
+.create-comment-form {
   background-color: #f6f8f9;
   border-top: 1px solid #e0e6e8;
   border-radius: 3px;
 }
 
-.comment-form>div {
+.create-comment-form>div {
   padding: 10px 30px;
   display: flex;
 }
 
-.comment-form form {
+.create-comment-form form,
+.update-comment-form form {
   border: 1px solid #d5dce0;
   border-radius: 4px;
-  width: 85%;
+  width: 374px;
   height: 150px;
   background-color: #fff;
 }
 
-.comment-form textarea {
+.create-comment-form textarea,
+.update-comment-form textarea {
   padding: 10px;
   font-size: 13px;
   height: 100px;
@@ -25,7 +27,7 @@
   resize: none;
 }
 
-.comment-form .member-avatar {
+.create-comment-form .member-avatar {
   box-sizing: border-box;
   height: 30px;
   width: 30px;
@@ -38,21 +40,27 @@
   fill: #848f99;
 }
 
-.comment-form img {
+.update-comment-form li {
+  display: none;
+}
+
+.create-comment-form img {
   height: 100%;
   width: 100%;
 }
 
-.comment-form .empty-avatar svg {
+.create-comment-form .empty-avatar svg {
   height: 16px;
   width: 16px;
 }
 
-.comment-form .comment-form-util {
+.create-comment-form .comment-form-util,
+.update-comment-form .comment-form-util {
   padding: 5px 10px;
 }
 
-.comment-form button {
+.create-comment-form button,
+.update-comment-form button {
   background-color: #14aaf5;
   border-color: #14aaf5;
   border-radius: 3px;
@@ -64,6 +72,7 @@
   transition: 0.3s;
 }
 
-.comment-form button:hover {
+.create-comment-form button:hover,
+.update-comment-form button:hover {
   background-color: #008ce3;
 }

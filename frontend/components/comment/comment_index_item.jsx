@@ -2,7 +2,7 @@ import React from 'react';
 import TeamMemberIndexItem from '../team/team_member_index_item';
 import DropdownButton from '../button/dropdown_button';
 import CommentOptionDropdownContainer from './comment_option_dropdown_container';
-import CommentForm from './comment_form';
+import UpdateCommentFormContainer from './update_comment_form_container';
 
 class CommentIndexItem extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class CommentIndexItem extends React.Component {
         <TeamMemberIndexItem member={ comment.author }/>
         <div className='comment-feed-content'>
           <div>{ comment.author.name }</div>
-          {this.state.visible && <CommentForm comment={comment}/> || <div>{ comment.content }</div>}
+          {this.state.visible && <UpdateCommentFormContainer comment={comment}/> || <div>{ comment.content }</div>}
         </div>
         <DropdownButton
           dropdown={ () => <CommentOptionDropdownContainer comment={comment} toggleEditForm={() => this.setState({visible: !this.state.visible})}/>}
