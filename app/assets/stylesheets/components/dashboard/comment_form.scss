@@ -62,7 +62,7 @@
 .create-comment-form button,
 .update-comment-form button {
   background-color: #14aaf5;
-  border-color: #14aaf5;
+  border: 1px solid transparent;
   border-radius: 3px;
   color: #fff;
   height: 30px;
@@ -75,4 +75,18 @@
 .create-comment-form button:hover,
 .update-comment-form button:hover {
   background-color: #008ce3;
+}
+
+.update-comment-form .update-comment-cancel {
+  background-color: #fff;
+  border: 1px solid #b7bfc6;
+  color: #646f79;
+  margin-left: 180px;
+  margin-right: 5px;
+}
+
+.update-comment-form .update-comment-cancel:hover {
+  background-color: #f6f8f9;
+  border-color: #646f79;
+  color: #222b37;
 }

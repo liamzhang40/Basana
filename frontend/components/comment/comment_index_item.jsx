@@ -20,7 +20,7 @@ class CommentIndexItem extends React.Component {
         <TeamMemberIndexItem member={ comment.author }/>
         <div className='comment-feed-content'>
           <div>{ comment.author.name }</div>
-          {this.state.visible && <UpdateCommentFormContainer comment={comment}/> || <div>{ comment.content }</div>}
+          {this.state.visible && <UpdateCommentFormContainer comment={comment} toggleEditForm={() => this.setState({visible: !this.state.visible})}/> || <div>{ comment.content }</div>}
         </div>
         <DropdownButton
           dropdown={ () => <CommentOptionDropdownContainer comment={comment} toggleEditForm={() => this.setState({visible: !this.state.visible})}/>}

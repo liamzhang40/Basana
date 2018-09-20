@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createComment: comment => dispatch(createComment(comment))
+    processForm: comment => dispatch(createComment(comment))
   };
 };
 

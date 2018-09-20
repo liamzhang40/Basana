@@ -23,7 +23,7 @@ class CommentOptionDropdownContainer extends React.Component {
     return (
       <div className='comment-dropdown'>
         <ul>
-          <button onClick={() => toggleEditForm()}>
+          <button onClick={toggleEditForm}>
             <li>Edit Comment
             </li>
           </button>

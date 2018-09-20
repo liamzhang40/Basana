@@ -17,9 +17,10 @@ class CommentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { createComment } = this.props;
-    createComment(this.state).then(() => {
-      this.setState({ content: "" });
+    const { processForm, toggleEditForm } = this.props;
+    processForm(this.state).then(() => {
+      if (toggleEditForm) toggleEditForm();
+      else this.setState({ content: "" });
     });
   }
 
@@ -30,7 +31,7 @@ class CommentForm extends React.Component {
   }
 
   render() {
-    const { formType } = this.props;
+    const { formType, toggleEditForm } = this.props;
     return (
       <div className={`${formType}-form`}>
         <div>
@@ -44,7 +45,9 @@ class CommentForm extends React.Component {
               placeholder='Write a comment...'
               onChange={ this.update('content') }></textarea>
             <div className='comment-form-util'>
-              <button className='task-button'>Comment</button>
+              { formType === 'update-comment' &&
+                <button className='update-comment-cancel' onClick={toggleEditForm}>Cancel</button>}
+              <button className='task-button'>{formType === 'create-comment' ? 'Comment' : 'Save Changes'}</button>
             </div>
           </form>
         </div>

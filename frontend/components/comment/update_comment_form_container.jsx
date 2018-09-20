@@ -10,7 +10,7 @@ const mapStateToProps = () => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateComment: comment => dispatch(updateComment(comment))
+    processForm: comment => dispatch(updateComment(comment))
   };
 };
 
