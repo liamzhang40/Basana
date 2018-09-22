@@ -15,6 +15,7 @@ class CommentIndexItem extends React.Component {
 
   render() {
     const { comment } = this.props;
+    console.log(comment)
     return (
       <div className='comment-feed-container'>
         <TeamMemberIndexItem member={ comment.author }/>
