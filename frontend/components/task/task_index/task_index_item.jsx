@@ -62,6 +62,10 @@ class TaskIndexItem extends React.Component {
         className = 'task-item-right-red';
         displayDate = 'Yesterday';
       }
+      else if (todayDate.getTime() > dueDate.getTime()) {
+        className = 'task-item-right-red';
+        displayDate = formatDate(task.due_date);
+      }
       else if (todayDate.getTime() === dueDate.getTime()) {
         className = 'task-item-right-green';
         displayDate = 'Today';
@@ -91,13 +95,13 @@ class TaskIndexItem extends React.Component {
 
             <div className="task-item-input">
               <input
-                onChange={this.update('name')}
-                value={task.name}/>
+                onChange={ this.update('name') }
+                value={ task.name }/>
             </div>
           </div>
 
-          <div className={className}>
-            {displayDate}
+          <div className={ className }>
+            { displayDate }
           </div>
         </Link>
 
