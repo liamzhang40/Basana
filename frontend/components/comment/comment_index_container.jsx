@@ -16,6 +16,15 @@ const mapDispatchToProps = dispatch => {
 };
 
 class CommentIndex extends React.Component {
+  constructor() {
+    super();
+
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  handleScroll() {
+    if (this.refs.iScroll.scrollTop === 0) console.log("fetch more!!");
+  }
 
   componentDidMount() {
     this.props.fetchComments(this.props.taskId);
@@ -36,7 +45,10 @@ class CommentIndex extends React.Component {
     });
 
     return (
-      <div className='comment-list'>
+      <div
+        className='comment-list'
+        ref='iScroll'
+        onScroll={this.handleScroll}>
         {li}
       </div>
     );

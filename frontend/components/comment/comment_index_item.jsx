@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatDate } from '../../util/date_util';
 import TeamMemberIndexItem from '../team/team_member_index_item';
 import DropdownButton from '../button/dropdown_button';
 import CommentOptionDropdownContainer from './comment_option_dropdown_container';
@@ -15,12 +16,14 @@ class CommentIndexItem extends React.Component {
 
   render() {
     const { comment } = this.props;
-    console.log(comment)
     return (
       <div className='comment-feed-container'>
         <TeamMemberIndexItem member={ comment.author }/>
         <div className='comment-feed-content'>
-          <div>{ comment.author.name }</div>
+          <div className='comment-feed-detail'>
+            <div>{ comment.author.name }</div>
+            <div className='comment-feed-create-date'>{ formatDate(comment.created_at) }</div>
+          </div>
           {this.state.visible && <UpdateCommentFormContainer comment={comment} toggleEditForm={() => this.setState({visible: !this.state.visible})}/> || <div>{ comment.content }</div>}
         </div>
         <DropdownButton

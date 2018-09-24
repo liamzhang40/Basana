@@ -38,6 +38,17 @@
   font-size: 13px;
 }
 
+.comment-list .comment-feed-detail {
+  display: flex;
+  align-items: center;
+}
+
+.comment-list .comment-feed-create-date {
+  font-size: 11px;
+  color: #9ca6af;
+  margin-left: 10px;
+}
+
 .comment-feed-content>div {
   padding: 3px 0;
 }
