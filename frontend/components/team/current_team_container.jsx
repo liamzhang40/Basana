@@ -6,29 +6,24 @@ import TeamOptionDropdownContainer from './team_option_dropdown_container';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    team: state.entities.teams[ownProps.match.params.teamId],
+    currentTeam: state.entities.teams[ownProps.match.params.teamId],
     currentUser: state.entities.users[state.session.id]
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-  };
-};
-
-const CurrentTeam = ({team, currentUser}) => {
-  if (!team) {
+const CurrentTeam = ({currentTeam, currentUser}) => {
+  if (!currentTeam) {
     return (<div></div>);
   } else {
     return (
       <div
         className='current-team'>
         <DropdownButton
-          dropdown={ () => <TeamOptionDropdownContainer /> }
+          dropdown={ () => <TeamOptionDropdownContainer currentTeam={ currentTeam }/> }
           buttonStyle={
             () => (
             <div>
-              <span>{team.name}</span>
+              <span>{currentTeam.name}</span>
               <TeamMemberIndexItem member={ currentUser } />
             </div>)
           }
@@ -38,4 +33,4 @@ const CurrentTeam = ({team, currentUser}) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CurrentTeam);
+export default connect(mapStateToProps)(CurrentTeam);
