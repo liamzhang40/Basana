@@ -5,13 +5,13 @@ const UserSearchItem = ({ user, setParentState, clearUserSearch }) => {
     const emails = e.currentTarget.attributes.value.nodeValue;
     setParentState({ emails });
     clearUserSearch();
-  }
+  };
 
   return (
     // onMouseDown > onClick
     <li
       value={user.username}
-      onMouseDown={handleClick}>
+      onClick={handleClick}>
 
       <span>{user.username}</span>
     </li>

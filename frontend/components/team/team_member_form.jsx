@@ -42,8 +42,7 @@ class TeamMemberForm extends React.Component {
   }
 
   handleSearchList() {
-    const { userSearches } = this.props;
-      this.setState({visible: !this.state.visible});
+    this.setState({visible: !this.state.visible});
   }
 
   render() {
