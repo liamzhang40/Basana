@@ -6,7 +6,7 @@ import {
 } from '../../../actions/task_actions';
 import TaskIndex from './task_index';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   const tasks = Object.values(state.entities.tasks).filter(task => {
     return task.project_id;
   });

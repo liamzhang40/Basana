@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     resources :comments, except: [:new, :edit]
   end
   root "static_pages#root"
+
+  #nesting can get out of hand quickly, can do shallow nesting.
 end

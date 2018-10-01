@@ -17,14 +17,19 @@ const mapDispatchToProps = dispatch => {
 
 class MyTaskIndex extends React.Component {
   // only task index will take care of fetching tasks
+  handleClick() {
+    [...document.getElementsByClassName("highlight")].forEach(el => {
+      el.classList.remove("highlight");
+    });
+    
+    return () => this.props.fetchAssigneeTasks(this.props.currentUserId);
+  }
 
   render() {
     return (
       <Link
         to={`/dashboard/teams/${this.props.match.params.teamId}`}
-        onClick={() => {
-          this.props.fetchAssigneeTasks(this.props.currentUserId);
-        }}>My Tasks</Link>
+        onClick={this.handleClick}>My Tasks</Link>
     );
   }
 }

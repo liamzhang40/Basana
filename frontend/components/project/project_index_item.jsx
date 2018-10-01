@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ProjectOptionDropdown from './project_option_dropdown_container';
 import DropdownButton from '../button/dropdown_button';
 
-const ProjectIndexItem = ({ project, teamId, currentUserId }) => {
+const ProjectIndexItem = ({ project, selectedProject, teamId, currentUserId }) => {
   let li = '';
   // will only display public projects unless the current user is the
   // creator
@@ -25,6 +25,6 @@ const ProjectIndexItem = ({ project, teamId, currentUserId }) => {
         {li}
     </Link>
   );
-}
+};
 
 export default ProjectIndexItem;

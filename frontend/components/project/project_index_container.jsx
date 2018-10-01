@@ -20,6 +20,13 @@ const mapDispatchToProps = dispatch => {
 };
 
 class ProjectIndex extends React.Component {
+  // event delegation
+  constructor() {
+    super();
+    this.selectedProject = null;
+
+    this.handleClick = this.handleClick.bind(this);
+  }
 
   componentDidMount() {
     this.props.fetchProjects(this.props.match.params.teamId);
@@ -31,12 +38,28 @@ class ProjectIndex extends React.Component {
     }
   }
 
+  handleClick(e) {
+    let li = e.target.closest("li");
+
+    if (this.selectedProject) {
+      this.selectedProject.classList.remove("highlight");
+    }
+
+    this.selectedProject = li;
+    li.classList.add("highlight");
+  }
+
   render() {
-    const { projects, openModal, closeModal, currentUserId } = this.props;
+    const { 
+      projects,
+      openModal,
+      currentUserId } = this.props;
+      
     const li = projects.map(project => {
       return <ProjectIndexItem
         key={project.id}
         project={project}
+        selectedProject={this.selectedProject}
         teamId={this.props.match.params.teamId}
         currentUserId={currentUserId}/>;
     });
@@ -44,7 +67,8 @@ class ProjectIndex extends React.Component {
     return (
       <div className='team-projects'>
         <ProjectHeader openModal={openModal} />
-        <ul className='project-list'>
+        <ul className='project-list'
+        onClick={this.handleClick}>
           {li}
         </ul>
       </div>
