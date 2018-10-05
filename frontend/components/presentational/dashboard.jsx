@@ -24,14 +24,15 @@ const Dashboard = () => {
         <nav className='top-nav-bar'>
           <div className='top-nav-bar-list'>
             <div><Route path='/dashboard/teams/:teamId' component={MyTaskIndexContainer}/></div>
-
             <div><Route path='/dashboard/teams/:teamId' component={CurrentTeamContainer}/></div>
           </div>
         </nav>
 
         <nav className='top-nav-bar-2'>
-          <Route exact path='/dashboard/teams/:teamId' component={CurrentProjectContainer}/>
-          <Route path='/dashboard/teams/:teamId/projects/:projectId' component={CurrentProjectContainer}/>
+          <Switch>
+            <Route path='/dashboard/teams/:teamId/projects/:projectId' component={CurrentProjectContainer}/>
+            <Route path='/dashboard/teams/:teamId' component={CurrentProjectContainer} />
+          </Switch>
         </nav>
 
         <section className='dashboard-body'>

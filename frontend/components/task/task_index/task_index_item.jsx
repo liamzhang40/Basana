@@ -9,7 +9,6 @@ class TaskIndexItem extends React.Component {
     this.timeout = null;
   }
 
-
   update(field) {
     const {
       updateTask,
@@ -37,7 +36,9 @@ class TaskIndexItem extends React.Component {
       task,
       teamId,
       projectId,
-      updateTask
+      updateTask,
+      taskClassName,
+      setParentState
     } = this.props;
 
     let className = 'task-item-right';
@@ -81,7 +82,7 @@ class TaskIndexItem extends React.Component {
     }
 
     return (
-      <li>
+      <li className={taskClassName}>
         <Link
           className='task-item'
           to={projectId ?
@@ -104,7 +105,6 @@ class TaskIndexItem extends React.Component {
             { displayDate }
           </div>
         </Link>
-
       </li>
     );
   }

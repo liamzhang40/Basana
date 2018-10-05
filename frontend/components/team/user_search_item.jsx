@@ -3,7 +3,7 @@ import React from 'react';
 const UserSearchItem = ({ user, setParentState, clearUserSearch }) => {
   const handleClick = (e) => {
     const emails = e.currentTarget.attributes.value.nodeValue;
-    setParentState({ emails });
+    setParentState(emails);
     clearUserSearch();
   };
 

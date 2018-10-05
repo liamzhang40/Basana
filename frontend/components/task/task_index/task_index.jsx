@@ -4,11 +4,12 @@ import TaskHeaderContainer from './task_header';
 
 class TaskIndex extends React.Component {
   // event delegation
-  constructor() {
-    super();
-    this.selectedProject = null;
+  constructor(props) {
+    super(props);
 
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      selectedTaskId: this.props.selectedTaskId
+    };
   }
 
   componentDidMount() {
@@ -26,24 +27,14 @@ class TaskIndex extends React.Component {
     }
   }
 
-  handleClick(e) {
-    let li = e.target.closest("li");
-
-    if (this.selectedProject) {
-      this.selectedProject.classList.remove("highlight");
-    }
-
-    this.selectedProject = li;
-    li.classList.add("highlight");
-  }
-
   render() {
     const {
       match,
       tasks,
       updateTask,
       updateReduxTask,
-      taskVisibility
+      taskVisibility,
+      selectedTaskId
     } = this.props;
 
     const li = [];
@@ -57,7 +48,9 @@ class TaskIndex extends React.Component {
             teamId={match.params.teamId}
             projectId={match.params.projectId}
             updateTask={updateTask}
-            updateReduxTask={updateReduxTask}/>
+            updateReduxTask={updateReduxTask}
+            taskClassName={task.id === selectedTaskId ? 'highlight' : ''}
+            setParentState={selectedTaskId => this.setState({ selectedTaskId })}/>
         );
       }
     }
@@ -66,8 +59,7 @@ class TaskIndex extends React.Component {
       <div className='task-index'>
         <TaskHeaderContainer/>
         <div className='scroll-layer'>
-          <ul className='task-list'
-          onClick={this.handleClick}>
+          <ul className='task-list'>
             {li}
           </ul>
         </div>

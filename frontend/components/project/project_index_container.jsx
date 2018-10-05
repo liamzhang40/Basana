@@ -6,9 +6,10 @@ import ProjectIndexItem from './project_index_item';
 import ProjectHeader from './project_header';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps.location.pathname)
+  const selectedProjectId = /projects\/(\d+)/.exec(ownProps.location.pathname);
   return {
     projects: Object.values(state.entities.projects),
+    selectedProjectId: selectedProjectId ? parseInt(selectedProjectId[1]) : "",
     currentUserId: state.session.id
   };
 };
@@ -21,12 +22,12 @@ const mapDispatchToProps = dispatch => {
 };
 
 class ProjectIndex extends React.Component {
-  // event delegation
   constructor(props) {
     super(props);
 
-    this.selectedProject = null;
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      selectedProjectId: this.props.selectedProjectId
+    };
   }
 
   componentDidMount() {
@@ -39,39 +40,30 @@ class ProjectIndex extends React.Component {
     }
   }
 
-  handleClick(e) {
-    let li = e.target.closest("li");
-
-    if (this.selectedProject) {
-      this.selectedProject.classList.remove("highlight");
-    }
-
-    this.selectedProject = li;
-    li.classList.add("highlight");
-  }
-
   render() {
     const { 
       projects,
       openModal,
-      currentUserId } = this.props;
+      currentUserId,
+      selectedProjectId
+     } = this.props;
 
     const li = projects.map(project => {
       return <ProjectIndexItem
         key={project.id}
         project={project}
-        selectedProject={this.selectedProject}
+        currentUserId={currentUserId}
         teamId={this.props.match.params.teamId}
-        currentUserId={currentUserId}/>;
+        setParentState={selectedProjectId => this.setState({ selectedProjectId })}
+        className={project.id === selectedProjectId ? 'project-row highlight' : 'project-row'}/>;
     });
 
     return (
       <div className='team-projects'>
         <ProjectHeader openModal={openModal} />
-        <ul className='project-list'
-        onClick={this.handleClick}>
+        <ul className='project-list'>
           {li}
-        </ul>
+          </ul>
       </div>
     );
   }

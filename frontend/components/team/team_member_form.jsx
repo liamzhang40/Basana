@@ -48,10 +48,10 @@ class TeamMemberForm extends React.Component {
   render() {
     const userList = this.props.userSearches.map(user => {
       return <UserSearchItem
-        key={user.id}
-        user={user}
-        setParentState={this.setState.bind(this)}
-        clearUserSearch={this.props.clearUserSearch} />;
+        key={ user.id }
+        user={ user }
+        setParentState={ emails => this.setState({ emails }) }
+        clearUserSearch={ this.props.clearUserSearch } />;
     });
 
     return (
