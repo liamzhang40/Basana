@@ -5,7 +5,8 @@ import { openModal } from '../../actions/modal_actions';
 import ProjectIndexItem from './project_index_item';
 import ProjectHeader from './project_header';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps.location.pathname)
   return {
     projects: Object.values(state.entities.projects),
     currentUserId: state.session.id
@@ -21,10 +22,10 @@ const mapDispatchToProps = dispatch => {
 
 class ProjectIndex extends React.Component {
   // event delegation
-  constructor() {
-    super();
-    this.selectedProject = null;
+  constructor(props) {
+    super(props);
 
+    this.selectedProject = null;
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -54,7 +55,7 @@ class ProjectIndex extends React.Component {
       projects,
       openModal,
       currentUserId } = this.props;
-      
+
     const li = projects.map(project => {
       return <ProjectIndexItem
         key={project.id}
