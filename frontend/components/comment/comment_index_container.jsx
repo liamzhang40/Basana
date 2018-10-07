@@ -19,13 +19,13 @@ class CommentIndex extends React.Component {
   constructor() {
     super();
 
-    this.commentsCount = 0;
+    this.commentsCount = 10;
     this.handleScroll = this.handleScroll.bind(this);
   }
 
   handleScroll() {
     if (this.refs.iScroll.scrollTop === 0) {
-      this.props.fetchComments()
+      this.props.fetchComments(this.props.taskId, this.commentsCount);
     }
   }
 
