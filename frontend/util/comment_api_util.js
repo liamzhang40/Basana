@@ -1,8 +1,11 @@
-export const fetchComments = taskId => {
+export const fetchComments = (taskId, commentsCount) => {
   return $.ajax({
     method: 'GET',
     url: 'api/comments',
-    data: { comment: { task_id: taskId }}
+    data: { comment: { 
+      task_id: taskId,
+      comments_count: commentsCount
+     }}
   });
 };
 

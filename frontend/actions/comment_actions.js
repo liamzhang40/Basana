@@ -32,9 +32,9 @@ const deleteComment = commentId => {
   };
 };
 
-export const fetchComments = taskId => {
+export const fetchComments = (taskId, commentsCount) => {
   return dispatch => {
-    return commentAPIUtil.fetchComments(taskId).then(
+    return commentAPIUtil.fetchComments(taskId, commentsCount).then(
       comments => {
         return dispatch(receiveComments(comments));
       }

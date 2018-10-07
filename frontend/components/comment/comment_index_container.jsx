@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchComments: taskId => dispatch(fetchComments(taskId))
+    fetchComments: (taskId, commentsCount) => dispatch(fetchComments(taskId, commentsCount))
   };
 };
 
@@ -19,25 +19,30 @@ class CommentIndex extends React.Component {
   constructor() {
     super();
 
+    this.commentsCount = 0;
     this.handleScroll = this.handleScroll.bind(this);
   }
 
   handleScroll() {
-    if (this.refs.iScroll.scrollTop === 0) console.log("fetch more!!");
+    if (this.refs.iScroll.scrollTop === 0) {
+      this.props.fetchComments()
+    }
   }
 
   componentDidMount() {
-    this.props.fetchComments(this.props.taskId);
+    this.props.fetchComments(this.props.taskId, this.commentsCount);
+    this.commentsCount += 10;
   }
 
   componentWillReceiveProps(nextProps) {
+    this.commentsCount = 0;
     if (this.props.taskId !== nextProps.taskId) {
-      this.props.fetchComments(nextProps.taskId);
+      this.props.fetchComments(nextProps.taskId, this.commentsCount);
     }
   }
 
   render() {
-    const { comments,currentUser } = this.props;
+    const { comments } = this.props;
     const li = comments.map(comment => {
       return <CommentIndexItem
         key={comment.id}

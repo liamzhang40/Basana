@@ -3,7 +3,8 @@ class Api::CommentsController < ApplicationController
   before_action :require_login
 
   def index
-    @comments = Task.find(comment_params[:task_id]).comments.includes(:author)
+    # debugger
+    @comments = Task.find(comment_params[:task_id]).comments.offset(comment_params[:comments_count]).limit(10).includes(:author)
     render 'api/comments/index'
   end
 
@@ -39,6 +40,6 @@ class Api::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:author_id, :task_id, :content)
+    params.require(:comment).permit(:author_id, :task_id, :content, :comments_count)
   end
 end
