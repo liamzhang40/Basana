@@ -44,10 +44,14 @@ export const fetchComments = (taskId, commentsCount) => {
   return dispatch => {
     return commentAPIUtil.fetchComments(taskId, commentsCount).then(
       comments => {
-        if (commentsCount) {
-          return dispatch(receiveAdditionalComment(comments));
+        if (!Array.isArray(comments)) {
+          if (commentsCount) {
+            return dispatch(receiveAdditionalComment(comments));
+          }
+          return dispatch(receiveComments(comments));
+        } else {
+          return dispatch(receiveErrors(comments));
         }
-        return dispatch(receiveComments(comments));
       }
     );
   };

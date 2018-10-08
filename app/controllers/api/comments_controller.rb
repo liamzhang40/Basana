@@ -13,7 +13,11 @@ class Api::CommentsController < ApplicationController
 
     @comments = comments.offset(comment_params[:comments_count].to_i).limit(10).order("id desc")
 
-    render 'api/comments/index'
+    if @comments.length == 0 && comments.length != 0
+      render json: ["no more comments"]
+    else 
+      render 'api/comments/index'
+    end
   end
 
   def create
