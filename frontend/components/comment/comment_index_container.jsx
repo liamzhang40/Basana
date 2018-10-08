@@ -19,24 +19,24 @@ class CommentIndex extends React.Component {
   constructor() {
     super();
 
-    this.commentsCount = 10;
+    this.commentsCount = 0;
     this.handleScroll = this.handleScroll.bind(this);
   }
 
   handleScroll() {
     if (this.refs.iScroll.scrollTop === 0) {
+      this.commentsCount += 10;
       this.props.fetchComments(this.props.taskId, this.commentsCount);
     }
   }
 
   componentDidMount() {
     this.props.fetchComments(this.props.taskId, this.commentsCount);
-    this.commentsCount += 10;
   }
 
   componentWillReceiveProps(nextProps) {
-    this.commentsCount = 0;
     if (this.props.taskId !== nextProps.taskId) {
+      this.commentsCount = 10;
       this.props.fetchComments(nextProps.taskId, this.commentsCount);
     }
   }

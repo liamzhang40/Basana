@@ -4,11 +4,14 @@ class Api::CommentsController < ApplicationController
 
   def index
     comments = Task.find(comment_params[:task_id]).comments
+    # offset_amount = comments.length - comment_params[:comments_count].to_i
+    # debugger
+    # @comments = comments
+    # .offset(offset_amount >= 0 ? offset_amount : 0)
+    # .limit(offset_amount >= 0 ? 10 : comments.length % 10)
+    # .includes(:author)
 
-    @comments = comments
-    .offset(comments.length - comment_params[:comments_count].to_i)
-    .limit(10)
-    .includes(:author)
+    @comments = comments.offset(comment_params[:comments_count].to_i).limit(10).order("id desc")
 
     render 'api/comments/index'
   end
