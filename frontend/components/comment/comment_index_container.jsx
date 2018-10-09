@@ -32,7 +32,9 @@ class CommentIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchComments(this.props.taskId, this.commentsCount);
+    this.props.fetchComments(this.props.taskId, this.commentsCount).then(res => {
+      this.refs.iScroll.scrollTo(0, 24 + 10 * 62);
+    });
   }
 
   componentWillReceiveProps(nextProps) {
