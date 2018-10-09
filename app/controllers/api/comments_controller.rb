@@ -11,7 +11,7 @@ class Api::CommentsController < ApplicationController
     # .limit(offset_amount >= 0 ? 10 : comments.length % 10)
     # .includes(:author)
 
-    @comments = comments.offset(comment_params[:comments_count].to_i).limit(10).order("id desc")
+    @comments = comments.offset(comment_params[:comments_count].to_i).limit(5).order("id desc")
 
     if @comments.length == 0 && comments.length != 0
       render json: ["no more comments"]

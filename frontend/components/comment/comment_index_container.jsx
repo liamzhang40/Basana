@@ -26,21 +26,23 @@ class CommentIndex extends React.Component {
 
   handleScroll() {
     if (this.refs.iScroll.scrollTop === 0 && !this.props.errors.length) {
-      this.commentsCount += 10;
+      this.commentsCount += 5;
       this.props.fetchComments(this.props.taskId, this.commentsCount);
     }
   }
 
   componentDidMount() {
     this.props.fetchComments(this.props.taskId, this.commentsCount).then(res => {
-      this.refs.iScroll.scrollTo(0, 24 + 10 * 62);
+      this.refs.commentEnd.scrollIntoView();
     });
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.taskId !== nextProps.taskId) {
       this.commentsCount = 0;
-      this.props.fetchComments(nextProps.taskId, this.commentsCount);
+      this.props.fetchComments(nextProps.taskId, this.commentsCount).then(res => {
+        this.refs.commentEnd.scrollIntoView();
+      });
     }
   }
 
@@ -61,6 +63,7 @@ class CommentIndex extends React.Component {
         <ul>
           {li}
         </ul>
+        <div ref="commentEnd"></div>
       </div>
     );
   }

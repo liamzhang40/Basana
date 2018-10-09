@@ -1,6 +1,6 @@
 import {
   RECEIVE_COMMENTS,
-  RECEIVE_ADDITIONAL_COMMENT,
+  RECEIVE_ADDITIONAL_COMMENTS,
   RECEIVE_COMMENT,
   REMOVE_COMMENT
 } from '../actions/comment_actions';
@@ -11,7 +11,7 @@ const commentsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_COMMENTS:
       return action.comments;
-    case RECEIVE_ADDITIONAL_COMMENT:
+    case RECEIVE_ADDITIONAL_COMMENTS:
       return merge({}, state, action.comments);
     case RECEIVE_COMMENT:
       return merge({}, state, { [action.comment.id]: action.comment });

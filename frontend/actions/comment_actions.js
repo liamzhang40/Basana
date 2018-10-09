@@ -1,6 +1,6 @@
 import * as commentAPIUtil from '../util/comment_api_util';
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
-export const RECEIVE_ADDITIONAL_COMMENT = 'RECEIVE_ADDITIONAL_COMMENT';
+export const RECEIVE_ADDITIONAL_COMMENTS = 'RECEIVE_ADDITIONAL_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
@@ -12,9 +12,9 @@ const receiveComments = comments => {
   };
 };
 
-const receiveAdditionalComment = comments => {
+const receiveAdditionalComments = comments => {
   return {
-    type: RECEIVE_ADDITIONAL_COMMENT,
+    type: RECEIVE_ADDITIONAL_COMMENTS,
     comments
   };
 };
@@ -46,7 +46,7 @@ export const fetchComments = (taskId, commentsCount) => {
       comments => {
         if (!Array.isArray(comments)) {
           if (commentsCount) {
-            return dispatch(receiveAdditionalComment(comments));
+            return dispatch(receiveAdditionalComments(comments));
           }
           return dispatch(receiveComments(comments));
         } else {
