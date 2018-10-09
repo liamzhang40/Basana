@@ -4,11 +4,9 @@ import { fetchComments } from '../../actions/comment_actions';
 import CommentIndexItem from './comment_index_item';
 
 const mapStateToProps = state => {
-  const noMoreComments = state.errors.comments.length ? true : false;
   return {
     comments: Object.values(state.entities.comments),
-    errors: state.errors.comments,
-    noMoreComments
+    errors: state.errors.comments
   };
 };
 
@@ -27,7 +25,7 @@ class CommentIndex extends React.Component {
   }
 
   handleScroll() {
-    if (this.refs.iScroll.scrollTop === 0 && !this.props.noMoreComments) {
+    if (this.refs.iScroll.scrollTop === 0 && !this.props.errors.length) {
       this.commentsCount += 10;
       this.props.fetchComments(this.props.taskId, this.commentsCount);
     }
@@ -45,15 +43,13 @@ class CommentIndex extends React.Component {
   }
 
   render() {
-    const { comments, errors, noMoreComments } = this.props;
+    const { comments, errors } = this.props;
     const li = comments.map(comment => {
       return <CommentIndexItem
         key={comment.id}
         comment={comment}/>;
     });
 
-    // if ( errors.length ) this.noMoreComments = true;
-    console.log(noMoreComments)
     return (
       <div
         className='comment-list'
