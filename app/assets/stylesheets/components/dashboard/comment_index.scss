@@ -30,6 +30,22 @@
   position: relative;
   padding: 10px 30px;
   display: flex;
+  -webkit-animation: comment-show 0.5s;
+}
+
+@keyframes comment-show {
+  from {transform: translate(0%, -100%);}
+  to {transform: translate(0%, 0%);}
+}
+
+@-webkit-keyframes comment-show {
+  from {transform: translate(0%, 100%);}
+  to {transform: translate(0%, 0%);}
+}
+
+@-moz-keyframes comment-show {
+  from {transform: translate(0%, 100%);}
+  to {transform: translate(0%, 0%);}
 }
 
 .comment-list .comment-feed-content {
