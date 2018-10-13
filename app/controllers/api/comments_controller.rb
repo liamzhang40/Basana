@@ -11,7 +11,10 @@ class Api::CommentsController < ApplicationController
     # .limit(offset_amount >= 0 ? 10 : comments.length % 10)
     # .includes(:author)
 
-    @comments = comments.offset(comment_params[:comments_count].to_i).limit(5).order("id desc")
+    @comments = comments
+      .offset(comment_params[:comments_count].to_i)
+      .limit(comment_params[:comments_per_fetch])
+      .order("id desc")
 
     if @comments.length == 0 && comments.length != 0
       render json: ["no more comments"]
@@ -52,6 +55,12 @@ class Api::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:author_id, :task_id, :content, :comments_count)
+    params.require(:comment).permit(
+      :author_id,
+      :task_id,
+      :content,
+      :comments_count,
+      :comments_per_fetch
+      )
   end
 end

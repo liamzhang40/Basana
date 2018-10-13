@@ -40,9 +40,9 @@ const deleteComment = commentId => {
   };
 };
 
-export const fetchComments = (taskId, commentsCount) => {
+export const fetchComments = (taskId, commentsCount, commentsPerFetch) => {
   return dispatch => {
-    return commentAPIUtil.fetchComments(taskId, commentsCount).then(
+    return commentAPIUtil.fetchComments(taskId, commentsCount, commentsPerFetch).then(
       comments => {
         if (!Array.isArray(comments)) {
           if (commentsCount) {

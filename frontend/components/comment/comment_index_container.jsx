@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchComments: (taskId, commentsCount) => dispatch(fetchComments(taskId, commentsCount))
+    fetchComments: (taskId, commentsCount, commentsPerFetch) => dispatch(fetchComments(taskId, commentsCount, commentsPerFetch))
   };
 };
 
@@ -20,28 +20,39 @@ class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
 
+    this.commentsPerFetch = 0;
+    this.timeout = null;
     this.commentsCount = 0;
     this.handleScroll = this.handleScroll.bind(this);
   }
 
   handleScroll() {
-    if (this.refs.iScroll.scrollTop === 0 && !this.props.errors.length) {
-      this.commentsCount += 5;
-      this.props.fetchComments(this.props.taskId, this.commentsCount);
+    if (this.box.scrollTop === 0 && !this.props.errors.length) {
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+      }
+
+      this.timeout = setTimeout(() => {
+        this.commentsCount += this.commentsPerFetch;
+        this.props.fetchComments(this.props.taskId, this.commentsCount, this.commentsPerFetch);
+        this.timeout = null;
+      }, 1000);
     }
   }
 
   componentDidMount() {
-    this.props.fetchComments(this.props.taskId, this.commentsCount).then(res => {
-      this.refs.commentEnd.scrollIntoView();
+    this.commentsPerFetch = Math.ceil(this.box.clientHeight / 62);
+    // 62 is height of each comment feed
+    this.props.fetchComments(this.props.taskId, this.commentsCount, this.commentsPerFetch).then(res => {
+      this.commentEnd.scrollIntoView();
     });
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.taskId !== nextProps.taskId) {
       this.commentsCount = 0;
-      this.props.fetchComments(nextProps.taskId, this.commentsCount).then(res => {
-        this.refs.commentEnd.scrollIntoView();
+      this.props.fetchComments(nextProps.taskId, this.commentsCount, this.commentsPerFetch).then(res => {
+        this.commentEnd.scrollIntoView();
       });
     }
   }
@@ -57,13 +68,13 @@ class CommentIndex extends React.Component {
     return (
       <div
         className='comment-list'
-        ref='iScroll'
+        ref={ node => {this.box = node;} }
         onScroll={this.handleScroll}>
         <div>{errors.length || !comments.length ? errors[0] : "scroll up for more..."}</div>
         <ul>
           {li}
         </ul>
-        <div ref="commentEnd"></div>
+        <div ref={ node => {this.commentEnd = node;}}></div>
       </div>
     );
   }
