@@ -19,8 +19,12 @@ class CommentForm extends React.Component {
     e.preventDefault();
     const { processForm, toggleEditForm } = this.props;
     processForm(this.state).then(() => {
-      if (toggleEditForm) toggleEditForm();
-      else this.setState({ content: "" });
+      if (toggleEditForm) {
+        toggleEditForm();
+      } else {
+        this.setState({ content: "" });
+        document.getElementById("comment-end").scrollIntoView({behavior: "smooth"});
+      }
     });
   }
 

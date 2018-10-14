@@ -20,8 +20,8 @@ class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    this.commentsPerFetch = 0;
     this.timeout = null;
+    this.commentsPerFetch = 0;
     this.commentsCount = 0;
     this.handleScroll = this.handleScroll.bind(this);
   }
@@ -70,11 +70,11 @@ class CommentIndex extends React.Component {
         className='comment-list'
         ref={ node => {this.box = node;} }
         onScroll={this.handleScroll}>
-        <div>{errors.length || !comments.length ? errors[0] : "scroll up for more..."}</div>
+        <div>{errors.length || comments.length < this.commentsPerFetch ? errors[0] : "scroll up for more..."}</div>
         <ul>
           {li}
         </ul>
-        <div ref={ node => {this.commentEnd = node;}}></div>
+        <div id="comment-end" ref={ node => {this.commentEnd = node;}}></div>
       </div>
     );
   }
