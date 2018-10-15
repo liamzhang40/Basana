@@ -9,10 +9,6 @@ class TaskIndexItem extends React.PureComponent {
     this.timeout = null;
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-    
-  // }
-
   update(field) {
     const {
       updateTask,
@@ -36,7 +32,6 @@ class TaskIndexItem extends React.PureComponent {
   }
 
   render() {
-    console.log("render")
     const {
       task,
       teamId,

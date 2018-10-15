@@ -19,7 +19,7 @@ const ProjectIndexItem = ({ project, teamId, currentUserId, className }) => {
       </li>
     );
   }
-
+  console.log("render")
   return (
     <Link to={`/dashboard/teams/${teamId}/projects/${project.id}`}>
         {li}
