@@ -21,6 +21,7 @@ class CommentIndex extends React.Component {
     super(props);
 
     this.timeout = null;
+    this.isFetching = false;
     this.commentsPerFetch = 0;
     this.commentsCount = 0;
     this.handleScroll = this.handleScroll.bind(this);
@@ -70,6 +71,7 @@ class CommentIndex extends React.Component {
         className='comment-list'
         ref={ node => {this.box = node;} }
         onScroll={this.handleScroll}>
+        <img/>
         <div>{errors.length || comments.length < this.commentsPerFetch ? errors[0] : "scroll up for more..."}</div>
         <ul>
           {li}
