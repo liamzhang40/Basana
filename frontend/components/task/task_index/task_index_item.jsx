@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import { formatDate } from '../../../util/date_util';
 import TaskCompletionButton from '../../button/task_completion_button';
 
-class TaskIndexItem extends React.Component {
+class TaskIndexItem extends React.PureComponent {
   constructor(props) {
     super(props);
     this.timeout = null;
   }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+    
+  // }
 
   update(field) {
     const {
@@ -32,13 +36,12 @@ class TaskIndexItem extends React.Component {
   }
 
   render() {
+    console.log("render")
     const {
       task,
       teamId,
-      projectId,
       updateTask,
-      taskClassName,
-      setParentState
+      taskClassName
     } = this.props;
 
     let className = 'task-item-right';
@@ -85,8 +88,8 @@ class TaskIndexItem extends React.Component {
       <li className={taskClassName}>
         <Link
           className='task-item'
-          to={projectId ?
-            `/dashboard/teams/${teamId}/projects/${projectId}/tasks/${task.id}` :
+          to={task.project_id ?
+            `/dashboard/teams/${teamId}/projects/${task.project_id}/tasks/${task.id}` :
             `/dashboard/teams/${teamId}/tasks/${task.id}`}>
 
           <div className='task-item-left'>

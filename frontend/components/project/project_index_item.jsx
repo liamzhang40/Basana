@@ -3,15 +3,14 @@ import { Link } from 'react-router-dom';
 import ProjectOptionDropdown from './project_option_dropdown_container';
 import DropdownButton from '../button/dropdown_button';
 
-const ProjectIndexItem = ({ project, setParentState, teamId, currentUserId, className }) => {
+const ProjectIndexItem = ({ project, teamId, currentUserId, className }) => {
   let li = '';
   // will only display public projects unless the current user is the
   // creator
   if (!project.privacy || project.creator_id === currentUserId ) {
     li = (
       <li
-        className={className}
-        onClick={() => setParentState(project.id)}>
+        className={className}>
         <span className='project-name'>{project.name}</span>
         <DropdownButton
           dropdown={ () => <ProjectOptionDropdown project={project}/>}

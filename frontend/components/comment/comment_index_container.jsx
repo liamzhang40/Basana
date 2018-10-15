@@ -31,6 +31,7 @@ class CommentIndex extends React.Component {
   }
 
   handleScroll() {
+    // sometimes sends one extra request because switching between tasks also triggers onScroll
     if (this.box.scrollTop === 0 && !this.props.errors.length) {
       if (this.timeout) {
         clearTimeout(this.timeout);

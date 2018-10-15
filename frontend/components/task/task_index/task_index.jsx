@@ -43,14 +43,12 @@ class TaskIndex extends React.Component {
       if (task.completion === taskVisibility) {
         li.push(
           <TaskIndexItem
-            key={task.id}
-            task={task}
-            teamId={match.params.teamId}
-            projectId={match.params.projectId}
-            updateTask={updateTask}
-            updateReduxTask={updateReduxTask}
-            taskClassName={task.id === selectedTaskId ? 'highlight' : ''}
-            setParentState={selectedTaskId => this.setState({ selectedTaskId })}/>
+            key={ i }
+            task={ task }
+            teamId={ match.params.teamId }
+            updateTask={ updateTask }
+            updateReduxTask={ updateReduxTask }
+            taskClassName={ task.id === selectedTaskId ? 'highlight' : '' }/>
         );
       }
     }

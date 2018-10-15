@@ -54,7 +54,6 @@ class ProjectIndex extends React.Component {
         project={project}
         currentUserId={currentUserId}
         teamId={this.props.match.params.teamId}
-        setParentState={selectedProjectId => this.setState({ selectedProjectId })}
         className={project.id === selectedProjectId ? 'project-row highlight' : 'project-row'}/>;
     });
 

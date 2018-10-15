@@ -15,6 +15,7 @@ class CommentIndexItem extends React.PureComponent {
   }
 
   render() {
+    console.log("render")
     const { comment } = this.props;
     return (
       <div className='comment-feed-container'>
