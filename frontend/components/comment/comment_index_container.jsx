@@ -20,8 +20,11 @@ class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      isFetching: false
+    };
+
     this.timeout = null;
-    this.isFetching = false;
     this.commentsPerFetch = 0;
     this.commentsCount = 0;
     this.handleScroll = this.handleScroll.bind(this);
@@ -32,10 +35,13 @@ class CommentIndex extends React.Component {
       if (this.timeout) {
         clearTimeout(this.timeout);
       }
-
+      this.setState({isFetching: true});
+      
       this.timeout = setTimeout(() => {
         this.commentsCount += this.commentsPerFetch;
-        this.props.fetchComments(this.props.taskId, this.commentsCount, this.commentsPerFetch);
+        this.props.fetchComments(this.props.taskId, this.commentsCount, this.commentsPerFetch).then(() => {
+          this.setState({ isFetching: false });
+        });
         this.timeout = null;
       }, 1000);
     }
@@ -71,8 +77,12 @@ class CommentIndex extends React.Component {
         className='comment-list'
         ref={ node => {this.box = node;} }
         onScroll={this.handleScroll}>
-        <img/>
-        <div>{errors.length || comments.length < this.commentsPerFetch ? errors[0] : "scroll up for more..."}</div>
+        { this.state.isFetching ?
+          <img className="comment-loading"
+          src="https://raw.githubusercontent.com/liamzhang40/Basana/master/app/assets/images/comment_loading.gif"
+          alt="loading..."/> :
+          <div>{errors.length || comments.length < this.commentsPerFetch ? errors[0] : "scroll up for more..."}</div>
+        }
         <ul>
           {li}
         </ul>

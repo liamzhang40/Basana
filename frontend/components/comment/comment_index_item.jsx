@@ -5,7 +5,7 @@ import DropdownButton from '../button/dropdown_button';
 import CommentOptionDropdownContainer from './comment_option_dropdown_container';
 import UpdateCommentFormContainer from './update_comment_form_container';
 
-class CommentIndexItem extends React.Component {
+class CommentIndexItem extends React.PureComponent {
   constructor(props) {
     super(props);
 
