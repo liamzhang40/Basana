@@ -32,6 +32,7 @@
 }
 
 .task-sort-option-button {
+  position: relative;
   height: 16px;
   margin-left: 10px;
 }
@@ -44,6 +45,37 @@
 .task-sort-option-button svg:hover {
   fill: #32c1ff;
   cursor: pointer;
+}
+
+.task-sort-option-dropdown {
+  position: absolute;
+  z-index: 1;
+  right: 0px;
+  top: 30px;
+  background-color: #fff;
+  font-size: 13px;
+  border: 1px solid #d5dce0;
+  border-radius: 4px;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.06);
+}
+
+.task-sort-option-dropdown>div {
+  color: #848f99;
+  margin: 15px;
+}
+
+.task-sort-option-dropdown li {
+  width: 150px;
+  margin: 15px
+}
+
+.task-sort-option-dropdown label {
+  display: flex;
+  white-space: nowrap;
+}
+
+.task-sort-option-dropdown input {
+  margin-right: 10px;
 }
 
 .scroll-layer {

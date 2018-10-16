@@ -4,6 +4,7 @@ export const RECEIVE_TASK = 'RECEIVE_TASK';
 export const RECEIVE_TASK_ERRORS = 'RECEIVE_TASK_ERRORS';
 export const REMOVE_TASK = 'REMOVE_TASK';
 export const TOGGLE_TASK_VISIBILITY = 'TOGGLE_TASK_VISIBILITY';
+export const TOGGLE_TASK_ORDER = 'TOGGLE_TASK_ORDER';
 
 const receiveTasks = tasks => {
   return {
@@ -43,6 +44,13 @@ export const updateReduxTask = task => {
 export const toggleTaskVisibility = () => {
   return {
     type: TOGGLE_TASK_VISIBILITY
+  };
+};
+
+export const toggleTaskOrder = order => {
+  return {
+    type: TOGGLE_TASK_ORDER,
+    order
   };
 };
 

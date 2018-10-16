@@ -1,4 +1,6 @@
-import { TOGGLE_TASK_VISIBILITY } from '../actions/task_actions';
+import { 
+  TOGGLE_TASK_VISIBILITY
+ } from '../actions/task_actions';
 
 const taskVisibilityReducer = (state = false, action) => {
   Object.freeze(state);
