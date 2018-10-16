@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { pure } from 'recompose';
 import ProjectOptionDropdown from './project_option_dropdown_container';
 import DropdownButton from '../button/dropdown_button';
 
@@ -19,7 +20,7 @@ const ProjectIndexItem = ({ project, teamId, currentUserId, className }) => {
       </li>
     );
   }
-  console.log("render")
+  
   return (
     <Link to={`/dashboard/teams/${teamId}/projects/${project.id}`}>
         {li}
@@ -27,4 +28,5 @@ const ProjectIndexItem = ({ project, teamId, currentUserId, className }) => {
   );
 };
 
-export default ProjectIndexItem;
+export default pure(ProjectIndexItem);
+// creates pure functional component
