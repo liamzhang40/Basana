@@ -33,25 +33,26 @@ class TaskIndex extends React.Component {
       tasks,
       updateTask,
       updateReduxTask,
+      taskOrder,
       taskVisibility,
       selectedTaskId
     } = this.props;
 
-    const li = [];
-    for (let i = 0; i < tasks.length; i++) {
-      const task = tasks[i];
-      if (task.completion === taskVisibility) {
-        li.push(
-          <TaskIndexItem
-            key={ i }
-            task={ task }
-            teamId={ match.params.teamId }
-            updateTask={ updateTask }
-            updateReduxTask={ updateReduxTask }
-            taskClassName={ task.id === selectedTaskId ? 'highlight' : '' }/>
-        );
-      }
+    const filteredTasks = tasks.filter(task => task.completion === taskVisibility);
+
+    if (taskOrder === "Due Date") {
+      filteredTasks.sort((taskA, taskB) => taskA.due_date > taskB.due_date);
     }
+
+    const li = filteredTasks.map((task, idx) => (
+      <TaskIndexItem
+        key={idx}
+        task={task}
+        teamId={match.params.teamId}
+        updateTask={updateTask}
+        updateReduxTask={updateReduxTask}
+        taskClassName={task.id === selectedTaskId ? 'highlight' : ''} />
+    ));
 
     return (
       <div className='task-index'>

@@ -65,7 +65,7 @@ class TaskHeader extends React.Component {
               {taskVisibility ? "Incompleted Tasks" : "Completed Tasks"}
             </button>
             <DropdownButon 
-              dropdown={ () => <TaskSortOptionDropdownContainer />}
+              dropdown={ () => <TaskSortOptionDropdownContainer projectId={this.props.match.params.projectId}/>}
               buttonStyle={() => (
                 <svg viewBox="0 0 32 32">
                   <path d="M25,4c-2.4,0-4.4,1.7-4.9,4H4C3.4,8,3,8.4,3,9s0.4,1,1,1h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,4,25,4z M25,12c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,12,25,12z"/>

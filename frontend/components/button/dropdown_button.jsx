@@ -23,7 +23,7 @@ class DropdownButton extends React.Component {
   }
 
   render() {
-    const { type, buttonStyle, payload, dropdown } = this.props;
+    const { type, buttonStyle, dropdown } = this.props;
     return (
       <div
         className={`${type}-option-button`}
