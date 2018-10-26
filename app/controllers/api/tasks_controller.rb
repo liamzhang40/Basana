@@ -41,10 +41,19 @@ class Api::TasksController < ApplicationController
   end
 
   def like_create
-    @task_like = TaskLike.new(liker_id: current_user.id, task_id: params[:task_id])
+    task_like = TaskLike.new(liker_id: current_user.id, task_id: params[:id])
+    if task_like.save
+      @likers = Task.find(params[:id]).likers.length
+      render 'api/tasks/show'
+    else
+      render json: @task_like.errors.full_messages, status: 422
+    end
   end
 
   def like_delete
+    task_like = current_user.task_likes.find_by(task_id: params[:id])
+    task_like.destroy!
+    render json: {}
   end
 
   private

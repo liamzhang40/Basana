@@ -45,6 +45,14 @@ class User < ApplicationRecord
 
   has_many :comments
 
+  has_many :task_likes,
+    class_name: 'TaskLike',
+    foreign_key: :liker_id
+
+  has_many :liked_tasks,
+    through: :task_likes,
+    source: :task
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil

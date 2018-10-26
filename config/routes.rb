@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     resources :teams, except: [:new, :edit]
     resources :projects, except: [:new, :edit]
     resources :tasks, except: [:new, :edit]
-    post 'likes/task_id', :to => 'tasks#like_create'
-    post 'likes/task_id', :to => 'tasks#like_delete'
+    post 'likes/id', :to => 'tasks#like_create'
+    post 'likes/id', :to => 'tasks#like_delete'
     resources :comments, except: [:new, :edit]
   end
   root "static_pages#root"

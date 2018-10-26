@@ -29,6 +29,14 @@ class Task < ApplicationRecord
     optional: true
 
   has_many :comments
+
+  has_many :task_likes,
+    class_name: 'TaskLike',
+    foreign_key: :task_id
+
+  has_many :likers,
+    through: :task_likes,
+    foreign_key: :liker_id
   
   private
 
