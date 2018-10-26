@@ -11,11 +11,13 @@
 
 class TaskLike < ApplicationRecord
 
-    validates :task, :user, presence: true
-    validates :user, uniqueness: { scope: :task_id }
-    validates :task, uniqueness: { scope: :user_id }
+    validates :task, :liker, presence: true
+    validates :liker, uniqueness: { scope: :task_id }
+    validates :task, uniqueness: { scope: :liker_id }
 
-    belongs_to :user
+    belongs_to :liker,
+    class_name: 'User',
+    foreign_key: :liker_id
 
     belongs_to :task
 end

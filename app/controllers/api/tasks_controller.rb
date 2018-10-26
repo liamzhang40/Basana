@@ -40,6 +40,13 @@ class Api::TasksController < ApplicationController
     render json: {}
   end
 
+  def like_create
+    @task_like = TaskLike.new(liker_id: current_user.id, task_id: params[:task_id])
+  end
+
+  def like_delete
+  end
+
   private
 
   def task_params

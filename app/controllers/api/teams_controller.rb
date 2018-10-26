@@ -13,7 +13,7 @@ class Api::TeamsController < ApplicationController
     if @team.save
       emails = params[:team][:emails]
       TeamMembership.create(team_id: @team.id, member_id: current_user.id)
-      @users = create_teammemberships(@team, emails)
+      @users = @team.create_teammemberships(emails) << current_user
 
       render 'api/teams/show_team_and_members'
     else
@@ -30,7 +30,7 @@ class Api::TeamsController < ApplicationController
     @team = current_user.teams.find(params[:id])
     emails = params[:team][:emails]
     if emails
-      @users = create_teammemberships(@team, emails);
+      @users = @team.create_teammemberships(emails) << current_user
       render 'api/teams/show_team_and_members'
     else
       if @team.update(team_params)
@@ -60,25 +60,4 @@ class Api::TeamsController < ApplicationController
   def team_params
     params.require(:team).permit(:name)
   end
-
-  # refactor this into TeamMembership model
-  def create_teammemberships(team, emails)
-    # will return invalid_emails in future
-    invalid_emails = []
-    users = []
-    emails = emails.delete(' ').split(',')
-
-    emails.each do |email|
-      user = User.find_by(username: email)
-      if user
-        TeamMembership.create(team_id: team.id, member_id: user.id)
-        users << user
-      else
-        invalid_emails << email
-      end
-    end
-
-    return users << current_user
-  end
-
 end

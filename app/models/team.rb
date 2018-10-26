@@ -20,4 +20,14 @@ class Team < ApplicationRecord
     source: :member
 
   has_many :projects
+
+  def create_teammemberships(emails)
+    emails = emails.delete(' ').split(',')
+
+    emails.map do |email|
+      user = User.find_by(username: email)
+      TeamMembership.create(team_id: self.id, member_id: user.id)
+      user
+    end
+  end
 end
