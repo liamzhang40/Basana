@@ -56,4 +56,4 @@ export const unlikeTask = taskId => {
     method: 'DELETE',
     url: `api/likes/${taskId}`
   });
-}
+};

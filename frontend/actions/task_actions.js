@@ -120,3 +120,23 @@ export const removeTask = taskId => {
     );
   };
 };
+
+export const likeTask = taskId => {
+  return dispatch => {
+    return taskAPIUtil.likeTask(taskId).then(
+      task => {
+        return dispatch(receiveTask(task));
+      }
+    );
+  };
+};
+
+export const unlikeTask = taskId => {
+  return dispatch => {
+    return taskAPIUtil.unlikeTask(taskId).then(
+      task => {
+        return dispatch(receiveTask(task));
+      }
+    );
+  };
+};
