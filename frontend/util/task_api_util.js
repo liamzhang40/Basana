@@ -43,3 +43,17 @@ export const removeTask = taskId => {
     url: `api/tasks/${taskId}`
   });
 };
+
+export const likeTask = taskId => {
+  return $.ajax({
+    method: 'POST',
+    url: `api/likes/${taskId}`
+  });
+};
+
+export const unlikeTask = taskId => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/likes/${taskId}`
+  });
+}
