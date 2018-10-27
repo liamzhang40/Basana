@@ -134,15 +134,25 @@
 .task-option {
   display: flex;
   align-items: center;
-  fill: #848f99;
-}
-
-.task-option:hover {
-  fill: #32c1ff;
 }
 
 .task-option>li {
-  margin: 5px;
+  margin: 10px;
+}
+
+.task-button {
+  position: relative;
+  stroke: #848f99;
+  stroke-width: 2px;
+}
+
+.task-button svg:hover {
+  stroke: #32c1ff;
+}
+
+.task-button>span {
+  position: absolute;
+  top: 0;
 }
 
 .task-option-button  {

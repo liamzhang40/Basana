@@ -42,6 +42,8 @@ class TaskIndex extends React.Component {
 
     if (taskOrder === "Due Date") {
       filteredTasks.sort((taskA, taskB) => taskA.due_date > taskB.due_date);
+    } else if (taskOrder === "Likes") {
+      filteredTasks.sort((taskA, taskB) => taskA.likers.length < taskB.likers.length);
     }
 
     const li = filteredTasks.map((task, idx) => (
