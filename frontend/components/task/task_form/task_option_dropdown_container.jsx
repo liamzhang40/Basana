@@ -25,13 +25,12 @@ class TaskOptionDropdown extends React.Component {
   handleClick() {
     const { match, history, task, removeTask } = this.props;
     const { teamId, projectId } = match.params;
-    removeTask(task.id).then(() => {
-      if (projectId) {
-        history.push(`/dashboard/teams/${teamId}/projects/${projectId}`);
-      } else {
-        history.push(`/dashboard/teams/${teamId}`);
-      }
-    });
+    removeTask(task.id);
+    if (projectId) {
+      history.push(`/dashboard/teams/${teamId}/projects/${projectId}`);
+    } else {
+      history.push(`/dashboard/teams/${teamId}`);
+    }
   }
 
   render() {
