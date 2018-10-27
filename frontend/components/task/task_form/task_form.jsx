@@ -62,14 +62,18 @@ class TaskForm extends React.Component {
                 value={ task ? task.due_date : ''}/>
             </div>
 
-            <div className='task-option'>
-              <TaskLikeButton task={ task }/>
+            <ul className='task-option'>
+              <li>
+                <TaskLikeButton task={ task }/>
+              </li>
 
-              <DropdownButton
-                dropdown={ () => <TaskOptionDropdown task={task}/>}
-                buttonStyle={ () => <span>...</span> }
-                type="task"/>
-            </div>
+              <li>
+                <DropdownButton
+                  dropdown={ () => <TaskOptionDropdown task={task}/>}
+                  buttonStyle={ () => <span>...</span> }
+                  type="task"/>
+              </li>
+            </ul>
           </div>
 
 

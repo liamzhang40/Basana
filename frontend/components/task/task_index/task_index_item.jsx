@@ -77,7 +77,6 @@ class TaskIndexItem extends React.PureComponent {
         displayDate = formatDate(task.due_date);
       }
     }
-    console.log(task)
 
     return (
       <li className={taskClassName}>

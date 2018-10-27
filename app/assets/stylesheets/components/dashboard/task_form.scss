@@ -141,6 +141,10 @@
   fill: #32c1ff;
 }
 
+.task-option>li {
+  margin: 5px;
+}
+
 .task-option-button  {
   position: relative;
   border: 1px solid #b7bfc6;
@@ -148,7 +152,6 @@
   color: #848f99;
   height: 30px;
   width: 30px;
-  margin-right: 10px;
 }
 
 .task-option-button:hover  {
