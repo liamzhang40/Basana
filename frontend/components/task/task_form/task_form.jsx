@@ -63,7 +63,7 @@ class TaskForm extends React.Component {
             </div>
 
             <div className='task-option'>
-              <TaskLikeButton />
+              <TaskLikeButton task={ task }/>
 
               <DropdownButton
                 dropdown={ () => <TaskOptionDropdown task={task}/>}

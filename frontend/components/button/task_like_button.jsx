@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { likeTask, unlikeTask } from '../../actions/task_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
 
 };
 
@@ -29,4 +29,4 @@ const TaskLikeButton = ({ task, likeTask, unlikeTask}) => {
     );
 };
 
-export default connect(null, mapDispatchToProps)(TaskLikeButton);
+export default connect(mapStateToProps, mapDispatchToProps)(TaskLikeButton);
