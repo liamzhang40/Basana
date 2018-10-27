@@ -3,10 +3,10 @@ import React from 'react';
 const TaskCompletionButton = ({ task, updateTask }) => {
 
   const handleClick = () => {
-    const new_task = Object.assign({}, task);
-    new_task.completion = !task.completion;
-    updateTask(new_task);
-  }
+    const newTask = Object.assign({}, task);
+    newTask.completion = !task.completion;
+    updateTask(newTask);
+  };
 
   return (
     <button

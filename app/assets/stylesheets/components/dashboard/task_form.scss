@@ -131,6 +131,16 @@
   border: 1px solid #9ca6af;
 }
 
+.task-option {
+  display: flex;
+  align-items: center;
+  fill: #848f99;
+}
+
+.task-option:hover {
+  fill: #32c1ff;
+}
+
 .task-option-button  {
   position: relative;
   border: 1px solid #b7bfc6;

@@ -6,6 +6,7 @@ import DropdownButton from '../../button/dropdown_button';
 import Assignee from './assignee';
 import AssignedProject from './assigned_project';
 import TaskCompletionButton from '../../button/task_completion_button';
+import TaskLikeButton from '../../button/task_like_button';
 import CommentIndexContainer from '../../comment/comment_index_container';
 import CreateCommentFormContainer from '../../comment/create_comment_form_container';
 
@@ -62,6 +63,8 @@ class TaskForm extends React.Component {
             </div>
 
             <div className='task-option'>
+              <TaskLikeButton />
+
               <DropdownButton
                 dropdown={ () => <TaskOptionDropdown task={task}/>}
                 buttonStyle={ () => <span>...</span> }

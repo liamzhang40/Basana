@@ -8,15 +8,22 @@ import TaskForm from './task_form';
 const mapStateToProps = (state, ownProps) => {
   // if user refreshes the page, during first render, only current user
   // and team is in Redux state because they are preloaded.
-  let task = state.entities.tasks[ownProps.match.params.taskId];
-  let assignee = '';
-  let project = '';
-  if (task) {
-    assignee = state.entities.users[task.assignee_id];
-    project = state.entities.projects[task.project_id];
-  } else {
-    task = '';
-  }
+
+  // let task = state.entities.tasks[ownProps.match.params.taskId];
+  // let assignee = '';
+  // let project = '';
+  // if (task) {
+  //   assignee = state.entities.users[task.assignee_id];
+  //   project = state.entities.projects[task.project_id];
+  // } else {
+  //   task = '';
+  // }
+
+  const task = Object.keys(state.entities.tasks).length ?
+  state.entities.tasks[ownProps.match.params.taskId] :
+  "";
+  const assignee = task ? state.entities.users[task.assignee_id] : "";
+  const project = task ? state.entities.projects[task.project_id] : "";
 
   return {
     errors: state.errors.tasks,

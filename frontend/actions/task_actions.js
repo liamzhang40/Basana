@@ -110,7 +110,6 @@ export const updateTask = task => {
   };
 };
 
-
 export const removeTask = taskId => {
   return dispatch => {
     return taskAPIUtil.removeTask(taskId).then(
