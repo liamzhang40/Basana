@@ -8,9 +8,11 @@ const TaskCompletionButton = ({ task, updateTask }) => {
     updateTask(newTask);
   };
 
+  // console.log(task) a undefined task is passed through
+  // when deleting a task???
   return (
     <button
-      className={ task.completion ? 'task-check-box-checked' : 'task-check-box-unchecked' }
+      className={ task && task.completion ? 'task-check-box-checked' : 'task-check-box-unchecked' }
       value={ task ? !task.completion : ''}
       onClick={ handleClick }>
       <svg viewBox="0 0 32 32">

@@ -43,6 +43,7 @@ class Api::TasksController < ApplicationController
   def like_create
     task_like = TaskLike.new(liker_id: current_user.id, task_id: params[:id])
     if task_like.save
+      @task = Task.find(params[:id])
       render 'api/tasks/show'
     else
       render json: @task_like.errors.full_messages, status: 422
@@ -52,7 +53,8 @@ class Api::TasksController < ApplicationController
   def like_delete
     task_like = current_user.task_likes.find_by(task_id: params[:id])
     task_like.destroy!
-    render json: {}
+    @task = Task.find(params[:id])
+    render 'api/tasks/show'
   end
 
   private

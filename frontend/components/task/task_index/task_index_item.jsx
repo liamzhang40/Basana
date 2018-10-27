@@ -38,7 +38,7 @@ class TaskIndexItem extends React.PureComponent {
       updateTask,
       taskClassName
     } = this.props;
-
+    
     let className = 'task-item-right';
     let displayDate = '';
     if (task.due_date) {
@@ -76,8 +76,8 @@ class TaskIndexItem extends React.PureComponent {
       else {
         displayDate = formatDate(task.due_date);
       }
-
     }
+    console.log(task)
 
     return (
       <li className={taskClassName}>

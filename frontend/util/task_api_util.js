@@ -47,13 +47,13 @@ export const removeTask = taskId => {
 export const likeTask = taskId => {
   return $.ajax({
     method: 'POST',
-    url: `api/likes/${taskId}`
+    url: `api/tasks/${taskId}/likes`
   });
 };
 
 export const unlikeTask = taskId => {
   return $.ajax({
     method: 'DELETE',
-    url: `api/likes/${taskId}`
+    url: `api/tasks/${taskId}/likes`
   });
 };

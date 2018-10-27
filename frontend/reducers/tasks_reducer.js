@@ -11,7 +11,9 @@ const tasksReducer = (state = {}, action) => {
     case RECEIVE_TASKS:
       return action.tasks;
     case RECEIVE_TASK:
-      return merge({}, state, { [action.task.id]: action.task });
+      const nextState = merge({}, state, { [action.task.id]: action.task });
+      // debugger
+      return nextState;
     case REMOVE_TASK:
       let newState = merge({}, state);
       delete newState[action.taskId];

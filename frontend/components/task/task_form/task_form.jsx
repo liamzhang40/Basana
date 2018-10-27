@@ -59,7 +59,7 @@ class TaskForm extends React.Component {
                 type='date'
                 min={ minDate() }
                 onChange={ this.update('due_date') }
-                value={ task.due_date ? task.due_date : ''}/>
+                value={ task ? task.due_date : ''}/>
             </div>
 
             <div className='task-option'>
