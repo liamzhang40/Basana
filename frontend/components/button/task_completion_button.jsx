@@ -7,9 +7,7 @@ const TaskCompletionButton = ({ task, updateTask }) => {
     newTask.completion = !task.completion;
     updateTask(newTask);
   };
-  console.log(task);
-  // console.log(task) a undefined task is passed through
-  // when deleting a task???
+
   return (
     <button
       className={ task.completion ? 'task-check-box-checked' : 'task-check-box-unchecked' }

@@ -37,7 +37,6 @@ class TaskIndexItem extends React.PureComponent {
       updateTask,
       taskClassName
     } = this.props;
-    // console.log(task);
     
     let className = 'task-item-right';
     let displayDate = '';

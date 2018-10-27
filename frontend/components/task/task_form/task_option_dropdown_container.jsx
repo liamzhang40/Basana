@@ -3,12 +3,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { removeTask } from '../../../actions/task_actions';
 
-const mapStateToProps = (state, ownProps) => {
-  // return {
-  //   task: state.entities.tasks[ownProps.match.params.taskId]
-  // };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
     removeTask: taskId => dispatch(removeTask(taskId))
