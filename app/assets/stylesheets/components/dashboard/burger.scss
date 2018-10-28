@@ -1,0 +1,38 @@
+#burger {
+    width: 18px;
+    
+    &:before {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: #ccc;
+        margin-bottom: 4px;
+        transition: 0.5s;
+        transform: rotate(-45deg) translateY(3.5px) translateX(-3px);
+    }
+    
+    &:after {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: #ccc;
+        margin-bottom: 4px;
+        transition: 0.5s;
+        transform: rotate(45deg) translateY(-1px) translateX(-1px);
+        
+    }
+    
+    &.open {
+        border-bottom: 2px solid #ccc;
+        &:before {
+            transform: none;
+        }
+
+        &:after {
+            transform: none;
+        }
+    }
+}
+

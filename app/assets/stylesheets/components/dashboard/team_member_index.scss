@@ -1,13 +1,29 @@
 .dashboard-left h1 {
+  font-size: 20px;
   padding: 10px 0px;
 }
 
-.team-members {
-  width: 220px;
+.dashboard-left .dashboard-title-section {
+  width: 100%;
+}
+
+.dashboard-title-section>div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 12px;
+}
+
+.team-members-section {
+  width: 100%;
 }
 
 .team-members .team-members-header {
   border-bottom: 1px solid #9ca6af;
+}
+
+.team-members {
+  margin: 0 12px;
 }
 
 .team-members h2 {

@@ -35,15 +35,17 @@ class TeamMemberIndex extends React.Component {
     }
 
     return (
-      <div className='team-members'>
-        <div className="team-members-header">
-          <h2>MEMBERS</h2>
+      <div className='team-members-section'>
+        <div className='team-members'>
+          <div className="team-members-header">
+            <h2>MEMBERS</h2>
+          </div>
+          <ul className='member-list'>
+            {li}
+          </ul>
+          <TeamMemberFormContainer
+            teamId={match.params.teamId}/>
         </div>
-        <ul className='member-list'>
-          {li}
-        </ul>
-        <TeamMemberFormContainer
-          teamId={match.params.teamId}/>
       </div>
     );
   }

@@ -1,24 +1,19 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import CurrentTeamContainer from '../team/current_team_container';
-import TeamMemberIndexContainer from '../team/team_member_index_container';
-import ProjectIndexContainer from '../project/project_index_container';
 import CurrentProjectContainer from '../project/current_project_container';
 import UpdateTaskFormContainer from '../task/task_form/update_task_form_container';
 import AssigneeTaskIndexContainer from '../task/task_index/assignee_task_index_container';
 import MyTaskIndexContainer from '../task/task_index/my_task_index_container';
 import ProjectTaskIndexContainer from '../task/task_index/project_task_index_container';
+import DashboardLeft from './dashboard_left';
 
 // <div>Search Bar</div>
 const Dashboard = () => {
 
   return (
     <section className='dashboard-main'>
-      <nav className='dashboard-left'>
-        <h1>Basana</h1>
-        <Route path='/dashboard/teams/:teamId' component={TeamMemberIndexContainer} />
-        <Route path='/dashboard/teams/:teamId' component={ProjectIndexContainer} />
-      </nav>
+      <DashboardLeft />
 
       <section className='dashboard-right'>
         <nav className='top-nav-bar'>
