@@ -1,5 +1,9 @@
 #burger {
     width: 18px;
+    position: absolute;
+    visibility: visible;
+    top: 13px;
+    left: 215px;
     
     &:before {
         content: "";
@@ -9,7 +13,7 @@
         background-color: #ccc;
         margin-bottom: 4px;
         transition: 0.5s;
-        transform: rotate(-45deg) translateY(3.5px) translateX(-3px);
+        transform: rotate(-45deg) translateY(4.5px) translateX(-4px);
     }
     
     &:after {
@@ -20,12 +24,12 @@
         background-color: #ccc;
         margin-bottom: 4px;
         transition: 0.5s;
-        transform: rotate(45deg) translateY(-1px) translateX(-1px);
-        
+        transform: rotate(45deg);
     }
     
     &.open {
         border-bottom: 2px solid #222b37;
+        left: 5px;
         &:before {
             background-color: #222b37;
             transform: none;

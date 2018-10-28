@@ -11,28 +11,37 @@ class DashboardLeft extends React.Component {
     }
 
     handleClick() {
-        this.dashboardLeft.style.display = "none";
-        this.hamburgerButton.classList.add("open");
+        if (this.hamburgerButton.classList.length) {
+            // this.dashboardContainer.style.width = "244px";
+            this.dashboardContent.style.visibility = "visible";
+            this.hamburgerButton.classList.remove("open");
+        } else {
+            // this.dashboardContainer.style.width = "0";
+            this.dashboardContent.style.visibility = "hidden";
+            this.hamburgerButton.classList.add("open");
+        }
     }
 
     render() {
         return (
             <nav 
-                ref={ node => {this.dashboardLeft = node;} }
-                className='dashboard-left'>
-            <div className='dashboard-title-section'>  
-                <div>
-                    <h1>Basana</h1>
-                    <div>
-                        <button 
-                            id="burger"
-                            onClick={this.handleClick}
-                            ref={node => { this.hamburgerButton = node; }}></button>
+                ref={node => { this.dashboardContainer = node; }}
+                className="dashboard-left">
+                <button 
+                    id="burger"
+                    onClick={this.handleClick}
+                    ref={node => { this.hamburgerButton = node; }}></button>
+                <div
+                    ref={node => { this.dashboardContent = node; }}
+                    className='dashboard-left-content'>
+                    <div className='dashboard-title-section'>  
+                        <div>
+                            <h1>Basana</h1>
+                        </div>
                     </div>
+                    <Route path='/dashboard/teams/:teamId' component={TeamMemberIndexContainer} />
+                    <Route path='/dashboard/teams/:teamId' component={ProjectIndexContainer} />
                 </div>
-            </div>
-                <Route path='/dashboard/teams/:teamId' component={TeamMemberIndexContainer} />
-                <Route path='/dashboard/teams/:teamId' component={ProjectIndexContainer} />
             </nav>
         );
     }

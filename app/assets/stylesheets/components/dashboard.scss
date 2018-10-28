@@ -7,11 +7,17 @@
 }
 
 .dashboard-left {
+  width: 244px;
+  height: 100%;
+  background-color: #222b37;
+  transition: 0.5s;
+}
+
+.dashboard-left-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 244px;
-  background-color: #222b37;
   color: white;
   height: 100%;
 }

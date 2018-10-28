@@ -1,21 +1,16 @@
-.dashboard-left h1 {
+.dashboard-left-content h1 {
   font-size: 20px;
   padding: 10px 0px;
 }
 
-.dashboard-left .dashboard-title-section {
+.dashboard-left-content .dashboard-title-section,
+.team-members-section,
+.member-form {
   width: 100%;
 }
 
 .dashboard-title-section>div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin: 0 12px;
-}
-
-.team-members-section {
-  width: 100%;
 }
 
 .team-members .team-members-header {
@@ -35,13 +30,14 @@
 }
 
 .team-members form {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .team-members input {
-  width: 180px;
+  width: 80%;
   max-width: 200px;
   height: 30px;
   min-height: 30px;
