@@ -12,11 +12,11 @@ class DashboardLeft extends React.Component {
 
     handleClick() {
         if (this.hamburgerButton.classList.length) {
-            // this.dashboardContainer.style.width = "244px";
-            this.dashboardContent.style.visibility = "visible";
+            this.dashboardContainer.style.width = "244px";
+            setTimeout(() => {this.dashboardContent.style.visibility = "visible";}, 400);
             this.hamburgerButton.classList.remove("open");
         } else {
-            // this.dashboardContainer.style.width = "0";
+            this.dashboardContainer.style.width = "0";
             this.dashboardContent.style.visibility = "hidden";
             this.hamburgerButton.classList.add("open");
         }
