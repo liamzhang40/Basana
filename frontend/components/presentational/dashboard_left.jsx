@@ -11,13 +11,14 @@ class DashboardLeft extends React.Component {
     }
 
     handleClick() {
-        console.log(this.refs)
+        this.dashboardLeft.style.display = "none";
+        this.hamburgerButton.classList.add("open");
     }
 
     render() {
         return (
             <nav 
-                ref={ node => {this.dashboardLeft = node;}}
+                ref={ node => {this.dashboardLeft = node;} }
                 className='dashboard-left'>
             <div className='dashboard-title-section'>  
                 <div>
@@ -25,7 +26,8 @@ class DashboardLeft extends React.Component {
                     <div>
                         <button 
                             id="burger"
-                            onClick={this.handleClick}></button>
+                            onClick={this.handleClick}
+                            ref={node => { this.hamburgerButton = node; }}></button>
                     </div>
                 </div>
             </div>

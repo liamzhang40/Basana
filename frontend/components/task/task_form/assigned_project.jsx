@@ -49,7 +49,7 @@ class AssignedProject extends React.Component {
     const { project } = this.props;
     return (
       <div
-        ref={ node => this.node = node }
+        ref={ node => {this.node = node;} }
         className='task-project'
         onMouseEnter={this.handleMouse}
         onMouseLeave={this.handleMouse}>

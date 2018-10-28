@@ -25,12 +25,14 @@
     }
     
     &.open {
-        border-bottom: 2px solid #ccc;
+        border-bottom: 2px solid #222b37;
         &:before {
+            background-color: #222b37;
             transform: none;
         }
 
         &:after {
+            background-color: #222b37;
             transform: none;
         }
     }
