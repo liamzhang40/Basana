@@ -10,8 +10,8 @@
 }
 
 .dashboard-tasks-container .placeholder {
-  width: 2%;
-  min-width: 15px;
+  width: 5%;
+  min-width: 3px;
 }
 
 .dashboard-body .task-index {
@@ -26,7 +26,7 @@
 .dashboard-body .task-edit {
   -webkit-animation: task-edit-enter 0.5s;
   position: relative;
-  margin-left: 15px;
+  margin-left: 1%;
   width: 80%;
   min-width: 500px;
   border-radius: 3px;

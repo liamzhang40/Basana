@@ -1,12 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import CurrentTeamContainer from '../team/current_team_container';
-import CurrentProjectContainer from '../project/current_project_container';
-import UpdateTaskFormContainer from '../task/task_form/update_task_form_container';
-import AssigneeTaskIndexContainer from '../task/task_index/assignee_task_index_container';
-import MyTaskIndexContainer from '../task/task_index/my_task_index_container';
-import ProjectTaskIndexContainer from '../task/task_index/project_task_index_container';
 import DashboardLeft from './dashboard_left';
+import DashboardRight from './dashboard_right';
 
 // <div>Search Bar</div>
 const Dashboard = () => {
@@ -15,36 +10,7 @@ const Dashboard = () => {
     <section className='dashboard-main'>
       <DashboardLeft />
 
-      <section className='dashboard-right'>
-        <nav className='top-nav-bar'>
-          <div className='top-nav-bar-list'>
-            <div><Route path='/dashboard/teams/:teamId' component={MyTaskIndexContainer}/></div>
-            <div><Route path='/dashboard/teams/:teamId' component={CurrentTeamContainer}/></div>
-          </div>
-        </nav>
-
-        <nav className='top-nav-bar-2'>
-          <Switch>
-            <Route path='/dashboard/teams/:teamId/projects/:projectId' component={CurrentProjectContainer}/>
-            <Route path='/dashboard/teams/:teamId' component={CurrentProjectContainer} />
-          </Switch>
-        </nav>
-
-        <section className='dashboard-body'>
-          <section className='dashboard-tasks-container'>
-            <div className='placeholder'></div>
-            <Switch>
-              <Route path='/dashboard/teams/:teamId/projects/:projectId' component={ProjectTaskIndexContainer} />
-              <Route path='/dashboard/teams/:teamId' component={AssigneeTaskIndexContainer} />
-            </Switch>
-
-            <Route path='/dashboard/teams/:teamId/projects/:projectId/tasks/:taskId' component={UpdateTaskFormContainer} />
-            <Route path='/dashboard/teams/:teamId/tasks/:taskId' component={UpdateTaskFormContainer} />
-
-            <div className='placeholder'></div>
-          </section>
-        </section>
-      </section>
+      <DashboardRight />
     </section>
   );
 };

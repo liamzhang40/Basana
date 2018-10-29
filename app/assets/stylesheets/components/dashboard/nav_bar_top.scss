@@ -3,7 +3,6 @@
   font-size: 13px;
   color: #848f99;
   border-bottom: 1px solid #e0e6e8;
-  min-width: 920px;
   background-color: white;
   letter-spacing: 0.5px;
 }
@@ -17,15 +16,15 @@
 }
 
 .top-nav-bar-list>div {
-  margin: 12px 26px;
+  margin: 0 26px;
   transition: 0.3s ease-in-out;
 }
 
-.top-nav-bar-list>div:first-child {
+.my-task-link {
   color: #151b26;
 }
 
-.top-nav-bar-list>div:first-child:hover {
+.my-task-link:hover {
   color: #14aaf5;
 }
 

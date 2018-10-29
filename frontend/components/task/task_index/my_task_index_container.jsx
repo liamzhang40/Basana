@@ -24,6 +24,7 @@ class MyTaskIndex extends React.Component {
   render() {
     return (
       <Link
+        className="my-task-link"
         to={`/dashboard/teams/${this.props.match.params.teamId}`}
         onClick={this.handleClick}>My Tasks</Link>
     );

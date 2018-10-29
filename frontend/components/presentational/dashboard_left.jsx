@@ -6,34 +6,12 @@ import TeamMemberIndexContainer from '../team/team_member_index_container';
 class DashboardLeft extends React.Component {
     constructor() {
         super();
-
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick() {
-        if (this.hamburgerButton.classList.length) {
-            this.dashboardContainer.style.width = "244px";
-            setTimeout(() => {this.dashboardContent.style.visibility = "visible";}, 400);
-            this.hamburgerButton.classList.remove("open");
-        } else {
-            this.dashboardContainer.style.width = "0";
-            this.dashboardContent.style.visibility = "hidden";
-            this.hamburgerButton.classList.add("open");
-        }
     }
 
     render() {
         return (
-            <nav 
-                ref={node => { this.dashboardContainer = node; }}
-                className="dashboard-left">
-                <button 
-                    id="burger"
-                    onClick={this.handleClick}
-                    ref={node => { this.hamburgerButton = node; }}></button>
-                <div
-                    ref={node => { this.dashboardContent = node; }}
-                    className='dashboard-left-content'>
+            <section className="dashboard-left">
+                <nav className='dashboard-left-content'>
                     <div className='dashboard-title-section'>  
                         <div>
                             <h1>Basana</h1>
@@ -41,8 +19,8 @@ class DashboardLeft extends React.Component {
                     </div>
                     <Route path='/dashboard/teams/:teamId' component={TeamMemberIndexContainer} />
                     <Route path='/dashboard/teams/:teamId' component={ProjectIndexContainer} />
-                </div>
-            </nav>
+                </nav>
+            </section>
         );
     }
 }
