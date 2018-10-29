@@ -58,11 +58,13 @@ class ProjectIndex extends React.Component {
     });
 
     return (
-      <div className='team-projects'>
-        <ProjectHeader openModal={openModal} />
-        <ul className='project-list'>
-          {li}
-          </ul>
+      <div className='team-projects-section'>
+        <div className='team-projects'>
+          <ProjectHeader openModal={openModal} />
+          <ul className='project-list'>
+            {li}
+            </ul>
+        </div>
       </div>
     );
   }

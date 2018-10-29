@@ -1,9 +1,8 @@
 #burger {
     width: 18px;
     position: absolute;
-    top: 13px;
-    left: 215px;
-    
+    left: -30px;
+
     &:before {
         content: "";
         display: block;

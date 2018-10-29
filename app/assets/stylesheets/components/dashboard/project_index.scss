@@ -1,12 +1,17 @@
+.team-projects-section {
+  width: 100%;
+  margin: 50px 0;
+}
+
 .team-projects {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px 0;
+  margin: 0 12px;
 }
 
 .team-projects .project-header {
-  width: 220px;
+  width: 100%;
   min-height: 24px;
   display: flex;
   justify-content: space-between;
@@ -49,20 +54,25 @@
 }
 
 .project-list {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   color: #9ca6af;
   font-size: 12px;
   letter-spacing: 1px;
 }
 
+.project-list a {
+  width: 100%;
+}
+
 .project-list .project-row {
   position: relative;
+  margin-left: -12px;
   display: flex;
   justify-content: space-between;
+  width: calc(100% + 24px);
   padding: 7px 0px;
-  width: 244px;
   color: #fff;
   font-weight: 300;
 }
