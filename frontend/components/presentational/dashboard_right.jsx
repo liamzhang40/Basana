@@ -17,7 +17,7 @@ class DashboardRight extends React.Component {
 
     handleClick() {
         if (this.hamburgerButton.classList.length) {
-            this.dashboardContainer.style.width = "83%";
+            this.dashboardContainer.style.width = "100%";
             setTimeout(() => {
                 this.hamburgerButton.classList.remove("open");
                 this.myTask.style.marginLeft = "26px";
