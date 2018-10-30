@@ -8,7 +8,7 @@
   width: 240px;
   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.1);
   z-index: 2;
-  -webkit-animation: dropdown-show 0.3s;
+  -webkit-animation: component-fade-in 0.3s;
 }
 
 .team-dropdown-container ul {
@@ -33,17 +33,17 @@
   width: 100%;
 }
 
-@keyframes dropdown-show {
+@keyframes component-fade-in {
   from {opacity: 0;}
   to {opacity: 1;}
 }
 
-@-webkit-keyframes dropdown-show {
+@-webkit-keyframes component-fade-in {
   from {opacity: 0;}
   to {opacity: 1;}
 }
 
-@-moz-keyframes dropdown-show {
+@-moz-keyframes component-fade-in {
   from {opacity: 0;}
   to {opacity: 1;}
 }
