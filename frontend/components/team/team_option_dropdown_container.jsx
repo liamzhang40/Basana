@@ -36,9 +36,11 @@ class TeamOptionDropdown extends React.Component {
       history,
       openModal
     } = this.props;
-    logout();
-    history.push('/');
-    openModal('login');
+
+    logout().then(() => {
+      history.push('/');
+      openModal('login');
+    });
   }
 
   handleRemove() {
@@ -64,9 +66,7 @@ class TeamOptionDropdown extends React.Component {
   render() {
     const {
       teams,
-      logout,
-      openModal,
-      removeMember,
+      openModal
     } = this.props;
 
     const li = teams.map(team => {
