@@ -10,7 +10,6 @@ const App = () => {
     <div>
       <Modal />
       <AuthRoute path='/' exact={true} component={Splash}/>
-      {/* <Route path='/' exact component={Splash}/> */}
 
       <Route path='/dashboard/teams/:teamId' component={Dashboard} />
     </div>
