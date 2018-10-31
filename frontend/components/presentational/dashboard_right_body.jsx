@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import TaskBundle from '../task/task_bundle';
 import Calendar from '../calendar/calendar';
 
@@ -25,4 +26,4 @@ const DashboardRightBody = ({contentToDisplay}) => {
     );
 };
 
-export default connect(mapStateToProps)(DashboardRightBody);
+export default withRouter(connect(mapStateToProps)(DashboardRightBody));

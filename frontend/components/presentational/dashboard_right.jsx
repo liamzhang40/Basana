@@ -6,8 +6,6 @@ import MyTaskIndexContainer from '../task/task_index/my_task_index_container';
 import DashboardRightToggleTabs from './dashboard_right_toggle_tabs';
 import DashboardRightBody from './dashboard_right_body';
 
-import TaskBundle from '../task/task_bundle';
-
 class DashboardRight extends React.Component {
     constructor() {
         super();

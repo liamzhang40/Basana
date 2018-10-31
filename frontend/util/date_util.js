@@ -24,13 +24,13 @@ export const months = {
 };
 
 export const daysOfWeek = {
-  0: 'Sun',
-  1: 'Mon',
-  2: 'Tue',
-  3: 'Wed',
-  4: 'Thu',
-  5: 'Fri',
-  6: 'Sat',
+  0: 'Sunday',
+  1: 'Monday',
+  2: 'Tuesday',
+  3: 'Wednesday',
+  4: 'Thursday',
+  5: 'Friday',
+  6: 'Saturday',
 };
 
 export const daysInMonth = [
@@ -53,7 +53,7 @@ export const formatDate = date => {
   const month = months[obj.getMonth()];
   const day = obj.getDate() + 1;
   const year = obj.getFullYear();
-  const dayOfWeek = daysOfWeek[obj.getDay()];
+  const dayOfWeek = daysOfWeek[obj.getDay()].slice(0, 3);
   return `${month} ${day}, ${year} (${dayOfWeek})`;
 };
 

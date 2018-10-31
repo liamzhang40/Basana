@@ -1,3 +1,82 @@
-table {
+.calendar-container {
     width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.calendar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 6px;
+}
+
+.calendar-scroll-layer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.calendar-dates-row,
+.calendar-days {
+    display: flex;
+    font-size: 13px;
+}
+
+.calendar-days {
+    color: #848f99;
+    border-bottom: 2px solid #edf1f2;
+    min-height: 15px;
+}
+
+.calendar-dates-row {
+    min-height: calc(100% / 5);
+}
+
+.calendar-dates-row>div,
+.calendar-days>div {
+    width: calc(100% / 7);
+    box-sizing: border-box;
+}
+
+.calendar-dates-row>div {
+    border-bottom: 4px solid #edf1f2;
+    margin: 0 4px;
+}
+
+.calendar-header {
+    margin: 5px 15px 15px 15px;
+    display: flex;
+    justify-content: center;
+    min-height: 20px;
+}
+
+.calendar-header .switch-button-left,
+.calendar-header .switch-button-right {
+    color: #848f99;
+    cursor: pointer;
+    transition: 1s;
+    font-size: 18px;
+}
+
+.calendar-header .switch-button-left:hover,
+.calendar-header .switch-button-right:hover {
+    color: #008ce3;
+}
+
+.calendar-header .switch-button-left:hover span,
+.calendar-header .switch-button-right:hover span {
+    position: relative;
+    left: 5px;
+}
+
+.calendar-header .switch-button-left {
+    transform: rotate(180deg)
+}
+
+.calendar-header .calendar-header-content {
+    margin: auto;
 }
