@@ -3,9 +3,10 @@ import { Route, Switch } from 'react-router-dom';
 import CurrentTeamContainer from '../team/current_team_container';
 import CurrentProjectContainer from '../project/current_project_container';
 import MyTaskIndexContainer from '../task/task_index/my_task_index_container';
-import DashboardRightBodyToggleTabs from './dashboard_right_body_toggle_tabs';
-import TaskBundle from '../task/task_bundle';
+import DashboardRightToggleTabs from './dashboard_right_toggle_tabs';
+import DashboardRightBody from './dashboard_right_body';
 
+import TaskBundle from '../task/task_bundle';
 
 class DashboardRight extends React.Component {
     constructor() {
@@ -64,16 +65,10 @@ class DashboardRight extends React.Component {
                             <Route path='/dashboard/teams/:teamId/projects/:projectId' component={CurrentProjectContainer} />
                             <Route path='/dashboard/teams/:teamId' component={CurrentProjectContainer} />
                         </Switch>
-                        <Route path='/dashboard' component={DashboardRightBodyToggleTabs} />
+                        <Route path='/dashboard' component={DashboardRightToggleTabs} />
                     </nav>
 
-                    <section className='dashboard-body'>
-                        <section className='dashboard-tasks-container'>
-                            <div className='placeholder'></div>
-                            <TaskBundle />
-                            <div className='placeholder'></div>
-                        </section>
-                    </section>
+                    <DashboardRightBody />
                 </div>
             </section>
 

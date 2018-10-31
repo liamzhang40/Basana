@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-const DashboardRightBodyToggleTabs = ({ displayingContent, toggleDashboardDisplay }) => {
+const DashboardRightToggleTabs = ({ displayingContent, toggleDashboardDisplay }) => {
     const li = ["list", "calendar"].map((content, idx) => (
         <li 
             key={idx}
@@ -34,4 +34,4 @@ const DashboardRightBodyToggleTabs = ({ displayingContent, toggleDashboardDispla
     );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardRightBodyToggleTabs);
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardRightToggleTabs);

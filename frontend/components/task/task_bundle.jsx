@@ -4,7 +4,7 @@ import UpdateTaskFormContainer from './task_form/update_task_form_container';
 import AssigneeTaskIndexContainer from './task_index/assignee_task_index_container';
 import ProjectTaskIndexContainer from './task_index/project_task_index_container';
 
-const TaskList = () => {
+const TaskBundle = () => {
     return (
         <React.Fragment>
             <Switch>
@@ -17,4 +17,4 @@ const TaskList = () => {
     );
 };
 
-export default TaskList;
+export default TaskBundle;

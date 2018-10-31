@@ -25,17 +25,18 @@ class Calendar extends React.Component {
         const dates = [];
         for (let i = 0, date = 0; date <= monthLength; i++) {
             let datesRow = [];
-            let startCountingDates = false;
             for (let j = 0; j < 7; j++) {
-                if (j === firstDayOfMonth) startCountingDates = true;
-                if (startCountingDates) {
-                    datesRow.push(<td key={j}>white</td>);
+                if (date === 0 && j === firstDayOfMonth) date += 1;
+                if (date > 0 && date <= monthLength) {
+                    datesRow.push(<td key={j}>{date}</td>);
                     date += 1;
                 } else {
-                    datesRow.push(<td className="calendar-empty-dates" key={j}>red</td>);
+                    datesRow.push(<td className="calendar-other-dates" key={j}>red</td>);
                 }
             }
+            dates.push(<tr className="calendar-dates-row" key={i}>{datesRow}</tr>);
         }
+
         return dates;
     }
 
