@@ -1,4 +1,5 @@
 .top-nav-bar-2 {
+  position: relative;
   background-color: #fff;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
   min-height: 55px;
@@ -27,4 +28,25 @@
 .current-project .current-project-option-dropdown-visible {
   position: absolute;
   z-index: 2;
+}
+
+.dashboard-right-body-toggle-tabs {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  display: flex;
+  color: #848f99;
+  font-size: 15px;
+}
+
+.dashboard-right-body-toggle-tabs li {
+  border-bottom: 2px solid transparent;
+  margin-left: 20px;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.dashboard-right-body-toggle-tabs li:hover {
+  border-color: #b7bfc6;
+  color: #151b26;
 }

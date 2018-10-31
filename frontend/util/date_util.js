@@ -8,30 +8,47 @@ export const minDate = () => {
   return yyyy + '-' + mm + '-' + dd;
 };
 
+export const months = {
+  0: 'January',
+  1: 'February',
+  2: 'March',
+  3: 'April',
+  4: 'May',
+  5: 'June',
+  6: 'July',
+  7: 'August',
+  8: 'September',
+  9: 'October',
+  10: 'November',
+  11: 'December',
+};
+
+export const daysOfWeek = {
+  0: 'Sun',
+  1: 'Mon',
+  2: 'Tue',
+  3: 'Wed',
+  4: 'Thu',
+  5: 'Fri',
+  6: 'Sat',
+};
+
+export const daysInMonth = [
+  31,
+  28,
+  31,
+  30,
+  31,
+  30,
+  31,
+  31,
+  30,
+  31,
+  30,
+  31
+];
+
 export const formatDate = date => {
-  const months = {
-    0: 'January',
-    1: 'February',
-    2: 'March',
-    3: 'April',
-    4: 'May',
-    5: 'June',
-    6: 'July',
-    7: 'August',
-    8: 'September',
-    9: 'October',
-    10: 'November',
-    11: 'December',
-  };
-  const daysOfWeek = {
-    0: 'Sun',
-    1: 'Mon',
-    2: 'Tue',
-    3: 'Wed',
-    4: 'Thu',
-    5: 'Fri',
-    6: 'Sat',
-  };
   const obj = new Date(date);
   const month = months[obj.getMonth()];
   const day = obj.getDate() + 1;
@@ -55,3 +72,4 @@ export const formatTime = date => {
 export const formatDateTime = date => (
   `${formatDate(date)} ${formatTime(date)}`
 );
+
