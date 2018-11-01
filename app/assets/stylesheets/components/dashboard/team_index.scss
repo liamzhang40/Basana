@@ -17,10 +17,14 @@
 }
 
 .team-dropdown-container li {
+  width: 210px;
   height: 40px;
   line-height: 40px;
   padding-left: 30px;
   font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: 0.3s ease-in-out;
 }
 

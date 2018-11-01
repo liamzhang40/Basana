@@ -33,7 +33,7 @@
 }
 
 .calendar-dates-row {
-    min-height: calc(100% / 5);
+    min-height: calc(100% / 4);
 }
 
 .calendar-dates-row>div,
@@ -83,18 +83,24 @@
 }
 
 .calendar-task-index-item {
-    // width: 100%;
     display: flex;
     align-items: center;
+    padding: 2px;
+    box-sizing: border-box;
+    border: 1px solid #b7bfc6;
+    border-radius: 4px;
+    margin-bottom: 2px;
 }
 
 .calendar-task-index-item-name {
-    white-space: nowrap;
     overflow: hidden;
-    // width: 170px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 110px;
 }
 
-.calendar-task-index-item .member-avatar {
+.calendar-task-index-item .member-avatar,
+.calendar-task-index-item .empty-avatar {
     box-sizing: border-box;
     height: 25px;
     width: 25px;
@@ -106,4 +112,9 @@
     justify-content: center;
     align-items: center;
     fill: #848f99;
+}
+
+.calendar-task-index-item .empty-avatar svg {
+    height: 16px;
+    width: 16px;
 }

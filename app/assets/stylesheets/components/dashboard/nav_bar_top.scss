@@ -41,7 +41,11 @@
 }
 
 .current-team span {
+  margin-right: 10px;
   width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .current-team .member-avatar {

@@ -46,7 +46,8 @@
   fill: #646f79;
 }
 
-.assignee_and_due_date .assignee .member-avatar {
+.assignee .member-avatar,
+.assignee .empty-avatar {
   box-sizing: border-box;
   height: 30px;
   width: 30px;
@@ -72,6 +73,7 @@
   position: absolute;
   top: 5px;
   left: 30px;
+  z-index: 1;
 }
 
 .task-assignee .assignee-dropdown-visible input {
