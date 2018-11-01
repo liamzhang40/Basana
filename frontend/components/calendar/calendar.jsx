@@ -61,6 +61,7 @@ class Calendar extends React.Component {
     }
 
     render() {
+        console.log(this.props);
         const days = Object.values(daysOfWeek).map((day, index) => <div key={index}>{day}</div>);
         
         return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import TaskBundle from '../task/task_bundle';
-import Calendar from '../calendar/calendar';
+import CalendarBundle from '../calendar/calendar_bundle';
 
 const mapStateToProps = state => {
     return {
@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 const DashboardRightBody = ({contentToDisplay}) => {
     let Content;
     if (contentToDisplay === "list") Content = TaskBundle;
-    if (contentToDisplay === "calendar") Content = Calendar;
+    if (contentToDisplay === "calendar") Content = CalendarBundle;
 
     return (
         <section className='dashboard-body'>
