@@ -21,8 +21,8 @@ const Greeting = props => {
   } else {
     splashRightNav =
       <div className='splash-right-nav'>
-        <button onClick={() => openModal('login')}>Log in</button>
-        <button onClick={() => openModal('signup')}>Sign up</button>
+        <button onClick={() => openModal({type: 'login'})}>Log in</button>
+        <button onClick={() => openModal({type: 'signup'})}>Sign up</button>
         <button onClick={() => {
             login().then((res) => {
               fetchTeams().then(() => {

@@ -9,6 +9,7 @@ import UpdateTeamFormContainer from '../team/update_team_form_container';
 import CreateProjectFormContainer from '../project/create_project_form_container';
 import UpdateProjectFormContainer from '../project/update_project_form_container';
 import UpdateProfileFormContainer from '../session/update_profile_form_container';
+import UpdateTaskFormContainer from '../task/task_form/update_task_form_container';
 
 const mapStateToProps = state => {
   return {
@@ -29,34 +30,38 @@ const Modal = ({ modal, closeModal }) => {
 
   let component;
   let formType;
-  switch (modal) {
+  switch (modal.type) {
     case 'login':
       component = <LoginFormContainer />;
-      formType = 'session'
+      formType = 'session';
       break;
     case 'signup':
       component = <SignupFormContainer />;
-      formType = 'session'
+      formType = 'session';
       break;
     case 'createteam':
       component = <CreateTeamFormContainer />;
-      formType = 'team'
+      formType = 'team';
       break;
     case 'updateteam':
       component = <Route path='/dashboard/teams/:teamId' component={UpdateTeamFormContainer} />;
-      formType = 'team'
+      formType = 'team';
       break;
     case 'createproject':
       component = <Route path='/dashboard/teams/:teamId' component={CreateProjectFormContainer} />;
-      formType = 'project'
+      formType = 'project';
       break;
     case 'updateproject':
       component = <Route path='/dashboard/teams/:teamId/projects/:projectId' component={UpdateProjectFormContainer} />;
-      formType = 'project'
+      formType = 'project';
       break;
     case 'editprofile':
       component = <UpdateProfileFormContainer />;
-      formType = 'profile'
+      formType = 'profile';
+      break;
+    case 'edittask':
+      component = <UpdateTaskFormContainer />;
+      formType = 'task';
       break;
     default:
       return null;

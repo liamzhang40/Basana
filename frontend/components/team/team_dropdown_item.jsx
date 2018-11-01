@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const TeamDropdownItem = props => {
-  const { team, fetchProjects } = props;
-
+const TeamDropdownItem = ({ team }) => {
   return (
     <Link
       to={`/dashboard/teams/${team.id}`}

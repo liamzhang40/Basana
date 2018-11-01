@@ -62,7 +62,7 @@ class SessionForm extends React.Component {
 
     processForm(formData, this.resetForm).then((res) => {
       if (formType === 'Sign up') {
-        openModal('createteam');
+        openModal({type: 'createteam'});
       } else {
         fetchTeams().then(() => {
           const teamId = res.user.teamIds[0];

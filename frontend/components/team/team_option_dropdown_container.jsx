@@ -39,7 +39,7 @@ class TeamOptionDropdown extends React.Component {
 
     logout().then(() => {
       history.push('/');
-      openModal('login');
+      openModal({type: 'login'});
     });
   }
 
@@ -83,14 +83,14 @@ class TeamOptionDropdown extends React.Component {
           </ul>
 
           <ul>
-            <button onClick={() => openModal('updateteam')}><li>Workspace Settings...</li></button>
-            <button onClick={() => openModal('createteam')}><li>Create New Workspace</li></button>
+            <button onClick={ () => openModal({ type: 'updateteam' }) }><li>Workspace Settings...</li></button>
+            <button onClick={ () => openModal({ type: 'createteam' }) }><li>Create New Workspace</li></button>
             <button onClick={this.handleRemove}><li>Remove me from this Workspace</li></button>
           </ul>
 
           <ul>
-            <button onClick={() => openModal('editprofile')}><li>My Profile Settings...</li></button>
-            <button onClick={this.handleLogout}><li>Log out</li></button>
+            <button onClick={ () => openModal({ type: 'editprofile' }) }><li>My Profile Settings...</li></button>
+            <button onClick={ this.handleLogout }><li>Log out</li></button>
           </ul>
         </ul>
       </div>

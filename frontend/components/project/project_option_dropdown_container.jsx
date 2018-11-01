@@ -35,7 +35,7 @@ class ProjectOptionDropdownContainer extends React.Component {
     return (
       <div className='project-dropdown'>
         <ul>
-          <button onClick={() => openModal('updateproject')}>
+          <button onClick={() => openModal({type: 'updateproject'})}>
             <li>Edit Name & Description...
             </li>
           </button>

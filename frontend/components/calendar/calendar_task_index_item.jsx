@@ -27,10 +27,14 @@ class CalendarTaskIndexItem extends React.Component {
         };
 
         this.handleMouse = this.handleMouse.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     handleMouse() {
         this.setState({visible: !this.state.visible});
+    }
+
+    handleClick() {
     }
 
     render() {
@@ -47,7 +51,10 @@ class CalendarTaskIndexItem extends React.Component {
                     </div>}
                 <TeamMemberIndexItem 
                     member={assignee}/>
-                <div className="calendar-task-index-item-name">{task.name}</div>
+                <div
+                    onClick={this.handleClick}
+                    className="calendar-task-index-item-name"
+                    >{task.name}</div>
             </div>
         );
 
