@@ -83,13 +83,15 @@
 }
 
 .calendar-task-index-item {
+    position: relative;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 2px;
+    padding: 3px;
     box-sizing: border-box;
     border: 1px solid #b7bfc6;
     border-radius: 4px;
-    margin-bottom: 2px;
+    margin: 2px;
 }
 
 .calendar-task-index-item-name {
@@ -97,13 +99,14 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 110px;
+    font-size: 11px;
 }
 
 .calendar-task-index-item .member-avatar,
 .calendar-task-index-item .empty-avatar {
     box-sizing: border-box;
-    height: 25px;
-    width: 25px;
+    height: 23px;
+    width: 23px;
     border: 1px dashed #b7bfc6;
     border-radius: 50%;
     margin-right: 5px;
@@ -117,4 +120,26 @@
 .calendar-task-index-item .empty-avatar svg {
     height: 16px;
     width: 16px;
+}
+
+.calendar-task-index-item .task-check-box-unchecked,
+.calendar-task-index-item .task-check-box-checked {
+    height: 23px;
+    width: 23px;
+}
+
+.calendar-task-index-item svg {
+    width: 12px;
+    height: 12px;
+}
+
+.calendar-task-index-item .button-container {
+    border: 1px solid #b7bfc6;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    padding: 3px;
+    position: absolute;
+    left: -28px;
+    z-index: 1;
+    background-color: #fff;
 }
