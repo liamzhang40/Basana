@@ -1,4 +1,4 @@
-.project-modal-background {
+.modal-background {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -8,14 +8,11 @@
   z-index: 10;
 }
 
-.project-modal-child {
+.modal-background [class*="-modal-child"] {
   position: absolute;
-  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
-  width: 580px;
-  min-height: 1px;
+  border: 1px solid #848f99;
   border-radius: 3px;
   box-shadow: 0 5px 10px 0 rgba(117, 95, 95, 0.1);
   display: flex;
@@ -23,7 +20,27 @@
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
   color: #646f79;
-  text-align: left;
-  font-size: 13px;
   -webkit-animation: component-fade-in 0.5s;
+}
+
+.session-modal-child {
+  background-color: #f6f8f9;
+  top: 50%;
+  width: 90%;
+  height: 740px;
+  max-width: 900px;
+}
+
+.team-modal-child,
+.project-modal-child,
+.profile-modal-child {
+  top: 40%;
+  width: 580px;
+  font-size: 13px;
+  background-color: #fff;
+}
+
+.project-modal-child,
+.profile-modal-child {
+  text-align: left;
 }
