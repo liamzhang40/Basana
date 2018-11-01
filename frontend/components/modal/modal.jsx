@@ -27,8 +27,6 @@ const Modal = ({ modal, closeModal }) => {
     return null;
   }
 
-  console.log(modal);
-
   let component;
   let formType;
   switch (modal.type) {

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import TeamMemberIndexItem from '../team/team_member_index_item';
 import TaskCompletionButton from '../button/task_completion_button';
 import { updateTask } from '../../actions/task_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -14,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateTask: task => dispatch(updateTask(task))
+        updateTask: task => dispatch(updateTask(task)),
+        openModal: modal => dispatch(openModal(modal))
     };
 };
 
@@ -27,18 +29,14 @@ class CalendarTaskIndexItem extends React.Component {
         };
 
         this.handleMouse = this.handleMouse.bind(this);
-        this.handleClick = this.handleClick.bind(this);
     }
 
     handleMouse() {
         this.setState({visible: !this.state.visible});
     }
 
-    handleClick() {
-    }
-
     render() {
-        const { assignee, task, updateTask } = this.props;
+        const { assignee, task, updateTask, openModal } = this.props;
         return (
             <div className="calendar-task-index-item"
                 onMouseEnter={ this.handleMouse }
@@ -52,7 +50,7 @@ class CalendarTaskIndexItem extends React.Component {
                 <TeamMemberIndexItem 
                     member={assignee}/>
                 <div
-                    onClick={this.handleClick}
+                    onClick={() => openModal({ type: "edittask", task: this.props.task })}
                     className="calendar-task-index-item-name"
                     >{task.name}</div>
             </div>
