@@ -29,13 +29,14 @@ class ProjectOptionDropdownContainer extends React.Component {
 
   render() {
     const {
-      openModal,
+      project,
+      openModal
     } = this.props;
 
     return (
       <div className='project-dropdown'>
         <ul>
-          <button onClick={() => openModal({type: 'updateproject'})}>
+          <button onClick={ () => openModal({ type: 'updateproject', project: project }) }>
             <li>Edit Name & Description...
             </li>
           </button>

@@ -66,7 +66,8 @@ class TeamOptionDropdown extends React.Component {
   render() {
     const {
       teams,
-      openModal
+      openModal,
+      currentTeam
     } = this.props;
 
     const li = teams.map(team => {
@@ -83,7 +84,7 @@ class TeamOptionDropdown extends React.Component {
           </ul>
 
           <ul>
-            <button onClick={ () => openModal({ type: 'updateteam' }) }><li>Workspace Settings...</li></button>
+            <button onClick={ () => openModal({ type: 'updateteam', team: currentTeam }) }><li>Workspace Settings...</li></button>
             <button onClick={ () => openModal({ type: 'createteam' }) }><li>Create New Workspace</li></button>
             <button onClick={this.handleRemove}><li>Remove me from this Workspace</li></button>
           </ul>

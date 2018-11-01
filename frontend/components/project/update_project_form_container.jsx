@@ -3,10 +3,9 @@ import { updateProject } from '../../actions/project_actions';
 import { closeModal } from '../../actions/modal_actions';
 import ProjectForm from './project_form';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
     errors: state.errors.projects,
-    project: state.entities.projects[ownProps.match.params.projectId],
     formType: 'Edit'
   };
 };

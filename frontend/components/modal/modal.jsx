@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
 import { closeModal } from '../../actions/modal_actions';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
@@ -10,7 +9,7 @@ import CreateProjectFormContainer from '../project/create_project_form_container
 import UpdateProjectFormContainer from '../project/update_project_form_container';
 import UpdateProfileFormContainer from '../session/update_profile_form_container';
 import UpdateTaskFormContainer from '../task/task_form/update_task_form_container';
-
+// figure out a way of dynamically importing files
 const mapStateToProps = state => {
   return {
     modal: state.ui.modal
@@ -28,6 +27,8 @@ const Modal = ({ modal, closeModal }) => {
     return null;
   }
 
+  console.log(modal);
+
   let component;
   let formType;
   switch (modal.type) {
@@ -39,25 +40,25 @@ const Modal = ({ modal, closeModal }) => {
       component = <SignupFormContainer />;
       formType = 'session';
       break;
+    case 'editprofile':
+      component = <UpdateProfileFormContainer />;
+      formType = 'profile';
+      break;
     case 'createteam':
       component = <CreateTeamFormContainer />;
       formType = 'team';
       break;
     case 'updateteam':
-      component = <Route path='/dashboard/teams/:teamId' component={UpdateTeamFormContainer} />;
+      component = < UpdateTeamFormContainer team={modal.team} />;
       formType = 'team';
       break;
     case 'createproject':
-      component = <Route path='/dashboard/teams/:teamId' component={CreateProjectFormContainer} />;
+      component = <CreateProjectFormContainer />;
       formType = 'project';
       break;
     case 'updateproject':
-      component = <Route path='/dashboard/teams/:teamId/projects/:projectId' component={UpdateProjectFormContainer} />;
+      component = <UpdateProjectFormContainer project={modal.project} />;
       formType = 'project';
-      break;
-    case 'editprofile':
-      component = <UpdateProfileFormContainer />;
-      formType = 'profile';
       break;
     case 'edittask':
       component = <UpdateTaskFormContainer />;

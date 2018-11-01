@@ -3,10 +3,9 @@ import { updateTeam } from '../../actions/team_actions';
 import { closeModal } from '../../actions/modal_actions';
 import TeamForm from './team_form';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
     errors: state.errors.teams,
-    team: state.entities.teams[ownProps.match.params.teamId],
     formType: 'Update'
   };
 };
