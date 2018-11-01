@@ -8,7 +8,8 @@ const mapStateToProps = state => {
   return {
     errors: state.errors.teams,
     team: { name: '', emails: '' },
-    formType: 'Create'
+    formType: 'Create',
+    currentUserId: state.session.id
   };
 };
 

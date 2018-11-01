@@ -42,7 +42,7 @@ class TaskHeader extends React.Component {
       if (projectId) {
         history.push(`/dashboard/teams/${teamId}/projects/${projectId}/tasks/${res.task.id}`);
       } else {
-        history.push(`/dashboard/teams/${teamId}/tasks/${res.task.id}`);
+        history.push(`/dashboard/teams/${teamId}/users/${currentUserId}/tasks/${res.task.id}`);
       }
     });
   }

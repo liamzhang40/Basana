@@ -45,7 +45,9 @@ class TaskForm extends React.Component {
       <div className='task-edit' id='task-form-container'>
         <div className='task-form'>
           <Link
-            to={ projectId ? `/dashboard/teams/${teamId}/projects/${projectId}` : `/dashboard/teams/${teamId}`}
+            to={ projectId ?
+              `/dashboard/teams/${teamId}/projects/${projectId}` :
+              `/dashboard/teams/${teamId}/users/${match.params.userId}`}
             className='close'>&times;</Link>
           <div className='assignee_and_due_date'>
             <Assignee

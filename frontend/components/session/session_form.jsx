@@ -66,7 +66,7 @@ class SessionForm extends React.Component {
       } else {
         fetchTeams().then(() => {
           const teamId = res.user.teamIds[0];
-          history.push(`/dashboard/teams/${teamId}`);
+          history.push(`/dashboard/teams/${teamId}/users/${res.user.id}`);
           closeModal();
         });
       }}

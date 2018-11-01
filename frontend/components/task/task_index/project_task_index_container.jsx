@@ -15,7 +15,6 @@ const mapStateToProps = (state, ownProps) => {
     tasks,
     taskOrder: state.ui.taskOrder,
     selectedTaskId: selectedTaskId ? parseInt(selectedTaskId[1]) : "",
-    currentUserId: state.session.id,
     taskVisibility: state.ui.taskVisibility
   };
 };

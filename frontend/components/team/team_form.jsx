@@ -16,14 +16,14 @@ class TeamForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { processForm, history, closeModal } = this.props;
+    const { processForm, history, closeModal, currentUserId } = this.props;
 
     processForm(this.state).then((res) => {
       // res is nested with updated members
       // res is not nested if only team name is updated
       if (res.payload) {
         const teamId = res.payload.team.id;
-        history.push(`/dashboard/teams/${teamId}`);
+        history.push(`/dashboard/teams/${teamId}/users/${currentUserId}`);
       }
       closeModal();
     });

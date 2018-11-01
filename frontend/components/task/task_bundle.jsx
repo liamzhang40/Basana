@@ -9,10 +9,10 @@ const TaskBundle = () => {
         <React.Fragment>
             <Switch>
                 <Route path='/dashboard/teams/:teamId/projects/:projectId' component={ProjectTaskIndexContainer} />
-                <Route path='/dashboard/teams/:teamId' component={AssigneeTaskIndexContainer} />
+                <Route path='/dashboard/teams/:teamId/users/:userId' component={AssigneeTaskIndexContainer} />
             </Switch>
             <Route path='/dashboard/teams/:teamId/projects/:projectId/tasks/:taskId' component={UpdateTaskFormContainer} />
-            <Route path='/dashboard/teams/:teamId/tasks/:taskId' component={UpdateTaskFormContainer} />
+            <Route path='/dashboard/teams/:teamId/users/:userId/tasks/:taskId' component={UpdateTaskFormContainer} />
         </React.Fragment>
     );
 };

@@ -4,6 +4,13 @@ import { withRouter } from 'react-router-dom';
 import { updateProject, removeProject } from '../../actions/project_actions';
 import { openModal } from '../../actions/modal_actions';
 
+const mapStatetToProps = state => {
+  return {
+    projects: Object.values(state.entities.projects),
+    currentUserId: state.session.id
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     updateProject: project => dispatch(updateProject(project)),
@@ -11,7 +18,6 @@ const mapDispatchToProps = dispatch => {
     openModal: modal => dispatch(openModal(modal))
   };
 };
-
 
 class ProjectOptionDropdownContainer extends React.Component {
   constructor(props) {
@@ -21,9 +27,16 @@ class ProjectOptionDropdownContainer extends React.Component {
   }
 
   handleRemove() {
-    const { history, match, removeProject, project} = this.props;
+    const { history, match, removeProject, project, projects, currentUserId } = this.props;
     removeProject(project.id).then(() => {
-      history.push(`/dashboard/teams/${match.params.teamId}`);
+      for(let i = 0; i < projects.length; i++) {
+        if (projects[i].id !== project.id) {
+          history.push(`/dashboard/teams/${match.params.teamId}/projects/${projects[i].id}`);
+          return;
+        }
+      }
+
+      history.push(`/dashboard/teams/${match.params.teamId}/users/${currentUserId}`);
     });
   }
 
@@ -51,4 +64,4 @@ class ProjectOptionDropdownContainer extends React.Component {
   }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(ProjectOptionDropdownContainer));
+export default withRouter(connect(mapStatetToProps, mapDispatchToProps)(ProjectOptionDropdownContainer));

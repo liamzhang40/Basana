@@ -27,7 +27,7 @@ const Greeting = props => {
             login().then((res) => {
               fetchTeams().then(() => {
                 const teamId = res.user.teamIds[0];
-                history.push(`/dashboard/teams/${teamId}`);
+                history.push(`/dashboard/teams/${teamId}/users/${res.user.id}`);
               });
             });
           }}>Demo User</button>

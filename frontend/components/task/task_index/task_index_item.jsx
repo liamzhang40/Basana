@@ -34,6 +34,8 @@ class TaskIndexItem extends React.PureComponent {
     const {
       task,
       teamId,
+      projectId,
+      userId,
       updateTask,
       taskClassName
     } = this.props;
@@ -81,9 +83,9 @@ class TaskIndexItem extends React.PureComponent {
       <li className={taskClassName}>
         <Link
           className='task-item'
-          to={task.project_id ?
-            `/dashboard/teams/${teamId}/projects/${task.project_id}/tasks/${task.id}` :
-            `/dashboard/teams/${teamId}/tasks/${task.id}`}>
+          to={projectId ?
+            `/dashboard/teams/${teamId}/projects/${projectId}/tasks/${task.id}` :
+            `/dashboard/teams/${teamId}/users/${userId}/tasks/${task.id}`}>
 
           <div className='task-item-left'>
             <TaskCompletionButton

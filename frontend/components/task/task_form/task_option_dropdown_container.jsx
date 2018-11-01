@@ -23,7 +23,7 @@ class TaskOptionDropdown extends React.Component {
     if (projectId) {
       history.push(`/dashboard/teams/${teamId}/projects/${projectId}`);
     } else {
-      history.push(`/dashboard/teams/${teamId}`);
+      history.push(`/dashboard/teams/${teamId}/users/${match.params.userId}`);
     }
   }
 

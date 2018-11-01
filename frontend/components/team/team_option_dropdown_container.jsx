@@ -10,7 +10,8 @@ const mapStateToProps = state => {
   const currentUser = state.entities.users[state.session.id];
   const teams = currentUser.teamIds.map(teamId => state.entities.teams[teamId]);
   return {
-    teams
+    teams,
+    currentUser
   };
 };
 
@@ -49,14 +50,15 @@ class TeamOptionDropdown extends React.Component {
         teams,
         currentTeam,
         history,
-        removeMember
+        removeMember,
+        currentUser
       } = this.props;
 
       removeMember(currentTeam.id).then(()=> {
         // if user still has any team, will redirect to the first
         // team in the teams array
         const restTeams = teams.filter(team => team.id !== parseInt(currentTeam.id));
-        history.push(`/dashboard/teams/${restTeams[0].id}`);
+        history.push(`/dashboard/teams/${restTeams[0].id}/users/${currentUser.id}`);
       });
     } else {
       window.alert("You can't remove yourself from your last team");
@@ -67,13 +69,15 @@ class TeamOptionDropdown extends React.Component {
     const {
       teams,
       openModal,
-      currentTeam
+      currentTeam,
+      currentUser
     } = this.props;
 
     const li = teams.map(team => {
       return <TeamDropdownItem
         key={team.id}
-        team={team}/>;
+        team={team}
+        currentUserId={currentUser.id}/>;
     });
 
     return (

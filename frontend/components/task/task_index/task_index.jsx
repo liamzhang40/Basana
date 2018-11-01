@@ -13,17 +13,21 @@ class TaskIndex extends React.Component {
   }
 
   componentDidMount() {
-    const { projectId } = this.props.match.params;
+    const { projectId, userId } = this.props.match.params;
     if (projectId) {
       this.props.fetchTasks(projectId);
-    } else {
-      this.props.fetchTasks(this.props.currentUserId);
+    } else if (userId) {
+      this.props.fetchTasks(userId);
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.projectId !== nextProps.match.params.projectId) {
       this.props.fetchTasks(nextProps.match.params.projectId);
+    }
+
+    if (this.props.match.params.userId !== nextProps.match.params.userId) {
+      this.props.fetchTasks(nextProps.match.params.userId);
     }
   }
 
@@ -50,7 +54,10 @@ class TaskIndex extends React.Component {
       <TaskIndexItem
         key={idx}
         task={task}
+        match={match}
         teamId={match.params.teamId}
+        projectId={match.params.projectId}
+        userId={match.params.userId}
         updateTask={updateTask}
         updateReduxTask={updateReduxTask}
         taskClassName={task.id === selectedTaskId ? 'highlight' : ''} />

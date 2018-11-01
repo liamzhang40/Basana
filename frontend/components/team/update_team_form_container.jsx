@@ -6,7 +6,8 @@ import TeamForm from './team_form';
 const mapStateToProps = state => {
   return {
     errors: state.errors.teams,
-    formType: 'Update'
+    formType: 'Update',
+    currentUserId: state.session.id
   };
 };
 

@@ -6,7 +6,6 @@ import ProjectForm from './project_form';
 
 const mapStateToProps = (state, ownProps) => {
   const teamId = parseInt(/teams\/(\d+)/.exec(ownProps.location.pathname)[1]);
-  debugger
   const team = state.entities.teams[teamId];
   return {
     errors: state.errors.projects,
