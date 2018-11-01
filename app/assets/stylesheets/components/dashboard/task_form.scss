@@ -46,7 +46,7 @@
   fill: #646f79;
 }
 
-.assignee_and_due_date .assignee li {
+.assignee_and_due_date .assignee .member-avatar {
   box-sizing: border-box;
   height: 30px;
   width: 30px;
@@ -58,11 +58,6 @@
   justify-content: center;
   align-items: center;
   fill: #848f99;
-}
-
-.assignee img {
-  height: 100%;
-  width: 100%;
 }
 
 .assignee .empty-avatar svg {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { daysInMonth, daysOfWeek, months } from '../../util/date_util';
+import CalendarTaskIndex from './calendar_task_index';
 
 class Calendar extends React.Component {
     constructor() {
@@ -28,7 +29,9 @@ class Calendar extends React.Component {
             for (let j = 0; j < 7; j++) {
                 if (date === 0 && j === firstDayOfMonth) date += 1;
                 if (date > 0 && date <= monthLength) {
-                    datesRow.push(<div key={j}>{date}</div>);
+                    datesRow.push(<div key={j}>
+                        <CalendarTaskIndex date={date} month={month} year={year}/>
+                    </div>);
                     date += 1;
                 } else {
                     datesRow.push(<div className="calendar-other-dates" key={j}></div>);
@@ -65,7 +68,7 @@ class Calendar extends React.Component {
                 <div className="calendar">
                     <div className="calendar-header">
                         <div className="switch-button-left" onClick={this.toggleMonth(-1)}><span>▶︎</span></div>
-                        <div className="calendar-header-content">{months[this.state.month]}</div>
+                        <div className="calendar-header-content">{`${months[this.state.month]} ${this.state.year}`}</div>
                         <div className="switch-button-right" onClick={this.toggleMonth(1)}><span>▶︎</span></div>
                     </div>
                     {<div key={10} className="calendar-days">{days}</div>}
