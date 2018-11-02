@@ -70,7 +70,7 @@ const Modal = ({ modal, closeModal }) => {
     <div className="modal-background" onClick={closeModal}>
       <div className={`${formType}-modal-child`} onClick={ e => e.stopPropagation() }>
         {component}
-        <button className='close' onClick={() => closeModal()}>&times;</button>
+        <button className='modal-close' onClick={() => closeModal()}>&times;</button>
       </div>
     </div>
   );

@@ -3,20 +3,6 @@
   flex-direction: column;
 }
 
-.task-form .close {
-  position: absolute;
-  font-size: 20px;
-  font-weight: 300;
-  color: #ccc;
-  top: 5px;
-  right: 10px;
-  transition: 0.3s ease-in-out;
-}
-
-.task-form .close:hover {
-  color: grey;
-}
-
 .assignee_and_due_date {
   background-color: #fff;
   height: 50px;
@@ -206,6 +192,12 @@
 .task-option-dropdown-list button:hover {
   background-color: #32c1ff;
   color: #fff;
+}
+
+.task-form .component-close {
+  position: absolute;
+  right: 5px;
+
 }
 
 .name_and_description {

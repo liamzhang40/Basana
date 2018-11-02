@@ -48,7 +48,7 @@ class TaskForm extends React.Component {
             to={ projectId ?
               `/dashboard/teams/${teamId}/projects/${projectId}` :
               `/dashboard/teams/${teamId}/users/${match.params.userId}`}
-            className='close'>&times;</Link>
+            className='component-close'>&times;</Link>
           <div className='assignee_and_due_date'>
             <Assignee
               assignee={ assignee }
