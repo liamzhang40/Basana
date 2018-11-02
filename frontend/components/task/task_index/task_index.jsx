@@ -23,11 +23,8 @@ class TaskIndex extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.projectId !== nextProps.match.params.projectId) {
-      this.props.fetchTasks(nextProps.match.params.projectId);
-    }
-
-    if (this.props.match.params.userId !== nextProps.match.params.userId) {
-      this.props.fetchTasks(nextProps.match.params.userId);
+      if (nextProps.match.params.projectId) this.props.fetchTasks(nextProps.match.params.projectId);
+      else this.props.fetchTasks(nextProps.match.params.userId);
     }
   }
 

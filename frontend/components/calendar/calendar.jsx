@@ -1,6 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { daysInMonth, daysOfWeek, months } from '../../util/date_util';
 import CalendarTaskIndex from './calendar_task_index';
+import { fetchAssigneeTasks, fetchProjectTasks } from '../../actions/task_actions';
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        fetchTasks: ownProps.match.params.projectId ? 
+        projectId => dispatch(fetchProjectTasks(projectId)) :
+        userId => dispatch(fetchAssigneeTasks(userId))
+    };
+};
 
 class Calendar extends React.Component {
     constructor() {
@@ -11,6 +21,20 @@ class Calendar extends React.Component {
             year: this.date.getFullYear(),
             month: this.date.getMonth()
         };
+    }
+
+    componentDidMount() {
+        const { projectId, userId } = this.props.match.params;
+        if (projectId) this.props.fetchTasks(projectId);
+        else this.props.fetchTasks(userId);
+
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.match.params.projectId !== nextProps.match.params.projectId) {
+            if (nextProps.match.params.projectId) this.props.fetchTasks(nextProps.match.params.projectId);
+            else this.props.fetchTasks(nextProps.match.params.userId);
+        }
     }
 
     generateCalendarBody() {
@@ -61,7 +85,6 @@ class Calendar extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         const days = Object.values(daysOfWeek).map((day, index) => <div key={index}>{day}</div>);
         
         return (
@@ -82,4 +105,4 @@ class Calendar extends React.Component {
     }
 }
 
-export default Calendar;
+export default connect(null, mapDispatchToProps)(Calendar);

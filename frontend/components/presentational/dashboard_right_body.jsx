@@ -25,5 +25,5 @@ const DashboardRightBody = ({contentToDisplay}) => {
         </section>
     );
 };
-
+// some re-rendering is blocked without withRouter
 export default withRouter(connect(mapStateToProps)(DashboardRightBody));
