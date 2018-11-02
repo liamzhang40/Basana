@@ -94,6 +94,11 @@
     margin: 2px;
 }
 
+.calendar-task-index-item>div {
+    display: flex;
+    align-items: center;
+}
+
 .calendar-task-index-item-name {
     overflow: hidden;
     white-space: nowrap;

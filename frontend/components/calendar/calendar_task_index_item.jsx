@@ -47,16 +47,15 @@ class CalendarTaskIndexItem extends React.Component {
                         ref={node => { this.node = node; }}>
                         <TaskCompletionButton task={task} updateTask={updateTask}/>
                     </div>}
-                <TeamMemberIndexItem 
-                    member={assignee}/>
-                <div
-                    onClick={() => openModal({ type: "edittask", task: this.props.task })}
-                    className="calendar-task-index-item-name"
-                    >{task.name}</div>
+                <div onClick={() => openModal({ type: "edittask", task: this.props.task })}>
+                    <TeamMemberIndexItem 
+                        member={assignee}/>
+                    <div className="calendar-task-index-item-name">{task.name}</div>
+                </div>
             </div>
         );
 
     }
-};
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(CalendarTaskIndexItem);

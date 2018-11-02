@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
-const Auth = ({component: Component, path, loggedIn, exact, teamId}) => (
+const Auth = ({component: Component, path, loggedIn, exact, teamId, userId}) => (
   <Route path={path} exact={exact} render={(props) => (
     !loggedIn ? (
       <Component {...props} />
     ) : (
-      <Redirect to={`/dashboard/teams/${teamId}`} />
+      <Redirect to={`/dashboard/teams/${teamId}/users/${userId}`} />
     )
   )}/>
 );
@@ -16,6 +16,7 @@ const mapStateToProps = state => {
   const loggedIn = Boolean(state.session.id);
   return {
     loggedIn,
+    userId: state.session.id,
     teamId: loggedIn ? state.entities.users[state.session.id].teamIds[0] : null
   };
 };

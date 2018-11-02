@@ -59,7 +59,7 @@ const Modal = ({ modal, closeModal }) => {
       formType = 'project';
       break;
     case 'edittask':
-      component = <UpdateTaskFormContainer />;
+      component = <UpdateTaskFormContainer task={modal.task}/>;
       formType = 'task';
       break;
     default:
