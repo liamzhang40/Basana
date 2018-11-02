@@ -140,7 +140,9 @@
 }
 
 .task-option-button  {
-  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
   border: 1px solid #b7bfc6;
   border-radius: 50%;
   color: #848f99;
@@ -157,9 +159,7 @@
 
 .task-option-button span {
   font-size: 20px;
-  position: absolute;
-  top: -3px;
-  left: 5.5px;
+  margin-top: -10px;
 }
 
 .task-option-dropdown-visible {
