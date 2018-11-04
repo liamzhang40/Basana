@@ -39,7 +39,7 @@ class TaskForm extends React.Component {
 
   render() {
     const { task, errors, match, assignee, project, updateTask } = this.props;
-    const { teamId, projectId } = match.params;
+    const { teamId, projectId, taskId } = match.params;
 
     return (
       <div className='task-edit' id='task-form-container'>
@@ -117,8 +117,8 @@ class TaskForm extends React.Component {
           </div>
         </div>
 
-        <CommentIndexContainer taskId={task.id}/>
-        <CreateCommentFormContainer taskId={task.id}/>
+        <CommentIndexContainer taskId={taskId}/>
+        <CreateCommentFormContainer taskId={taskId}/>
       </div>
     );
   }
