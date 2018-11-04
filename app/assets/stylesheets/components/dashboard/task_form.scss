@@ -196,8 +196,12 @@
 
 .task-form .component-close {
   position: absolute;
-  right: 5px;
-
+  font-size: 20px;
+  font-weight: 300;
+  color: #ccc;
+  top: 5px;
+  right: 10px;
+  transition: 0.3s ease-in-out;
 }
 
 .name_and_description {

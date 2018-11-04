@@ -54,7 +54,7 @@ class Calendar extends React.Component {
                 if (date === 0 && j === firstDayOfMonth) date += 1;
                 if (date > 0 && date <= monthLength) {
                     datesRow.push(<div key={j}>
-                        <CalendarTaskIndex date={date} month={month} year={year}/>
+                        <CalendarTaskIndex date={date} month={month} year={year} match={this.props.match}/>
                     </div>);
                     date += 1;
                 } else {
@@ -85,6 +85,7 @@ class Calendar extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         const days = Object.values(daysOfWeek).map((day, index) => <div key={index}>{day}</div>);
         
         return (

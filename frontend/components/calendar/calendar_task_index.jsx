@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { minDate } from '../../util/date_util';
+import { openModal } from '../../actions/modal_actions';
+import { createTask } from '../../actions/task_actions';
 import CalendarTaskIndexItem from './calendar_task_index_item';
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,18 +21,31 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        openModal: modal => dispatch(openModal(modal)),
+        createTask: task => dispatch(createTask(task))
     };
 };
 
-const CalendarTaskIndex = ({ tasks, date }) => {
+const CalendarTaskIndex = ({ tasks, date, match, openModal, createTask }) => {
+    const handleClick = () => {
+        // createTask({
+        //     project_id: (projectId ? projectId : ''),
+        //     assignee_id: (projectId ? '' : currentUserId),
+        //     name: 'Task name',
+        //     description: '',
+        //     completion: false,
+        //     privacy: false,
+        //     due_date: minDate()
+        // })
+    };
+
     const li = tasks.map((task, idx) => <li key={idx}>
         <CalendarTaskIndexItem task={task} />
     </li>);
 
     return (
         <div>
-            {date}
+            <div>{date}</div>
             <div className="calendar-task-index-wrapper">
                 <ul>
                     {li}
