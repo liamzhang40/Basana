@@ -39,9 +39,11 @@ class CommentForm extends React.Component {
     return (
       <div className={`${formType}-form`}>
         <div>
-          <TeamMemberIndexItem
-            member={ this.props.currentUser }
-            listenerOn={ true }/>
+          { formType === "create-comment" &&
+            <TeamMemberIndexItem
+              member={ this.props.currentUser }
+              listenerOn={ true }/>
+          }
           <form onSubmit={ this.handleSubmit }>
             <textarea
               type='text'

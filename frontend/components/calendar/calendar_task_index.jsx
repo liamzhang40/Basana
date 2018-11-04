@@ -28,10 +28,14 @@ const CalendarTaskIndex = ({ tasks, date }) => {
     </li>);
 
     return (
-        <ul>
+        <div>
             {date}
-            {li}
-        </ul>
+            <div className="calendar-task-index-wrapper">
+                <ul>
+                    {li}
+                </ul>
+            </div>
+        </div>
     );
 };
 

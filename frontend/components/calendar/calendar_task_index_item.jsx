@@ -28,23 +28,25 @@ class CalendarTaskIndexItem extends React.Component {
             visible: false
         };
 
-        this.handleMouse = this.handleMouse.bind(this);
     }
 
-    handleMouse() {
-        this.setState({visible: !this.state.visible});
+    handleMouse(visible) {
+        return () => {
+            if (visible) this.node.style.borderRadius = "4px 4px 0 4px";
+            else this.node.style.borderRadius = "4px";
+            this.setState({ visible });
+        };
     }
 
     render() {
         const { assignee, task, updateTask, openModal } = this.props;
         return (
             <div className="calendar-task-index-item"
-                onMouseEnter={ this.handleMouse }
-                onMouseLeave={ this.handleMouse }>
+                ref={ node => { this.node = node; }}
+                onMouseEnter={ this.handleMouse(true) }
+                onMouseLeave={ this.handleMouse(false) }>
                 { this.state.visible &&
-                    <div 
-                        className="button-container"
-                        ref={node => { this.node = node; }}>
+                    <div className="button-container">
                         <TaskCompletionButton task={task} updateTask={updateTask}/>
                     </div>}
                 <div onClick={() => openModal({ type: "edittask", task: this.props.task })}>

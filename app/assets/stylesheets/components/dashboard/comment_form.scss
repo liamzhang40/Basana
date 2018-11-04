@@ -9,7 +9,14 @@
   display: flex;
 }
 
-.create-comment-form form,
+.create-comment-form form {
+  border: 1px solid #d5dce0;
+  border-radius: 4px;
+  width: calc(100% - 50px);
+  height: 150px;
+  background-color: #fff;
+}
+
 .update-comment-form form {
   border: 1px solid #d5dce0;
   border-radius: 4px;
