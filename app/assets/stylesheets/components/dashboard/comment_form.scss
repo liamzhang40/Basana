@@ -9,40 +9,27 @@
   display: flex;
 }
 
-.create-comment-form form {
-  border: 1px solid #d5dce0;
-  border-radius: 4px;
-  width: calc(100% - 50px);
-  height: 150px;
-  background-color: #fff;
-}
-
-.update-comment-form form {
-  border: 1px solid #d5dce0;
-  border-radius: 4px;
-  width: 100%;
-  height: 150px;
-  background-color: #fff;
-}
-
-.create-comment-form textarea,
-.update-comment-form textarea {
-  padding: 10px;
-  font-size: 13px;
-  height: 100px;
-  width: 100%;
-  resize: none;
-  box-sizing: border-box;
-}
-
-.update-comment-form li {
-  display: none;
-}
-
 .create-comment-form,
 .update-comment-form {
   .comment-form-util {
     padding: 5px 10px;
+  }
+
+  form {
+    border: 1px solid #d5dce0;
+    border-radius: 4px;
+    width: calc(100% - 50px);
+    height: 150px;
+    background-color: #fff;
+  }
+
+  textarea {
+    padding: 10px;
+    font-size: 13px;
+    height: 100px;
+    width: 100%;
+    resize: none;
+    box-sizing: border-box;
   }
 
   button {
@@ -62,19 +49,30 @@
   }
 }
 
-
 .update-comment-form {
+  li {
+    display: nonel;
+  }
+
+  form {
+    border: 1px solid #d5dce0;
+    border-radius: 4px;
+    width: 100%;
+    height: 150px;
+    background-color: #fff;
+  }
+
   .update-comment-cancel {
     background-color: #fff;
     border: 1px solid #b7bfc6;
     color: #646f79;
     margin-left: 180px;
     margin-right: 5px;
-  }
-}
 
-.update-comment-form .update-comment-cancel:hover {
-  background-color: #f6f8f9;
-  border-color: #646f79;
-  color: #222b37;
+    &:hover {
+      background-color: #f6f8f9;
+      border-color: #646f79;
+      color: #222b37;
+    }
+  }
 }
