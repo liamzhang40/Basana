@@ -67,13 +67,15 @@ const Modal = ({ modal, closeModal }) => {
   }
 
   return (
-    <div className="modal-background" onClick={closeModal}>
+    <div 
+      className="modal-background" 
+      onClick={modal.type === "edittask" || modal.type === "createteam" ? () => {} : closeModal}>
       <div className={`${formType}-modal-child`} onClick={ e => e.stopPropagation() }>
         {component}
         <button className='modal-close' onClick={() => closeModal()}>&times;</button>
       </div>
     </div>
   );
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { minDate } from '../../../util/date_util';
 import TaskOptionDropdown from './task_option_dropdown_container';
 import DropdownButton from '../../button/dropdown_button';
@@ -14,6 +13,14 @@ class TaskForm extends React.Component {
   constructor(props) {
     super(props);
     this.timeout = null;
+  }
+
+  handleClick() {
+    return () => {
+      const { history, location, closeModal } = this.props;
+      closeModal();
+      history.push(`${/(^.*)\/tasks/.exec(location.pathname)[1]}`);
+    };
   }
 
   update(field) {
@@ -39,16 +46,14 @@ class TaskForm extends React.Component {
 
   render() {
     const { task, errors, match, assignee, project, updateTask } = this.props;
-    const { teamId, projectId, taskId } = match.params;
+    const { taskId } = match.params;
 
     return (
       <div className='task-edit' id='task-form-container'>
         <div className='task-form'>
-          <Link
-            to={ projectId ?
-              `/dashboard/teams/${teamId}/projects/${projectId}` :
-              `/dashboard/teams/${teamId}/users/${match.params.userId}`}
-            className='component-close'>&times;</Link>
+          <span
+            onClick={this.handleClick()}
+            className='component-close'>&times;</span>
           <div className='assignee_and_due_date'>
             <Assignee
               assignee={ assignee }

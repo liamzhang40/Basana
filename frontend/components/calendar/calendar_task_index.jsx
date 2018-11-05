@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { minDate } from '../../util/date_util';
 import { openModal } from '../../actions/modal_actions';
 import { createTask } from '../../actions/task_actions';
 import CalendarTaskIndexItem from './calendar_task_index_item';

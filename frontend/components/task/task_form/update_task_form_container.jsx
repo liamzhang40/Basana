@@ -4,6 +4,7 @@ import {
   updateTask,
   updateReduxTask
 } from '../../../actions/task_actions';
+import { closeModal } from '../../../actions/modal_actions';
 import TaskForm from './task_form';
 
 const mapStateToProps = (state, ownProps) => {
@@ -27,7 +28,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps= dispatch => {
   return {
     updateTask: task => dispatch(updateTask(task)),
-    updateReduxTask: task => dispatch(updateReduxTask(task))
+    updateReduxTask: task => dispatch(updateReduxTask(task)),
+    closeModal: () => dispatch(closeModal())
   };
 };
 // withRouter needed when task form is a modal
