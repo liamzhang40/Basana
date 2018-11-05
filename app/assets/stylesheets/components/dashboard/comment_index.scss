@@ -3,28 +3,10 @@
   overflow: auto;
 }
 
-.comment-list .member-avatar {
-  box-sizing: border-box;
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  margin: 0 16px 0 4px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  fill: #848f99;
-}
-
 .comment-list .comment-loading {
   height: 50px;
   width: 50px;
   margin: auto;
-}
-
-.comment-list .empty-avatar svg {
-  height: 16px;
-  width: 16px;
 }
 
 .comment-list .comment-feed-container {

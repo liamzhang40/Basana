@@ -12,7 +12,7 @@ class Assignee extends React.Component {
 
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.handleMouse = this.handleMouse.bind(this);
+    this.handleHover = this.handleHover.bind(this);
     this.handleUnassign = this.handleUnassign.bind(this);
   }
 
@@ -35,7 +35,7 @@ class Assignee extends React.Component {
     this.handleClick();
   }
 
-  handleMouse() {
+  handleHover() {
     this.setState({unassignVisible: !this.state.unassignVisible});
   }
 
@@ -55,8 +55,8 @@ class Assignee extends React.Component {
         <button
           className='assignee'
           onClick={this.handleClick}
-          onMouseEnter={this.handleMouse}
-          onMouseLeave={this.handleMouse}>
+          onMouseEnter={this.handleHover}
+          onMouseLeave={this.handleHover}>
           <TeamMemberIndexItem member={ assignee }/>
           <span>{ assignee ? assignee.name : 'Unassigned' }</span>
           { assignee &&

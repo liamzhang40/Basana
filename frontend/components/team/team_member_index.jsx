@@ -23,8 +23,9 @@ class TeamMemberIndex extends React.Component {
       return <li key={member.id}>
         <TeamMemberIndexItem
           member={member}
-          fetchAssigneeTasks={fetchAssigneeTasks}
-          listenerOn={true}/>
+          handleClickOn={true}
+          handleHoverOn={true}
+          />
       </li>;
     });
 

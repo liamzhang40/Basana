@@ -1,0 +1,89 @@
+.member-avatar,
+.empty-avatar {
+    box-sizing: border-box;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: #848f99;
+}
+
+.member-avatar:hover {
+    cursor: pointer;
+}
+
+.member-avatar img {
+    height: 100%;
+    width: 100%;
+}
+
+.member-list .empty-avatar svg {
+    height: 14px;
+    width: 14px;
+    fill: #fff;
+}
+
+.calendar-task-index-item .member-avatar,
+.calendar-task-index-item .empty-avatar {
+    height: 23px;
+    width: 23px;
+    border: 1px dashed #b7bfc6;
+    margin-right: 5px;
+}
+
+.calendar-task-index-item .empty-avatar svg,
+.create-comment-form .empty-avatar svg,
+.comment-list .empty-avatar svg,
+.assignee .empty-avatar svg {
+    height: 16px;
+    width: 16px;
+}
+
+.create-comment-form .member-avatar,
+.comment-list .member-avatar {
+    height: 30px;
+    width: 30px;
+    margin: 0 16px 0 4px;
+}
+
+.current-team .member-avatar {
+    height: 30px;
+    width: 30px;
+}
+
+.profile-form-avatar {
+    height: 80px;
+    width: 80px;
+    border: 1px dashed #222b37;
+    margin-right: 5px;
+}
+
+.assignee .member-avatar,
+.assignee .empty-avatar {
+    height: 30px;
+    width: 30px;
+    border: 1px dashed #b7bfc6;
+    margin-right: 5px;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 30px;
+    left: -3px;
+    background-color: #fcbd01;
+    width: 180px;
+    height: 120px;
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    color: #fff;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.profile-dropdown span {
+    margin: 0 0 10px 20px;
+    font-size: 13px;
+}

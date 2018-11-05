@@ -33,26 +33,6 @@
   fill: #646f79;
 }
 
-.assignee .member-avatar,
-.assignee .empty-avatar {
-  box-sizing: border-box;
-  height: 30px;
-  width: 30px;
-  border: 1px dashed #b7bfc6;
-  border-radius: 50%;
-  margin-right: 5px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  fill: #848f99;
-}
-
-.assignee .empty-avatar svg {
-  height: 16px;
-  width: 16px;
-}
-
 .task-assignee .assignee-dropdown-visible {
   color: black;
   background-color: white;

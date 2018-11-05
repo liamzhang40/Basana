@@ -35,57 +35,42 @@
   box-sizing: border-box;
 }
 
-.create-comment-form .member-avatar {
-  box-sizing: border-box;
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  margin: 0 16px 0 4px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  fill: #848f99;
-}
-
 .update-comment-form li {
   display: none;
 }
 
-.create-comment-form .empty-avatar svg {
-  height: 16px;
-  width: 16px;
+.create-comment-form,
+.update-comment-form {
+  .comment-form-util {
+    padding: 5px 10px;
+  }
+
+  button {
+    background-color: #14aaf5;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 9px;
+    font-size: 13px;
+    transition: 0.3s;
+  
+    &:hover {
+      background-color: #008ce3;
+    }
+  }
 }
 
-.create-comment-form .comment-form-util,
-.update-comment-form .comment-form-util {
-  padding: 5px 10px;
-}
 
-.create-comment-form button,
-.update-comment-form button {
-  background-color: #14aaf5;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  color: #fff;
-  height: 30px;
-  line-height: 30px;
-  padding: 0 9px;
-  font-size: 13px;
-  transition: 0.3s;
-}
-
-.create-comment-form button:hover,
-.update-comment-form button:hover {
-  background-color: #008ce3;
-}
-
-.update-comment-form .update-comment-cancel {
-  background-color: #fff;
-  border: 1px solid #b7bfc6;
-  color: #646f79;
-  margin-left: 180px;
-  margin-right: 5px;
+.update-comment-form {
+  .update-comment-cancel {
+    background-color: #fff;
+    border: 1px solid #b7bfc6;
+    color: #646f79;
+    margin-left: 180px;
+    margin-right: 5px;
+  }
 }
 
 .update-comment-form .update-comment-cancel:hover {

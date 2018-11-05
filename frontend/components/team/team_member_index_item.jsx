@@ -7,18 +7,21 @@ class TeamMemberIndexItem extends React.Component {
       visible: false
     };
 
-    this.handleMouse = this.handleMouse.bind(this);
+    this.handleHover = this.handleHover.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    const { member, fetchAssigneeTasks } = this.props;
-    if (fetchAssigneeTasks) fetchAssigneeTasks(member.id);
+    if (this.props.handleClickOn) {
+      const { member } = this.props;
+
+    }
   }
 
-  handleMouse() {
-    if (this.props.listenerOn) {
-      this.setState({visible: !this.state.visible});
+  handleHover() {
+    if (this.props.handleHoverOn) {
+      if (this.state.visible) this.setState({ visible: false });
+      else this.setState({ visible: true });
     }
   }
 
@@ -31,8 +34,8 @@ class TeamMemberIndexItem extends React.Component {
         <div
           className='member-avatar'
           onClick={this.handleClick}
-          onMouseEnter={this.handleMouse}
-          onMouseLeave={this.handleMouse}>
+          onMouseEnter={this.handleHover}
+          onMouseLeave={this.handleHover}>
           <img src={url}/>
 
           { this.state.visible &&
