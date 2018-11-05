@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import CurrentTeamContainer from '../team/current_team_container';
 import CurrentProjectContainer from '../project/current_project_container';
 import MyTaskIndexContainer from '../task/task_index/my_task_index_container';
@@ -59,11 +59,10 @@ class DashboardRight extends React.Component {
                     </nav>
 
                     <nav className='top-nav-bar-2'>
-                        <Switch>
-                            <Route path='/dashboard/teams/:teamId/projects/:projectId' component={CurrentProjectContainer} />
-                            <Route path='/dashboard/teams/:teamId' component={CurrentProjectContainer} />
-                        </Switch>
-                        <Route path='/dashboard' component={DashboardRightToggleTabs} />
+                        <Route path='/dashboard/teams/:teamId/projects/:projectId' component={CurrentProjectContainer} />
+                        <Route path='/dashboard/teams/:teamId/users/:userId' component={CurrentProjectContainer} />
+                        <Route path='/dashboard/teams/:teamId/projects/:projectId' component={DashboardRightToggleTabs} />
+                        <Route path='/dashboard/teams/:teamId/users/:userId' component={DashboardRightToggleTabs} />
                     </nav>
 
                     <DashboardRightBody />

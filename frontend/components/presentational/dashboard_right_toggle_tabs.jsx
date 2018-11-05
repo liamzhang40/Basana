@@ -14,11 +14,21 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-const DashboardRightToggleTabs = ({ displayingContent, toggleDashboardDisplay }) => {
+const DashboardRightToggleTabs = ({ displayingContent, toggleDashboardDisplay, history, match }) => {
+    const handleClick = content => (
+        () => {
+            const { teamId, projectId, userId } = match.params;
+            toggleDashboardDisplay(content);
+            if (content === "calendar") {
+                history.push(`/dashboard/teams/${teamId}/${projectId ? "projects" : "users"}/${projectId || userId}`);
+            }
+        }
+    );
+
     const li = ["list", "calendar"].map((content, idx) => (
         <li 
             key={idx}
-            onClick={() => toggleDashboardDisplay(content)}
+            onClick={handleClick(content)}
             style={displayingContent === content ?
                 { 
                     color: "#008CD1",

@@ -2,6 +2,15 @@
   background-color: #f6f8f9;
   border-top: 1px solid #e0e6e8;
   border-radius: 3px;
+
+  .comment-form-avatar-container {
+    position: relative;
+  }
+
+  .profile-dropdown {
+    top: 35px;
+    left: 5px;
+  }
 }
 
 .create-comment-form>div {

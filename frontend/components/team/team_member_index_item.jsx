@@ -12,10 +12,10 @@ class TeamMemberIndexItem extends React.Component {
   }
 
   handleClick() {
-    if (this.props.handleClickOn) {
-      const { member } = this.props;
+    // if (this.props.handleClickOn) {
+    //   const { member } = this.props;
 
-    }
+    // }
   }
 
   handleHover() {
