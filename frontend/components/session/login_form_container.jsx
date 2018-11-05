@@ -7,8 +7,8 @@ import { fetchTeams } from '../../actions/team_actions';
 const mapStateToProps = state => {
   return {
     errors: state.errors.session,
-    formType: 'Log in',
-    otherType: 'Sign up',
+    formType: 'login',
+    otherType: 'signup',
     text: 'Don\'t have an account?'
   };
 };
@@ -16,7 +16,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     processForm: user => dispatch(login(user)),
-    openModal: () => dispatch(openModal({type: 'signup'})),
+    openModal: modal => dispatch(openModal(modal)),
     closeModal: () => dispatch(closeModal()),
     fetchTeams: () => dispatch(fetchTeams())
   };

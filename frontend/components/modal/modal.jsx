@@ -66,13 +66,24 @@ const Modal = ({ modal, closeModal }) => {
       return null;
   }
 
+  const handleBackgroundClick = () => {
+    if (
+      modal.type === "edittask" ||
+      modal.type === "createteam" && modal.userCanClose
+      ) return;
+
+      closeModal();
+  };
+
   return (
     <div 
       className="modal-background" 
-      onClick={modal.type === "edittask" || modal.type === "createteam" ? () => {} : closeModal}>
+      onClick={handleBackgroundClick}>
       <div className={`${formType}-modal-child`} onClick={ e => e.stopPropagation() }>
-        {component}
-        <button className='modal-close' onClick={() => closeModal()}>&times;</button>
+        { component }
+        { !modal.userCanClose &&
+          <button className='modal-close' onClick={() => closeModal()}>&times;</button>
+        }
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    if (props.formType === 'Sign up') {
+    if (props.formType === 'signup') {
       this.state = {
         name: '',
         username: '',
@@ -61,8 +61,8 @@ class SessionForm extends React.Component {
     if (file) formData.append('user[avatar]', file);
 
     processForm(formData, this.resetForm).then((res) => {
-      if (formType === 'Sign up') {
-        openModal({type: 'createteam'});
+      if (formType === 'signup') {
+        openModal({ type: 'createteam', userCanClose: true });
       } else {
         fetchTeams().then(() => {
           const teamId = res.user.teamIds[0];
@@ -84,7 +84,7 @@ class SessionForm extends React.Component {
 
     let nameInput = '';
     let fileInput = '';
-    if (formType === 'Sign up') {
+    if (formType === 'signup') {
       nameInput = (
         <div>
           <img src={this.state.avatarURL ? this.state.avatarURL : window.static_images.sign_up_placeholder} alt='Your Profile'/>
@@ -138,7 +138,7 @@ class SessionForm extends React.Component {
         </ul>
 
         {text}
-        <button onClick={() => openModal()}>{otherType}</button>
+        <button onClick={() => openModal({ type: otherType })}>{otherType}</button>
       </div>
     );
   }
