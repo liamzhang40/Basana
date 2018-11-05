@@ -1,0 +1,71 @@
+.task-check-box-unchecked,
+.task-check-box-checked {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-check-box-unchecked {
+    border: 1px solid #b7bfc6;
+    background-color: #fff;
+
+    svg {
+        color: #848f99;
+        fill: #848f99;
+    }
+
+    &:hover {
+        border-color: #25e8c8;
+    }
+
+    &:hover svg {
+        color: #25e8c8;
+        fill: #25e8c8;
+    }
+}
+
+.task-check-box-checked{
+    border: 1px solid #25e8c8;
+    background-color: #25e8c8;
+
+    svg {
+        color: #fff;
+        fill: #fff;
+    }
+}
+
+.task-name .task-check-box-unchecked,
+.task-name .task-check-box-checked {
+    height: 30px;
+    width: 30px;
+    margin: 0 10px;
+
+    svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.task-list .task-check-box-unchecked,
+.task-list .task-check-box-checked {
+    height: 18px;
+    width: 18px;
+    margin-right: 10px;
+
+    svg {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.calendar-task-index-item .task-check-box-unchecked,
+.calendar-task-index-item .task-check-box-checked {
+    height: 20px;
+    width: 20px;
+
+    svg {
+        width: 12px;
+        height: 12px;
+    }
+}

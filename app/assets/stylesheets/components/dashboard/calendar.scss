@@ -140,17 +140,6 @@
     width: 16px;
 }
 
-.calendar-task-index-item .task-check-box-unchecked,
-.calendar-task-index-item .task-check-box-checked {
-    height: 23px;
-    width: 23px;
-}
-
-.calendar-task-index-item svg {
-    width: 12px;
-    height: 12px;
-}
-
 .calendar-task-index-item .button-container {
     border: 1px solid #b7bfc6;
     border-top: none;
@@ -158,7 +147,7 @@
     padding: 3px;
     position: absolute;
     right: -1px;
-    bottom: -30px;
+    bottom: -27px;
     z-index: 10;
     background-color: #fff;
     box-sizing: border-box;
