@@ -41,16 +41,16 @@ class Assignee extends React.Component {
 
   handleUnassign() {
     const { task, updateTask } = this.props;
-    const new_task = Object.assign({}, task, {assignee_id: ""});
+    const newTask = Object.assign({}, task, {assignee_id: ""});
 
-    updateTask(new_task);
+    updateTask(newTask);
   }
 
   render() {
     const { assignee } = this.props;
     return (
       <div
-        ref={ node => this.node = node }
+        ref={ node => {this.node = node;} }
         className='task-assignee'>
         <button
           className='assignee'

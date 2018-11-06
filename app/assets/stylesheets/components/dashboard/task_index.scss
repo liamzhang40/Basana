@@ -136,6 +136,13 @@
   width: 100%;
 }
 
+.task-item-right,
+.task-item-right-red {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .task-item-right-red {
   color: red;
 }

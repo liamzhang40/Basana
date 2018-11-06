@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 import { closeModal } from '../../actions/modal_actions';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
@@ -59,7 +60,14 @@ const Modal = ({ modal, closeModal }) => {
       formType = 'project';
       break;
     case 'edittask':
-      component = <UpdateTaskFormContainer task={modal.task}/>;
+      component = <React.Fragment>
+        <Route 
+          path="/dashboard/teams/:teamId/projects/:projectId/tasks/:taskId"
+          render={(props) => <UpdateTaskFormContainer {...props} />}/>
+        <Route
+          path="/dashboard/teams/:teamId/users/:userId/tasks/:taskId"
+          render={(props) => <UpdateTaskFormContainer {...props} />} />
+      </React.Fragment>;
       formType = 'task';
       break;
     default:

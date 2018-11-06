@@ -41,8 +41,8 @@ class CalendarTaskIndexItem extends React.Component {
     handleClick() {
         return () => {
             const { openModal, task, location, history } = this.props;
-            openModal({ type: "edittask", task: this.props.task });
             history.push(`${location.pathname}/tasks/${task.id}`);
+            openModal({ type: "edittask" });
         };
     }
 

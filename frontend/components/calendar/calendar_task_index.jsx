@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-const CalendarTaskIndex = ({ tasks, year, month, date, match, openModal, createTask }) => {
+const CalendarTaskIndex = ({ tasks, year, month, date, match, history, location, openModal, createTask }) => {
     const handleClick = () => {
         createTask({
             project_id: (match.params.projectId ? match.params.projectId : ''),
@@ -36,7 +36,8 @@ const CalendarTaskIndex = ({ tasks, year, month, date, match, openModal, createT
             privacy: false,
             due_date: `${year}-${month + 1}-${date}`
         }).then((res) => {
-            openModal({ type: "edittask", task: res.task });
+            history.push(`${location.pathname}/tasks/${res.task.id}`);
+            openModal({ type: "edittask" });
         });  
     };
 
@@ -46,7 +47,12 @@ const CalendarTaskIndex = ({ tasks, year, month, date, match, openModal, createT
 
     return (
         <div>
-            <div onClick={handleClick}>{date}</div>
+            <div
+                className="calendar-date-number"
+                onClick={handleClick}>
+                {date}
+                <div>{date === 1 ? "...click to create task" : ""}</div>
+            </div>
             <div className="calendar-task-index-wrapper">
                 <ul>
                     {li}
