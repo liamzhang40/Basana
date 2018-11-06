@@ -38,13 +38,17 @@ class TaskIndex extends React.Component {
       taskVisibility,
       selectedTaskId
     } = this.props;
-
+    
     const filteredTasks = tasks.filter(task => task.completion === taskVisibility);
 
     if (taskOrder === "Due Date") {
-      filteredTasks.sort((taskA, taskB) => taskA.due_date > taskB.due_date);
+      filteredTasks.sort((taskA, taskB) => {
+        if (taskA.due_date > taskB.due_date) return 1;
+        if (taskA.due_date < taskB.due_date) return -1;
+        return 0;
+      });
     } else if (taskOrder === "Likes") {
-      filteredTasks.sort((taskA, taskB) => taskA.likers.length < taskB.likers.length);
+      filteredTasks.sort((taskA, taskB) => taskB.likers.length - taskA.likers.length);
     }
 
     const li = filteredTasks.map((task, idx) => (
